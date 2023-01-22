@@ -1,2 +1,2 @@
-const pressUp = () => document.getElementById('characterSprite').classList.add('character__sprite--up')
-const pressDown = () => document.getElementById('characterSprite').classList.remove('character__sprite--up')
+const holdUp = () => document.getElementById('characterSprite').classList.add('character__sprite--up')
+const releaseUp = () => document.getElementById('characterSprite').classList.remove('character__sprite--up')
