@@ -1,0 +1,46 @@
+:root {
+  --character-size: 22px;
+  --character-size-total: 88px;
+}
+
+.character {
+  width: var(--character-size);
+  height: var(--character-size);
+  position: relative;
+  overflow: hidden;
+}
+
+.character__sprite {
+  image-rendering: pixelated;
+  width: var(--character-size-total);
+  position: absolute;
+}
+
+.character__sprite--down {
+  animation: moveSpriteSheet 1s steps(4) infinite;
+}
+
+.character__sprite--right {
+  animation: moveSpriteSheet 1s steps(4) infinite;
+  top: calc(var(--character-size) * -1);
+}
+
+.character__sprite--up {
+  animation: moveSpriteSheet 1s steps(4) infinite;
+  top: calc(var(--character-size) * -2);
+}
+
+.character__sprite--left {
+  animation: moveSpriteSheet 1s steps(4) infinite;
+  top: calc(var(--character-size) * -3);
+}
+
+@keyframes moveSpriteSheet {
+  from {
+    transform: translate3d(0px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0)
+  }
+}
