@@ -7,17 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <div>
-    <button>up</button>
+    <button onmousedown="pressUp()" onmouseup="pressDown()">up</button>
     <button>left</button> <button>right</button>
     <button>down</button>
   </div>
 
   <div class="character">
-    <img class="character__sprite" src="sprite.png" alt="sprite">
+    <img id="characterSprite" class="character__sprite" src="sprite.png" alt="sprite">
   </div>
 </body>
 
