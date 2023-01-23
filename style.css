@@ -3,6 +3,17 @@
   --character-size-total: 88px;
 }
 
+.button {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content;
+}
+
+.button__up,
+.button__down {
+  grid-column: span 2;
+}
+
 .character {
   width: var(--character-size);
   height: var(--character-size);
