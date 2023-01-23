@@ -3,10 +3,17 @@
   --character-size-total: 88px;
 }
 
+body {
+  margin: 0;
+}
+
 .button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .button__up,
