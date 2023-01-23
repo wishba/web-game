@@ -1,6 +1,7 @@
 :root {
-  --character-size: 22px;
-  --character-size-total: 88px;
+  --zoom-size: 5;
+  --character-size: calc(22px * var(--zoom-size));
+  --character-size-total: calc(88px * var(--zoom-size));
 }
 
 body {
