@@ -1,26 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-
-<body>
-  <div class="button">
-    <button class="button__up" onmousedown="holdUp()" onmouseup="releaseUp()">Up</button>
-    <button onmousedown="holdLeft()" onmouseup="releaseLeft()">Left</button>
-    <button onmousedown="holdRight()" onmouseup="releaseRight()">Right</button>
-    <button class="button__down" onmousedown="holdDown()" onmouseup="releaseDown()">Down</button>
-  </div>
-
-  <div class="character">
-    <img id="characterSprite" class="character__sprite" src="sprite.png" alt="sprite">
-  </div>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
