@@ -1,0 +1,26 @@
+.control {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  width: 66px;
+}
+
+.control img {
+  image-rendering: pixelated;
+}
+
+.control__up,
+.control__down {
+  margin: auto;
+  grid-column: span 2;
+}
+
+.control__left {}
+
+.control__right {
+  margin-left: auto;
+}
