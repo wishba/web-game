@@ -1,0 +1,13 @@
+.camera {
+  border: 1px solid black;
+  width: 72px;
+  /* width: 144px; */
+  height: 80px;
+  /* height: 160px; */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
