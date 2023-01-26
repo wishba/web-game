@@ -6,18 +6,40 @@ import buttonDown from '../assets/button-down-2.png'
 import buttonLeft from '../assets/button-left-2.png'
 
 function Control() {
+  let interval
+  const down = () => {
+    interval = setInterval(() => {
+      console.log('hold')
+    }, 500)
+  }
+  const up = () => {
+    clearInterval(interval)
+  }
+
   return (
     <div className='control'>
-      <button className='control__up'>
+      <button className='control__up'
+        onMouseDown={down}
+        onMouseUp={up}
+      >
         <img src={buttonUp} />
       </button>
-      <button className='control__left'>
+      <button className='control__left'
+        onMouseDown={down}
+        onMouseUp={up}
+      >
         <img src={buttonLeft} />
       </button>
-      <button className='control__right'>
+      <button className='control__right'
+        onMouseDown={down}
+        onMouseUp={up}
+      >
         <img src={buttonRight} />
       </button>
-      <button className='control__down'>
+      <button className='control__down'
+        onMouseDown={down}
+        onMouseUp={up}
+      >
         <img src={buttonDown} />
       </button>
     </div>
