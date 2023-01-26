@@ -1,16 +1,23 @@
 .control {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: calc(1px);
+  /* bottom: 0; */
+  right: calc(1px);
+  /* right: 0; */
 
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  width: 66px;
+  width: 75px;
 }
 
 .control img {
   image-rendering: pixelated;
+}
+
+.control button {
+  padding: 0;
+  height: 26px;
 }
 
 .control__up,
@@ -19,7 +26,9 @@
   grid-column: span 2;
 }
 
-.control__left {}
+.control__left {
+  margin-right: auto;
+}
 
 .control__right {
   margin-left: auto;

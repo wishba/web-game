@@ -8,10 +8,18 @@ import buttonLeft from '../assets/button-left-2.png'
 function Control() {
   return (
     <div className='control'>
-      <img className='control__up' src={buttonUp} />
-      <img className='control__left' src={buttonLeft} />
-      <img className='control__right' src={buttonRight} />
-      <img className='control__down' src={buttonDown} />
+      <button className='control__up'>
+        <img src={buttonUp} />
+      </button>
+      <button className='control__left'>
+        <img src={buttonLeft} />
+      </button>
+      <button className='control__right'>
+        <img src={buttonRight} />
+      </button>
+      <button className='control__down'>
+        <img src={buttonDown} />
+      </button>
     </div>
   )
 }
