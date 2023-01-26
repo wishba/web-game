@@ -1,9 +1,9 @@
 import React from 'react'
 import './Control.css'
-import buttonUp from '../assets/button-up.png'
-import buttonRight from '../assets/button-right.png'
-import buttonDown from '../assets/button-down.png'
-import buttonLeft from '../assets/button-left.png'
+import buttonUp from '../assets/button-up-2.png'
+import buttonRight from '../assets/button-right-2.png'
+import buttonDown from '../assets/button-down-2.png'
+import buttonLeft from '../assets/button-left-2.png'
 
 function Control() {
   return (
