@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <div style={{ position: 'relative', height: '100vh' }}>
+    <div>
       <div>
         <button onClick={clickUp}>Up</button>
         <button onClick={clickLeft}>Left</button>
