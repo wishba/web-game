@@ -18,7 +18,7 @@ function spriteMain() {
       <img style={style} src={imgSpriteMain} alt="sprite main" />
       <button onClick={() => setPositionY(positionY - 1)}>up</button>
       <button onClick={() => setPositionX(positionX + 1)}>right</button>
-      <button onClick={() => setPositionY(positionX + 1)}>down</button>
+      <button onClick={() => setPositionY(positionY + 1)}>down</button>
       <button onClick={() => setPositionX(positionX - 1)}>left</button>
     </>
   )
