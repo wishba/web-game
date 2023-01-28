@@ -21,21 +21,10 @@ function SpriteMain() {
     height: `calc(${spriteMainHeight} * ${zoomSize})`,
   }
 
-  let intervalId;
-  const holdUp = () => {
-    intervalId = setInterval(function () {
-      console.log("Button held")
-    }, 500)
-  }
-  const holdUpStop = () => {
-    clearInterval(intervalId)
-  }
-
   return (
     <>
       <img style={style} src={spriteMainImg} alt="sprite main" />
-      <button onMouseDown={holdUp} onMouseUp={holdUpStop}>up</button>
-      {/* <button onClick={() => setPositionY(positionY - 1)}>up</button> */}
+      <button onClick={() => setPositionY(positionY - 1)}>up</button>
       <button onClick={() => setPositionX(positionX + 1)}>right</button>
       <button onClick={() => setPositionY(positionY + 1)}>down</button>
       <button onClick={() => setPositionX(positionX - 1)}>left</button>
