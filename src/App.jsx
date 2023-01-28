@@ -1,13 +1,10 @@
 import './App.css'
-import Camera from './components/Camera'
-import Control from './components/Control'
+import SpriteMain from './components/spriteMain/SpriteMain'
 
 function App() {
-
   return (
     <div>
-      <Camera />
-      <Control />
+      <SpriteMain />
     </div>
   )
 }
