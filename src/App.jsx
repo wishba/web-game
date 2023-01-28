@@ -1,4 +1,3 @@
-import './App.css'
 import SpriteMain from './components/spriteMain/SpriteMain'
 
 function App() {
