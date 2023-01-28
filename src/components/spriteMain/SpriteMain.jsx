@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import imgSpriteMain from './sprite-main.png'
 
-function spriteMain() {
+function SpriteMain() {
 
   const [positionX, setPositionX] = useState(0)
   const [positionY, setPositionY] = useState(0)
@@ -24,4 +24,4 @@ function spriteMain() {
   )
 }
 
-export default spriteMain
+export default SpriteMain
