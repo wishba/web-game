@@ -1,0 +1,10 @@
+.character__camera {
+  display: flex;
+  width: 10px;
+  height: 9px;
+  position: absolute;
+}
+
+.character {
+  margin: auto;
+}
