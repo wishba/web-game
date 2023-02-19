@@ -6,10 +6,8 @@ import './Word.css'
 function World() {
   return (
     <div>
-      <div className='character__camera'>
-        <img className='character' src={character} alt="character" />
-      </div>
-      <img src={map} alt="map" />
+      <img className='character' src={character} alt="character" />
+      <img className='map' src={map} alt="map" />
     </div>
   )
 }

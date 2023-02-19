@@ -1,10 +1,17 @@
-.character__camera {
-  display: flex;
-  width: 10px;
-  height: 9px;
-  position: absolute;
+:root {
+  --zoom: 100;
+  --width-character: 4px;
+  --width-map: 30px;
 }
 
 .character {
-  margin: auto;
+  width: calc(var(--width-character) * var(--zoom));
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.map {
+  width: calc(var(--width-map) * var(--zoom));
 }
