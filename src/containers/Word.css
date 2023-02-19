@@ -14,6 +14,10 @@
   position: relative;
 }
 
+.world::-webkit-scrollbar {
+  display: none;
+}
+
 .map {
   width: calc(var(--width-map) * var(--zoom));
   position: absolute;
