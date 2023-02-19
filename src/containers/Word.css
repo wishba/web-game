@@ -2,16 +2,30 @@
   --zoom: 50;
   --width-character: 4px;
   --width-map: 30px;
+  --width-cam: 400px;
+  --height-cam: 360px;
 }
 
-.character {
-  width: calc(var(--width-character) * var(--zoom));
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.world {
+  width: var(--width-cam);
+  height: var(--height-cam);
+  border: 1px solid black;
+  overflow: auto;
+  position: relative;
 }
 
 .map {
   width: calc(var(--width-map) * var(--zoom));
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.character {
+  width: calc(var(--width-character) * var(--zoom));
+  position: sticky;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
