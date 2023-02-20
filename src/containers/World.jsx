@@ -3,6 +3,10 @@ import character from '../assets/character.png'
 import map from '../assets/map.png'
 import './Word.css'
 
+// todo
+// - make it so if user click outside the world, it still focus on world
+// - change how far the scroll went
+
 function World() {
   const worldBox = useRef(null)
   useEffect(() => {
