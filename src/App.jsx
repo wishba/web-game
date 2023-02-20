@@ -1,11 +1,13 @@
+import Tips from './components/Tips'
 import World from './containers/world'
 
 function App() {
 
   return (
-    <div className="App">
+    <>
+      <Tips />
       <World />
-    </div>
+    </>
   )
 }
 
