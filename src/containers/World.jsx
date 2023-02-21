@@ -5,12 +5,12 @@ import './Word.css'
 
 // todo
 // - make it so if user click outside the world, it still focus on world
-// - change how far the scroll went
+// - change how far the scroll went or add delay between scroll
 
 function World() {
   const worldBox = useRef(null)
 
-  function handleScroll() {
+  function handleMove() {
     const scrollX = worldBox.current.scrollTop
     const scrollY = worldBox.current.scrollLeft
     console.log(`X:${scrollX} Y:${scrollY}`)
@@ -21,7 +21,7 @@ function World() {
   }, [])
 
   return (
-    <div className='world' ref={worldBox} tabIndex={0} onScroll={handleScroll}>
+    <div className='world' ref={worldBox} tabIndex={0} onScroll={handleMove}>
       <img className='map' src={map} alt="map" />
       <img className='character' src={character} alt="character" />
     </div>
