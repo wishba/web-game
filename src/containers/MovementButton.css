@@ -1,5 +1,26 @@
-.movementButton {
+.button__container {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1px;
+  right: 1px;
+}
+
+.button {
+  padding: 0;
+  margin: 0;
+}
+
+.button--arrow {
+  transform: translateX(2.5px);
+}
+
+.button--left {
+  transform: rotate(270deg);
+}
+
+.button--right {
+  transform: rotate(90deg);
+}
+
+.button--bottom {
+  transform: rotate(180deg);
 }
