@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 function App() {
   const heroRef = useRef(null)
+  const intervalRef = useRef(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   useEffect(() => {
     const { offsetLeft, offsetTop } = heroRef.current
@@ -20,11 +21,17 @@ function App() {
     setPosition({ x: position.x - 1, y: position.y })
     console.log(`hero, position ${position.x - 1}/${position.y}`);
   }
-  function handleMoveRight() {
-    console.log('button right, clicked')
+
+  function handleMoveRightStart() {
     setPosition({ x: position.x + 1, y: position.y })
-    console.log(`hero, position ${position.x + 1}/${position.y}`);
+    intervalRef.current = setInterval(() => {
+      setPosition((prevState) => ({ x: prevState.x + 1, y: prevState.y }))
+    }, 25)
   }
+  function handleMoveRightStop() {
+    clearInterval(intervalRef.current)
+  }
+
   function handleMoveDown() {
     console.log('button down, clicked')
     setPosition({ x: position.x, y: position.y + 1 })
@@ -33,7 +40,9 @@ function App() {
 
   return (
     <div className="App">
-      <div ref={heroRef} style={{ position: 'relative', left: position.x, top: position.y }}>
+      <div ref={heroRef}
+        style={{ position: 'relative', left: position.x, top: position.y }}
+      >
         <Hero />
       </div>
 
@@ -49,7 +58,8 @@ function App() {
           <p className='button__arrow'>&#8593;</p>
         </button>
         <button className='button button--right'
-          onClick={handleMoveRight}
+          onMouseDown={handleMoveRightStart}
+          onMouseUp={handleMoveRightStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
