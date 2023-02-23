@@ -38,6 +38,41 @@ function App() {
     console.log(`hero, position ${position.x}/${position.y * - 1 - 1}`);
   }
 
+
+  function handleMoveStart(direction) {
+    setPosition((prevState) => {
+      switch (direction) {
+        case 'up':
+          return { x: position.x, y: position.y - 1 }
+        case 'left':
+          return { x: position.x - 1, y: position.y }
+        case 'right':
+          return { x: position.x + 1, y: position.y }
+        case 'down':
+          return { x: position.x, y: position.y + 1 }
+        default:
+          return prevState
+      }
+    })
+
+    intervalRef.current = setInterval(() => {
+      switch (direction) {
+        case 'up':
+          return setPosition((prevState) => ({ x: prevState.x, y: prevState.y - 1 }))
+        case 'left':
+          return setPosition((prevState) => ({ x: prevState.x - 1, y: prevState.y }))
+        case 'right':
+          return setPosition((prevState) => ({ x: prevState.x + 1, y: prevState.y }))
+        case 'down':
+          return setPosition((prevState) => ({ x: prevState.x, y: prevState.y + 1 }))
+      }
+    }, 25)
+  }
+
+  function handleMoveStop() {
+    clearInterval(intervalRef.current)
+  }
+
   return (
     <div className="App">
       <div ref={heroRef}
@@ -48,23 +83,26 @@ function App() {
 
       <div className='button__container'>
         <button className='button button--up'
-          onClick={handleMoveUp}
+          onMouseDown={() => handleMoveStart('up')}
+          onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
         <button className='button button--left'
-          onClick={handleMoveLeft}
+          onMouseDown={() => handleMoveStart('left')}
+          onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
         <button className='button button--right'
-          onMouseDown={handleMoveRightStart}
-          onMouseUp={handleMoveRightStop}
+          onMouseDown={() => handleMoveStart('right')}
+          onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
         <button className='button button--bottom'
-          onClick={handleMoveDown}
+          onMouseDown={() => handleMoveStart('down')}
+          onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
