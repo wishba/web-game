@@ -5,42 +5,16 @@ import { useEffect, useRef, useState } from 'react'
 function App() {
   const heroRef = useRef(null)
   const intervalRef = useRef(null)
+
   const [position, setPosition] = useState({ x: 0, y: 0 })
+
   useEffect(() => {
     const { offsetLeft, offsetTop } = heroRef.current
     console.log(`hero, position ${offsetLeft}/${offsetTop}`)
   }, []);
 
-  function handleMoveUp() {
-    console.log('button up, clicked')
-    setPosition({ x: position.x, y: position.y - 1 })
-    console.log(`hero, position ${position.x}/${position.y * - 1 + 1}`);
-  }
-  function handleMoveLeft() {
-    console.log('button left, clicked')
-    setPosition({ x: position.x - 1, y: position.y })
-    console.log(`hero, position ${position.x - 1}/${position.y}`);
-  }
-
-  function handleMoveRightStart() {
-    setPosition({ x: position.x + 1, y: position.y })
-    intervalRef.current = setInterval(() => {
-      setPosition((prevState) => ({ x: prevState.x + 1, y: prevState.y }))
-    }, 25)
-  }
-  function handleMoveRightStop() {
-    clearInterval(intervalRef.current)
-  }
-
-  function handleMoveDown() {
-    console.log('button down, clicked')
-    setPosition({ x: position.x, y: position.y + 1 })
-    console.log(`hero, position ${position.x}/${position.y * - 1 - 1}`);
-  }
-
-
   function handleMoveStart(direction) {
-    setPosition((prevState) => {
+    setPosition(() => {
       switch (direction) {
         case 'up':
           return { x: position.x, y: position.y - 1 }
@@ -50,8 +24,6 @@ function App() {
           return { x: position.x + 1, y: position.y }
         case 'down':
           return { x: position.x, y: position.y + 1 }
-        default:
-          return prevState
       }
     })
 
