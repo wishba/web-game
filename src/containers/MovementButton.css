@@ -1,7 +1,9 @@
 .button__container {
   position: absolute;
-  bottom: 1px;
-  right: 1px;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 90px 90px;
 }
 
 .button {
@@ -13,14 +15,23 @@
   transform: translateX(2.5px);
 }
 
+.button--up {
+  grid-column: 1 / 3;
+  margin: auto;
+}
+
 .button--left {
   transform: rotate(270deg);
+  margin: auto;
 }
 
 .button--right {
   transform: rotate(90deg);
+  margin: auto;
 }
 
 .button--bottom {
   transform: rotate(180deg);
+  grid-column: 1 / 3;
+  margin: auto;
 }

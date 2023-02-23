@@ -4,7 +4,7 @@ import './MovementButton.css'
 function MovementButton() {
   return (
     <div className='button__container'>
-      <button className='button'>
+      <button className='button button--up'>
         <p className='button--arrow'>&#8593;</p>
       </button>
       <button className='button button--left'>
