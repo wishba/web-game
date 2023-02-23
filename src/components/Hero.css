@@ -1,0 +1,9 @@
+:root {
+  --zoom: 5;
+  --hero-width: 192px;
+  --hero-height: 192px;
+}
+
+.hero {
+  width: calc(var(--hero-width) * var(--zoom));
+}

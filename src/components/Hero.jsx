@@ -1,10 +1,11 @@
 import React from 'react'
+import './Hero.css'
 import hero from '../assets/Basic Charakter Spritesheet.png'
 
 function Hero() {
   return (
     <>
-      <img src={hero} alt="hero" />
+      <img className='hero' src={hero} alt="hero" />
     </>
   )
 }
