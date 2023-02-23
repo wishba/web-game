@@ -1,9 +1,15 @@
 :root {
   --zoom: 5;
-  --hero-width: 192px;
-  --hero-height: 192px;
+  --hero-width: calc(192px * var(--zoom));
+  --hero-height: calc(192px * var(--zoom));
 }
 
 .hero {
-  width: calc(var(--hero-width) * var(--zoom));
+  width: calc(var(--hero-width) / 4);
+  height: calc(var(--hero-height) / 4);
+  overflow: hidden;
+}
+
+.hero__sprite {
+  width: calc(var(--hero-width));
 }

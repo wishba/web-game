@@ -4,9 +4,9 @@ import hero from '../assets/Basic Charakter Spritesheet.png'
 
 function Hero() {
   return (
-    <>
-      <img className='hero' src={hero} alt="hero" />
-    </>
+    <div className='hero'>
+      <img className='hero__sprite' src={hero} alt="hero" />
+    </div>
   )
 }
 
