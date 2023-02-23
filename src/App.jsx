@@ -1,51 +1,32 @@
 import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import './App.css'
 
 function App() {
-
-  const [positionX, setPositionX] = useState(0)
-  const [positionY, setPositionY] = useState(0)
-
-  const clickRight = () => {
-    setPositionX(positionX + 1)
-  }
-  const clickLeft = () => {
-    setPositionX(positionX - 1)
-  }
-  const clickUp = () => {
-    setPositionY(positionY + 1)
-  }
-  const clickDown = () => {
-    setPositionY(positionY - 1)
-  }
-
-  const spriteMainWidth = '14px'
-  const spriteMainHeight = '14px'
-  const zoomSize = '5'
-
-  const style = {
-    position: 'absolute',
-
-    left: `calc(50% + ${positionX}px)`,
-    top: `calc(50% + ${positionY}px * -1)`,
-
-    width: `calc(${spriteMainWidth} * ${zoomSize})`,
-    height: `calc(${spriteMainHeight} * ${zoomSize})`,
-  }
+  const [count, setCount] = useState(0)
 
   return (
-    <div>
+    <div className="App">
       <div>
-        <button onClick={clickUp}>Up</button>
-        <button onClick={clickLeft}>Left</button>
-        <button onClick={clickRight}>Right</button>
-        <button onClick={clickDown}>Down</button>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="/vite.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-
-      <div>
-        <p>coordinate : <span>{positionX}</span> / <span>{positionY}</span></p>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
-
-      <img style={style} src="/icon.png" alt="sprite main" />
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </div>
   )
 }
