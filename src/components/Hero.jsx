@@ -7,7 +7,7 @@ function Hero() {
 
   useEffect(() => {
     const { offsetLeft, offsetTop } = heroRef.current;
-    console.log(`X position: ${offsetLeft}, Y position: ${offsetTop}`);
+    console.log(`hero, position ${offsetLeft}/${offsetTop}`);
   }, []);
 
 
