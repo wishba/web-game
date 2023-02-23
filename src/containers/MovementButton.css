@@ -14,7 +14,7 @@
   border: 5px solid #5c4e92;
 }
 
-.button--arrow {
+.button__arrow {
   transform: translateX(2.5px);
 }
 
