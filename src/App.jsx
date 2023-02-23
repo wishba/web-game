@@ -48,7 +48,12 @@ function App() {
   return (
     <div className="App">
       <div ref={heroRef}
-        style={{ position: 'relative', left: position.x, top: position.y }}
+        style={{
+          width: 'fit-content',
+          position: 'relative',
+          left: position.x,
+          top: position.y
+        }}
       >
         <Hero />
       </div>
