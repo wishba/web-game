@@ -1,17 +1,12 @@
 import Hero from './components/Hero'
 import './App.css'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 function App() {
   const heroRef = useRef(null)
   const intervalRef = useRef(null)
 
   const [position, setPosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const { offsetLeft, offsetTop } = heroRef.current
-    console.log(`hero, position ${offsetLeft}/${offsetTop}`)
-  }, []);
 
   function handleMoveStart(direction) {
     setPosition(() => {
@@ -65,18 +60,21 @@ function App() {
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
+
         <button className='button button--left'
           onMouseDown={() => handleMoveStart('left')}
           onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
+
         <button className='button button--right'
           onMouseDown={() => handleMoveStart('right')}
           onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
+
         <button className='button button--bottom'
           onMouseDown={() => handleMoveStart('down')}
           onMouseUp={handleMoveStop}
