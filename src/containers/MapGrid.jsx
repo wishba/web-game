@@ -8,13 +8,21 @@ function MapGrid() {
 
   const grid = useRef(null)
   const [tileSets, setTileSets] = useState([])
-  // const [tileInWidth, setTileInWidth] = useState(0)
+
+  const [tileRows, setTileRows] = useState(0)
+  const [tileColumns, setTileColumns] = useState(0)
+  console.log(tileRows);
+
   useEffect(() => {
     if (grid.current) {
       const tileInWidth = Math.floor(grid.current.offsetWidth / tileZoom)
       // setTileInWidth(Math.floor(grid.current.offsetWidth / tileZoom))
       // setTileInWidth(Math.floor(grid.current.offsetWidth / tileZoom))
       const tileInHeight = Math.floor(grid.current.offsetHeight / tileZoom)
+
+      setTileColumns(tileInHeight)
+      setTileRows(tileInWidth - tileColumns + 1)
+
 
       // console.log(Math.floor(grid.current.offsetWidth / tileZoom));
       // console.log(tileInWidth);
@@ -63,8 +71,8 @@ function MapGrid() {
       {/* <div>{gridHorizontal}</div> */}
       <div
         style={{
-          // display: 'grid',
-          // gridTemplateColumns: `repeat(5, 1fr)`,
+          display: 'grid',
+          gridTemplateColumns: `repeat(${tileRows}, 1fr)`,
         }}
       >{tileSets}</div>
     </div>
