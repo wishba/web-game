@@ -24,7 +24,7 @@ function MapGrid() {
       for (let indexH = 0; indexH < tileInHeight; indexH++) {
         for (let indexW = 0; indexW < tileInWidth; indexW++) {
           tileArray.push(
-            <div key={`${indexW}/${indexH}`} className='grid'>
+            <div key={`${indexW}/${indexH}`} className='tile'>
               {`${indexW}/${indexH}`}
             </div>
           )
@@ -35,13 +35,12 @@ function MapGrid() {
   }, [])
 
   return (
-    <div ref={gridContainerRef} className='grid__container'>
-      <div style={{
+    <div ref={gridContainerRef} className='tile__container'
+      style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${tileRows}, auto)`,
       }}>
-        {tileSets}
-      </div>
+      {tileSets}
     </div>
   )
 }
