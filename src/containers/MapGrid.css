@@ -1,0 +1,20 @@
+:root {
+  --zoom: 5;
+  --border: calc(1px * var(--zoom));
+  --grid-width: calc(16px * var(--zoom) - var(--border));
+  --grid-height: calc(16px * var(--zoom) - var(--border));
+}
+
+.grid__container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.grid {
+  width: var(--grid-width);
+  height: var(--grid-height);
+  content: '';
+  border: var(--border) solid lightblue;
+  display: inline-block;
+}

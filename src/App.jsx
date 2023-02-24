@@ -1,6 +1,7 @@
 import Hero from './components/Hero'
 import './App.css'
 import { useRef, useState } from 'react'
+import MapGrid from './containers/MapGrid'
 
 function App() {
   const heroRef = useRef(null)
@@ -42,6 +43,8 @@ function App() {
 
   return (
     <div className="App">
+      <MapGrid />
+
       <div ref={heroRef}
         style={{
           width: 'fit-content',
