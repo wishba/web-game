@@ -28,7 +28,11 @@ function MapGrid() {
       const tile = []
       for (let indexH = 0; indexH < tileInHeight; indexH++) {
         for (let indexW = 0; indexW < tileInWidth; indexW++) {
-          tile.push(<div key={`${indexW}/${indexH}`}>{`${indexW}/${indexH}`}</div>)
+          tile.push(
+            <div key={`${indexW}/${indexH}`} className='grid'>
+              {`${indexW}/${indexH}`}
+            </div>
+          )
         }
       }
       setTileSets(tile)
@@ -43,7 +47,7 @@ function MapGrid() {
         style={{
           display: 'grid',
           // gridTemplateColumns: `repeat(9, 1fr)`,
-          gridTemplateColumns: `repeat(${tileRows}, 1fr)`,
+          gridTemplateColumns: `repeat(${tileRows}, auto)`,
         }}
       >{tileSets}</div>
     </div>
