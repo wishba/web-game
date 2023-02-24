@@ -12,11 +12,6 @@ function MapGrid() {
   const [tileRows, setTileRows] = useState(0)
   const [tileColumns, setTileColumns] = useState(0)
 
-  // const gridAuto = tileColumns - 1
-  console.log(tileColumns);
-  console.log(tileRows);
-  // console.log(gridAuto);
-
   useEffect(() => {
     if (grid.current) {
       const tileInWidth = Math.floor(grid.current.offsetWidth / tileZoom)
@@ -39,17 +34,14 @@ function MapGrid() {
     }
   }, [])
 
-
-
   return (
     <div ref={grid} className='grid__container'>
-      <div
-        style={{
-          display: 'grid',
-          // gridTemplateColumns: `repeat(9, 1fr)`,
-          gridTemplateColumns: `repeat(${tileRows}, auto)`,
-        }}
-      >{tileSets}</div>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: `repeat(${tileRows}, auto)`,
+      }}>
+        {tileSets}
+      </div>
     </div>
   )
 }

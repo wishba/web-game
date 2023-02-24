@@ -14,8 +14,6 @@
 .grid {
   width: var(--grid-width);
   height: var(--grid-height);
-  /* content: ''; */
   border: var(--border) solid lightblue;
-  /* display: inline-block; */
   font-size: 15px;
 }
