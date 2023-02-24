@@ -12,8 +12,9 @@ function MapGrid() {
   const [tileRows, setTileRows] = useState(0)
   const [tileColumns, setTileColumns] = useState(0)
 
-  const gridAuto = tileColumns - 1
+  // const gridAuto = tileColumns - 1
   console.log(tileColumns);
+  console.log(tileRows);
   // console.log(gridAuto);
 
   useEffect(() => {
@@ -25,9 +26,9 @@ function MapGrid() {
       setTileRows(tileInWidth - tileColumns)
 
       const tile = []
-      for (let indexW = 0; indexW < tileInWidth; indexW++) {
-        for (let indexH = 0; indexH < tileInHeight; indexH++) {
-          tile.push(<div key={`${indexW}w/${indexH}h`}>{`${indexW}w/${indexH}h`}</div>)
+      for (let indexH = 0; indexH < tileInHeight; indexH++) {
+        for (let indexW = 0; indexW < tileInWidth; indexW++) {
+          tile.push(<div key={`${indexW}/${indexH}`}>{`${indexW}/${indexH}`}</div>)
         }
       }
       setTileSets(tile)
@@ -41,8 +42,8 @@ function MapGrid() {
       <div
         style={{
           display: 'grid',
-          // gridTemplateColumns: `repeat(5, 1fr)`,
-          gridTemplateColumns: `repeat(${tileColumns}, 1fr)`,
+          // gridTemplateColumns: `repeat(9, 1fr)`,
+          gridTemplateColumns: `repeat(${tileRows}, 1fr)`,
         }}
       >{tileSets}</div>
     </div>
