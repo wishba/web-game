@@ -2,40 +2,40 @@ import React, { useEffect, useRef, useState } from 'react'
 import './MapGrid.css'
 
 function MapGrid() {
-  const tile = 16
+  const tileSize = 16
   const zoom = 5
-  const tileZoom = tile * zoom
+  const tileZoom = tileSize * zoom
 
-  const grid = useRef(null)
+  const gridContainerRef = useRef(null)
 
   const [tileSets, setTileSets] = useState([])
   const [tileRows, setTileRows] = useState(0)
   const [tileColumns, setTileColumns] = useState(0)
 
   useEffect(() => {
-    if (grid.current) {
-      const tileInWidth = Math.floor(grid.current.offsetWidth / tileZoom)
-      const tileInHeight = Math.floor(grid.current.offsetHeight / tileZoom)
+    if (gridContainerRef.current) {
+      const tileInWidth = Math.floor(gridContainerRef.current.offsetWidth / tileZoom)
+      const tileInHeight = Math.floor(gridContainerRef.current.offsetHeight / tileZoom)
 
       setTileColumns(tileInHeight)
       setTileRows(tileInWidth - tileColumns)
 
-      const tile = []
+      const tileArray = []
       for (let indexH = 0; indexH < tileInHeight; indexH++) {
         for (let indexW = 0; indexW < tileInWidth; indexW++) {
-          tile.push(
+          tileArray.push(
             <div key={`${indexW}/${indexH}`} className='grid'>
               {`${indexW}/${indexH}`}
             </div>
           )
         }
       }
-      setTileSets(tile)
+      setTileSets(tileArray)
     }
   }, [])
 
   return (
-    <div ref={grid} className='grid__container'>
+    <div ref={gridContainerRef} className='grid__container'>
       <div style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${tileRows}, auto)`,
