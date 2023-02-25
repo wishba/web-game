@@ -2,7 +2,6 @@ import './App.css'
 import { useRef, useState } from 'react'
 import Hero from './components/Hero'
 import MapGrid from './containers/MapGrid'
-import Map from './components/Map'
 import Land from './containers/Land'
 
 function App() {
