@@ -1,0 +1,23 @@
+:root {
+  --zoom: 5;
+  --map-width: calc(176px * var(--zoom));
+  --map-height: calc(112px * var(--zoom));
+  --map-tile-width: calc(17px * var(--zoom));
+  --map-tile-height: calc(17px * var(--zoom));
+}
+
+.map {
+  width: 100vw;
+  height: 100vh;
+}
+
+.map__tile {
+  width: var(--map-tile-width);
+  height: var(--map-tile-height);
+  overflow: hidden;
+}
+
+.tile__1-1 {
+  width: var(--map-width);
+  transform: translate(-10px, -10px);
+}

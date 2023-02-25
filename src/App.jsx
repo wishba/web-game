@@ -2,6 +2,7 @@ import './App.css'
 import { useRef, useState } from 'react'
 import Hero from './components/Hero'
 import MapGrid from './containers/MapGrid'
+import Map from './components/Map'
 
 function App() {
   const intervalRef = useRef(null)
@@ -43,6 +44,8 @@ function App() {
   return (
     <div className="App">
       <MapGrid />
+
+      <Map />
 
       <div
         style={{
