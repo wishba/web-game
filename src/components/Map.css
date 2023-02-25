@@ -14,7 +14,7 @@
   z-index: -1;
 }
 
-.map__tile {
+.map__1-1 {
   width: var(--map-tile-width);
   height: var(--map-tile-height);
   overflow: hidden;
@@ -25,5 +25,18 @@
 
 .tile__1-1 {
   width: var(--map-width);
-  transform: translate(-10px, -10px);
+}
+
+.map__2-1 {
+  width: var(--map-tile-width);
+  height: var(--map-tile-height);
+  overflow: hidden;
+  position: absolute;
+  top: calc(17px * 1 * 5);
+  left: calc(17px * 2 * 5);
+}
+
+.tile__2-1 {
+  width: var(--map-width);
+  transform: translateX(calc(-1 * var(--map-tile-width)));
 }
