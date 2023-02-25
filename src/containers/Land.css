@@ -6,7 +6,7 @@
   --map-tile-height: calc(17px * var(--zoom));
 }
 
-.map {
+.land {
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -14,7 +14,7 @@
   z-index: -1;
 }
 
-.map__1-1 {
+.land__1-1--container {
   width: var(--map-tile-width);
   height: var(--map-tile-height);
   overflow: hidden;
@@ -23,11 +23,11 @@
   left: calc(17px * 5);
 }
 
-.tile__1-1 {
+.land__1-1 {
   width: var(--map-width);
 }
 
-.map__2-1 {
+.land__2-1--container {
   width: var(--map-tile-width);
   height: var(--map-tile-height);
   overflow: hidden;
@@ -36,7 +36,7 @@
   left: calc(17px * 2 * 5);
 }
 
-.tile__2-1 {
+.land__2-1 {
   width: var(--map-width);
   transform: translateX(calc(-1 * var(--map-tile-width)));
 }
