@@ -1,8 +1,8 @@
 import React from 'react'
-import './Map.css'
+import './Land.css'
 import c1_1 from '../assets/Grass hill tiles v.2.png'
 
-function Map() {
+function Land() {
   return (
     <div className='map'>
       <div className='map__1-1'>
@@ -15,4 +15,4 @@ function Map() {
   )
 }
 
-export default Map
+export default Land
