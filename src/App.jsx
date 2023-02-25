@@ -43,21 +43,6 @@ function App() {
 
   return (
     <div className="App">
-      <MapGrid />
-
-      <Map />
-
-      <div
-        style={{
-          width: 'fit-content',
-          position: 'relative',
-          left: position.x,
-          top: position.y
-        }}
-      >
-        <Hero />
-      </div>
-
       <div className='button__container'>
         <button className='button button--up'
           onMouseDown={() => handleMoveStart('up')}
@@ -87,6 +72,21 @@ function App() {
           <p className='button__arrow'>&#8593;</p>
         </button>
       </div>
+
+      <div
+        style={{
+          width: 'fit-content',
+          position: 'relative',
+          left: position.x,
+          top: position.y
+        }}
+      >
+        <Hero />
+      </div>
+
+      <Map />
+
+      <MapGrid />
     </div>
   )
 }
