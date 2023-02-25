@@ -14,28 +14,13 @@
   z-index: -1;
 }
 
-.land__tile {
+.land__tile--container {
   width: var(--map-tile-width);
   height: var(--map-tile-height);
   overflow: hidden;
   position: absolute;
 }
 
-.land__1-1--container {
-  top: calc(17px * 1 * 5);
-  left: calc(17px * 1 * 5);
-}
-
-.land__1-1 {
+.land__tile {
   width: var(--map-width);
-}
-
-.land__2-1--container {
-  top: calc(17px * 1 * 5);
-  left: calc(17px * 2 * 5);
-}
-
-.land__2-1 {
-  width: var(--map-width);
-  transform: translateX(calc(-1 * var(--map-tile-width)));
 }
