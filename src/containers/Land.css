@@ -14,13 +14,16 @@
   z-index: -1;
 }
 
-.land__1-1--container {
+.land__tile {
   width: var(--map-tile-width);
   height: var(--map-tile-height);
   overflow: hidden;
   position: absolute;
-  top: calc(17px * 5);
-  left: calc(17px * 5);
+}
+
+.land__1-1--container {
+  top: calc(17px * 1 * 5);
+  left: calc(17px * 1 * 5);
 }
 
 .land__1-1 {
@@ -28,10 +31,6 @@
 }
 
 .land__2-1--container {
-  width: var(--map-tile-width);
-  height: var(--map-tile-height);
-  overflow: hidden;
-  position: absolute;
   top: calc(17px * 1 * 5);
   left: calc(17px * 2 * 5);
 }
