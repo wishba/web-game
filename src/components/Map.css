@@ -18,6 +18,9 @@
   width: var(--map-tile-width);
   height: var(--map-tile-height);
   overflow: hidden;
+  position: absolute;
+  top: calc(17px * 5);
+  left: calc(17px * 5);
 }
 
 .tile__1-1 {

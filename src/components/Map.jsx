@@ -6,7 +6,11 @@ function Map() {
   return (
     <div className='map'>
       <div className='map__tile'>
-        <img className='tile__1-1' src={c1_1} alt="tile" />
+        <img className='tile__1-1' src={c1_1} alt="tile"
+          style={{
+            // position: 'absolute'
+          }}
+        />
       </div>
     </div>
   )
