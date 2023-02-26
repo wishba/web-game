@@ -1,9 +1,9 @@
 import React from 'react'
 import './Grid.css'
 
-function Grid() {
+function Grid({ coordinate }) {
   return (
-    <div className='grid'>Grid</div>
+    <div className='grid'>{coordinate}</div>
   )
 }
 

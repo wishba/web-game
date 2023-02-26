@@ -1,5 +1,5 @@
 :root {
-  --grid-border: var(--grid-border-size) solid red;
+  --grid-border: var(--grid-border-size) solid lightblue;
   --grid-border-size: 1px;
   --grid-width: calc(16px - var(--grid-border-size));
   --grid-height: calc(16px - var(--grid-border-size));

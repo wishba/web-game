@@ -4,7 +4,7 @@ import Grid from './Grid'
 function GridLine() {
   return (
     <div>
-      <Grid />
+      <Grid coordinate="tes" />
     </div>
   )
 }
