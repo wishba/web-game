@@ -2,7 +2,7 @@ import './App.css'
 import { useRef, useState } from 'react'
 import Hero from './components/Hero'
 import MapGrid from './containers/MapGrid'
-import Land from './containers/Land'
+import Ground from './containers/Ground'
 
 function App() {
   const intervalRef = useRef(null)
@@ -84,7 +84,7 @@ function App() {
         <Hero />
       </div>
 
-      <Land />
+      <Ground />
 
       <MapGrid />
     </div>
