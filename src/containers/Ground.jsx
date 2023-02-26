@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './Ground.css'
-import tilesImage from '../assets/Grass hill tiles v.2.png'
+import tileAssets from '../assets/Grass tiles v.2.png'
 
 function Ground() {
   function groundCoordinate([x, y]) {
@@ -32,15 +32,15 @@ function Ground() {
   return (
     <div className='ground'>
       <div className='ground__tile--container' style={groundCoordinate([1, 1])}>
-        <img className='ground__tile' src={tilesImage} alt="tile" style={tileCoordinate([0, 0])} />
+        <img className='ground__tile' src={tileAssets} alt="tile" style={tileCoordinate([0, 0])} />
       </div>
 
       <div className='ground__tile--container' style={groundCoordinate([2, 1])}>
-        <img className='ground__tile' src={tilesImage} alt="tile" style={tileCoordinate([-1, 0])} />
+        <img className='ground__tile' src={tileAssets} alt="tile" style={tileCoordinate([-1, 0])} />
       </div>
 
       <div className='ground__tile--container' style={groundCoordinate([3, 1])}>
-        <img className='ground__tile' src={tilesImage} alt="tile" style={tileCoordinate([-2, 0])} />
+        <img className='ground__tile' src={tileAssets} alt="tile" style={tileCoordinate([-2, 0])} />
       </div>
     </div>
   )
