@@ -1,0 +1,12 @@
+:root {
+  --grid-border: var(--grid-border-size) solid red;
+  --grid-border-size: 1px;
+  --grid-width: calc(16px - var(--grid-border-size));
+  --grid-height: calc(16px - var(--grid-border-size));
+}
+
+.grid {
+  border: var(--grid-border);
+  width: var(--grid-width);
+  height: var(--grid-height);
+}
