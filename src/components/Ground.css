@@ -1,0 +1,15 @@
+.ground__container {
+  position: absolute;
+}
+
+.ground {
+  width: calc(var(--zoom) * 17px);
+  height: calc(var(--zoom) * 17px);
+  overflow: hidden;
+  display: inline-block;
+}
+
+.ground__asset {
+  width: calc(var(--zoom) * 176px);
+  height: calc(var(--zoom) * 112px);
+}

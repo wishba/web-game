@@ -1,11 +1,12 @@
 .hero {
   position: absolute;
+  z-index: 1;
   width: calc(var(--zoom) * 16px);
   height: calc(var(--zoom) * 16px);
   overflow: hidden;
 }
 
-.hero__sprite {
+.hero__asset {
   width: calc(var(--zoom) * 192px);
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px));
 }
