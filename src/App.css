@@ -5,3 +5,25 @@
   font-family: 'Press Start 2P', cursive;
   image-rendering: pixelated;
 }
+
+.button__container {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
+}
+
+.button__arrow {}
+
+.button {
+  font-size: calc(var(--zoom) * 10px);
+  width: calc(var(--zoom) * 11.75px);
+}
+
+.button--up {}
+
+.button--left {}
+
+.button--right {}
+
+.button--bottom {}
