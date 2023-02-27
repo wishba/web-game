@@ -6,6 +6,9 @@ function ground() {
   const groundArray = [
     [1, 1], [1, 2], [1, 3],
   ]
+  const tileArray = [
+    [0, 0], [1, 0], [2, 0],
+  ]
 
   const [groundTile, setGroundTile] = useState()
 
@@ -14,7 +17,7 @@ function ground() {
 
     for (let index = 0; index < groundArray.length; index++) {
       const element = groundArray[index];
-      console.log(`${element[0]}:${element[1]}`);
+      console.log(`${element[0]}:${element[1]} - ${tileArray[index][0]}:${tileArray[index][1]}`);
 
       groundTileArray.push(
         <div key={index} className='ground'
@@ -23,7 +26,9 @@ function ground() {
             left: `calc(85px * ${element[1]})`,
           }}
         >
-          <img className='ground__asset' src={groundAsset} alt="ground" />
+          <img className='ground__asset' src={groundAsset} alt="ground"
+            style={{ transform: `translate(calc(-15px * 5 * ${tileArray[index][0]}), calc(-15px * 5 * ${tileArray[index][1]}))` }}
+          />
         </div>
       )
     }
@@ -42,25 +47,31 @@ function ground() {
           left: `calc(85px * ${groundArray[0][0]})`,
         }}
       >
-        <img className='ground__asset' src={groundAsset} alt="ground" />
-      </div> */}
+        <img className='ground__asset' src={groundAsset} alt="ground"
+          style={{ transform: 'translate(0, 0)' }}
+        />
+      </div>
 
-      {/* <div className='ground'
+      <div className='ground'
         style={{
           top: `calc(85px * ${groundArray[1][0]})`,
           left: `calc(85px * ${groundArray[1][1]})`,
         }}
       >
-        <img className='ground__asset' src={groundAsset} alt="ground" />
-      </div> */}
+        <img className='ground__asset' src={groundAsset} alt="ground"
+          style={{ transform: 'translate(calc(-15px * 5), 0)' }}
+        />
+      </div>
 
-      {/* <div className='ground'
+      <div className='ground'
         style={{
           top: `calc(85px * ${groundArray[2][0]})`,
           left: `calc(85px * ${groundArray[2][1]})`,
         }}
       >
-        <img className='ground__asset' src={groundAsset} alt="ground" />
+        <img className='ground__asset' src={groundAsset} alt="ground"
+          style={{ transform: 'translate(calc(-15px * 5 * 2), calc(-15px * 5 * 0))' }}
+        />
       </div> */}
     </div>
   )
