@@ -1,10 +1,10 @@
 import './Hero.css'
-import hero from '../assets/Basic Charakter Spritesheet.png'
+import heroAsset from '../assets/Basic Charakter Spritesheet.png'
 
 function Hero() {
   return (
     <div className='hero'>
-      <img className='hero__sprite' src={hero} alt="hero" />
+      <img className='hero__asset' src={heroAsset} alt="hero" />
     </div>
   )
 }
