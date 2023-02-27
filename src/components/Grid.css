@@ -1,12 +1,5 @@
-:root {
-  --grid-border: var(--grid-border-size) solid lightblue;
-  --grid-border-size: 1px;
-  --grid-width: calc(16px - var(--grid-border-size));
-  --grid-height: calc(16px - var(--grid-border-size));
-}
-
 .grid {
-  border: var(--grid-border);
-  width: var(--grid-width);
-  height: var(--grid-height);
+  border: calc(var(--zoom) * 1px) solid lightblue;
+  width: calc(var(--zoom) * calc(16px - 1px));
+  height: calc(var(--zoom) * calc(16px - 1px));
 }

@@ -3,8 +3,12 @@ import './App.css'
 import GridLine from './components/GridLine'
 
 function App() {
+  const styles = {
+    '--zoom': '5',
+  }
+
   return (
-    <div>
+    <div style={styles}>
       <GridLine />
     </div>
   )
