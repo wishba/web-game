@@ -1,8 +1,5 @@
-.ground__container {
-  position: absolute;
-}
-
 .ground {
+  position: absolute;
   width: calc(var(--zoom) * 17px);
   height: calc(var(--zoom) * 17px);
   overflow: hidden;
