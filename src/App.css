@@ -3,4 +3,5 @@
 * {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
+  image-rendering: pixelated;
 }
