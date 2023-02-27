@@ -1,15 +1,11 @@
-:root {
-  --zoom: 5;
-  --hero-width: calc(192px * var(--zoom));
-  --hero-height: calc(192px * var(--zoom));
-}
-
 .hero {
-  width: calc(var(--hero-width) / 4);
-  height: calc(var(--hero-height) / 4);
+  position: absolute;
+  width: calc(var(--zoom) * 16px);
+  height: calc(var(--zoom) * 16px);
   overflow: hidden;
 }
 
 .hero__sprite {
-  width: calc(var(--hero-width));
+  width: calc(var(--zoom) * 192px);
+  transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px));
 }
