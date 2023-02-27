@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import GridLine from './components/GridLine'
+import Hero from './components/Hero'
 
 function App() {
   const styles = {
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <div style={styles}>
+      <Hero />
       <GridLine />
     </div>
   )
