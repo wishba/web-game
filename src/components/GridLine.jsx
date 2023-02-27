@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import './GridLine.css'
 import Grid from './Grid'
 
 function GridLine() {
+  const gridLineRef = useRef(null)
+
   return (
-    <div>
+    <div ref={gridLineRef} className='gridLine'>
       <Grid coordinate="tes" />
     </div>
   )

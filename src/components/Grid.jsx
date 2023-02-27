@@ -3,7 +3,9 @@ import './Grid.css'
 
 function Grid({ coordinate }) {
   return (
-    <div className='grid'>{coordinate}</div>
+    <div className='grid' >
+      {coordinate}
+    </div>
   )
 }
 
