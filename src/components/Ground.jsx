@@ -21,7 +21,6 @@ function ground() {
 
     for (let index = 0; index < groundArray.length; index++) {
       const element = groundArray[index];
-      console.log(`${element[0]}:${element[1]} - ${tileArray[index][0]}:${tileArray[index][1]}`);
 
       groundTileArray.push(
         <div key={index} className='ground'
@@ -44,39 +43,6 @@ function ground() {
   return (
     <div>
       {groundTile}
-
-      {/* <div className='ground'
-        style={{
-          top: `calc(85px * ${groundArray[0][0]})`,
-          left: `calc(85px * ${groundArray[0][0]})`,
-        }}
-      >
-        <img className='ground__asset' src={groundAsset} alt="ground"
-          style={{ transform: 'translate(0, 0)' }}
-        />
-      </div>
-
-      <div className='ground'
-        style={{
-          top: `calc(85px * ${groundArray[1][0]})`,
-          left: `calc(85px * ${groundArray[1][1]})`,
-        }}
-      >
-        <img className='ground__asset' src={groundAsset} alt="ground"
-          style={{ transform: 'translate(calc(-15px * 5), 0)' }}
-        />
-      </div>
-
-      <div className='ground'
-        style={{
-          top: `calc(85px * ${groundArray[2][0]})`,
-          left: `calc(85px * ${groundArray[2][1]})`,
-        }}
-      >
-        <img className='ground__asset' src={groundAsset} alt="ground"
-          style={{ transform: 'translate(calc(-15px * 5 * 2), calc(-15px * 5 * 0))' }}
-        />
-      </div> */}
     </div>
   )
 }
