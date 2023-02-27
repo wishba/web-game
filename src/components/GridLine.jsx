@@ -24,12 +24,9 @@ function GridLine() {
 
   return (
     <div ref={gridLineRef}>
-      <div
+      <div className='gridLine'
         style={{
-          display: 'grid',
           gridTemplateColumns: `repeat(${gridColumn}, auto)`,
-          width: 'fit-content',
-          height: '100vh',
         }}
       >
         {tiles}
