@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
 import GridLine from './components/GridLine'
 import Ground from './components/Ground'
@@ -9,7 +9,7 @@ function App() {
 
   const intervalRef = useRef(null)
 
-  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [position, setPosition] = useState({ x: 85, y: 85 })
 
   function handleMoveStart(direction) {
     setPosition(() => {
@@ -42,6 +42,21 @@ function App() {
   function handleMoveStop() {
     clearInterval(intervalRef.current)
   }
+
+  useEffect(() => {
+    if (position.x < 85 * 1) {
+      position.x = 85 * 1
+    }
+    if (position.x > 85 * 3) {
+      position.x = 85 * 3
+    }
+    if (position.y < 85 * 1) {
+      position.y = 85 * 1
+    }
+    if (position.y > 85 * 3) {
+      position.y = 85 * 3
+    }
+  }, [position])
 
   return (
     <div style={styles}>
