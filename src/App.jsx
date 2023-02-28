@@ -44,6 +44,8 @@ function App() {
   }
 
   useEffect(() => {
+    console.log(position);
+
     if (position.x < 85 * 1) {
       position.x = 85 * 1
     }
