@@ -7,7 +7,7 @@ import Hero from './components/Hero'
 function App() {
   const styles = { '--zoom': '5' }
   const intervalRef = useRef(null)
-  const [position, setPosition] = useState({ x: 85, y: 85 })
+  const [position, setPosition] = useState({ x: 85, y: 85 - 30 })
   const [facingState, setFacingState] = useState('front')
 
   function handleMoveStart(direction) {
@@ -50,11 +50,11 @@ function App() {
     if (position.x > 85 * 3) {
       position.x = 85 * 3
     }
-    if (position.y < 85 * 1) {
-      position.y = 85 * 1
+    if (position.y < 85 * 1 - 30) {
+      position.y = 85 * 1 - 30
     }
-    if (position.y > 85 * 3) {
-      position.y = 85 * 3
+    if (position.y > 85 * 3 - 30) {
+      position.y = 85 * 3 - 30
     }
   }, [position])
 
