@@ -24,9 +24,13 @@
   font-size: calc(var(--zoom) * 10px);
   width: calc(var(--zoom) * 14px);
   height: calc(var(--zoom) * 14px);
-  border: calc(var(--zoom) * 1px) solid #e8b5ac;
+  border: calc(var(--zoom) * 1px) solid #5c4e92;
   color: #5c4e92;
   background-color: #f3f2c0;
+}
+
+.button:active {
+  background-color: #e8b5ac;
 }
 
 .button--up {
