@@ -1,3 +1,7 @@
+.gridLine__container {
+  overflow: hidden;
+}
+
 .gridLine {
   display: grid;
   width: fit-content;

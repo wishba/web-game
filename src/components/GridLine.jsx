@@ -23,7 +23,7 @@ function GridLine() {
   }, [])
 
   return (
-    <div ref={gridLineRef}>
+    <div ref={gridLineRef} className='gridLine__container'>
       <div className='gridLine'
         style={{
           gridTemplateColumns: `repeat(${gridColumn}, auto)`,
