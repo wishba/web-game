@@ -6,10 +6,9 @@ import Hero from './components/Hero'
 
 function App() {
   const styles = { '--zoom': '5' }
-
   const intervalRef = useRef(null)
-
   const [position, setPosition] = useState({ x: 85, y: 85 })
+  const [facingState, setFacingState] = useState('front')
 
   function handleMoveStart(direction) {
     setPosition(() => {
@@ -38,7 +37,6 @@ function App() {
       }
     }, 25)
   }
-
   function handleMoveStop() {
     clearInterval(intervalRef.current)
   }
@@ -64,28 +62,40 @@ function App() {
     <div style={styles}>
       <div className='button__container'>
         <button className='button button--up'
-          onMouseDown={() => handleMoveStart('up')}
+          onMouseDown={() => {
+            handleMoveStart('up')
+            setFacingState('back')
+          }}
           onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
 
         <button className='button button--left'
-          onMouseDown={() => handleMoveStart('left')}
+          onMouseDown={() => {
+            handleMoveStart('left')
+            setFacingState('left')
+          }}
           onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
 
         <button className='button button--right'
-          onMouseDown={() => handleMoveStart('right')}
+          onMouseDown={() => {
+            handleMoveStart('right')
+            setFacingState('right')
+          }}
           onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
 
         <button className='button button--bottom'
-          onMouseDown={() => handleMoveStart('down')}
+          onMouseDown={() => {
+            handleMoveStart('down')
+            setFacingState('front')
+          }}
           onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
@@ -100,7 +110,7 @@ function App() {
           top: position.y
         }}
       >
-        <Hero facing='front' />
+        <Hero facing={facingState} />
       </div>
 
       <Ground />
