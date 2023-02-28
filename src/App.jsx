@@ -100,7 +100,7 @@ function App() {
           top: position.y
         }}
       >
-        <Hero />
+        <Hero facing='front' />
       </div>
 
       <Ground />

@@ -8,5 +8,20 @@
 
 .hero__asset {
   width: calc(var(--zoom) * 192px);
+}
+
+.hero--front {
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px));
+}
+
+.hero--back {
+  transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px * 4));
+}
+
+.hero--left {
+  transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px * 7));
+}
+
+.hero--right {
+  transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px * 10));
 }
