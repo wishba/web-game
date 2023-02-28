@@ -14,6 +14,22 @@
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px));
 }
 
+.hero--f1 {
+  transform: translate(calc(var(--zoom) * -16px * 4), calc(var(--zoom) * -16px));
+}
+
+.hero--f2 {
+  transform: translate(calc(var(--zoom) * -16px * 7), calc(var(--zoom) * -16px));
+}
+
+.hero--f3 {
+  transform: translate(calc(var(--zoom) * -16px * 4), calc(var(--zoom) * -16px));
+}
+
+.hero--f4 {
+  transform: translate(calc(var(--zoom) * -16px * 10), calc(var(--zoom) * -16px));
+}
+
 .hero--back {
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px * 4));
 }
