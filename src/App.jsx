@@ -36,13 +36,19 @@ function App() {
           return setPosition((prevState) => ({ x: prevState.x, y: prevState.y + 1 }))
       }
     }, 25)
+
+    // intervalId = setInterval(() => {
+    //   console.log(array[index]);
+    //   index = (index + 1) % array.length;
+    // }, 500);
   }
   function handleMoveStop() {
     clearInterval(intervalRef.current)
+    clearInterval(intervalId);
   }
 
   useEffect(() => {
-    console.log(position);
+    // console.log(position);
 
     if (position.x < 85 * 1) {
       position.x = 85 * 1
@@ -58,6 +64,24 @@ function App() {
     }
   }, [position])
 
+  // useEffect(() => {
+  const array = [1, 2, 3, 4, 5];
+  let index = 0;
+  let intervalId;
+
+  const startLogging = () => {
+    intervalId = setInterval(() => {
+      console.log(array[index]);
+      index = (index + 1) % array.length;
+    }, 500);
+  };
+
+  const stopLogging = () => {
+    clearInterval(intervalId);
+  };
+  // }, [])
+
+
   return (
     <div style={styles}>
       <div className='button__container'>
@@ -65,8 +89,14 @@ function App() {
           onMouseDown={() => {
             handleMoveStart('up')
             setFacingState('back')
+            // startLogging()
           }}
-          onMouseUp={handleMoveStop}
+          // onMouseDown={startLogging}
+          onMouseUp={() => {
+            handleMoveStop()
+            // stopLogging()
+          }}
+        // onMouseUp={handleMoveStop}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
@@ -116,6 +146,11 @@ function App() {
       <Ground />
 
       <GridLine />
+
+      <button onMouseDown={startLogging} onMouseUp={stopLogging}>start</button>
+      {/* <button onMouseDown={startLogging}>start</button> */}
+      {/* <button onClick={startLogging}>start</button> */}
+      {/* <button onClick={stopLogging}>stop</button> */}
     </div>
   )
 }
