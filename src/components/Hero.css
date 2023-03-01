@@ -14,19 +14,19 @@
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px));
 }
 
-.hero--f1 {
+.hero--d1 {
   transform: translate(calc(var(--zoom) * -16px * 7), calc(var(--zoom) * -16px));
 }
 
-.hero--f2 {
+.hero--d2 {
   transform: translate(calc(var(--zoom) * -16px * 4), calc(var(--zoom) * -16px));
 }
 
-.hero--f3 {
+.hero--d3 {
   transform: translate(calc(var(--zoom) * -16px * 10), calc(var(--zoom) * -16px));
 }
 
-.hero--f4 {
+.hero--d4 {
   transform: translate(calc(var(--zoom) * -16px * 4), calc(var(--zoom) * -16px));
 }
 
@@ -73,7 +73,6 @@
 .hero--right {
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px * 10));
 }
-
 
 .hero--r1 {
   transform: translate(calc(var(--zoom) * -16px * 7), calc(var(--zoom) * -16px * 10));

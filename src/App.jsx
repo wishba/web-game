@@ -61,7 +61,7 @@ function App() {
           return
         case 'down':
           count()
-          setFacingState(`f${counter}`)
+          setFacingState(`d${counter}`)
           return
       }
     }, 300)
