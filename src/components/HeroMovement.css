@@ -43,3 +43,8 @@
   transform: rotate(180deg);
   grid-area: 3/2/4/3;
 }
+
+.hero__container {
+  width: fit-content;
+  position: relative;
+}
