@@ -38,13 +38,35 @@ function App() {
       }
     }, 20)
 
-    let counter = 1
-    animationIntervalRef.current = setInterval(() => {
-      console.log(counter);
+    let counter = 0
+    function count() {
       counter++
       if (counter > 4) {
         counter = 1
       }
+    }
+    animationIntervalRef.current = setInterval(() => {
+      // if (direction == 'up') {
+      //   console.log(`f${counter}`);
+      // }
+      switch (direction) {
+        case 'up':
+          count()
+          return console.log(`f${counter}`);
+        case 'left':
+          count()
+          return console.log(`l${counter}`);
+        case 'right':
+          count()
+          return console.log(`r${counter}`);
+        case 'down':
+          count()
+          return console.log(`u${counter}`);
+      }
+      // counter++
+      // if (counter > 4) {
+      //   counter = 1
+      // }
     }, 500)
   }
   function handleMoveStop() {
