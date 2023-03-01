@@ -38,8 +38,13 @@ function App() {
       }
     }, 20)
 
+    let counter = 1
     animationIntervalRef.current = setInterval(() => {
-      console.log('tes');
+      console.log(counter);
+      counter++
+      if (counter > 4) {
+        counter = 1
+      }
     }, 500)
   }
   function handleMoveStop() {
