@@ -172,7 +172,7 @@ function App() {
 
       <Ground />
 
-      <GridLine />
+      {/* <GridLine /> */}
     </div>
   )
 }
