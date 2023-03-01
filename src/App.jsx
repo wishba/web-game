@@ -46,47 +46,32 @@ function App() {
       }
     }
     animationIntervalRef.current = setInterval(() => {
-      // if (direction == 'up') {
-      //   console.log(`f${counter}`);
-      // }
       switch (direction) {
         case 'up':
           count()
           setFacingState(`u${counter}`)
-          // console.log(`u${counter}`);
           return
         case 'left':
           count()
           setFacingState(`l${counter}`)
-          // console.log(`l${counter}`);
           return
         case 'right':
           count()
           setFacingState(`r${counter}`)
-          // console.log(`r${counter}`);
           return
         case 'down':
           count()
           setFacingState(`f${counter}`)
-          // console.log(`f${counter}`);
           return
       }
-
-      // console.log('tes');
-      // counter++
-      // if (counter > 4) {
-      //   counter = 1
-      // }
     }, 300)
   }
   function handleMoveStop() {
-    clearInterval(moveIntervalRef.current);
-    clearInterval(animationIntervalRef.current);
+    clearInterval(moveIntervalRef.current)
+    clearInterval(animationIntervalRef.current)
   }
 
   useEffect(() => {
-    // console.log(position);
-
     if (position.x < 85 * 1) {
       position.x = 85 * 1
     }
@@ -111,10 +96,8 @@ function App() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            // setFacingState('back')
             let count = 0
             const intervalBack = setInterval(() => {
-              // console.log(count)
               count++
               if (count == 1) {
                 setFacingState('back')
@@ -134,10 +117,8 @@ function App() {
 
           onMouseUp={() => {
             handleMoveStop()
-            // setFacingState('back')
             let count = 0
             const intervalBack = setInterval(() => {
-              // console.log(count)
               count++
               if (count == 1) {
                 setFacingState('left')
@@ -157,10 +138,8 @@ function App() {
 
           onMouseUp={() => {
             handleMoveStop()
-            // setFacingState('back')
             let count = 0
             const intervalBack = setInterval(() => {
-              // console.log(count)
               count++
               if (count == 1) {
                 setFacingState('right')
@@ -179,10 +158,8 @@ function App() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            // setFacingState('back')
             let count = 0
             const intervalBack = setInterval(() => {
-              // console.log(count)
               count++
               if (count == 1) {
                 setFacingState('front')
