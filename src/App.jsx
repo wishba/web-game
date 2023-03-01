@@ -111,7 +111,16 @@ function App() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            setFacingState('back')
+            // setFacingState('back')
+            let count = 0
+            const intervalBack = setInterval(() => {
+              // console.log(count)
+              count++
+              if (count == 1) {
+                setFacingState('back')
+                clearInterval(intervalBack)
+              }
+            }, 250)
           }}
         >
           <p className='button__arrow'>&#8593;</p>
@@ -125,7 +134,16 @@ function App() {
 
           onMouseUp={() => {
             handleMoveStop()
-            setFacingState('left')
+            // setFacingState('back')
+            let count = 0
+            const intervalBack = setInterval(() => {
+              // console.log(count)
+              count++
+              if (count == 1) {
+                setFacingState('left')
+                clearInterval(intervalBack)
+              }
+            }, 250)
           }}
         >
           <p className='button__arrow'>&#8593;</p>
@@ -139,7 +157,16 @@ function App() {
 
           onMouseUp={() => {
             handleMoveStop()
-            setFacingState('right')
+            // setFacingState('back')
+            let count = 0
+            const intervalBack = setInterval(() => {
+              // console.log(count)
+              count++
+              if (count == 1) {
+                setFacingState('right')
+                clearInterval(intervalBack)
+              }
+            }, 250)
           }}
         >
           <p className='button__arrow'>&#8593;</p>
@@ -152,7 +179,16 @@ function App() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            setFacingState('front')
+            // setFacingState('back')
+            let count = 0
+            const intervalBack = setInterval(() => {
+              // console.log(count)
+              count++
+              if (count == 1) {
+                setFacingState('front')
+                clearInterval(intervalBack)
+              }
+            }, 250)
           }}
         >
           <p className='button__arrow'>&#8593;</p>
