@@ -53,19 +53,23 @@ function App() {
         case 'up':
           count()
           setFacingState(`u${counter}`)
-          return console.log(`u${counter}`);
+          // console.log(`u${counter}`);
+          return
         case 'left':
           count()
           setFacingState(`l${counter}`)
-          return console.log(`l${counter}`);
+          // console.log(`l${counter}`);
+          return
         case 'right':
           count()
           setFacingState(`r${counter}`)
-          return console.log(`r${counter}`);
+          // console.log(`r${counter}`);
+          return
         case 'down':
           count()
           setFacingState(`f${counter}`)
-          return console.log(`f${counter}`);
+          // console.log(`f${counter}`);
+          return
       }
 
       // console.log('tes');
