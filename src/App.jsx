@@ -7,7 +7,7 @@ import Hero from './components/Hero'
 function App() {
   const styles = { '--zoom': '5' }
   const [position, setPosition] = useState({ x: 85, y: 85 - 30 })
-  const [facingState, setFacingState] = useState('front')
+  const [facingState, setFacingState] = useState('down')
   const moveIntervalRef = useRef(null)
   const animationIntervalRef = useRef(null)
 
@@ -92,16 +92,16 @@ function App() {
         <button className='button button--up'
           onMouseDown={() => {
             handleMoveStart('up')
-            setFacingState('back')
+            setFacingState('up')
           }}
           onMouseUp={() => {
             handleMoveStop()
             let count = 0
-            const intervalBack = setInterval(() => {
+            const intervalUp = setInterval(() => {
               count++
               if (count == 1) {
-                setFacingState('back')
-                clearInterval(intervalBack)
+                setFacingState('up')
+                clearInterval(intervalUp)
               }
             }, 250)
           }}
@@ -118,11 +118,11 @@ function App() {
           onMouseUp={() => {
             handleMoveStop()
             let count = 0
-            const intervalBack = setInterval(() => {
+            const intervalUp = setInterval(() => {
               count++
               if (count == 1) {
                 setFacingState('left')
-                clearInterval(intervalBack)
+                clearInterval(intervalUp)
               }
             }, 250)
           }}
@@ -139,11 +139,11 @@ function App() {
           onMouseUp={() => {
             handleMoveStop()
             let count = 0
-            const intervalBack = setInterval(() => {
+            const intervalUp = setInterval(() => {
               count++
               if (count == 1) {
                 setFacingState('right')
-                clearInterval(intervalBack)
+                clearInterval(intervalUp)
               }
             }, 250)
           }}
@@ -154,16 +154,16 @@ function App() {
         <button className='button button--bottom'
           onMouseDown={() => {
             handleMoveStart('down')
-            setFacingState('front')
+            setFacingState('down')
           }}
           onMouseUp={() => {
             handleMoveStop()
             let count = 0
-            const intervalBack = setInterval(() => {
+            const intervalUp = setInterval(() => {
               count++
               if (count == 1) {
-                setFacingState('front')
-                clearInterval(intervalBack)
+                setFacingState('down')
+                clearInterval(intervalUp)
               }
             }, 250)
           }}
@@ -172,10 +172,8 @@ function App() {
         </button>
       </div>
 
-      <div
+      <div className='App__hero'
         style={{
-          width: 'fit-content',
-          position: 'relative',
           left: position.x,
           top: position.y
         }}

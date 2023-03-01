@@ -10,7 +10,7 @@
   width: calc(var(--zoom) * 192px);
 }
 
-.hero--front {
+.hero--down {
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px));
 }
 
@@ -30,7 +30,7 @@
   transform: translate(calc(var(--zoom) * -16px * 4), calc(var(--zoom) * -16px));
 }
 
-.hero--back {
+.hero--up {
   transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px * 4));
 }
 

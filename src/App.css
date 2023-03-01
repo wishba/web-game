@@ -51,3 +51,8 @@
   transform: rotate(180deg);
   grid-area: 3/2/4/3;
 }
+
+.App__hero {
+  width: fit-content;
+  position: relative;
+}
