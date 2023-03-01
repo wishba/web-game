@@ -52,20 +52,20 @@ function App() {
       switch (direction) {
         case 'up':
           count()
-          setFacingState(`f${counter}`)
-          return console.log(`f${counter}`);
+          setFacingState(`u${counter}`)
+          return console.log(`u${counter}`);
         case 'left':
           count()
-          setFacingState(`f${counter}`)
+          setFacingState(`l${counter}`)
           return console.log(`l${counter}`);
         case 'right':
           count()
-          setFacingState(`f${counter}`)
+          setFacingState(`r${counter}`)
           return console.log(`r${counter}`);
         case 'down':
           count()
           setFacingState(`f${counter}`)
-          return console.log(`u${counter}`);
+          return console.log(`f${counter}`);
       }
 
       // console.log('tes');
@@ -105,7 +105,10 @@ function App() {
             handleMoveStart('up')
             setFacingState('back')
           }}
-          onMouseUp={() => { handleMoveStop() }}
+          onMouseUp={() => {
+            handleMoveStop()
+            setFacingState('back')
+          }}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
@@ -115,7 +118,11 @@ function App() {
             handleMoveStart('left')
             setFacingState('left')
           }}
-          onMouseUp={handleMoveStop}
+
+          onMouseUp={() => {
+            handleMoveStop()
+            setFacingState('left')
+          }}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
@@ -125,7 +132,11 @@ function App() {
             handleMoveStart('right')
             setFacingState('right')
           }}
-          onMouseUp={handleMoveStop}
+
+          onMouseUp={() => {
+            handleMoveStop()
+            setFacingState('right')
+          }}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
