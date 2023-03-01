@@ -6,9 +6,10 @@ import Hero from './components/Hero'
 
 function App() {
   const styles = { '--zoom': '5' }
-  const intervalRef = useRef(null)
   const [position, setPosition] = useState({ x: 85, y: 85 - 30 })
   const [facingState, setFacingState] = useState('front')
+  const moveIntervalRef = useRef(null)
+  const animationIntervalRef = useRef(null)
 
   function handleMoveStart(direction) {
     setPosition(() => {
@@ -24,7 +25,7 @@ function App() {
       }
     })
 
-    intervalRef.current = setInterval(() => {
+    moveIntervalRef.current = setInterval(() => {
       switch (direction) {
         case 'up':
           return setPosition((prevState) => ({ x: prevState.x, y: prevState.y - 1 }))
@@ -35,16 +36,15 @@ function App() {
         case 'down':
           return setPosition((prevState) => ({ x: prevState.x, y: prevState.y + 1 }))
       }
-    }, 25)
+    }, 20)
 
-    // intervalId = setInterval(() => {
-    //   console.log(array[index]);
-    //   index = (index + 1) % array.length;
-    // }, 500);
+    animationIntervalRef.current = setInterval(() => {
+      console.log('tes');
+    }, 500)
   }
   function handleMoveStop() {
-    clearInterval(intervalRef.current)
-    clearInterval(intervalId);
+    clearInterval(moveIntervalRef.current);
+    clearInterval(animationIntervalRef.current);
   }
 
   useEffect(() => {
@@ -64,24 +64,6 @@ function App() {
     }
   }, [position])
 
-  // useEffect(() => {
-  const array = [1, 2, 3, 4, 5];
-  let index = 0;
-  let intervalId;
-
-  const startLogging = () => {
-    intervalId = setInterval(() => {
-      console.log(array[index]);
-      index = (index + 1) % array.length;
-    }, 500);
-  };
-
-  const stopLogging = () => {
-    clearInterval(intervalId);
-  };
-  // }, [])
-
-
   return (
     <div style={styles}>
       <div className='button__container'>
@@ -89,14 +71,8 @@ function App() {
           onMouseDown={() => {
             handleMoveStart('up')
             setFacingState('back')
-            // startLogging()
           }}
-          // onMouseDown={startLogging}
-          onMouseUp={() => {
-            handleMoveStop()
-            // stopLogging()
-          }}
-        // onMouseUp={handleMoveStop}
+          onMouseUp={() => { handleMoveStop() }}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
@@ -146,11 +122,6 @@ function App() {
       <Ground />
 
       <GridLine />
-
-      <button onMouseDown={startLogging} onMouseUp={stopLogging}>start</button>
-      {/* <button onMouseDown={startLogging}>start</button> */}
-      {/* <button onClick={startLogging}>start</button> */}
-      {/* <button onClick={stopLogging}>stop</button> */}
     </div>
   )
 }
