@@ -172,7 +172,7 @@ function App() {
         </button>
       </div>
 
-      <div className='App__hero'
+      <div className='hero__container'
         style={{
           left: position.x,
           top: position.y
