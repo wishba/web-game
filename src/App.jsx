@@ -52,22 +52,28 @@ function App() {
       switch (direction) {
         case 'up':
           count()
+          setFacingState(`f${counter}`)
           return console.log(`f${counter}`);
         case 'left':
           count()
+          setFacingState(`f${counter}`)
           return console.log(`l${counter}`);
         case 'right':
           count()
+          setFacingState(`f${counter}`)
           return console.log(`r${counter}`);
         case 'down':
           count()
+          setFacingState(`f${counter}`)
           return console.log(`u${counter}`);
       }
+
+      // console.log('tes');
       // counter++
       // if (counter > 4) {
       //   counter = 1
       // }
-    }, 500)
+    }, 300)
   }
   function handleMoveStop() {
     clearInterval(moveIntervalRef.current);
@@ -129,7 +135,10 @@ function App() {
             handleMoveStart('down')
             setFacingState('front')
           }}
-          onMouseUp={handleMoveStop}
+          onMouseUp={() => {
+            handleMoveStop()
+            setFacingState('front')
+          }}
         >
           <p className='button__arrow'>&#8593;</p>
         </button>
