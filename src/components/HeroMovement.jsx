@@ -1,12 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './HeroMovement.css'
 import Hero from './Hero'
+import soundStep from '../assets/Bubble heavy 1.wav'
 
 function HeroMovement() {
   const [position, setPosition] = useState({ x: 85, y: 85 - 30 })
   const [facingState, setFacingState] = useState('down')
-  const moveIntervalRef = useRef(null)
-  const animationIntervalRef = useRef(null)
+  const moveIntervalRef = useRef()
+  const animationIntervalRef = useRef()
+
+  function stepSound() {
+    const sound = new Audio(soundStep)
+    sound.play()
+  }
 
   function handleMoveStart(direction) {
     setPosition(() => {
@@ -47,18 +53,22 @@ function HeroMovement() {
         case 'up':
           count()
           setFacingState(`u${counter}`)
+          stepSound()
           return
         case 'left':
           count()
           setFacingState(`l${counter}`)
+          stepSound()
           return
         case 'right':
           count()
           setFacingState(`r${counter}`)
+          stepSound()
           return
         case 'down':
           count()
           setFacingState(`d${counter}`)
+          stepSound()
           return
       }
     }, 300)
@@ -101,6 +111,7 @@ function HeroMovement() {
                 setFacingState('up')
                 clearInterval(intervalUp)
               }
+              stepSound()
             }, 250)
           }}
         >
@@ -122,6 +133,7 @@ function HeroMovement() {
                 setFacingState('left')
                 clearInterval(intervalUp)
               }
+              stepSound()
             }, 250)
           }}
         >
@@ -143,6 +155,7 @@ function HeroMovement() {
                 setFacingState('right')
                 clearInterval(intervalUp)
               }
+              stepSound()
             }, 250)
           }}
         >
@@ -163,6 +176,7 @@ function HeroMovement() {
                 setFacingState('down')
                 clearInterval(intervalUp)
               }
+              stepSound()
             }, 250)
           }}
         >
