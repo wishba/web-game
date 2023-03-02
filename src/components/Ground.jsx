@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Ground.css'
 import groundAsset from '../assets/Grass tiles v.2.png'
 
-function ground() {
+function Ground() {
   const groundArray = [
     [1, 1], [1, 2], [1, 3],
     [2, 1], [2, 2], [2, 3],
@@ -47,4 +47,4 @@ function ground() {
   )
 }
 
-export default ground
+export default Ground
