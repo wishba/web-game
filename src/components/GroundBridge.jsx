@@ -3,29 +3,29 @@ import './GroundBridge.css'
 import Tile from './Tile'
 
 function GroundBridge() {
-  const bridgeArray = [
+  const placementCoordinate = [
     [2, 3], [2, 4], [2, 5], [2, 6], [2, 7],
   ]
-  const tileArray = [
+  const assetCoordinate = [
     [2, 1], [3, 1], [3, 1], [3, 1], [4, 1],
   ]
 
   const [bridgeTile, setBridgeTile] = useState()
 
   useEffect(() => {
-    const groundTileArray = []
+    const tileArray = []
 
-    for (let index = 0; index < bridgeArray.length; index++) {
-      const element = bridgeArray[index];
+    for (let index = 0; index < placementCoordinate.length; index++) {
+      const element = placementCoordinate[index];
 
-      groundTileArray.push(
+      tileArray.push(
         <div key={index}>
-          <Tile tes1={index} tes2={element} tes3={tileArray} />
+          <Tile tileIndex={index} tileElement={element} tileAssetCoordinate={assetCoordinate} />
         </div>
       )
     }
 
-    setBridgeTile(groundTileArray)
+    setBridgeTile(tileArray)
   }, [])
 
   return (
