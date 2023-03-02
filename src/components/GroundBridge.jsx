@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './GroundBridge.css'
 import bridgeAsset from '../assets/Wood Bridge.png'
+import { placeTile } from '../utils/placeTile'
 
 function GroundBridge() {
   const bridgeArray = [
@@ -11,8 +12,11 @@ function GroundBridge() {
   ]
 
   const [bridgeTile, setBridgeTile] = useState()
+  const [test, setTest] = useState()
 
   useEffect(() => {
+    setTest(placeTile(bridgeArray))
+
     const groundTileArray = []
 
     for (let index = 0; index < bridgeArray.length; index++) {
@@ -37,7 +41,8 @@ function GroundBridge() {
 
   return (
     <div>
-      {bridgeTile}
+      {/* {bridgeTile} */}
+      <p>{test}</p>
     </div>
   )
 }
