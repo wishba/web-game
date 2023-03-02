@@ -30,7 +30,7 @@ function Ground() {
           }}
         >
           <img className='ground__asset' src={groundAsset} alt="ground"
-            style={{ transform: `translate(calc(-15px * 5 * ${tileArray[index][0]}), calc(-15px * 5 * ${tileArray[index][1]}))` }}
+            style={{ transform: `translate(calc(-16px * 5 * ${tileArray[index][0]}), calc(-16px * 5 * ${tileArray[index][1]}))` }}
           />
         </div>
       )
