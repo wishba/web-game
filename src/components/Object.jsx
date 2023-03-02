@@ -25,16 +25,20 @@ function Object() {
     for (const key in data) {
       if (Object.hasOwnProperty.call(data, key)) {
         const element = data[key];
-        // console.log(element);
-        console.log(element.placement);
+        // console.log(element.lenght);
+        // console.log(element.placement);
         // console.log(element.tile);
         // console.log(element.asset);
         // console.log(key);
-        for (const iterator of element.placement) {
-          console.log(iterator);
+        // const index = 0
+        for (const [index, value] of element.placement.entries()) {
+          console.log(`${index}-${value}`);
+          // console.log(iterator.length);
+          // index++
+          // console.log(index);
 
           objectArray.push(
-            <div key={key} className={`${key}Image`}></div>
+            <div key={`${index}-${value}`} className={`${key}Image`}></div>
           )
         }
 
