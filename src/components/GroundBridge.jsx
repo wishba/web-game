@@ -27,7 +27,9 @@ function GroundBridge() {
       const element = bridgeArray[index];
 
       groundTileArray.push(
-        <Tile tes1={index} tes2={element} tes3={tileArray} />
+        <div key={index}>
+          <Tile tes1={index} tes2={element} tes3={tileArray} />
+        </div>
       )
       // groundTileArray.push(
       //   <div key={index} className='groundBridge'
