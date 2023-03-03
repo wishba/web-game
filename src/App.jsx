@@ -11,10 +11,10 @@ function App() {
 
   return (
     <div style={styles}>
-      <HeroMovement />
-      <GroundBridge />
-      <Ground />
-      <GridLine />
+      {/* <HeroMovement /> */}
+      {/* <GroundBridge /> */}
+      {/* <Ground /> */}
+      {/* <GridLine /> */}
       <Object />
     </div>
   )
