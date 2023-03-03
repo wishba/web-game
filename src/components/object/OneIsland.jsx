@@ -1,7 +1,7 @@
 import React from 'react'
-import grassAsset from '../../assets/Grass tiles v.2.png'
+// import grassAsset from '../../assets/Grass tiles v.2.png'
 
-function OneIsland() {
+function OneIsland({ grassAsset }) {
   return (
     <>
       <img src={grassAsset} alt="grass asset" />
