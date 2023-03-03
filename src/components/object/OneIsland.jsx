@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ObjectTile from './ObjectTile'
 import grassAsset from '../../assets/Grass tiles v.2.png'
 import { objectUtils } from './utils/objectUtils'
@@ -15,11 +15,20 @@ function OneIsland() {
     [0, 2], [1, 2], [2, 2],
   ]
 
-  objectUtils(placementArray)
+  // objectUtils(placementArray)
+
+  const [tiles, setTiles] = useState()
+  const objectTile = <div>
+    <ObjectTile asset={grassAsset} assetWidth={176} />
+  </div>
+
+  useEffect(() => {
+    setTiles(objectUtils(placementArray, objectTile))
+  }, [])
 
   return (
     <>
-      <ObjectTile asset={grassAsset} assetWidth={176} />
+      {tiles}
     </>
   )
 }
