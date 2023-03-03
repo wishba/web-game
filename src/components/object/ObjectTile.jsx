@@ -4,13 +4,16 @@ import './ObjectTile.css'
 function ObjectTile({ asset, assetWidth, placement }) {
   const [tiles, setTiles] = useState()
   const tileArray = []
+  let index = 0
   // console.log(placement);
   for (const key in placement) {
     if (Object.hasOwnProperty.call(placement, key)) {
       const element = placement[key];
+      index++
+      // console.log(index);
       // console.log(element);
       tileArray.push(
-        <div className='tile--size'>
+        <div key={index} className='tile--size'>
           <img src={asset} alt="tile"
             style={{
               'width': `calc(var(--zoom) * ${assetWidth}px)`
@@ -20,7 +23,7 @@ function ObjectTile({ asset, assetWidth, placement }) {
       )
     }
   }
-  console.log(tileArray);
+  // console.log(tileArray);
   useEffect(() => {
     setTiles(tileArray)
   }, [])
