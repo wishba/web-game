@@ -1,17 +1,16 @@
 import React from 'react'
 
 function ObjectImage({ asset, width }) {
-  // function ObjectImage({ asset, width, positionX, positionY }) {
+  // function ObjectImage({ asset, width, transformX, transformY }) {
   return (
-    <div className='appTile'
-    // style={{
-    //   'left': `calc(var(--zoom) * 16 * ${positionX}px)`,
-    //   'top': `calc(var(--zoom) * 16 * ${positionY}px)`,
-    // }}
-    >
+    <div>
+      {/* <div className='appTile'> */}
       <img src={asset} alt="tile asset"
         style={{
-          'width': `calc(var(--zoom) * ${width}px)`
+          'width': `calc(var(--zoom) * ${width}px)`,
+          // 'transform': `
+          //   translate(calc(var(--zoom) * 16 * -${transformX}px), 
+          //   calc(var(--zoom) * 16 * -${transformY}px))`,
         }}
       />
     </div>

@@ -10,21 +10,34 @@ function Object() {
     [2, 1], [2, 2], [2, 3],
     [3, 1], [3, 2], [3, 3],
   ]
+  const oneIslandTile = [
+    [1, 1], [1, 1], [1, 1],
+    [1, 1], [1, 1], [1, 1],
+    [1, 1], [1, 1], [1, 1],
+  ]
+
+
   const bridgePlacement = [
     [2, 3], [2, 4], [2, 5], [2, 6], [2, 7],
   ]
+  const bridgeTile = [
+    [2, 1], [2, 1], [2, 1], [2, 1], [2, 1],
+  ]
+
   return (
     <>
       <ObjectLoop
         placement={oneIslandPlacement}
+        tileCoordinate={oneIslandTile}
         tileAsset={
-          <ObjectImage asset={grassAsset} width={176} positionX={1} positionY={1} />
+          <ObjectImage asset={grassAsset} width={176} />
         }
       />
       <ObjectLoop
         placement={bridgePlacement}
+        tileCoordinate={bridgeTile}
         tileAsset={
-          <ObjectImage asset={bridgeAsset} width={80} positionX={1} positionY={0} />
+          <ObjectImage asset={bridgeAsset} width={80} transformX={2} transformY={1} />
         }
       />
     </>
