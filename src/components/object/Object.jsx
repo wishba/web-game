@@ -1,5 +1,5 @@
 import React from 'react'
-import ObjectTile from './ObjectTile'
+import ObjectLoop from './ObjectLoop'
 import grassAsset from '../../assets/Grass tiles v.2.png'
 import bridgeAsset from '../../assets/Wood Bridge.png'
 
@@ -14,7 +14,7 @@ function Object() {
   ]
   return (
     <>
-      <ObjectTile
+      <ObjectLoop
         placement={oneIslandPlacement}
         tileAsset={
           <div className='appTile'>
@@ -26,7 +26,7 @@ function Object() {
           </div>
         }
       />
-      <ObjectTile
+      <ObjectLoop
         placement={bridgePlacement}
         tileAsset={
           <img src={bridgeAsset} alt="bridge asset" />

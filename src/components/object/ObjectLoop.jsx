@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function ObjectTile({ placement, tileAsset }) {
+function ObjectLoop({ placement, tileAsset }) {
   const [tile, setTile] = useState()
   useEffect(() => {
     const tileArray = []
@@ -17,4 +17,4 @@ function ObjectTile({ placement, tileAsset }) {
   return (<>{tile}</>)
 }
 
-export default ObjectTile
+export default ObjectLoop
