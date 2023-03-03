@@ -24,6 +24,7 @@ function Ground() {
       const element = placementArray[index];
       const translateX = assetArray[index][0]
       const translateY = assetArray[index][1]
+      const assetWidth = 'ground__asset'
 
       tileArray.push(
         <div key={index} className='ground'
@@ -40,7 +41,7 @@ function Ground() {
                   calc(-16px * 5 * ${translateY}))`
             }}
           /> */}
-          <Object asset={grassAsset} styleX={translateX} styleY={translateY} />
+          <Object style={assetWidth} asset={grassAsset} styleX={translateX} styleY={translateY} />
         </div>
       )
     }

@@ -2,10 +2,10 @@ import React from 'react'
 import './Ground.css'
 // import grassAsset from '../assets/Grass tiles v.2.png'
 
-function Object({ asset, styleX, styleY }) {
+function Object({ style, asset, styleX, styleY }) {
   return (
     <>
-      <img className='ground__asset' src={asset} alt="grass asset"
+      <img className={style} src={asset} alt="grass asset"
         style={{
           transform:
             `translate(
