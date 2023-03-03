@@ -22,19 +22,26 @@ function Ground() {
 
     for (let index = 0; index < placementArray.length; index++) {
       const element = placementArray[index];
+      const translateX = assetArray[index][0]
+      const translateY = assetArray[index][1]
 
       tileArray.push(
-        // <div key={index} className='ground'
-        //   style={{
-        //     top: `calc(85px * ${element[0]})`,
-        //     left: `calc(85px * ${element[1]})`,
-        //   }}
-        // >
-        /* <img className='ground__asset' src={grassAsset} alt="ground"
-          style={{ transform: `translate(calc(-16px * 5 * ${assetArray[index][0]}), calc(-16px * 5 * ${assetArray[index][1]}))` }}
-        /> */
-        <Object placement={element} asset={grassAsset} />
-        // </div>
+        <div key={index} className='ground'
+          style={{
+            top: `calc(85px * ${element[0]})`,
+            left: `calc(85px * ${element[1]})`,
+          }}
+        >
+          {/* <img className='ground__asset' src={grassAsset} alt="ground"
+            style={{
+              transform:
+                `translate(
+                  calc(-16px * 5 * ${translateX}), 
+                  calc(-16px * 5 * ${translateY}))`
+            }}
+          /> */}
+          <Object asset={grassAsset} styleX={translateX} styleY={translateY} />
+        </div>
       )
     }
 
