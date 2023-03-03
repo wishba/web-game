@@ -16,7 +16,6 @@ function Object() {
     [0, 2], [1, 2], [2, 2],
   ]
 
-
   const bridgePlacement = [
     [2, 3], [2, 4], [2, 5], [2, 6], [2, 7],
   ]
@@ -33,6 +32,7 @@ function Object() {
           <ObjectImage asset={grassAsset} width={176} />
         }
       />
+
       <ObjectLoop
         placement={bridgePlacement}
         tileCoordinate={bridgeTile}

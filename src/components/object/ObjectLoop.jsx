@@ -5,7 +5,6 @@ function ObjectLoop({ placement, tileCoordinate, tileAsset }) {
   useEffect(() => {
     const tileArray = []
     for (let index = 0; index < placement.length; index++) {
-
       tileArray.push(
         <div key={index} className='appTile__container'
           style={{
