@@ -6,7 +6,7 @@ export const objectUtils = (parameter, tile) => {
   for (const iterator of parameter) {
     // console.log(iterator);
     index++
-    console.log(index);
+    // console.log(index);
     tileArray.push(tile)
   }
   // console.log(tileArray);

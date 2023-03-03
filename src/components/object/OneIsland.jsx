@@ -23,12 +23,15 @@ function OneIsland() {
   </div>
 
   useEffect(() => {
-    setTiles(objectUtils(placementArray, objectTile))
+    // setTiles(objectUtils(placementArray, objectTile))
   }, [])
+
+  // console.log(placementArray);
 
   return (
     <>
-      {tiles}
+      {/* {tiles} */}
+      <ObjectTile placement={placementArray} asset={grassAsset} assetWidth={176} />
     </>
   )
 }

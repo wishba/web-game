@@ -1,15 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './ObjectTile.css'
 
-function ObjectTile({ asset, assetWidth }) {
+function ObjectTile({ asset, assetWidth, placement }) {
+  const [tiles, setTiles] = useState()
+  const tileArray = []
+  // console.log(placement);
+  for (const key in placement) {
+    if (Object.hasOwnProperty.call(placement, key)) {
+      const element = placement[key];
+      // console.log(element);
+      tileArray.push(
+        <div className='tile--size'>
+          <img src={asset} alt="tile"
+            style={{
+              'width': `calc(var(--zoom) * ${assetWidth}px)`
+            }}
+          />
+        </div>
+      )
+    }
+  }
+  console.log(tileArray);
+  useEffect(() => {
+    setTiles(tileArray)
+  }, [])
+
   return (
-    <div className='tile--size'>
-      <img src={asset} alt="tile"
-        style={{
-          'width': `calc(var(--zoom) * ${assetWidth}px)`
-        }}
-      />
+    <div>
+      {tiles}
     </div>
+    // <div className='tile--size'>
+    //   <img src={asset} alt="tile"
+    //     style={{
+    //       'width': `calc(var(--zoom) * ${assetWidth}px)`
+    //     }}
+    //   />
+    // </div>
   )
 }
 
