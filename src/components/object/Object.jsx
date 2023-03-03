@@ -1,8 +1,6 @@
 import React from 'react'
 import ObjectTile from './ObjectTile'
-import OneIsland from './OneIsland'
 import grassAsset from '../../assets/Grass tiles v.2.png'
-import Bridge from './Bridge'
 import bridgeAsset from '../../assets/Wood Bridge.png'
 
 function Object() {
@@ -16,8 +14,24 @@ function Object() {
   ]
   return (
     <>
-      <ObjectTile placement={oneIslandPlacement} tileAsset={<OneIsland asset={grassAsset} />} />
-      <ObjectTile placement={bridgePlacement} tileAsset={<Bridge asset={bridgeAsset} />} />
+      <ObjectTile
+        placement={oneIslandPlacement}
+        tileAsset={
+          <div className='appTile'>
+            <img src={grassAsset} alt="grass asset"
+              style={{
+                'width': 'calc(var(--zoom) * 176px)'
+              }}
+            />
+          </div>
+        }
+      />
+      <ObjectTile
+        placement={bridgePlacement}
+        tileAsset={
+          <img src={bridgeAsset} alt="bridge asset" />
+        }
+      />
     </>
   )
 }

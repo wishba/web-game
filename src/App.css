@@ -5,3 +5,9 @@
   font-family: 'Press Start 2P', cursive;
   image-rendering: pixelated;
 }
+
+.appTile {
+  width: calc(var(--zoom) * 16px);
+  height: calc(var(--zoom) * 16px);
+  overflow: hidden;
+}
