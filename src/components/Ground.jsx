@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Ground.css'
 import grassAsset from '../assets/Grass tiles v.2.png'
+import Object from './Object'
 
 function Ground() {
   const placementArray = [
@@ -29,9 +30,10 @@ function Ground() {
             left: `calc(85px * ${element[1]})`,
           }}
         >
-          <img className='ground__asset' src={grassAsset} alt="ground"
+          {/* <img className='ground__asset' src={grassAsset} alt="ground"
             style={{ transform: `translate(calc(-16px * 5 * ${assetArray[index][0]}), calc(-16px * 5 * ${assetArray[index][1]}))` }}
-          />
+          /> */}
+          <Object asset={grassAsset} />
         </div>
       )
     }
