@@ -6,21 +6,19 @@ function ObjectLoop({ placement, tileCoordinate, tileAsset }) {
     const tileArray = []
     for (let index = 0; index < placement.length; index++) {
       tileArray.push(
-        <div key={index} className='appTile__container'
+        <div key={index} className='appTile'
           style={{
             'top': `calc(var(--zoom) * 16 * ${placement[index][0]}px)`,
             'left': `calc(var(--zoom) * 16 * ${placement[index][1]}px)`,
           }}
         >
-          <div className='appTile'>
-            <div style={{
-              'transform': `
+          <div style={{
+            'transform': `
                 translate(
                   calc(var(--zoom) * 16 * -${tileCoordinate[index][0]}px), 
                   calc(var(--zoom) * 16 * -${tileCoordinate[index][1]}px))`
-            }}>
-              {tileAsset}
-            </div>
+          }}>
+            {tileAsset}
           </div>
         </div>
       )

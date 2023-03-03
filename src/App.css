@@ -10,8 +10,5 @@
   width: calc(var(--zoom) * 16px);
   height: calc(var(--zoom) * 16px);
   overflow: hidden;
-}
-
-.appTile__container {
   position: absolute;
 }
