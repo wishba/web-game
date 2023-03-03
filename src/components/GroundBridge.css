@@ -5,11 +5,9 @@
   height: calc(var(--zoom) * 17px);
   overflow: hidden;
   display: inline-block;
-  /* border: 1px solid red; */
 }
 
 .groundBridge__asset {
   width: calc(var(--zoom) * 80px);
   height: calc(var(--zoom) * 48px);
-  /* transform: translate(-50%, -50%); */
 }

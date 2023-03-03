@@ -1,40 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import './GroundBridge.css'
-import bridgeAsset from '../assets/Wood Bridge.png'
+import Tile from './Tile'
 
 function GroundBridge() {
-  const bridgeArray = [
-    // [3, 3],
+  const placementCoordinate = [
     [2, 3], [2, 4], [2, 5], [2, 6], [2, 7],
   ]
-  const tileArray = [
-    // [2, 1],
+  const assetCoordinate = [
     [2, 1], [3, 1], [3, 1], [3, 1], [4, 1],
   ]
 
   const [bridgeTile, setBridgeTile] = useState()
 
   useEffect(() => {
-    const groundTileArray = []
+    const tileArray = []
 
-    for (let index = 0; index < bridgeArray.length; index++) {
-      const element = bridgeArray[index];
+    for (let index = 0; index < placementCoordinate.length; index++) {
+      const element = placementCoordinate[index];
 
-      groundTileArray.push(
-        <div key={index} className='groundBridge'
-          style={{
-            top: `calc(85px * ${element[0]})`,
-            left: `calc(85px * ${element[1]})`,
-          }}
-        >
-          <img className='groundBridge__asset' src={bridgeAsset} alt="ground"
-            style={{ transform: `translate(calc(-16px * 5 * ${tileArray[index][0]}), calc(-16px * 5 * ${tileArray[index][1]}))` }}
-          />
+      tileArray.push(
+        <div key={index}>
+          <Tile tileIndex={index} tileElement={element} tileAssetCoordinate={assetCoordinate} />
         </div>
       )
     }
 
-    setBridgeTile(groundTileArray)
+    setBridgeTile(tileArray)
   }, [])
 
   return (
