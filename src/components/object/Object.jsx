@@ -18,13 +18,13 @@ function Object() {
       <ObjectLoop
         placement={oneIslandPlacement}
         tileAsset={
-          <ObjectImage asset={grassAsset} width={176} />
+          <ObjectImage asset={grassAsset} width={176} positionX={1} positionY={1} />
         }
       />
       <ObjectLoop
         placement={bridgePlacement}
         tileAsset={
-          <ObjectImage asset={bridgeAsset} width={80} />
+          <ObjectImage asset={bridgeAsset} width={80} positionX={1} positionY={0} />
         }
       />
     </>
