@@ -2,6 +2,7 @@ import React from 'react'
 import ObjectLoop from './ObjectLoop'
 import grassAsset from '../../assets/Grass tiles v.2.png'
 import bridgeAsset from '../../assets/Wood Bridge.png'
+import ObjectImage from './ObjectImage'
 
 function Object() {
   const oneIslandPlacement = [
@@ -17,19 +18,13 @@ function Object() {
       <ObjectLoop
         placement={oneIslandPlacement}
         tileAsset={
-          <div className='appTile'>
-            <img src={grassAsset} alt="grass asset"
-              style={{
-                'width': 'calc(var(--zoom) * 176px)'
-              }}
-            />
-          </div>
+          <ObjectImage asset={grassAsset} width={176} />
         }
       />
       <ObjectLoop
         placement={bridgePlacement}
         tileAsset={
-          <img src={bridgeAsset} alt="bridge asset" />
+          <ObjectImage asset={bridgeAsset} width={80} />
         }
       />
     </>
