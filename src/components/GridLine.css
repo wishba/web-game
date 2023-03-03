@@ -1,3 +1,9 @@
+.grid {
+  border: calc(var(--zoom) * 1px) solid lightblue;
+  width: calc(var(--zoom) * calc(16px - 1px));
+  height: calc(var(--zoom) * calc(16px - 1px));
+}
+
 .gridLine__container {
   overflow: hidden;
 }

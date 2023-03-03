@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
-import GridLine from './components/GridLine'
-import Ground from './components/Ground'
-import GroundBridge from './components/GroundBridge'
 import HeroMovement from './components/HeroMovement'
+import GroundBridge from './components/GroundBridge'
+import Ground from './components/Ground'
+import GridLine from './components/GridLine'
 
 function App() {
   const styles = { '--zoom': '5' }

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './GridLine.css'
-import Grid from './Grid'
 
 function GridLine() {
   const gridLineRef = useRef()
@@ -16,7 +15,11 @@ function GridLine() {
     const tileArray = []
     for (let indexY = 0; indexY < tileVertical; indexY++) {
       for (let indexX = 0; indexX < tileHorizontal; indexX++) {
-        tileArray.push(<Grid key={`${indexY}/${indexX}`} coordinate={`${indexY}/${indexX}`} />)
+        tileArray.push(
+          <div className='grid' key={`${indexY}/${indexX}`}>
+            {`${indexY}/${indexX}`}
+          </div>
+        )
       }
     }
     setTiles(tileArray)
