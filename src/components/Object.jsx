@@ -2,10 +2,15 @@ import React from 'react'
 import './Ground.css'
 // import grassAsset from '../assets/Grass tiles v.2.png'
 
-function Object({ style, asset, styleX, styleY }) {
+function Object({ style, top, left, styleWidth, asset, styleX, styleY }) {
   return (
-    <>
-      <img className={style} src={asset} alt="grass asset"
+    <div className={style}
+      style={{
+        top: `calc(85px * ${top})`,
+        left: `calc(85px * ${left})`,
+      }}
+    >
+      <img className={styleWidth} src={asset} alt="grass asset"
         style={{
           transform:
             `translate(
@@ -13,7 +18,7 @@ function Object({ style, asset, styleX, styleY }) {
                   calc(-16px * 5 * ${styleY}))`
         }}
       />
-    </>
+    </div>
   )
 }
 
