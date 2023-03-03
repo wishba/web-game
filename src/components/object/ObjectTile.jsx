@@ -1,46 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import Bridge from './Bridge'
-import OneIsland from './OneIsland'
-import TwoIsland from './TwoIsland'
 
-function ObjectTile({ oneIslandPlacement, oneIsland }) {
+function ObjectTile({ placement, tileAsset }) {
   const [tile, setTile] = useState()
   useEffect(() => {
     const tileArray = []
-    for (let index = 0; index < oneIslandPlacement.length; index++) {
+    for (let index = 0; index < placement.length; index++) {
       tileArray.push(
-        <div key={`oneIsland-${index}`}>
-          {oneIsland}
+        <div key={index}>
+          {tileAsset}
         </div>
       )
     }
     setTile(tileArray)
   }, [])
 
-  return (
-    <>
-      {tile}
-      {/* <OneIsland /> */}
-      {/* <Bridge /> */}
-      {/* <TwoIsland /> */}
-    </>
-  )
+  return (<>{tile}</>)
 }
 
 export default ObjectTile
-// import React from 'react'
-// import Bridge from './Bridge'
-// import OneIsland from './OneIsland'
-// import TwoIsland from './TwoIsland'
-
-// function Object() {
-//   return (
-//     <div>
-//       <OneIsland />
-//       <Bridge />
-//       <TwoIsland />
-//     </div>
-//   )
-// }
-
-// export default Object
