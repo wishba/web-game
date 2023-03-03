@@ -5,7 +5,7 @@ import grass from '../../assets/Grass tiles v.2.png'
 function TwoIsland() {
   return (
     <div>
-      <ObjectTile asset={grass} />
+      <ObjectTile asset={grass} assetWidth={176} />
     </div>
   )
 }
