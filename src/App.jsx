@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css'
-import Screen from './components/screen/Screen'
+import Camera from './components/screen/Camera'
 import GridLine from './components/gridLine/GridLine'
 
 function App() {
   const styles = { '--zoom': '5' }
   return (
     <div style={styles}>
-      <Screen />
+      <Camera />
       <GridLine />
     </div>
   )
