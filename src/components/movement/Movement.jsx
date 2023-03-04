@@ -27,20 +27,29 @@ function Movement() {
 
   useEffect(() => {
     console.log(`coordinate: ${positionX}/${positionY}`)
-    if (
-      positionX <= 40 && positionX >= -40
-      &&
-      positionY <= 40 && positionY >= -40
-    ) {
-      console.log('1/1');
-    }
 
     if (
       positionX <= 40 && positionX >= -80
       &&
       positionY <= 120 && positionY >= 40
     ) {
-      console.log('1/0');
+      console.log('0/1');
+    }
+
+    if (
+      positionX <= 40 && positionX >= -40
+      &&
+      positionY <= 40 && positionY >= -40
+    ) {
+      console.log('0/0');
+    }
+
+    if (
+      positionX <= 40 && positionX >= -40
+      &&
+      positionY <= -40 && positionY >= -120
+    ) {
+      console.log('0/-1');
     }
   }, [positionX, positionY])
 
