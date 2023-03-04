@@ -1,8 +1,12 @@
 import React from 'react'
+import './Hero.css'
+import heroAsset from '../../assets/Basic Charakter Spritesheet.png'
 
 function Hero() {
   return (
-    <>Hero</>
+    <div className='hero__container'>
+      <img className='hero' src={heroAsset} alt="hero" />
+    </div>
   )
 }
 

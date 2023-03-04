@@ -1,0 +1,9 @@
+.hero__container {
+  width: calc(var(--zoom) * 16px);
+  height: calc(var(--zoom) * 16px);
+}
+
+.hero {
+  width: calc(var(--zoom) * 192px);
+  transform: translate(calc(var(--zoom) * 16 * -1px), calc(var(--zoom) * 16 * -1px));
+}
