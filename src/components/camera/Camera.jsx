@@ -2,6 +2,7 @@ import React from 'react'
 import './Camera.css'
 import Object from '../object/Object'
 import Hero from '../hero/Hero'
+import GridLine from '../gridLine/GridLine'
 
 function Camera({ cameraX, cameraY }) {
   return (
@@ -14,6 +15,7 @@ function Camera({ cameraX, cameraY }) {
         <div style={{
           'transform': `translate(${cameraX}px, ${cameraY}px)`
         }}>
+          <GridLine />
           <Object />
         </div>
       </div>

@@ -4,6 +4,7 @@ import grassAsset from '../../assets/Grass tiles v.2.png'
 import bridgeAsset from '../../assets/Wood Bridge.png'
 import ObjectLoop from './ObjectLoop'
 import ObjectImage from './ObjectImage'
+import GridLine from '../gridLine/GridLine'
 
 function Object() {
   const oneIslandPlacement = [
