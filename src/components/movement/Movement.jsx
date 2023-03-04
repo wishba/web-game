@@ -27,18 +27,18 @@ function Movement() {
 
   useEffect(() => {
     console.log(`${positionX}/${positionY}`)
-    // if (positionY >= 0) {
-    //   setPositionY(80 + 30)
-    // }
-    // if (positionY <= -80) {
-    //   setPositionY(-80)
-    // }
-    // if (positionX >= 80) {
-    //   setPositionX(80)
-    // }
-    // if (positionX <= -80) {
-    //   setPositionX(-80)
-    // }
+    if (positionX >= 40) {
+      setPositionX(40)
+    }
+    if (positionY >= 40) {
+      setPositionY(40)
+    }
+    if (positionX <= -40) {
+      setPositionX(-40)
+    }
+    if (positionY <= -40) {
+      setPositionY(-40)
+    }
   }, [positionX, positionY])
 
   return (

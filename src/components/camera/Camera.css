@@ -16,6 +16,7 @@
   left: 50%;
   top: 50%;
   z-index: 1;
-  transform: translate(calc(var(--zoom) * -8px), calc(var(--zoom) * -16px));
+  /* transform: translate(calc(var(--zoom) * -8px), calc(var(--zoom) * -8px)); */
+  transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px));
   overflow: hidden;
 }
