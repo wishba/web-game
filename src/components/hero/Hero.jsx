@@ -1,11 +1,8 @@
-import './Hero.css'
-import heroAsset from '../assets/Basic Charakter Spritesheet.png'
+import React from 'react'
 
-function Hero({ facing }) {
+function Hero() {
   return (
-    <div className='hero'>
-      <img className={`hero__asset hero--${facing}`} src={heroAsset} alt="hero" />
-    </div>
+    <>Hero</>
   )
 }
 

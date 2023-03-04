@@ -1,6 +1,6 @@
 import React from 'react'
 import './Movement.css'
-import Camera from '../screen/Camera'
+import Camera from '../camera/Camera'
 
 function Movement() {
   return (

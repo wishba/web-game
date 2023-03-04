@@ -7,8 +7,8 @@ function App() {
   const styles = { '--zoom': '5' }
   return (
     <div style={styles}>
-      <Movement />
       <GridLine />
+      <Movement />
     </div>
   )
 }
