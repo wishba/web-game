@@ -16,7 +16,7 @@ function GridLine() {
     for (let indexY = 0; indexY < tileVertical; indexY++) {
       for (let indexX = 0; indexX < tileHorizontal; indexX++) {
         tileArray.push(
-          <div className='grid' key={`${indexY}/${indexX}`}>
+          <div className='gridLine__tile' key={`${indexY}/${indexX}`}>
             {`${indexY}/${indexX}`}
           </div>
         )
