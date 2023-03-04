@@ -37,7 +37,7 @@ function Object() {
   ]
 
   return (
-    <>
+    <div className='appTile__objectContainer'>
       <ObjectLoop
         placement={oneIslandPlacement}
         tileCoordinate={oneIslandTile}
@@ -61,7 +61,7 @@ function Object() {
           <ObjectImage asset={bridgeAsset} width={80} />
         }
       />
-    </>
+    </div>
   )
 }
 

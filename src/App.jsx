@@ -1,14 +1,16 @@
 import React from 'react'
 import './App.css'
-import Object from './components/object/Object'
 import GridLine from './components/gridLine/GridLine'
+import Screen from './components/screen/Screen'
 
 function App() {
   const styles = { '--zoom': '5' }
 
   return (
     <div style={styles}>
-      <Object />
+      <div className='app__screenContainer'>
+        <Screen />
+      </div>
       <GridLine />
     </div>
   )

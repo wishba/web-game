@@ -6,7 +6,7 @@ function ObjectLoop({ placement, tileCoordinate, tileAsset }) {
     const tileArray = []
     for (let index = 0; index < placement.length; index++) {
       tileArray.push(
-        <div key={index} className='appTile'
+        <div key={index} className='appTile appTile--object'
           style={{
             'top': `calc(var(--zoom) * 16 * ${placement[index][0]}px)`,
             'left': `calc(var(--zoom) * 16 * ${placement[index][1]}px)`,
