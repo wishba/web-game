@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Movement.css'
 import Camera from '../camera/Camera'
 
@@ -23,8 +23,23 @@ function Movement() {
   }
   function handleMoveStop() {
     clearInterval(intervalId.current)
-    console.log(`${positionX}/${positionY}`);
   }
+
+  useEffect(() => {
+    console.log(`${positionX}/${positionY}`)
+    if (positionY >= 80) {
+      setPositionY(80)
+    }
+    if (positionY <= -80) {
+      setPositionY(-80)
+    }
+    if (positionX >= 80) {
+      setPositionX(80)
+    }
+    if (positionX <= -80) {
+      setPositionX(-80)
+    }
+  }, [positionX, positionY])
 
   return (
     <>
