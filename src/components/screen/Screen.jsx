@@ -1,16 +1,10 @@
 import React from 'react'
-import GridLine from '../gridLine/GridLine'
-import Object from '../object/Object'
 import './Screen.css'
+import Object from '../object/Object'
 
 function Screen() {
   return (
-    <div className='screen'>
-      <div>
-        <Object />
-        {/* <GridLine /> */}
-      </div>
-    </div>
+    <div className='screen'><Object /></div>
   )
 }
 

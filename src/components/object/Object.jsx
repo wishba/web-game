@@ -1,7 +1,8 @@
 import React from 'react'
-import ObjectLoop from './ObjectLoop'
+import './Object.css'
 import grassAsset from '../../assets/Grass tiles v.2.png'
 import bridgeAsset from '../../assets/Wood Bridge.png'
+import ObjectLoop from './ObjectLoop'
 import ObjectImage from './ObjectImage'
 
 function Object() {
@@ -37,7 +38,7 @@ function Object() {
   ]
 
   return (
-    <div className='appTile__objectContainer'>
+    <>
       <ObjectLoop
         placement={oneIslandPlacement}
         tileCoordinate={oneIslandTile}
@@ -61,7 +62,7 @@ function Object() {
           <ObjectImage asset={bridgeAsset} width={80} />
         }
       />
-    </div>
+    </>
   )
 }
 

@@ -1,15 +1,11 @@
-.gridLine__tile {
-  border: calc(var(--zoom) * 1px) solid lightblue;
-  width: calc(var(--zoom) * calc(16px - 2px));
-  height: calc(var(--zoom) * calc(16px - 2px));
-}
-
-.gridLine__container {
-  overflow: hidden;
-}
-
 .gridLine {
   display: grid;
   width: fit-content;
   height: 100vh;
+}
+
+.gridLine__tile {
+  border: calc(var(--zoom) * 1px) solid lightblue;
+  width: calc(var(--zoom) * calc(16px - 2px));
+  height: calc(var(--zoom) * calc(16px - 2px));
 }

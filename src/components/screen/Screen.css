@@ -1,7 +1,6 @@
 .screen {
   width: calc(var(--zoom) * 16 * 5 * 1px);
   height: calc(var(--zoom) * 16 * 5 * 1px);
-  border: 1px solid red;
-  background-color: transparent;
+  position: absolute;
   overflow: auto;
 }
