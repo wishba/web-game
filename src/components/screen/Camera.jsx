@@ -2,11 +2,11 @@ import React from 'react'
 import './Camera.css'
 import Object from '../object/Object'
 
-function Camera() {
+function Camera({ cameraX, cameraY }) {
   return (
     <div className='camera'>
       <div style={{
-        'transform': 'translate(0px, 0px)'
+        'transform': `translate(${cameraX}px, ${cameraY}px)`
       }}>
         <Object />
       </div>

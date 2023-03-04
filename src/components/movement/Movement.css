@@ -1,0 +1,44 @@
+.movement {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  width: 210px;
+}
+
+.movement__button:active {
+  background-color: #e8b5ac;
+}
+
+.movement__button {
+  font-size: calc(var(--zoom) * 10px);
+  width: calc(var(--zoom) * 14px);
+  height: calc(var(--zoom) * 14px);
+  border: calc(var(--zoom) * 1px) solid #5c4e92;
+  color: #5c4e92;
+  background-color: #f3f2c0;
+}
+
+.movement__button--up {
+  grid-area: 1/2/2/3;
+}
+
+.movement__button--left {
+  transform: rotate(270deg);
+  grid-area: 2/1/3/3;
+}
+
+.movement__button--right {
+  transform: rotate(90deg);
+  grid-area: 2/3/3/4;
+}
+
+.movement__button--down {
+  transform: rotate(180deg);
+  grid-area: 3/2/4/3;
+}
+
+.movement__arrow {
+  transform: translateX(2.25px);
+}
