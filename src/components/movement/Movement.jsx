@@ -27,8 +27,13 @@ function Movement() {
 
   useEffect(() => {
     console.log(`${positionX}/${positionY}`)
-    // 1/1
-    if (positionX < 40 && positionX > -40 && positionY < 40 && positionY > -40) {
+    const tileX = 1
+    const tileY = 1
+    if (
+      positionX < 40 * tileX && positionX > 40 * tileX * -1
+      &&
+      positionY < 40 * tileY && positionY > 40 * tileY * -1
+    ) {
       console.log('1/1');
     }
   }, [positionX, positionY])
