@@ -27,16 +27,15 @@ function Movement() {
 
   useEffect(() => {
     console.log(`${positionX}/${positionY}`)
-    function tile(coordinateX, coordinateY) {
-      if (
-        positionX < 40 * coordinateX && positionX > 40 * coordinateX * -1
-        &&
-        positionY < 40 * coordinateY && positionY > 40 * coordinateY * -1
-      ) {
-        console.log('1/1');
-      }
+    const coordinateX = 1
+    const coordinateY = 1
+    if (
+      positionX < 40 * coordinateX && positionX > 40 * coordinateX * -1
+      &&
+      positionY < 40 * coordinateY && positionY > 40 * coordinateY * -1
+    ) {
+      console.log('1/1');
     }
-    tile(1, 1)
   }, [positionX, positionY])
 
   return (
