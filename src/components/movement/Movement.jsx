@@ -3,8 +3,10 @@ import './Movement.css'
 import Camera from './camera/Camera'
 
 function Movement() {
-  const [positionX, setPositionX] = useState(0)
-  const [positionY, setPositionY] = useState(0)
+  const startingX = 80 * 2
+  const startingY = 80 * 2
+  const [positionX, setPositionX] = useState(startingX)
+  const [positionY, setPositionY] = useState(startingY)
   const intervalId = useRef()
 
   function handleMoveStart(direction) {
@@ -26,7 +28,7 @@ function Movement() {
   }
 
   useEffect(() => {
-    console.log(`coordinate: ${positionX}/${positionY}`)
+    console.log(`coordinate: ${positionX - startingX}/${positionY - startingY}`)
   }, [positionX, positionY])
 
   return (
