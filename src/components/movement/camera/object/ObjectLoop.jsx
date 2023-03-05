@@ -8,8 +8,8 @@ function ObjectLoop({ placement, tileCoordinate, tileAsset }) {
       tileArray.push(
         <div key={index} className='object__tile'
           style={{
-            top: `calc(var(--zoom) * 16px * ${placement[index][0]})`,
-            left: `calc(var(--zoom) * 16px * ${placement[index][1]})`,
+            left: `calc(var(--zoom) * 16px * ${placement[index][0]})`,
+            top: `calc(var(--zoom) * 16px * ${placement[index][1]})`,
           }}
         >
           <div style={{
