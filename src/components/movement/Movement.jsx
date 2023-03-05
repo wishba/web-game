@@ -28,15 +28,17 @@ function Movement() {
   }
 
   useEffect(() => {
-    const coordinateX = Math.round((-1 * (positionX - startingX)) / 80)
-    const coordinateY = Math.round((-1 * (positionY - startingY)) / 80)
-    const coordinate = [coordinateX, coordinateY]
+    const coordinateX = -1 * (positionX - startingX)
+    const coordinateY = -1 * (positionY - startingY)
+    const coordinate = [Math.round(coordinateX / 80), Math.round(coordinateY / 80)]
     console.log(`coordinate: ${coordinate}`);
 
     const wallArray = [
-      /**   */[1, 0], [2, 0],
-      [0, 1],
-      [0, 2],
+      [0, 0], [1, 0], [2, 0], [3, 0], [4, 0],
+      [0, 1],/**                    */[4, 1],
+      [0, 2],/**                            */
+      [0, 3],/**                    */[4, 3],
+      [0, 4], [1, 4], [2, 4], [3, 4], [4, 4],
     ]
 
     if (wallArray.some(element =>
