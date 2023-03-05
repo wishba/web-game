@@ -67,11 +67,11 @@ function Movement() {
     // console.log(oneIslandPlacement);
     console.log(positionArray);
 
-    if (oneIslandPlacement.some(element =>
+    if (!oneIslandPlacement.some(element =>
       element[0] === positionArray[0] &&
       element[1] === positionArray[1]
     )) {
-      console.log('include');
+      console.log('not include');
     }
   }, [positionX, positionY])
 
