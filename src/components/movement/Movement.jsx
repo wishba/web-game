@@ -7,8 +7,8 @@ function Movement() {
   // const [positionY, setPositionY] = useState(0)
   const resetX = 5 * 16 * 2
   const resetY = 5 * 16 * 2
-  const [positionX, setPositionX] = useState(resetX)
-  const [positionY, setPositionY] = useState(resetY)
+  const [positionX, setPositionX] = useState(5 * 16 * 1)
+  const [positionY, setPositionY] = useState(5 * 16 * 1)
   const intervalId = useRef()
 
   function handleMoveStart(direction) {
