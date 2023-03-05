@@ -68,6 +68,24 @@ function Movement() {
   }
   function handleMoveStop() {
     clearInterval(intervalId.current)
+
+    if (pressUp === true) {
+      // console.log('pressed up');
+      //   setPositionY(positionY - 5)
+      setPressUp(false)
+    } else if (pressLeft === true) {
+      // console.log('pressed left');
+      //   setPositionX(positionX - 5)
+      setPressLeft(false)
+    } else if (pressRight === true) {
+      // console.log('pressed right');
+      //   setPositionX(positionX + 5)
+      setPressRight(false)
+    } else if (pressDown === true) {
+      // console.log('pressed down');
+      //   setPositionY(positionY + 5)
+      setPressDown(false)
+    }
   }
 
   useEffect(() => {
@@ -99,18 +117,22 @@ function Movement() {
       // )) {
       console.log('not include')
       // handleMoveStop()
-      // if (pressUp === true) {
-      //   setPositionY(positionY - 5)
-      // }
-      // if (pressLeft === true) {
-      //   setPositionX(positionX - 5)
-      // }
-      // if (pressRight === true) {
-      //   setPositionX(positionX + 5)
-      // }
-      // if (pressDown === true) {
-      //   setPositionY(positionY + 5)
-      // }
+      if (pressUp === true) {
+        console.log('pressed up');
+        setPositionY(positionY - 5)
+      } else if (pressLeft === true) {
+        console.log('pressed left');
+        setPositionX(positionX - 5)
+      } else if (pressRight === true) {
+        console.log('pressed right');
+        setPositionX(positionX + 5)
+      } else if (pressDown === true) {
+        console.log('pressed down');
+        setPositionY(positionY + 5)
+      }
+
+
+
       // else {
       //   handleMoveStop()
       // }
