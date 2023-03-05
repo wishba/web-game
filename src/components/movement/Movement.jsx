@@ -3,12 +3,12 @@ import './Movement.css'
 import Camera from '../camera/Camera'
 
 function Movement() {
-  // const [positionX, setPositionX] = useState(0)
-  // const [positionY, setPositionY] = useState(0)
+  const [positionX, setPositionX] = useState(0)
+  const [positionY, setPositionY] = useState(0)
   const resetX = 5 * 16 * 2
   const resetY = 5 * 16 * 2
-  const [positionX, setPositionX] = useState(5 * 16 * 1)
-  const [positionY, setPositionY] = useState(5 * 16 * 1)
+  // const [positionX, setPositionX] = useState(5 * 16 * 1)
+  // const [positionY, setPositionY] = useState(5 * 16 * 1)
   const intervalId = useRef()
 
   function handleMoveStart(direction) {
@@ -30,47 +30,15 @@ function Movement() {
   }
 
   useEffect(() => {
-    console.log(`coordinate: ${positionX - resetX}/${positionY - resetY}`)
-    // console.log(`coordinate: ${positionX}/${positionY}`)
-
-    // if (
-    //   positionX <= 40 && positionX >= -80
-    //   &&
-    //   positionY <= 200 && positionY >= 120
-    // ) {
-    //   console.log('0/2');
-    // }
-
-    // if (
-    //   positionX <= 40 && positionX >= -80
-    //   &&
-    //   positionY <= 120 && positionY >= 40
-    // ) {
-    //   console.log('0/1');
-    // }
-
+    const coordinateX = -1 * (positionX - resetX)
+    const coordinateY = -1 * (positionY - resetY)
+    // console.log(`coordinate: ${coordinateX}/${coordinateY}`)
     // if (
     //   positionX <= 40 && positionX >= -40
     //   &&
-    //   positionY <= 40 && positionY >= -40
+    //   positionY <= 80 && positionY >= -200
     // ) {
-    //   console.log('0/0');
-    // }
-
-    // if (
-    //   positionX <= 40 && positionX >= -40
-    //   &&
-    //   positionY <= -40 && positionY >= -120
-    // ) {
-    //   console.log('0/-1');
-    // }
-
-    // if (
-    //   positionX <= 40 && positionX >= -40
-    //   &&
-    //   positionY <= -120 && positionY >= -200
-    // ) {
-    //   console.log('0/-2');
+    //   console.log('1/1');
     // }
   }, [positionX, positionY])
 

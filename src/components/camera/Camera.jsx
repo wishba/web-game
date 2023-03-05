@@ -8,9 +8,9 @@ function Camera({ cameraX, cameraY }) {
   return (
     <div className='camera__container'>
       {/* <div className='camera'> */}
-      <div className='camera__hero'>
-        <Hero />
-      </div>
+      {/* <div className='camera__hero'> */}
+      <Hero />
+      {/* </div> */}
 
       <div style={{
         // 'transform':
@@ -27,7 +27,7 @@ function Camera({ cameraX, cameraY }) {
         // 'transform': `translate(${cameraX}px, ${cameraY}px)`,
       }}>
         <Object />
-        {/* <GridLine /> */}
+        <GridLine />
       </div>
       <div className='camera'></div>
       {/* </div> */}
