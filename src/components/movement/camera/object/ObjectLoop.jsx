@@ -8,15 +8,15 @@ function ObjectLoop({ placement, tileCoordinate, tileAsset }) {
       tileArray.push(
         <div key={index} className='object__tile'
           style={{
-            'top': `calc(var(--zoom) * 16 * ${placement[index][0]}px)`,
-            'left': `calc(var(--zoom) * 16 * ${placement[index][1]}px)`,
+            top: `calc(var(--zoom) * 16px * ${placement[index][0]})`,
+            left: `calc(var(--zoom) * 16px * ${placement[index][1]})`,
           }}
         >
           <div style={{
-            'transform': `
+            transform: `
                 translate(
-                  calc(var(--zoom) * 16 * -${tileCoordinate[index][0]}px), 
-                  calc(var(--zoom) * 16 * -${tileCoordinate[index][1]}px))`
+                  calc(var(--zoom) * 16px * -${tileCoordinate[index][0]}), 
+                  calc(var(--zoom) * 16px * -${tileCoordinate[index][1]}))`
           }}>
             {tileAsset}
           </div>

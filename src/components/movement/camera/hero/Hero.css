@@ -8,5 +8,5 @@
 
 .hero {
   width: calc(var(--zoom) * 192px);
-  transform: translate(calc(var(--zoom) * 16 * -1px), calc(var(--zoom) * 16 * -1px));
+  transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -1));
 }

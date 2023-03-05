@@ -1,6 +1,6 @@
 .camera {
-  width: calc(var(--zoom) * 16 * 5 * 1px);
-  height: calc(var(--zoom) * 16 * 5 * 1px);
-  position: absolute;
-  top: 0;
+  width: calc(var(--zoom) * 16px * 5);
+  height: calc(var(--zoom) * 16px * 5);
+  border: 1px solid black;
+  overflow: hidden;
 }
