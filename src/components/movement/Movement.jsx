@@ -70,20 +70,12 @@ function Movement() {
     clearInterval(intervalId.current)
 
     if (pressUp === true) {
-      // console.log('pressed up');
-      //   setPositionY(positionY - 5)
       setPressUp(false)
     } else if (pressLeft === true) {
-      // console.log('pressed left');
-      //   setPositionX(positionX - 5)
       setPressLeft(false)
     } else if (pressRight === true) {
-      // console.log('pressed right');
-      //   setPositionX(positionX + 5)
       setPressRight(false)
     } else if (pressDown === true) {
-      // console.log('pressed down');
-      //   setPositionY(positionY + 5)
       setPressDown(false)
     }
   }
@@ -94,7 +86,6 @@ function Movement() {
       Math.round(positionX * -1 / 80),
       Math.round(positionY * -1 / 80)
     ]
-    // console.log(oneIslandPlacement);
     console.log(positionArray);
     console.log(`${positionX} | ${positionY}`);
 
@@ -108,15 +99,7 @@ function Movement() {
     if (!containsPosition(oneIslandPlacement, positionArray) &&
       !containsPosition(bridgePlacement, positionArray) &&
       !containsPosition(twoIslandPlacement, positionArray)) {
-      // Do something if the position is not found in any of the arrays
-      // }
-
-      // if (!oneIslandPlacement.some(element =>
-      // element[0] === positionArray[0] &&
-      // element[1] === positionArray[1]
-      // )) {
       console.log('not include')
-      // handleMoveStop()
       if (pressUp === true) {
         console.log('pressed up');
         setPositionY(positionY - 5)
@@ -130,30 +113,16 @@ function Movement() {
         console.log('pressed down');
         setPositionY(positionY + 5)
       }
-
-
-
-      // else {
-      //   handleMoveStop()
-      // }
-      // if (pressUp === true) {
-      //   setPositionY(positionY - 5)
-      // } else if (pressLeft === true) {
-      //   setPositionX(positionX + 5)
-      // } else if (pressRight === true) {
-      //   setPositionX(positionX - 5)
-      // } else if (pressDown === true) {
-      //   setPositionY(positionY - 5)
-      // } else {
-      //   handleMoveStop()
-      // }
-      // console.log(pressUp);
-      // setPositionX(positionX)
     }
   }, [positionX, positionY])
 
   return (
     <>
+      {/* <div
+        style={{
+          transform: 'translate(10px, 10px)',
+        }}
+      > */}
       <Camera
         cameraX={positionX}
         cameraY={positionY}
@@ -164,6 +133,7 @@ function Movement() {
         twoIslandPlacement={twoIslandPlacement}
         twoIslandTile={twoIslandTile}
       />
+      {/* </div> */}
 
       <div className='movement'>
         <button className='movement__button movement__button--up'

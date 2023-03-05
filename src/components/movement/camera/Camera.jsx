@@ -23,21 +23,25 @@ function Camera({
       <div style={{
         transform: `translate(${cameraX}px, ${cameraY}px)`,
       }}>
-        <Object
-          oneIslandPlacement={oneIslandPlacement}
-          oneIslandTile={oneIslandTile}
-          bridgePlacement={bridgePlacement}
-          bridgeTile={bridgeTile}
-          twoIslandPlacement={twoIslandPlacement}
-          twoIslandTile={twoIslandTile}
-        />
-
         <div style={{
-          position: 'absolute',
-          zIndex: '-1',
-          top: '0',
+          transform: 'translate(calc(16px * var(--zoom) * 2), calc(16px * var(--zoom) * 2))',
         }}>
-          <GridLine />
+          <Object
+            oneIslandPlacement={oneIslandPlacement}
+            oneIslandTile={oneIslandTile}
+            bridgePlacement={bridgePlacement}
+            bridgeTile={bridgeTile}
+            twoIslandPlacement={twoIslandPlacement}
+            twoIslandTile={twoIslandTile}
+          />
+
+          <div style={{
+            position: 'absolute',
+            zIndex: '-1',
+            top: '0',
+          }}>
+            <GridLine />
+          </div>
         </div>
       </div>
     </div>
