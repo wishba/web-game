@@ -1,29 +1,6 @@
-.camera__container {
-  /* position: absolute; */
-  /* z-index: 1; */
-  /* top: 0; */
-  /* width: calc(var(--zoom) * 16 * 5 * 1px); */
-  /* height: calc(var(--zoom) * 16 * 5 * 1px); */
-  /* overflow: hidden; */
-  /* border: 1px solid black; */
-}
-
 .camera {
   width: calc(var(--zoom) * 16 * 5 * 1px);
   height: calc(var(--zoom) * 16 * 5 * 1px);
-  /* overflow: hidden; */
-  /* border: 1px solid black; */
-  /* position: relative; */
   position: absolute;
   top: 0;
-}
-
-.camera__hero {
-  /* position: absolute; */
-  /* left: 50%; */
-  /* top: 50%; */
-  /* z-index: 1; */
-  /* transform: translate(calc(var(--zoom) * -8px), calc(var(--zoom) * -8px)); */
-  /* transform: translate(calc(var(--zoom) * -16px), calc(var(--zoom) * -16px)); */
-  overflow: hidden;
 }

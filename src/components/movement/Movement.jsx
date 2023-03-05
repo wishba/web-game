@@ -5,10 +5,6 @@ import Camera from './camera/Camera'
 function Movement() {
   const [positionX, setPositionX] = useState(0)
   const [positionY, setPositionY] = useState(0)
-  const resetX = 5 * 16 * 2
-  const resetY = 5 * 16 * 2
-  // const [positionX, setPositionX] = useState(5 * 16 * 1)
-  // const [positionY, setPositionY] = useState(5 * 16 * 1)
   const intervalId = useRef()
 
   function handleMoveStart(direction) {
@@ -30,21 +26,8 @@ function Movement() {
   }
 
   useEffect(() => {
-    const coordinateX = -1 * (positionX - resetX)
-    const coordinateY = -1 * (positionY - resetY)
-    // console.log(`coordinate: ${coordinateX}/${coordinateY}`)
-    // if (
-    //   positionX <= 40 && positionX >= -40
-    //   &&
-    //   positionY <= 80 && positionY >= -200
-    // ) {
-    //   console.log('1/1');
-    // }
+    console.log(`coordinate: ${positionX}/${positionY}`)
   }, [positionX, positionY])
-
-  // 0) .5
-  // 1) .5 + 1
-  // 2) .5 + 1 + 1
 
   return (
     <>
