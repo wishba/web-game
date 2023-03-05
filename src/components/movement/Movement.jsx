@@ -80,24 +80,37 @@ function Movement() {
     console.log(positionArray);
     console.log(`${positionX} | ${positionY}`);
 
-    if (!oneIslandPlacement.some(element =>
-      element[0] === positionArray[0] &&
-      element[1] === positionArray[1]
-    )) {
+    function containsPosition(array, positionArray) {
+      return array.some(element =>
+        element[0] === positionArray[0] &&
+        element[1] === positionArray[1]
+      );
+    }
+
+    if (!containsPosition(oneIslandPlacement, positionArray) &&
+      !containsPosition(bridgePlacement, positionArray) &&
+      !containsPosition(twoIslandPlacement, positionArray)) {
+      // Do something if the position is not found in any of the arrays
+      // }
+
+      // if (!oneIslandPlacement.some(element =>
+      // element[0] === positionArray[0] &&
+      // element[1] === positionArray[1]
+      // )) {
       console.log('not include')
-      handleMoveStop()
-      if (pressUp === true) {
-        setPositionY(positionY - 5)
-      }
-      if (pressLeft === true) {
-        setPositionX(positionX - 5)
-      }
-      if (pressRight === true) {
-        setPositionX(positionX + 5)
-      }
-      if (pressDown === true) {
-        setPositionY(positionY + 5)
-      }
+      // handleMoveStop()
+      // if (pressUp === true) {
+      //   setPositionY(positionY - 5)
+      // }
+      // if (pressLeft === true) {
+      //   setPositionX(positionX - 5)
+      // }
+      // if (pressRight === true) {
+      //   setPositionX(positionX + 5)
+      // }
+      // if (pressDown === true) {
+      //   setPositionY(positionY + 5)
+      // }
       // else {
       //   handleMoveStop()
       // }

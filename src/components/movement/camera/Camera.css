@@ -2,7 +2,7 @@
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
   border: 1px solid black;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .camera__hero {
