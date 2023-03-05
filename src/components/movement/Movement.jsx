@@ -28,7 +28,24 @@ function Movement() {
   }
 
   useEffect(() => {
-    console.log(`coordinate: ${positionX - startingX}/${positionY - startingY}`)
+    const coordinateX = Math.round((-1 * (positionX - startingX)) / 80)
+    const coordinateY = Math.round((-1 * (positionY - startingY)) / 80)
+    const coordinate = [coordinateX, coordinateY]
+    console.log(`coordinate: ${coordinate}`);
+
+    const wallArray = [
+      /**   */[1, 0], [2, 0],
+      [0, 1],
+      [0, 2],
+    ]
+
+    if (wallArray.some(element =>
+      element[0] === coordinate[0]
+      &&
+      element[1] === coordinate[1]
+    )) {
+      console.log('stop');
+    }
   }, [positionX, positionY])
 
   return (
