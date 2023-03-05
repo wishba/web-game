@@ -7,7 +7,9 @@ import GridLine from './gridLine/GridLine'
 function Camera({ cameraX, cameraY }) {
   return (
     <div className='camera'>
-      <Hero />
+      <div className='camera__hero'>
+        <Hero />
+      </div>
 
       <div style={{
         transform: `translate(${cameraX}px, ${cameraY}px)`,
