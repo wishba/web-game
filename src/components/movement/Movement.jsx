@@ -34,23 +34,35 @@ function Movement() {
     /*    */[0, 2], [1, 2], [1, 2], [1, 2], [2, 2],
   ]
 
-  // const [positionX, setPositionX] = useState(-80)
-  // const [positionY, setPositionY] = useState(-80)
-  const [positionX, setPositionX] = useState(0)
-  const [positionY, setPositionY] = useState(0)
+  const [positionX, setPositionX] = useState(-80)
+  const [positionY, setPositionY] = useState(-80)
+  // const [positionX, setPositionX] = useState(0)
+  // const [positionY, setPositionY] = useState(0)
+  const [pressUp, setPressUp] = useState(false)
+  const [pressLeft, setPressLeft] = useState(false)
+  const [pressRight, setPressRight] = useState(false)
+  const [pressDown, setPressDown] = useState(false)
   const intervalId = useRef()
 
   function handleMoveStart(direction) {
     intervalId.current = setInterval(() => {
       switch (direction) {
         case 'up':
-          return setPositionY(positionY => positionY + 1)
+          setPositionY(positionY => positionY + 1)
+          setPressUp(true)
+          return
         case 'left':
-          return setPositionX(positionX => positionX + 1)
+          setPositionX(positionX => positionX + 1)
+          setPressLeft(true)
+          return
         case 'right':
-          return setPositionX(positionX => positionX - 1)
+          setPositionX(positionX => positionX - 1)
+          setPressRight(true)
+          return
         case 'down':
-          return setPositionY(positionY => positionY - 1)
+          setPositionY(positionY => positionY - 1)
+          setPressDown(true)
+          return
       }
     }, 25)
   }
@@ -66,12 +78,42 @@ function Movement() {
     ]
     // console.log(oneIslandPlacement);
     console.log(positionArray);
+    console.log(`${positionX} | ${positionY}`);
 
     if (!oneIslandPlacement.some(element =>
       element[0] === positionArray[0] &&
       element[1] === positionArray[1]
     )) {
-      console.log('not include');
+      console.log('not include')
+      handleMoveStop()
+      if (pressUp === true) {
+        setPositionY(positionY - 5)
+      }
+      if (pressLeft === true) {
+        setPositionX(positionX - 5)
+      }
+      if (pressRight === true) {
+        setPositionX(positionX + 5)
+      }
+      if (pressDown === true) {
+        setPositionY(positionY + 5)
+      }
+      // else {
+      //   handleMoveStop()
+      // }
+      // if (pressUp === true) {
+      //   setPositionY(positionY - 5)
+      // } else if (pressLeft === true) {
+      //   setPositionX(positionX + 5)
+      // } else if (pressRight === true) {
+      //   setPositionX(positionX - 5)
+      // } else if (pressDown === true) {
+      //   setPositionY(positionY - 5)
+      // } else {
+      //   handleMoveStop()
+      // }
+      // console.log(pressUp);
+      // setPositionX(positionX)
     }
   }, [positionX, positionY])
 
