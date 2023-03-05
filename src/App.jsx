@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import GridLine from './components/gridLine/GridLine'
+import GridLine from './components/movement/camera/gridLine/GridLine'
 import Movement from './components/movement/Movement'
 
 function App() {

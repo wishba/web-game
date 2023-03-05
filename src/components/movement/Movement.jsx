@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Movement.css'
-import Camera from '../camera/Camera'
+import Camera from './camera/Camera'
 
 function Movement() {
   const [positionX, setPositionX] = useState(0)
