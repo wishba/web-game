@@ -3,8 +3,12 @@ import './Movement.css'
 import Camera from '../camera/Camera'
 
 function Movement() {
-  const [positionX, setPositionX] = useState(0)
-  const [positionY, setPositionY] = useState(0)
+  // const [positionX, setPositionX] = useState(0)
+  // const [positionY, setPositionY] = useState(0)
+  const resetX = 5 * 16 * 2
+  const resetY = 5 * 16 * 2
+  const [positionX, setPositionX] = useState(resetX)
+  const [positionY, setPositionY] = useState(resetY)
   const intervalId = useRef()
 
   function handleMoveStart(direction) {
@@ -26,36 +30,58 @@ function Movement() {
   }
 
   useEffect(() => {
-    console.log(`coordinate: ${positionX}/${positionY}`)
+    console.log(`coordinate: ${positionX - resetX}/${positionY - resetY}`)
+    // console.log(`coordinate: ${positionX}/${positionY}`)
 
-    if (
-      positionX <= 40 && positionX >= -80
-      &&
-      positionY <= 120 && positionY >= 40
-    ) {
-      console.log('0/1');
-    }
+    // if (
+    //   positionX <= 40 && positionX >= -80
+    //   &&
+    //   positionY <= 200 && positionY >= 120
+    // ) {
+    //   console.log('0/2');
+    // }
 
-    if (
-      positionX <= 40 && positionX >= -40
-      &&
-      positionY <= 40 && positionY >= -40
-    ) {
-      console.log('0/0');
-    }
+    // if (
+    //   positionX <= 40 && positionX >= -80
+    //   &&
+    //   positionY <= 120 && positionY >= 40
+    // ) {
+    //   console.log('0/1');
+    // }
 
-    if (
-      positionX <= 40 && positionX >= -40
-      &&
-      positionY <= -40 && positionY >= -120
-    ) {
-      console.log('0/-1');
-    }
+    // if (
+    //   positionX <= 40 && positionX >= -40
+    //   &&
+    //   positionY <= 40 && positionY >= -40
+    // ) {
+    //   console.log('0/0');
+    // }
+
+    // if (
+    //   positionX <= 40 && positionX >= -40
+    //   &&
+    //   positionY <= -40 && positionY >= -120
+    // ) {
+    //   console.log('0/-1');
+    // }
+
+    // if (
+    //   positionX <= 40 && positionX >= -40
+    //   &&
+    //   positionY <= -120 && positionY >= -200
+    // ) {
+    //   console.log('0/-2');
+    // }
   }, [positionX, positionY])
+
+  // 0) .5
+  // 1) .5 + 1
+  // 2) .5 + 1 + 1
 
   return (
     <>
       <Camera cameraX={positionX} cameraY={positionY} />
+
       <div className='movement'>
         <button className='movement__button movement__button--up'
           onMouseDown={() => handleMoveStart('up')}

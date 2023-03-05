@@ -1,7 +1,8 @@
 .gridLine {
   display: grid;
   width: fit-content;
-  height: 100vh;
+  /* height: 100vh; */
+  /* width: 100vw; */
 }
 
 .gridLine__tile {
