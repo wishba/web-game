@@ -4,7 +4,16 @@ import Hero from './hero/Hero'
 import Object from './object/Object'
 import GridLine from './gridLine/GridLine'
 
-function Camera({ cameraX, cameraY }) {
+function Camera({
+  cameraX,
+  cameraY,
+  oneIslandPlacement,
+  oneIslandTile,
+  bridgePlacement,
+  bridgeTile,
+  twoIslandPlacement,
+  twoIslandTile
+}) {
   return (
     <div className='camera'>
       <div className='camera__hero'>
@@ -14,7 +23,14 @@ function Camera({ cameraX, cameraY }) {
       <div style={{
         transform: `translate(${cameraX}px, ${cameraY}px)`,
       }}>
-        <Object />
+        <Object
+          oneIslandPlacement={oneIslandPlacement}
+          oneIslandTile={oneIslandTile}
+          bridgePlacement={bridgePlacement}
+          bridgeTile={bridgeTile}
+          twoIslandPlacement={twoIslandPlacement}
+          twoIslandTile={twoIslandTile}
+        />
 
         <div style={{
           position: 'absolute',
