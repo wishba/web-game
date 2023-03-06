@@ -12,12 +12,13 @@ function Camera({
   bridgePlacement,
   bridgeTile,
   twoIslandPlacement,
-  twoIslandTile
+  twoIslandTile,
+  face
 }) {
   return (
     <div className='camera'>
       <div className='camera__hero'>
-        <Hero />
+        <Hero face={face} />
       </div>
 
       <div style={{

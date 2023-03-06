@@ -42,6 +42,7 @@ function Movement() {
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
+  const [face, setFace] = useState()
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
 
@@ -81,6 +82,7 @@ function Movement() {
         case 'up':
           counter()
           console.log(`up-${count}`);
+          setFace(`up-${count}`)
           return
         case 'left':
           counter()
@@ -168,6 +170,8 @@ function Movement() {
         bridgeTile={bridgeTile}
         twoIslandPlacement={twoIslandPlacement}
         twoIslandTile={twoIslandTile}
+        face={face}
+      // face={'up-0'}
       />
       {/* </div> */}
 
@@ -176,8 +180,14 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('up')
             handleAnimationStart('up')
+            setFace('up-0')
           }}
-          onMouseUp={handleMoveStop}
+          onMouseUp={() => {
+            handleMoveStop()
+            setTimeout(() => {
+              setFace('up-0')
+            }, 300);
+          }}
         >
           <p className='movement__arrow'>&#8593;</p>
         </button>
