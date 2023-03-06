@@ -1,6 +1,6 @@
 import React from 'react'
 import './Hero.css'
-import heroAsset from '../../../../assets/Basic Charakter Spritesheet.png'
+import heroAsset from '../../../assets/Basic Charakter Spritesheet.png'
 
 function Hero({ face }) {
   return (

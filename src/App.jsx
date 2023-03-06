@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Movement from './components/movement/Movement'
+import Movement from './components/Movement'
 
 function App() {
   const styles = { '--zoom': '5' }

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Movement.css'
 import Camera from './camera/Camera'
-import soundStep from '../../assets/Bubble heavy 1.wav'
+import soundStep from '../assets/Bubble heavy 1.wav'
 
 function Movement() {
   const oneIslandPlacement = [
