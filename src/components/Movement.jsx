@@ -2,45 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import './Movement.css'
 import Camera from './camera/Camera'
 import soundStep from '../assets/Bubble heavy 1.wav'
+import data from '../data/data.json'
 
 function Movement() {
-  const coordinate = {
-    oneIsland: {
-      placement: [
-        [1, 1], [2, 1], [3, 1],
-        [1, 2], [2, 2], [3, 2],
-        [1, 3], [2, 3], [3, 3],
-      ],
-      asset: [
-        [0, 0], [1, 0], [2, 0],
-        [0, 1], [1, 1], [2, 1],
-        [0, 2], [1, 2], [2, 2],
-      ]
-    },
-    bridge: {
-      placement: [
-        [3, 2], [4, 2], [5, 2], [6, 2], [7, 2],
-      ],
-      asset: [
-        [2, 1], [3, 1], [3, 1], [3, 1], [4, 1],
-      ]
-    },
-    twoIsland: {
-      placement: [
-        [7, 1], [8, 1], [9, 1], [10, 1], [11, 1], [12, 1],
-        [7, 2], [8, 2], [9, 2], [10, 2], [11, 2], [12, 2],
-        [7, 3], [8, 3], [9, 3], [10, 3], [11, 3], [12, 3],
-        /*    */[8, 4], [9, 4], [10, 4], [11, 4], [12, 4],
-      ],
-      asset: [
-        [0, 0], [1, 0], [1, 0], [1, 0], [1, 0], [2, 0],
-        [0, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2, 1],
-        [0, 2], [6, 1], [1, 1], [1, 1], [1, 1], [2, 1],
-        /*    */[0, 2], [1, 2], [1, 2], [1, 2], [2, 2],
-      ],
-    }
-  }
-
   const [positionX, setPositionX] = useState(-80)
   const [positionY, setPositionY] = useState(-80)
   const [pressUp, setPressUp] = useState(false)
@@ -50,6 +14,11 @@ function Movement() {
   const [face, setFace] = useState()
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
+
+  function step() {
+    const sound = new Audio(soundStep)
+    sound.play()
+  }
 
   function handleMoveStart(direction) {
     intervalMovement.current = setInterval(() => {
@@ -72,11 +41,6 @@ function Movement() {
           return
       }
     }, 25)
-  }
-
-  function step() {
-    const sound = new Audio(soundStep)
-    sound.play()
   }
 
   function handleAnimationStart(direction) {
@@ -142,9 +106,9 @@ function Movement() {
       );
     }
 
-    if (!containsPosition(coordinate.oneIsland.placement, positionArray) &&
-      !containsPosition(coordinate.bridge.placement, positionArray) &&
-      !containsPosition(coordinate.twoIsland.placement, positionArray)) {
+    if (!containsPosition(data.oneIsland.placement, positionArray) &&
+      !containsPosition(data.bridge.placement, positionArray) &&
+      !containsPosition(data.twoIsland.placement, positionArray)) {
 
       if (pressUp === true) {
         setPositionY(positionY - 1)
@@ -166,12 +130,12 @@ function Movement() {
       <Camera
         cameraX={positionX}
         cameraY={positionY}
-        oneIslandPlacement={coordinate.oneIsland.placement}
-        oneIslandTile={coordinate.oneIsland.asset}
-        bridgePlacement={coordinate.bridge.placement}
-        bridgeTile={coordinate.bridge.asset}
-        twoIslandPlacement={coordinate.twoIsland.placement}
-        twoIslandTile={coordinate.twoIsland.asset}
+        oneIslandPlacement={data.oneIsland.placement}
+        oneIslandTile={data.oneIsland.asset}
+        bridgePlacement={data.bridge.placement}
+        bridgeTile={data.bridge.asset}
+        twoIslandPlacement={data.twoIsland.placement}
+        twoIslandTile={data.twoIsland.asset}
         face={face}
       />
 
