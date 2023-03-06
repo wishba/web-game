@@ -93,14 +93,20 @@ function Movement() {
         case 'left':
           counter()
           console.log(`left-${count}`);
+          setFace(`left-${count}`)
+          step()
           return
         case 'right':
           counter()
           console.log(`right-${count}`);
+          setFace(`right-${count}`)
+          step()
           return
         case 'down':
           counter()
           console.log(`down-${count}`);
+          setFace(`down-${count}`)
+          step()
           return
       }
     }, 250)
@@ -202,8 +208,15 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('left')
             handleAnimationStart('left')
+            setFace('left-0')
           }}
-          onMouseUp={handleMoveStop}
+          onMouseUp={() => {
+            handleMoveStop()
+            setTimeout(() => {
+              setFace('left-0')
+              step()
+            }, 300);
+          }}
         >
           <p className='movement__arrow'>&#8593;</p>
         </button>
@@ -211,16 +224,30 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('right')
             handleAnimationStart('right')
+            setFace('right-0')
           }}
-          onMouseUp={handleMoveStop}>
+          onMouseUp={() => {
+            handleMoveStop()
+            setTimeout(() => {
+              setFace('right-0')
+              step()
+            }, 300);
+          }}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
         <button className='movement__button movement__button--down'
           onMouseDown={() => {
             handleMoveStart('down')
             handleAnimationStart('down')
+            setFace('down-0')
           }}
-          onMouseUp={handleMoveStop}>
+          onMouseUp={() => {
+            handleMoveStop()
+            setTimeout(() => {
+              setFace('down-0')
+              step()
+            }, 300);
+          }}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
       </div>

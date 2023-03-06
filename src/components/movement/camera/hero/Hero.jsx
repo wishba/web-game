@@ -6,7 +6,7 @@ function Hero({ face }) {
   return (
     <div className='hero__container'>
       <img className={`hero ${face}`} src={heroAsset} alt="hero" />
-      {/* <img className='hero up-0' src={heroAsset} alt="hero" /> */}
+      {/* <img className='hero down-0' src={heroAsset} alt="hero" /> */}
     </div>
   )
 }
