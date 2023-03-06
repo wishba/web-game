@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Movement.css'
 import Camera from './camera/Camera'
+import soundStep from '../../assets/Bubble heavy 1.wav'
 
 function Movement() {
   const oneIslandPlacement = [
@@ -76,6 +77,10 @@ function Movement() {
       count = 1
     }
   }
+  function step() {
+    const sound = new Audio(soundStep)
+    sound.play()
+  }
   function handleAnimationStart(direction) {
     intervalAnimation.current = setInterval(() => {
       switch (direction) {
@@ -83,6 +88,7 @@ function Movement() {
           counter()
           console.log(`up-${count}`);
           setFace(`up-${count}`)
+          step()
           return
         case 'left':
           counter()
@@ -186,6 +192,7 @@ function Movement() {
             handleMoveStop()
             setTimeout(() => {
               setFace('up-0')
+              step()
             }, 300);
           }}
         >
