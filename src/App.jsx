@@ -3,10 +3,7 @@ import './App.css'
 import Movement from './components/Movement'
 
 function App() {
-  const styles = {
-    '--zoom': '5',
-    '--gridLine-display': 'none'
-  }
+  const styles = { '--zoom': '5' }
   return (
     <div style={styles}>
       <Movement />

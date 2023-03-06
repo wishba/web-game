@@ -7,12 +7,13 @@ import GridLine from './gridLine/GridLine'
 function Camera({
   cameraX,
   cameraY,
-  face
+  face,
+  move
 }) {
   return (
     <div className='camera'>
       <div className='camera__hero'>
-        <Hero face={face} />
+        <Hero face={face} move={move} />
       </div>
 
       <div style={{
