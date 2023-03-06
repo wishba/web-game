@@ -7,12 +7,6 @@ import GridLine from './gridLine/GridLine'
 function Camera({
   cameraX,
   cameraY,
-  oneIslandPlacement,
-  oneIslandTile,
-  bridgePlacement,
-  bridgeTile,
-  twoIslandPlacement,
-  twoIslandTile,
   face
 }) {
   return (
@@ -27,14 +21,7 @@ function Camera({
         <div style={{
           transform: 'translate(calc(16px * var(--zoom) * 2), calc(16px * var(--zoom) * 2))',
         }}>
-          <Object
-            oneIslandPlacement={oneIslandPlacement}
-            oneIslandTile={oneIslandTile}
-            bridgePlacement={bridgePlacement}
-            bridgeTile={bridgeTile}
-            twoIslandPlacement={twoIslandPlacement}
-            twoIslandTile={twoIslandTile}
-          />
+          <Object />
 
           <div style={{
             position: 'absolute',

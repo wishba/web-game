@@ -130,12 +130,6 @@ function Movement() {
       <Camera
         cameraX={positionX}
         cameraY={positionY}
-        oneIslandPlacement={data.oneIsland.placement}
-        oneIslandTile={data.oneIsland.asset}
-        bridgePlacement={data.bridge.placement}
-        bridgeTile={data.bridge.asset}
-        twoIslandPlacement={data.twoIsland.placement}
-        twoIslandTile={data.twoIsland.asset}
         face={face}
       />
 

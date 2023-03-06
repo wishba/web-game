@@ -4,29 +4,30 @@ import grassAsset from '../../../assets/Grass tiles v.2.png'
 import bridgeAsset from '../../../assets/Wood Bridge.png'
 import ObjectLoop from './ObjectLoop'
 import ObjectImage from './ObjectImage'
+import data from '../../../data/data.json'
 
-function Object({ oneIslandPlacement, oneIslandTile, bridgePlacement, bridgeTile, twoIslandPlacement, twoIslandTile }) {
+function Object() {
   return (
     <>
       <ObjectLoop
-        placement={oneIslandPlacement}
-        tileCoordinate={oneIslandTile}
+        placement={data.oneIsland.placement}
+        tileCoordinate={data.oneIsland.asset}
         tileAsset={
           <ObjectImage asset={grassAsset} width={176} />
         }
       />
 
       <ObjectLoop
-        placement={twoIslandPlacement}
-        tileCoordinate={twoIslandTile}
+        placement={data.twoIsland.placement}
+        tileCoordinate={data.twoIsland.asset}
         tileAsset={
           <ObjectImage asset={grassAsset} width={176} />
         }
       />
 
       <ObjectLoop
-        placement={bridgePlacement}
-        tileCoordinate={bridgeTile}
+        placement={data.bridge.placement}
+        tileCoordinate={data.bridge.asset}
         tileAsset={
           <ObjectImage asset={bridgeAsset} width={80} />
         }
