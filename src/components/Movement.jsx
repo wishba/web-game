@@ -74,20 +74,20 @@ function Movement() {
     }, 25)
   }
 
-  let count = 0
-  function counter() {
-    count++
-    if (count > 4) {
-      count = 1
-    }
-  }
-
   function step() {
     const sound = new Audio(soundStep)
     sound.play()
   }
 
   function handleAnimationStart(direction) {
+    let count = 0
+    function counter() {
+      count++
+      if (count > 4) {
+        count = 1
+      }
+    }
+
     intervalAnimation.current = setInterval(() => {
       switch (direction) {
         case 'up':
