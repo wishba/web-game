@@ -42,10 +42,11 @@ function Movement() {
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
-  const intervalId = useRef()
+  const intervalMovement = useRef()
+  const intervalAnimation = useRef()
 
   function handleMoveStart(direction) {
-    intervalId.current = setInterval(() => {
+    intervalMovement.current = setInterval(() => {
       switch (direction) {
         case 'up':
           setPositionY(positionY => positionY + 1)
@@ -66,8 +67,39 @@ function Movement() {
       }
     }, 25)
   }
+
+  let count = 0
+  function counter() {
+    count++
+    if (count > 4) {
+      count = 1
+    }
+  }
+  function handleAnimationStart(direction) {
+    intervalAnimation.current = setInterval(() => {
+      switch (direction) {
+        case 'up':
+          counter()
+          console.log(`up-${count}`);
+          return
+        case 'left':
+          counter()
+          console.log(`left-${count}`);
+          return
+        case 'right':
+          counter()
+          console.log(`right-${count}`);
+          return
+        case 'down':
+          counter()
+          console.log(`down-${count}`);
+          return
+      }
+    }, 250)
+  }
   function handleMoveStop() {
-    clearInterval(intervalId.current)
+    clearInterval(intervalMovement.current)
+    clearInterval(intervalAnimation.current)
 
     if (pressUp === true) {
       setPressUp(false)
@@ -86,8 +118,8 @@ function Movement() {
       Math.round(positionX * -1 / 80),
       Math.round(positionY * -1 / 80)
     ]
-    console.log(positionArray);
-    console.log(`${positionX} | ${positionY}`);
+    // console.log(positionArray);
+    // console.log(`${positionX} | ${positionY}`);
 
     function containsPosition(array, positionArray) {
       return array.some(element =>
@@ -99,19 +131,23 @@ function Movement() {
     if (!containsPosition(oneIslandPlacement, positionArray) &&
       !containsPosition(bridgePlacement, positionArray) &&
       !containsPosition(twoIslandPlacement, positionArray)) {
-      console.log('not include')
+
+      // console.log('not include')
       if (pressUp === true) {
-        console.log('pressed up');
-        setPositionY(positionY - 5)
-      } else if (pressLeft === true) {
-        console.log('pressed left');
-        setPositionX(positionX - 5)
-      } else if (pressRight === true) {
-        console.log('pressed right');
-        setPositionX(positionX + 5)
-      } else if (pressDown === true) {
-        console.log('pressed down');
-        setPositionY(positionY + 5)
+        // console.log('pressed up');
+        setPositionY(positionY - 1)
+      }
+      if (pressLeft === true) {
+        // console.log('pressed left');
+        setPositionX(positionX - 1)
+      }
+      if (pressRight === true) {
+        // console.log('pressed right');
+        setPositionX(positionX + 1)
+      }
+      if (pressDown === true) {
+        // console.log('pressed down');
+        setPositionY(positionY + 1)
       }
     }
   }, [positionX, positionY])
@@ -137,24 +173,36 @@ function Movement() {
 
       <div className='movement'>
         <button className='movement__button movement__button--up'
-          onMouseDown={() => handleMoveStart('up')}
+          onMouseDown={() => {
+            handleMoveStart('up')
+            handleAnimationStart('up')
+          }}
           onMouseUp={handleMoveStop}
         >
           <p className='movement__arrow'>&#8593;</p>
         </button>
         <button className='movement__button movement__button--left'
-          onMouseDown={() => handleMoveStart('left')}
+          onMouseDown={() => {
+            handleMoveStart('left')
+            handleAnimationStart('left')
+          }}
           onMouseUp={handleMoveStop}
         >
           <p className='movement__arrow'>&#8593;</p>
         </button>
         <button className='movement__button movement__button--right'
-          onMouseDown={() => handleMoveStart('right')}
+          onMouseDown={() => {
+            handleMoveStart('right')
+            handleAnimationStart('right')
+          }}
           onMouseUp={handleMoveStop}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
         <button className='movement__button movement__button--down'
-          onMouseDown={() => handleMoveStart('down')}
+          onMouseDown={() => {
+            handleMoveStart('down')
+            handleAnimationStart('down')
+          }}
           onMouseUp={handleMoveStop}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
