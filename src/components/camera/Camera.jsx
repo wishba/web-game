@@ -41,7 +41,7 @@ function Camera({
             zIndex: '-1',
             top: '0',
           }}>
-            {/* <GridLine /> */}
+            <GridLine />
           </div>
         </div>
       </div>

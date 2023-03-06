@@ -37,8 +37,6 @@ function Movement() {
 
   const [positionX, setPositionX] = useState(-80)
   const [positionY, setPositionY] = useState(-80)
-  // const [positionX, setPositionX] = useState(0)
-  // const [positionY, setPositionY] = useState(0)
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
@@ -86,25 +84,21 @@ function Movement() {
       switch (direction) {
         case 'up':
           counter()
-          // console.log(`up-${count}`);
           setFace(`up-${count}`)
           step()
           return
         case 'left':
           counter()
-          // console.log(`left-${count}`);
           setFace(`left-${count}`)
           step()
           return
         case 'right':
           counter()
-          // console.log(`right-${count}`);
           setFace(`right-${count}`)
           step()
           return
         case 'down':
           counter()
-          // console.log(`down-${count}`);
           setFace(`down-${count}`)
           step()
           return
@@ -127,13 +121,10 @@ function Movement() {
   }
 
   useEffect(() => {
-    // console.log(`${Math.round(positionX * -1 / 80)} - ${Math.round(positionY * -1 / 80)}`);
     const positionArray = [
       Math.round(positionX * -1 / 80),
       Math.round(positionY * -1 / 80)
     ]
-    // console.log(positionArray);
-    // console.log(`${positionX} | ${positionY}`);
 
     function containsPosition(array, positionArray) {
       return array.some(element =>
@@ -146,21 +137,16 @@ function Movement() {
       !containsPosition(bridgePlacement, positionArray) &&
       !containsPosition(twoIslandPlacement, positionArray)) {
 
-      // console.log('not include')
       if (pressUp === true) {
-        // console.log('pressed up');
         setPositionY(positionY - 1)
       }
       if (pressLeft === true) {
-        // console.log('pressed left');
         setPositionX(positionX - 1)
       }
       if (pressRight === true) {
-        // console.log('pressed right');
         setPositionX(positionX + 1)
       }
       if (pressDown === true) {
-        // console.log('pressed down');
         setPositionY(positionY + 1)
       }
     }
@@ -168,11 +154,6 @@ function Movement() {
 
   return (
     <>
-      {/* <div
-        style={{
-          transform: 'translate(10px, 10px)',
-        }}
-      > */}
       <Camera
         cameraX={positionX}
         cameraY={positionY}
@@ -183,9 +164,7 @@ function Movement() {
         twoIslandPlacement={twoIslandPlacement}
         twoIslandTile={twoIslandTile}
         face={face}
-      // face={'up-0'}
       />
-      {/* </div> */}
 
       <div className='movement'>
         <button className='movement__button movement__button--up'

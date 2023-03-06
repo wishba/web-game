@@ -7,7 +7,6 @@
 
 .camera__hero {
   transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
-  /* transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 1.5)); */
   position: absolute;
   z-index: 1;
 }
