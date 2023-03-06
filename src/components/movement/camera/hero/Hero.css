@@ -4,9 +4,30 @@
   overflow: hidden;
   position: absolute;
   z-index: 1;
+  border: 1px solid red;
 }
 
 .hero {
   width: calc(var(--zoom) * 192px);
   transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -1));
+}
+
+.hero.up-0 {
+  transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -4));
+}
+
+.hero.up-1 {
+  transform: translate(calc(var(--zoom) * 16px * -4), calc(var(--zoom) * 16px * -4));
+}
+
+.hero.up-2 {
+  transform: translate(calc(var(--zoom) * 16px * -7), calc(var(--zoom) * 16px * -4));
+}
+
+.hero.up-3 {
+  transform: translate(calc(var(--zoom) * 16px * -4), calc(var(--zoom) * 16px * -4));
+}
+
+.hero.up-4 {
+  transform: translate(calc(var(--zoom) * 16px * -10), calc(var(--zoom) * 16px * -4));
 }
