@@ -86,25 +86,25 @@ function Movement() {
       switch (direction) {
         case 'up':
           counter()
-          console.log(`up-${count}`);
+          // console.log(`up-${count}`);
           setFace(`up-${count}`)
           step()
           return
         case 'left':
           counter()
-          console.log(`left-${count}`);
+          // console.log(`left-${count}`);
           setFace(`left-${count}`)
           step()
           return
         case 'right':
           counter()
-          console.log(`right-${count}`);
+          // console.log(`right-${count}`);
           setFace(`right-${count}`)
           step()
           return
         case 'down':
           counter()
-          console.log(`down-${count}`);
+          // console.log(`down-${count}`);
           setFace(`down-${count}`)
           step()
           return
