@@ -58,22 +58,22 @@ function Movement() {
       switch (direction) {
         case 'up':
           counter()
-          setFace(`up-${count}`)
+          setFace(`up--${count}`)
           step()
           return
         case 'left':
           counter()
-          setFace(`left-${count}`)
+          setFace(`left--${count}`)
           step()
           return
         case 'right':
           counter()
-          setFace(`right-${count}`)
+          setFace(`right--${count}`)
           step()
           return
         case 'down':
           counter()
-          setFace(`down-${count}`)
+          setFace(`down--${count}`)
           step()
           return
       }
@@ -129,8 +129,8 @@ function Movement() {
 
   return (
     <div className='movement'>
-      <div className='camera'>
-        <div className='camera__hero'>
+      <div className='movement__camera'>
+        <div className='movement__hero'>
           <Hero face={face} />
         </div>
 
@@ -153,17 +153,17 @@ function Movement() {
         </div>
       </div>
 
-      <div className='movement__container'>
+      <div className='movement__button--grid'>
         <button className='movement__button movement__button--up'
           onMouseDown={() => {
             handleMoveStart('up')
             handleAnimationStart('up')
-            setFace('up-0')
+            setFace('up--0')
           }}
           onMouseUp={() => {
             handleMoveStop()
             setTimeout(() => {
-              setFace('up-0')
+              setFace('up--0')
               step()
             }, 300);
           }}
@@ -174,12 +174,12 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('left')
             handleAnimationStart('left')
-            setFace('left-0')
+            setFace('left--0')
           }}
           onMouseUp={() => {
             handleMoveStop()
             setTimeout(() => {
-              setFace('left-0')
+              setFace('left--0')
               step()
             }, 300);
           }}
@@ -190,12 +190,12 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('right')
             handleAnimationStart('right')
-            setFace('right-0')
+            setFace('right--0')
           }}
           onMouseUp={() => {
             handleMoveStop()
             setTimeout(() => {
-              setFace('right-0')
+              setFace('right--0')
               step()
             }, 300);
           }}>
@@ -205,12 +205,12 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('down')
             handleAnimationStart('down')
-            setFace('down-0')
+            setFace('down--0')
           }}
           onMouseUp={() => {
             handleMoveStop()
             setTimeout(() => {
-              setFace('down-0')
+              setFace('down--0')
               step()
             }, 300);
           }}>

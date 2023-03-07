@@ -4,19 +4,6 @@
   gap: 4rem;
 }
 
-.camera {
-  width: calc(var(--zoom) * 16px * 5);
-  height: calc(var(--zoom) * 16px * 5);
-  border: 1px solid rgb(97, 94, 94);
-  overflow: hidden;
-}
-
-.camera__hero {
-  transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
-  position: absolute;
-  z-index: 1;
-}
-
 .movement__camera {
   border: 1px solid black;
   width: calc(var(--zoom) * 16px * 5);
@@ -24,10 +11,13 @@
   overflow: hidden;
 }
 
-.movement__container {
-  /* position: fixed;
-  bottom: 0;
-  right: 0; */
+.movement__hero {
+  transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
+  position: absolute;
+  z-index: 1;
+}
+
+.movement__button--grid {
   display: grid;
   grid-template-columns: 70px 70px 70px;
   width: 210px;
