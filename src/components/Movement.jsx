@@ -131,11 +131,11 @@ function Movement() {
           transform: `translate(${positionX}px, ${positionY}px)`,
         }}>
           <div className='movement__camera--center'>
-            <GridLine width={14} height={6} />
+            {/* <GridLine width={14} height={6} /> */}
             <Object />
-            <div className='movement__area'>
-              <Area areaPlacement={areaPlacement} />
-            </div>
+            {/* <div className='movement__area'> */}
+            {/* <Area areaPlacement={areaPlacement} /> */}
+            {/* </div> */}
           </div>
         </div>
       </div>
