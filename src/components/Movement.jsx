@@ -89,6 +89,14 @@ function Movement() {
     if (pressDown === true) { setPressDown(false) }
   }
 
+  const areaPlacement = [
+    [3, 2], [4, 2], [5, 2], [6, 2],
+    [3, 3], [4, 3], [5, 3], [6, 3],
+    [3, 4], [4, 4], [5, 4], [6, 4],
+    [3, 5], [4, 5], [5, 5], [6, 5],
+    [3, 6], [4, 6], [5, 6], [6, 6],
+  ]
+
   useEffect(() => {
     const positionArray = [
       Math.round(positionX * -1 / 80),
@@ -128,7 +136,7 @@ function Movement() {
           <div className='movement__camera--center'>
             <GridLine width={14} height={6} />
             <Object />
-            <Area />
+            <Area areaPlacement={areaPlacement} />
           </div>
         </div>
       </div>
