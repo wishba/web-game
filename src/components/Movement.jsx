@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Movement.css'
-import Camera from './camera/Camera'
 import soundStep from '../assets/Bubble heavy 1.wav'
 import data from '../data/data.json'
+import Hero from './hero/Hero'
 import GridLine from './gridLine/GridLine'
+import Object from './object/Object'
 
 function Movement() {
   const [positionX, setPositionX] = useState(-80)
@@ -13,8 +14,6 @@ function Movement() {
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
   const [face, setFace] = useState()
-  const [translateX, setTranslateX] = useState(0)
-  const [translateY, setTranslateY] = useState(0)
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
 
@@ -61,27 +60,21 @@ function Movement() {
           counter()
           setFace(`up-${count}`)
           step()
-          setTranslateY('0px')
           return
         case 'left':
           counter()
           setFace(`left-${count}`)
           step()
-          setTranslateX('40px')
           return
         case 'right':
           counter()
           setFace(`right-${count}`)
           step()
-          // setMoveFace('translate(-40px, 0)')
-          setTranslateX('-40px')
           return
         case 'down':
           counter()
           setFace(`down-${count}`)
           step()
-          // setMoveFace('translate(0, -80px)')
-          setTranslateY('-80px')
           return
       }
     }, 250)
@@ -141,11 +134,28 @@ function Movement() {
         cameraY={positionY}
         face={face}
       /> */}
+      <div className='camera'>
+        <div className='camera__hero'>
+          <Hero face={face} />
+        </div>
 
-      <div
-      // className='movement__camera'
-      >
-        <GridLine width={7} height={7} />
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+        }}>
+          <div style={{
+            transform: 'translate(calc(16px * var(--zoom) * 2), calc(16px * var(--zoom) * 2))',
+          }}>
+            <Object />
+
+            <div style={{
+              position: 'absolute',
+              zIndex: '-1',
+              top: '0',
+            }}>
+              <GridLine />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className='movement'>
