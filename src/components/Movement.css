@@ -2,11 +2,18 @@
   border: 1px solid black;
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .movement__camera--center {
   transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
+}
+
+.movement__camera--center>* {
+  position: absolute;
+}
+
+.movement__hero {
   position: absolute;
   z-index: 1;
 }

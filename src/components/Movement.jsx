@@ -5,6 +5,7 @@ import data from '../data/data.json'
 import Hero from './hero/Hero'
 import Object from './object/Object'
 import GridLine from './gridLine/GridLine'
+import Area from './area/Area'
 
 function Movement() {
   const [positionX, setPositionX] = useState(-80)
@@ -117,7 +118,7 @@ function Movement() {
   return (
     <>
       <div className='movement__camera'>
-        <div className='movement__camera--center'>
+        <div className='movement__camera--center movement__hero'>
           <Hero face={face} />
         </div>
 
@@ -125,8 +126,9 @@ function Movement() {
           transform: `translate(${positionX}px, ${positionY}px)`,
         }}>
           <div className='movement__camera--center'>
-            <Object />
             <GridLine width={14} height={6} />
+            <Object />
+            <Area />
           </div>
         </div>
       </div>

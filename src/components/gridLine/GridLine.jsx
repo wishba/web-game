@@ -21,8 +21,6 @@ function GridLine({ width, height }) {
       display: 'grid',
       gridTemplateColumns: `repeat(${areaWidth}, auto)`,
       width: 'fit-content',
-      position: 'absolute',
-      zIndex: '0',
     }}>
       {tileArray}
     </div>
