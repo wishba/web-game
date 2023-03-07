@@ -8,7 +8,7 @@ import GridLine from './gridLine/GridLine'
 import Area from './area/Area'
 
 function Movement() {
-  const [positionX, setPositionX] = useState(-80)
+  const [positionX, setPositionX] = useState(-160)
   const [positionY, setPositionY] = useState(-80)
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
@@ -90,11 +90,12 @@ function Movement() {
   }
 
   const areaPlacement = [
-    [3, 2], [4, 2], [5, 2], [6, 2],
-    [3, 3], [4, 3], [5, 3], [6, 3],
-    [3, 4], [4, 4], [5, 4], [6, 4],
-    [3, 5], [4, 5], [5, 5], [6, 5],
-    [3, 6], [4, 6], [5, 6], [6, 6],
+    [2, 1], [3, 1], [4, 1], [5, 1], [6, 1],
+    [2, 2], [3, 2], [4, 2], [5, 2], [6, 2],
+    [2, 3], [3, 3], [4, 3], [5, 3], [6, 3],
+    [2, 4], [3, 4], [4, 4], [5, 4], [6, 4],
+    [2, 5], [3, 5], [4, 5], [5, 5], [6, 5],
+    // [3, 6], [4, 6], [5, 6], [6, 6],
   ]
 
   useEffect(() => {
@@ -103,7 +104,12 @@ function Movement() {
       Math.round(positionY * -1 / 80)
     ]
 
-    console.log(`${positionX}/${positionY} | ${positionArray}`);
+    const positionArray2 = [
+      Math.round(positionX * -1 / 40),
+      Math.round(positionY * -1 / 40)
+    ]
+
+    console.log(`${positionX}/${positionY} | ${positionArray} | ${positionArray2}`);
 
     function containsPosition(array, positionArray) {
       return array.some(element =>
@@ -112,14 +118,30 @@ function Movement() {
       );
     }
 
-    if (!containsPosition(data.oneIsland.placement, positionArray) &&
-      !containsPosition(data.bridge.placement, positionArray) &&
-      !containsPosition(data.twoIsland.placement, positionArray)) {
+    if (!containsPosition(data.oneIsland.placement, positionArray)) {
+      // if (pressUp === true) { setPositionY(positionY - 1) }
+      // if (pressLeft === true) { setPositionX(positionX - 1) }
+      // if (pressRight === true) { setPositionX(positionX + 1) }
+      // if (pressDown === true) { setPositionY(positionY + 1) }
+    }
 
-      if (pressUp === true) { setPositionY(positionY - 1) }
-      if (pressLeft === true) { setPositionX(positionX - 1) }
-      if (pressRight === true) { setPositionX(positionX + 1) }
-      if (pressDown === true) { setPositionY(positionY + 1) }
+    if (!containsPosition(areaPlacement, positionArray2)) {
+      if (pressUp === true) {
+        console.log('inside')
+        setPositionY(positionY - 1)
+      }
+      if (pressLeft === true) {
+        console.log('inside')
+        setPositionX(positionX - 1)
+      }
+      if (pressRight === true) {
+        console.log('inside')
+        setPositionX(positionX + 1)
+      }
+      if (pressDown === true) {
+        console.log('inside')
+        setPositionY(positionY + 1)
+      }
     }
   }, [positionX, positionY])
 
