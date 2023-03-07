@@ -100,49 +100,23 @@ function Movement() {
   ]
 
   useEffect(() => {
-    const positionArray = [
-      Math.round(positionX * -1 / 80),
-      Math.round(positionY * -1 / 80)
-    ]
-
     const positionArray2 = [
       Math.round(positionX * -1 / 40),
       Math.round(positionY * -1 / 40)
     ]
 
-    console.log(`${positionX}/${positionY} | ${positionArray} | ${positionArray2}`);
-
     function containsPosition(array, positionArray) {
       return array.some(element =>
         element[0] === positionArray[0] &&
         element[1] === positionArray[1]
-      );
-    }
-
-    if (!containsPosition(data.oneIsland.placement, positionArray)) {
-      // if (pressUp === true) { setPositionY(positionY - 1) }
-      // if (pressLeft === true) { setPositionX(positionX - 1) }
-      // if (pressRight === true) { setPositionX(positionX + 1) }
-      // if (pressDown === true) { setPositionY(positionY + 1) }
+      )
     }
 
     if (!containsPosition(areaPlacement, positionArray2)) {
-      if (pressUp === true) {
-        console.log('inside')
-        setPositionY(positionY - 1)
-      }
-      if (pressLeft === true) {
-        console.log('inside')
-        setPositionX(positionX - 1)
-      }
-      if (pressRight === true) {
-        console.log('inside')
-        setPositionX(positionX + 1)
-      }
-      if (pressDown === true) {
-        console.log('inside')
-        setPositionY(positionY + 1)
-      }
+      if (pressUp === true) { setPositionY(positionY - 1) }
+      if (pressLeft === true) { setPositionX(positionX - 1) }
+      if (pressRight === true) { setPositionX(positionX + 1) }
+      if (pressDown === true) { setPositionY(positionY + 1) }
     }
   }, [positionX, positionY])
 
@@ -178,7 +152,7 @@ function Movement() {
             setTimeout(() => {
               setFace('up--0')
               step()
-            }, 300);
+            }, 300)
           }}
         >
           <p className='movement__arrow'>&#8593;</p>
@@ -194,7 +168,7 @@ function Movement() {
             setTimeout(() => {
               setFace('left--0')
               step()
-            }, 300);
+            }, 300)
           }}
         >
           <p className='movement__arrow'>&#8593;</p>
@@ -210,7 +184,7 @@ function Movement() {
             setTimeout(() => {
               setFace('right--0')
               step()
-            }, 300);
+            }, 300)
           }}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
@@ -225,7 +199,7 @@ function Movement() {
             setTimeout(() => {
               setFace('down--0')
               step()
-            }, 300);
+            }, 300)
           }}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
