@@ -159,7 +159,9 @@ function Movement() {
           <div className='movement__camera--center'>
             <GridLine width={14} height={6} />
             <Object />
-            <Area areaPlacement={areaPlacement} />
+            <div className='movement__area'>
+              <Area areaPlacement={areaPlacement} />
+            </div>
           </div>
         </div>
       </div>

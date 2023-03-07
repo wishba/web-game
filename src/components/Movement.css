@@ -2,7 +2,7 @@
   border: 1px solid black;
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .movement__camera--center {
@@ -18,13 +18,17 @@
   z-index: 1;
 }
 
+.movement__area {
+  transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
+}
+
 .movement__button--grid {
   display: grid;
   grid-template-columns: 70px 70px 70px;
   width: 210px;
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 1rem;
+  right: 1rem;
 }
 
 .movement__button:active {
