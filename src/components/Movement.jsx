@@ -13,6 +13,8 @@ function Movement() {
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
   const [face, setFace] = useState()
+  const [translateX, setTranslateX] = useState(0)
+  const [translateY, setTranslateY] = useState(0)
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
 
@@ -59,21 +61,27 @@ function Movement() {
           counter()
           setFace(`up-${count}`)
           step()
+          setTranslateY('0px')
           return
         case 'left':
           counter()
           setFace(`left-${count}`)
           step()
+          setTranslateX('40px')
           return
         case 'right':
           counter()
           setFace(`right-${count}`)
           step()
+          // setMoveFace('translate(-40px, 0)')
+          setTranslateX('-40px')
           return
         case 'down':
           counter()
           setFace(`down-${count}`)
           step()
+          // setMoveFace('translate(0, -80px)')
+          setTranslateY('-80px')
           return
       }
     }, 250)
