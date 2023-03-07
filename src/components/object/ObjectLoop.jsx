@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function ObjectLoop({ placement, tileCoordinate, tileAsset }) {
+function ObjectLoop({ placement, tileCoordinate, asset, width }) {
   const [tile, setTile] = useState()
   useEffect(() => {
     const tileArray = []
@@ -18,7 +18,9 @@ function ObjectLoop({ placement, tileCoordinate, tileAsset }) {
                   calc(var(--zoom) * 16px * -${tileCoordinate[index][0]}), 
                   calc(var(--zoom) * 16px * -${tileCoordinate[index][1]}))`
           }}>
-            {tileAsset}
+            <img src={asset} alt="tile asset"
+              style={{ width: `calc(var(--zoom) * ${width}px)` }}
+            />
           </div>
         </div>
       )
