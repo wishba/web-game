@@ -1,7 +1,13 @@
+.movement {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
 .camera {
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
-  border: 1px solid black;
+  border: 1px solid rgb(97, 94, 94);
   overflow: hidden;
 }
 
@@ -18,10 +24,10 @@
   overflow: hidden;
 }
 
-.movement {
-  position: fixed;
+.movement__container {
+  /* position: fixed;
   bottom: 0;
-  right: 0;
+  right: 0; */
   display: grid;
   grid-template-columns: 70px 70px 70px;
   width: 210px;

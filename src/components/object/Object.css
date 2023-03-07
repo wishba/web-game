@@ -1,3 +1,8 @@
+.object {
+  position: absolute;
+  z-index: 1;
+}
+
 .object__tile {
   width: calc(var(--zoom) * 16px);
   height: calc(var(--zoom) * 16px);

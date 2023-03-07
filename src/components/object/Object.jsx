@@ -8,7 +8,7 @@ import data from '../../data/data.json'
 
 function Object() {
   return (
-    <>
+    <div className='object'>
       <ObjectLoop
         placement={data.oneIsland.placement}
         tileCoordinate={data.oneIsland.asset}
@@ -32,7 +32,7 @@ function Object() {
           <ObjectImage asset={bridgeAsset} width={80} />
         }
       />
-    </>
+    </div>
   )
 }
 

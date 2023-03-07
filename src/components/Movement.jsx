@@ -3,8 +3,8 @@ import './Movement.css'
 import soundStep from '../assets/Bubble heavy 1.wav'
 import data from '../data/data.json'
 import Hero from './hero/Hero'
-import GridLine from './gridLine/GridLine'
 import Object from './object/Object'
+import GridLine from './gridLine/GridLine'
 
 function Movement() {
   const [positionX, setPositionX] = useState(-80)
@@ -128,12 +128,7 @@ function Movement() {
   }, [positionX, positionY])
 
   return (
-    <>
-      {/* <Camera
-        cameraX={positionX}
-        cameraY={positionY}
-        face={face}
-      /> */}
+    <div className='movement'>
       <div className='camera'>
         <div className='camera__hero'>
           <Hero face={face} />
@@ -146,19 +141,19 @@ function Movement() {
             transform: 'translate(calc(16px * var(--zoom) * 2), calc(16px * var(--zoom) * 2))',
           }}>
             <Object />
+            <GridLine width={14} height={6} />
 
             <div style={{
               position: 'absolute',
               zIndex: '-1',
               top: '0',
             }}>
-              <GridLine />
             </div>
           </div>
         </div>
       </div>
 
-      <div className='movement'>
+      <div className='movement__container'>
         <button className='movement__button movement__button--up'
           onMouseDown={() => {
             handleMoveStart('up')
@@ -222,7 +217,7 @@ function Movement() {
           <p className='movement__arrow'>&#8593;</p>
         </button>
       </div>
-    </>
+    </div>
   )
 }
 
