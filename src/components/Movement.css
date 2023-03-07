@@ -1,3 +1,10 @@
+.movement__camera {
+  border: 1px solid black;
+  width: calc(var(--zoom) * 16px * 5);
+  height: calc(var(--zoom) * 16px * 5);
+  overflow: hidden;
+}
+
 .movement {
   position: fixed;
   bottom: 0;

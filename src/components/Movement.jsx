@@ -3,6 +3,7 @@ import './Movement.css'
 import Camera from './camera/Camera'
 import soundStep from '../assets/Bubble heavy 1.wav'
 import data from '../data/data.json'
+import GridLine from './gridLine/GridLine'
 
 function Movement() {
   const [positionX, setPositionX] = useState(-80)
@@ -127,11 +128,17 @@ function Movement() {
 
   return (
     <>
-      <Camera
+      {/* <Camera
         cameraX={positionX}
         cameraY={positionY}
         face={face}
-      />
+      /> */}
+
+      <div
+      // className='movement__camera'
+      >
+        <GridLine width={7} height={7} />
+      </div>
 
       <div className='movement'>
         <button className='movement__button movement__button--up'
