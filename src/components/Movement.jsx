@@ -49,9 +49,7 @@ function Movement() {
     let count = 0
     function counter() {
       count++
-      if (count > 4) {
-        count = 1
-      }
+      if (count > 4) { count = 1 }
     }
 
     intervalAnimation.current = setInterval(() => {
@@ -84,15 +82,10 @@ function Movement() {
     clearInterval(intervalMovement.current)
     clearInterval(intervalAnimation.current)
 
-    if (pressUp === true) {
-      setPressUp(false)
-    } else if (pressLeft === true) {
-      setPressLeft(false)
-    } else if (pressRight === true) {
-      setPressRight(false)
-    } else if (pressDown === true) {
-      setPressDown(false)
-    }
+    if (pressUp === true) { setPressUp(false) }
+    if (pressLeft === true) { setPressLeft(false) }
+    if (pressRight === true) { setPressRight(false) }
+    if (pressDown === true) { setPressDown(false) }
   }
 
   useEffect(() => {
@@ -100,6 +93,8 @@ function Movement() {
       Math.round(positionX * -1 / 80),
       Math.round(positionY * -1 / 80)
     ]
+
+    console.log(`${positionX}/${positionY} | ${positionArray}`);
 
     function containsPosition(array, positionArray) {
       return array.some(element =>
@@ -112,43 +107,26 @@ function Movement() {
       !containsPosition(data.bridge.placement, positionArray) &&
       !containsPosition(data.twoIsland.placement, positionArray)) {
 
-      if (pressUp === true) {
-        setPositionY(positionY - 1)
-      }
-      if (pressLeft === true) {
-        setPositionX(positionX - 1)
-      }
-      if (pressRight === true) {
-        setPositionX(positionX + 1)
-      }
-      if (pressDown === true) {
-        setPositionY(positionY + 1)
-      }
+      if (pressUp === true) { setPositionY(positionY - 1) }
+      if (pressLeft === true) { setPositionX(positionX - 1) }
+      if (pressRight === true) { setPositionX(positionX + 1) }
+      if (pressDown === true) { setPositionY(positionY + 1) }
     }
   }, [positionX, positionY])
 
   return (
-    <div className='movement'>
+    <>
       <div className='movement__camera'>
-        <div className='movement__hero'>
+        <div className='movement__camera--center'>
           <Hero face={face} />
         </div>
 
         <div style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
         }}>
-          <div style={{
-            transform: 'translate(calc(16px * var(--zoom) * 2), calc(16px * var(--zoom) * 2))',
-          }}>
+          <div className='movement__camera--center'>
             <Object />
             <GridLine width={14} height={6} />
-
-            <div style={{
-              position: 'absolute',
-              zIndex: '-1',
-              top: '0',
-            }}>
-            </div>
           </div>
         </div>
       </div>
@@ -217,7 +195,7 @@ function Movement() {
           <p className='movement__arrow'>&#8593;</p>
         </button>
       </div>
-    </div>
+    </>
   )
 }
 

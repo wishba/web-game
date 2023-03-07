@@ -1,17 +1,11 @@
-.movement {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-}
-
 .movement__camera {
   border: 1px solid black;
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
-.movement__hero {
+.movement__camera--center {
   transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
   position: absolute;
   z-index: 1;
@@ -21,6 +15,9 @@
   display: grid;
   grid-template-columns: 70px 70px 70px;
   width: 210px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
 .movement__button:active {
