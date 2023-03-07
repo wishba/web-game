@@ -1,0 +1,7 @@
+.area {
+  content: '';
+  width: calc(var(--zoom) * 8px);
+  height: calc(var(--zoom) * 8px);
+  background-color: hsla(120, 100%, 25%, 0.25);
+  position: absolute;
+}
