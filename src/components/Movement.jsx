@@ -117,20 +117,42 @@ function Movement() {
     }
   }, [positionX, positionY])
 
-  const [press, setPress] = useState(false)
-  useEffect(() => {
-    document.addEventListener('keydown', () => {
-      setPress(true)
-    })
-    document.addEventListener('keyup', () => {
-      setPress(false)
-    });
-    if (press === true) {
-      handleMoveStart('up')
-    } else {
-      handleStop()
+  // const [press, setPress] = useState(false)
+  // useEffect(() => {
+  //   document.addEventListener('keydown', () => {
+  //     setPress(true)
+  //   })
+  //   document.addEventListener('keyup', () => {
+  //     setPress(false)
+  //   });
+  //   if (press === true) {
+  //     handleMoveStart('up')
+  //   } else {
+  //     handleStop()
+  //   }
+  // }, [press])
+
+  function handleKeyPress(event) {
+    console.log('Key code:', event.keyCode);
+    if (event.keyCode === 38) {
+      console.log('up');
     }
-  }, [press])
+    if (event.keyCode === 37) {
+      console.log('left');
+    }
+    if (event.keyCode === 39) {
+      console.log('right');
+    }
+    if (event.keyCode === 40) {
+      console.log('down');
+    }
+  }
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
 
   return (
     <>
