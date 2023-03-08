@@ -117,63 +117,48 @@ function Movement() {
     }
   }, [positionX, positionY])
 
-  const [press, setPress] = useState(false)
-  // useEffect(() => {
-  //   document.addEventListener('keydown', () => {
-  //     setPress(true)
-  //   })
-  //   document.addEventListener('keyup', () => {
-  //     setPress(false)
-  //   });
-  //   if (press === true) {
-  //     handleMoveStart('up')
-  //   } else {
-  //     handleStop()
-  //   }
-  // }, [press])
 
-  function handleKeyPress(event) {
-    console.log('Key code:', event.keyCode);
-    if (event.keyCode === 38) {
-      console.log('up');
-    }
-    if (event.keyCode === 37) {
-      console.log('left');
-    }
-    if (event.keyCode === 39) {
-      console.log('right');
-    }
-    if (event.keyCode === 40) {
-      console.log('down');
-    }
-  }
+  const [press, setPress] = useState(false)
   useEffect(() => {
-    // document.addEventListener('keydown', handleKeyPress);
-    document.addEventListener('keydown', (event) => {
-      setPress(true)
-      // handleKeyPress(event)
-      // console.log(event.key);
-    })
-    document.addEventListener('keyup', () => {
-      setPress(false)
-    });
+    document.addEventListener('keydown', () => { setPress(true) })
+    document.addEventListener('keyup', () => { setPress(false) });
     if (press === true) {
-      // handleMoveStart('up')
       console.log(event.key);
       if (event.key === 'ArrowUp') {
         handleMoveStart('up')
+        handleAnimationStart('up')
+        setFace('up')
       }
       if (event.key === 'ArrowLeft') {
         handleMoveStart('left')
+        handleAnimationStart('left')
+        setFace('left')
       }
       if (event.key === 'ArrowRight') {
         handleMoveStart('right')
+        handleAnimationStart('right')
+        setFace('right')
       }
       if (event.key === 'ArrowDown') {
         handleMoveStart('down')
+        handleAnimationStart('down')
+        setFace('down')
       }
-    } else {
+    }
+    if (press === false) {
       handleStop()
+      if (event.key === 'ArrowUp') {
+        endFace('up')
+      }
+      if (event.key === 'ArrowLeft') {
+        endFace('left')
+      }
+      if (event.key === 'ArrowRight') {
+        endFace('right')
+      }
+      if (event.key === 'ArrowDown') {
+        endFace('down')
+      }
     }
   }, [press]);
 
