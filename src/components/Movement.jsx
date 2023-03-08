@@ -120,6 +120,66 @@ function Movement() {
     }
   }, [positionX, positionY])
 
+
+  const [press, setPress] = useState(false)
+  useEffect(() => {
+    document.addEventListener('keydown', () => {
+      setPress(true)
+    })
+    document.addEventListener('keyup', () => {
+      setPress(false)
+    });
+
+    console.log(press);
+
+    if (press === true) {
+      handleMoveStart('up')
+      handleAnimationStart('up')
+      setFace('up--0')
+    } else {
+      handleMoveStop()
+      setTimeout(() => {
+        setFace('up--0')
+        step()
+      }, 300)
+    }
+  }, [press])
+
+  // const handleKeyDown = (event) => {
+  // if (event.code === 'ArrowUp') {
+  //   console.log('up');
+  //   // () => {
+  //   // handleMoveStart('up')
+  //   // handleAnimationStart('up')
+  //   // setFace('up--0')
+  //   // }
+  // } else if (event.code === 'ArrowDown') {
+  //   console.log('down');
+  // } else if (event.code === 'ArrowLeft') {
+  //   console.log('left');
+  // } else if (event.code === 'ArrowRight') {
+  //   console.log('right');
+  // }
+  // };
+
+  // const handleKeyUp = (event) => {
+  // if (event.code === 'ArrowUp') {
+  //   // () => {
+  //   // handleMoveStop()
+  //   // setTimeout(() => {
+  //   // setFace('up--0')
+  //   // step()
+  //   // }, 300)
+  //   // }
+  // } else if (event.code === 'ArrowDown') {
+  //   console.log('down');
+  // } else if (event.code === 'ArrowLeft') {
+  //   console.log('left');
+  // } else if (event.code === 'ArrowRight') {
+  //   console.log('right');
+  // }
+  // };
+
   return (
     <>
       <div className='movement__camera'>
@@ -131,11 +191,11 @@ function Movement() {
           transform: `translate(${positionX}px, ${positionY}px)`,
         }}>
           <div className='movement__camera--center'>
-            {/* <GridLine width={14} height={6} /> */}
+            <GridLine width={14} height={6} />
             <Object />
-            {/* <div className='movement__area'> */}
-            {/* <Area areaPlacement={areaPlacement} /> */}
-            {/* </div> */}
+            <div className='movement__area'>
+              <Area areaPlacement={areaPlacement} />
+            </div>
           </div>
         </div>
       </div>
