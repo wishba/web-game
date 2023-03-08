@@ -9,22 +9,22 @@ function Object() {
   return (
     <>
       <ObjectLoop
-        placement={data.oneIsland.placement}
-        tileCoordinate={data.oneIsland.asset}
+        placement={data.object.oneIsland.placement}
+        tileCoordinate={data.object.oneIsland.asset}
         asset={grassAsset}
         width={176}
       />
 
       <ObjectLoop
-        placement={data.twoIsland.placement}
-        tileCoordinate={data.twoIsland.asset}
+        placement={data.object.twoIsland.placement}
+        tileCoordinate={data.object.twoIsland.asset}
         asset={grassAsset}
         width={176}
       />
 
       <ObjectLoop
-        placement={data.bridge.placement}
-        tileCoordinate={data.bridge.asset}
+        placement={data.object.bridge.placement}
+        tileCoordinate={data.object.bridge.asset}
         asset={bridgeAsset}
         width={80}
       />

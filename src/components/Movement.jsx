@@ -89,18 +89,8 @@ function Movement() {
     if (pressDown === true) { setPressDown(false) }
   }
 
-  const areaPlacement = [
-    [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], /**                                                       */[14, 1], [15, 1], [16, 1], [17, 1], [18, 1], [19, 1], [20, 1], [21, 1], [22, 1], [23, 1], [24, 1],
-    [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], /**                                                       */[14, 2], [15, 2], [16, 2], [17, 2], [18, 2], [19, 2], [20, 2], [21, 2], [22, 2], [23, 2], [24, 2],
-    [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3], [10, 3], [11, 3], [12, 3], [13, 3], [14, 3], [15, 3], [16, 3], [17, 3], [18, 3], [19, 3], [20, 3], [21, 3], [22, 3], [23, 3], [24, 3],
-    [2, 4], [3, 4], [4, 4], [5, 4], [6, 4], /**                                                       */[14, 4], [15, 4], [16, 4], [17, 4], [18, 4], [19, 4], [20, 4], [21, 4], [22, 4], [23, 4], [24, 4],
-    [2, 5], [3, 5], [4, 5], [5, 5], [6, 5], /**                                                       */[14, 5], [15, 5], [16, 5], [17, 5], [18, 5], [19, 5], [20, 5], [21, 5], [22, 5], [23, 5], [24, 5],
-    /**                                                                                                                 */[16, 6], [17, 6], [18, 6], [19, 6], [20, 6], [21, 6], [22, 6], [23, 6], [24, 6],
-    /**                                                                                                                 */[16, 7], [17, 7], [18, 7], [19, 7], [20, 7], [21, 7], [22, 7], [23, 7], [24, 7],
-  ]
-
   useEffect(() => {
-    const positionArray2 = [
+    const positionXY = [
       Math.round(positionX * -1 / 40),
       Math.round(positionY * -1 / 40)
     ]
@@ -112,73 +102,13 @@ function Movement() {
       )
     }
 
-    if (!containsPosition(areaPlacement, positionArray2)) {
+    if (!containsPosition(data.ground, positionXY)) {
       if (pressUp === true) { setPositionY(positionY - 1) }
       if (pressLeft === true) { setPositionX(positionX - 1) }
       if (pressRight === true) { setPositionX(positionX + 1) }
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
   }, [positionX, positionY])
-
-
-  const [press, setPress] = useState(false)
-  useEffect(() => {
-    document.addEventListener('keydown', () => {
-      setPress(true)
-    })
-    document.addEventListener('keyup', () => {
-      setPress(false)
-    });
-
-    console.log(press);
-
-    if (press === true) {
-      handleMoveStart('up')
-      handleAnimationStart('up')
-      setFace('up--0')
-    } else {
-      handleMoveStop()
-      setTimeout(() => {
-        setFace('up--0')
-        step()
-      }, 300)
-    }
-  }, [press])
-
-  // const handleKeyDown = (event) => {
-  // if (event.code === 'ArrowUp') {
-  //   console.log('up');
-  //   // () => {
-  //   // handleMoveStart('up')
-  //   // handleAnimationStart('up')
-  //   // setFace('up--0')
-  //   // }
-  // } else if (event.code === 'ArrowDown') {
-  //   console.log('down');
-  // } else if (event.code === 'ArrowLeft') {
-  //   console.log('left');
-  // } else if (event.code === 'ArrowRight') {
-  //   console.log('right');
-  // }
-  // };
-
-  // const handleKeyUp = (event) => {
-  // if (event.code === 'ArrowUp') {
-  //   // () => {
-  //   // handleMoveStop()
-  //   // setTimeout(() => {
-  //   // setFace('up--0')
-  //   // step()
-  //   // }, 300)
-  //   // }
-  // } else if (event.code === 'ArrowDown') {
-  //   console.log('down');
-  // } else if (event.code === 'ArrowLeft') {
-  //   console.log('left');
-  // } else if (event.code === 'ArrowRight') {
-  //   console.log('right');
-  // }
-  // };
 
   return (
     <>
@@ -194,7 +124,7 @@ function Movement() {
             <GridLine width={14} height={6} />
             <Object />
             <div className='movement__area'>
-              <Area areaPlacement={areaPlacement} />
+              <Area areaPlacement={data.ground} />
             </div>
           </div>
         </div>
