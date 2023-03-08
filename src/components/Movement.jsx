@@ -89,6 +89,13 @@ function Movement() {
     if (pressDown === true) { setPressDown(false) }
   }
 
+  function endFace(facing) {
+    setTimeout(() => {
+      setFace(`${facing}--0`)
+      step()
+    }, 300)
+  }
+
   useEffect(() => {
     const positionXY = [
       Math.round(positionX * -1 / 40),
@@ -139,10 +146,7 @@ function Movement() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            setTimeout(() => {
-              setFace('up--0')
-              step()
-            }, 300)
+            endFace('up')
           }}
         >
           <p className='movement__arrow'>&#8593;</p>
@@ -155,10 +159,7 @@ function Movement() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            setTimeout(() => {
-              setFace('left--0')
-              step()
-            }, 300)
+            endFace('left')
           }}
         >
           <p className='movement__arrow'>&#8593;</p>
@@ -171,10 +172,7 @@ function Movement() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            setTimeout(() => {
-              setFace('right--0')
-              step()
-            }, 300)
+            endFace('right')
           }}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
@@ -186,10 +184,7 @@ function Movement() {
           }}
           onMouseUp={() => {
             handleMoveStop()
-            setTimeout(() => {
-              setFace('down--0')
-              step()
-            }, 300)
+            endFace('down')
           }}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
