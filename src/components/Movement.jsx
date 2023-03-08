@@ -117,6 +117,21 @@ function Movement() {
     }
   }, [positionX, positionY])
 
+  const [press, setPress] = useState(false)
+  useEffect(() => {
+    document.addEventListener('keydown', () => {
+      setPress(true)
+    })
+    document.addEventListener('keyup', () => {
+      setPress(false)
+    });
+    if (press === true) {
+      handleMoveStart('up')
+    } else {
+      handleStop()
+    }
+  }, [press])
+
   return (
     <>
       <div className='movement__camera'>
