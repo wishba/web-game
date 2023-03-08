@@ -9,7 +9,7 @@
   transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -1));
 }
 
-.hero.up--0 {
+.hero.up {
   transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -4));
 }
 
@@ -29,7 +29,7 @@
   transform: translate(calc(var(--zoom) * 16px * -4), calc(var(--zoom) * 16px * -4));
 }
 
-.hero.left--0 {
+.hero.left {
   transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -7));
 }
 
@@ -49,7 +49,7 @@
   transform: translate(calc(var(--zoom) * 16px * -4), calc(var(--zoom) * 16px * -7));
 }
 
-.hero.right--0 {
+.hero.right {
   transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -10));
 }
 
@@ -69,7 +69,7 @@
   transform: translate(calc(var(--zoom) * 16px * -4), calc(var(--zoom) * 16px * -10));
 }
 
-.hero.down--0 {
+.hero.down {
   transform: translate(calc(var(--zoom) * 16px * -1), calc(var(--zoom) * 16px * -1));
 }
 

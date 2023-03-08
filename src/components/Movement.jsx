@@ -91,7 +91,7 @@ function Movement() {
 
   function endFace(facing) {
     setTimeout(() => {
-      setFace(`${facing}--0`)
+      setFace(`${facing}`)
       step()
     }, 300)
   }
@@ -142,7 +142,7 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('up')
             handleAnimationStart('up')
-            setFace('up--0')
+            setFace('up')
           }}
           onMouseUp={() => {
             handleMoveStop()
@@ -155,7 +155,7 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('left')
             handleAnimationStart('left')
-            setFace('left--0')
+            setFace('left')
           }}
           onMouseUp={() => {
             handleMoveStop()
@@ -168,7 +168,7 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('right')
             handleAnimationStart('right')
-            setFace('right--0')
+            setFace('right')
           }}
           onMouseUp={() => {
             handleMoveStop()
@@ -180,7 +180,7 @@ function Movement() {
           onMouseDown={() => {
             handleMoveStart('down')
             handleAnimationStart('down')
-            setFace('down--0')
+            setFace('down')
           }}
           onMouseUp={() => {
             handleMoveStop()
