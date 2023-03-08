@@ -79,7 +79,7 @@ function Movement() {
     }, 250)
   }
 
-  function handleMoveStop() {
+  function handleStop() {
     clearInterval(intervalMovement.current)
     clearInterval(intervalAnimation.current)
 
@@ -145,7 +145,7 @@ function Movement() {
             setFace('up')
           }}
           onMouseUp={() => {
-            handleMoveStop()
+            handleStop()
             endFace('up')
           }}
         >
@@ -158,7 +158,7 @@ function Movement() {
             setFace('left')
           }}
           onMouseUp={() => {
-            handleMoveStop()
+            handleStop()
             endFace('left')
           }}
         >
@@ -171,7 +171,7 @@ function Movement() {
             setFace('right')
           }}
           onMouseUp={() => {
-            handleMoveStop()
+            handleStop()
             endFace('right')
           }}>
           <p className='movement__arrow'>&#8593;</p>
@@ -183,7 +183,7 @@ function Movement() {
             setFace('down')
           }}
           onMouseUp={() => {
-            handleMoveStop()
+            handleStop()
             endFace('down')
           }}>
           <p className='movement__arrow'>&#8593;</p>
