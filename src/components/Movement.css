@@ -92,6 +92,7 @@
 
   .movement__button--container {
     margin-left: 1rem;
+    margin-top: 0;
     flex-direction: column;
     justify-content: center;
     width: fit-content;
