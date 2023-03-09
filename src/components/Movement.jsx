@@ -11,11 +11,12 @@ function Movement() {
   const [positionX, setPositionX] = useState(-160)
   const [positionY, setPositionY] = useState(-80)
   const [face, setFace] = useState()
-  const [press, setPress] = useState(false)
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
+  const [press, setPress] = useState(false)
+  const [key, setKey] = useState()
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -120,46 +121,53 @@ function Movement() {
   }, [positionX, positionY])
 
   useEffect(() => {
-    document.addEventListener('keydown', () => setPress(true))
+    document.addEventListener('keydown', (event) => {
+      setPress(true)
+      setKey(event.key)
+    })
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
-      console.log(event.key)
-      if (event.key === 'ArrowUp') {
-        handleMoveStart('up')
-        handleAnimationStart('up')
-        setFace('up')
-      }
-      if (event.key === 'ArrowLeft') {
-        handleMoveStart('left')
-        handleAnimationStart('left')
-        setFace('left')
-      }
-      if (event.key === 'ArrowRight') {
-        handleMoveStart('right')
-        handleAnimationStart('right')
-        setFace('right')
-      }
-      if (event.key === 'ArrowDown') {
-        handleMoveStart('down')
-        handleAnimationStart('down')
-        setFace('down')
+      console.log(key);
+      switch (key) {
+        case 'ArrowUp':
+          handleMoveStart('up')
+          handleAnimationStart('up')
+          setFace('up')
+          return
+        case 'ArrowLeft':
+          handleMoveStart('left')
+          handleAnimationStart('left')
+          setFace('left')
+          return
+        case 'ArrowRight':
+          handleMoveStart('right')
+          handleAnimationStart('right')
+          setFace('right')
+          return
+        case 'ArrowDown':
+          handleMoveStart('down')
+          handleAnimationStart('down')
+          setFace('down')
+          return
       }
     }
 
     if (press === false) {
       handleStop()
-      if (event.key === 'ArrowUp') {
-        endFace('up')
-      }
-      if (event.key === 'ArrowLeft') {
-        endFace('left')
-      }
-      if (event.key === 'ArrowRight') {
-        endFace('right')
-      }
-      if (event.key === 'ArrowDown') {
-        endFace('down')
+      switch (key) {
+        case 'ArrowUp':
+          endFace('up')
+          return
+        case 'ArrowLeft':
+          endFace('left')
+          return
+        case 'ArrowRight':
+          endFace('right')
+          return
+        case 'ArrowDown':
+          endFace('down')
+          return
       }
     }
   }, [press])
