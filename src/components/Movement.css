@@ -1,3 +1,10 @@
+.movement__container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
 .movement__button--container {
   display: flex;
   flex-direction: row-reverse;
@@ -5,13 +12,6 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
-}
-
-.movement__container {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  margin: auto;
 }
 
 .movement__camera {
@@ -95,5 +95,9 @@
     flex-direction: column;
     justify-content: center;
     width: fit-content;
+  }
+
+  .movement__ab>.movement__button {
+    margin: 0 1rem 0 0;
   }
 }
