@@ -10,11 +10,13 @@ import Area from './area/Area'
 function Movement() {
   const [positionX, setPositionX] = useState(-160)
   const [positionY, setPositionY] = useState(-80)
+  const [face, setFace] = useState()
+  const [press, setPress] = useState(false)
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
-  const [face, setFace] = useState()
+
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
 
@@ -117,13 +119,12 @@ function Movement() {
     }
   }, [positionX, positionY])
 
-
-  const [press, setPress] = useState(false)
   useEffect(() => {
-    document.addEventListener('keydown', () => { setPress(true) })
-    document.addEventListener('keyup', () => { setPress(false) });
+    document.addEventListener('keydown', () => setPress(true))
+    document.addEventListener('keyup', () => setPress(false))
+
     if (press === true) {
-      console.log(event.key);
+      console.log(event.key)
       if (event.key === 'ArrowUp') {
         handleMoveStart('up')
         handleAnimationStart('up')
@@ -145,6 +146,7 @@ function Movement() {
         setFace('down')
       }
     }
+
     if (press === false) {
       handleStop()
       if (event.key === 'ArrowUp') {
@@ -160,7 +162,7 @@ function Movement() {
         endFace('down')
       }
     }
-  }, [press]);
+  }, [press])
 
   return (
     <>
