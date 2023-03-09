@@ -1,3 +1,19 @@
+.movement__button--container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: calc(var(--zoom) * 16px * 5);
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.movement__container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
 .movement__camera {
   border: 1px solid black;
   width: calc(var(--zoom) * 16px * 5);
@@ -22,13 +38,14 @@
   transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
 }
 
-.movement__button--grid {
+.movement__ab>.movement__button {
+  margin: .5rem;
+}
+
+.movement__arrow--container {
   display: grid;
   grid-template-columns: 70px 70px 70px;
   width: 210px;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
 }
 
 .movement__button:active,
@@ -66,4 +83,17 @@
 
 .movement__arrow {
   transform: translateX(2.25px);
+}
+
+@media (min-width: 650px) {
+  .movement__container {
+    flex-direction: row;
+  }
+
+  .movement__button--container {
+    margin-left: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+  }
 }

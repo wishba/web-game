@@ -185,7 +185,7 @@ function Movement() {
   }, [press])
 
   return (
-    <>
+    <div className='movement__container'>
       <div className='movement__camera'>
         <div className='movement__camera--center movement__hero'>
           <Hero face={face} />
@@ -204,59 +204,66 @@ function Movement() {
         </div>
       </div>
 
-      <div className='movement__button--grid'>
-        <button className={`${buttonUp} movement__button movement__button--up`}
-          onMouseDown={() => {
-            handleMoveStart('up')
-            handleAnimationStart('up')
-            setFace('up')
-          }}
-          onMouseUp={() => {
-            handleStop()
-            endFace('up')
-          }}
-        >
-          <p className='movement__arrow'>&#8593;</p>
-        </button>
-        <button className={`${buttonLeft} movement__button movement__button--left`}
-          onMouseDown={() => {
-            handleMoveStart('left')
-            handleAnimationStart('left')
-            setFace('left')
-          }}
-          onMouseUp={() => {
-            handleStop()
-            endFace('left')
-          }}
-        >
-          <p className='movement__arrow'>&#8593;</p>
-        </button>
-        <button className={`${buttonRight} movement__button movement__button--right`}
-          onMouseDown={() => {
-            handleMoveStart('right')
-            handleAnimationStart('right')
-            setFace('right')
-          }}
-          onMouseUp={() => {
-            handleStop()
-            endFace('right')
-          }}>
-          <p className='movement__arrow'>&#8593;</p>
-        </button>
-        <button className={`${buttonDown} movement__button movement__button--down`}
-          onMouseDown={() => {
-            handleMoveStart('down')
-            handleAnimationStart('down')
-            setFace('down')
-          }}
-          onMouseUp={() => {
-            handleStop()
-            endFace('down')
-          }}>
-          <p className='movement__arrow'>&#8593;</p>
-        </button>
+      <div className='movement__button--container'>
+        <div className='movement__ab'>
+          <button className='movement__button'>A</button>
+          <button className='movement__button'>B</button>
+        </div>
+
+        <div className='movement__arrow--container'>
+          <button className={`${buttonUp} movement__button movement__button--up`}
+            onMouseDown={() => {
+              handleMoveStart('up')
+              handleAnimationStart('up')
+              setFace('up')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('up')
+            }}
+          >
+            <p className='movement__arrow'>&#8593;</p>
+          </button>
+          <button className={`${buttonLeft} movement__button movement__button--left`}
+            onMouseDown={() => {
+              handleMoveStart('left')
+              handleAnimationStart('left')
+              setFace('left')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('left')
+            }}
+          >
+            <p className='movement__arrow'>&#8593;</p>
+          </button>
+          <button className={`${buttonRight} movement__button movement__button--right`}
+            onMouseDown={() => {
+              handleMoveStart('right')
+              handleAnimationStart('right')
+              setFace('right')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('right')
+            }}>
+            <p className='movement__arrow'>&#8593;</p>
+          </button>
+          <button className={`${buttonDown} movement__button movement__button--down`}
+            onMouseDown={() => {
+              handleMoveStart('down')
+              handleAnimationStart('down')
+              setFace('down')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('down')
+            }}>
+            <p className='movement__arrow'>&#8593;</p>
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 
