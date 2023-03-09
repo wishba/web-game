@@ -31,7 +31,8 @@
   right: 1rem;
 }
 
-.movement__button:active {
+.movement__button:active,
+.movement__button.movement__button--active {
   background-color: #e8b5ac;
 }
 

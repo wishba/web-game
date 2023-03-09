@@ -17,6 +17,10 @@ function Movement() {
   const [pressDown, setPressDown] = useState(false)
   const [press, setPress] = useState(false)
   const [key, setKey] = useState()
+  const [buttonUp, setButtonUp] = useState('')
+  const [buttonLeft, setButtonLeft] = useState('')
+  const [buttonRight, setButtonRight] = useState('')
+  const [buttonDown, setButtonDown] = useState('')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -134,21 +138,25 @@ function Movement() {
           handleMoveStart('up')
           handleAnimationStart('up')
           setFace('up')
+          setButtonUp('movement__button--active')
           return
         case 'ArrowLeft':
           handleMoveStart('left')
           handleAnimationStart('left')
           setFace('left')
+          setButtonLeft('movement__button--active')
           return
         case 'ArrowRight':
           handleMoveStart('right')
           handleAnimationStart('right')
           setFace('right')
+          setButtonRight('movement__button--active')
           return
         case 'ArrowDown':
           handleMoveStart('down')
           handleAnimationStart('down')
           setFace('down')
+          setButtonDown('movement__button--active')
           return
       }
     }
@@ -158,15 +166,19 @@ function Movement() {
       switch (key) {
         case 'ArrowUp':
           endFace('up')
+          setButtonUp('')
           return
         case 'ArrowLeft':
           endFace('left')
+          setButtonLeft('')
           return
         case 'ArrowRight':
           endFace('right')
+          setButtonRight('')
           return
         case 'ArrowDown':
           endFace('down')
+          setButtonDown('')
           return
       }
     }
@@ -193,7 +205,7 @@ function Movement() {
       </div>
 
       <div className='movement__button--grid'>
-        <button className='movement__button movement__button--up'
+        <button className={`${buttonUp} movement__button movement__button--up`}
           onMouseDown={() => {
             handleMoveStart('up')
             handleAnimationStart('up')
@@ -206,7 +218,7 @@ function Movement() {
         >
           <p className='movement__arrow'>&#8593;</p>
         </button>
-        <button className='movement__button movement__button--left'
+        <button className={`${buttonLeft} movement__button movement__button--left`}
           onMouseDown={() => {
             handleMoveStart('left')
             handleAnimationStart('left')
@@ -219,7 +231,7 @@ function Movement() {
         >
           <p className='movement__arrow'>&#8593;</p>
         </button>
-        <button className='movement__button movement__button--right'
+        <button className={`${buttonRight} movement__button movement__button--right`}
           onMouseDown={() => {
             handleMoveStart('right')
             handleAnimationStart('right')
@@ -231,7 +243,7 @@ function Movement() {
           }}>
           <p className='movement__arrow'>&#8593;</p>
         </button>
-        <button className='movement__button movement__button--down'
+        <button className={`${buttonDown} movement__button movement__button--down`}
           onMouseDown={() => {
             handleMoveStart('down')
             handleAnimationStart('down')
