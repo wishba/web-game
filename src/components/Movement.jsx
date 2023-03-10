@@ -8,8 +8,8 @@ import GridLine from './gridLine/GridLine'
 import Area from './area/Area'
 
 function Movement() {
-  const [positionX, setPositionX] = useState(-160)
-  const [positionY, setPositionY] = useState(-160)
+  const [positionX, setPositionX] = useState(-80)
+  const [positionY, setPositionY] = useState(-80)
   const [face, setFace] = useState()
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
