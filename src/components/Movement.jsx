@@ -231,9 +231,9 @@ function Movement() {
         <div className='movement__ab'>
           <button className={warn === 'none' ? 'movement__button' : 'movement__button movement__button--warning'}
             onClick={() => handleButtonA()}
-          >A</button>
+          ><p>Z</p></button>
           {/* <button className='movement__button'>A</button> */}
-          <button className='movement__button'>B</button>
+          <button className='movement__button'><p>X</p></button>
         </div>
 
         <div className='movement__arrow--container'>
@@ -248,7 +248,8 @@ function Movement() {
               endFace('up')
             }}
           >
-            <p className='movement__arrow'>&#8593;</p>
+            <p>&#8593;</p>
+            {/* <p className='movement__arrow'>&#8593;</p> */}
           </button>
           <button className={`${buttonLeft} movement__button movement__button--left`}
             onMouseDown={() => {
@@ -261,7 +262,8 @@ function Movement() {
               endFace('left')
             }}
           >
-            <p className='movement__arrow'>&#8593;</p>
+            <p>&#8593;</p>
+            {/* <p className='movement__arrow'>&#8593;</p> */}
           </button>
           <button className={`${buttonRight} movement__button movement__button--right`}
             onMouseDown={() => {
@@ -273,7 +275,8 @@ function Movement() {
               handleStop()
               endFace('right')
             }}>
-            <p className='movement__arrow'>&#8593;</p>
+            <p>&#8593;</p>
+            {/* <p className='movement__arrow'>&#8593;</p> */}
           </button>
           <button className={`${buttonDown} movement__button movement__button--down`}
             onMouseDown={() => {
@@ -285,7 +288,8 @@ function Movement() {
               handleStop()
               endFace('down')
             }}>
-            <p className='movement__arrow'>&#8593;</p>
+            <p>&#8593;</p>
+            {/* <p className='movement__arrow'>&#8593;</p> */}
           </button>
         </div>
       </div>
