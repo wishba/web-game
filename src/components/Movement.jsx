@@ -132,7 +132,8 @@ function Movement() {
 
     if (containsPosition(data.object.letter.placement, positionTile)) {
       setWarn('block')
-    } else if (!containsPosition(data.object.letter.placement, positionTile)) {
+    }
+    if (!containsPosition(data.object.letter.placement, positionTile)) {
       setWarn('none')
     }
   }, [positionX, positionY])

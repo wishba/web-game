@@ -23,7 +23,7 @@
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
   /* -------------------------------------- */
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .movement__camera--center {
