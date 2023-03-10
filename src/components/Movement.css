@@ -67,7 +67,21 @@
 }
 
 .movement__button.movement__button--warning {
-  border: calc(var(--zoom) * 1px) solid red;
+  animation: color-switch .75s infinite;
+}
+
+@keyframes color-switch {
+  0% {
+    border: calc(var(--zoom) * 1px) solid #5c4e92;
+  }
+
+  50% {
+    border: calc(var(--zoom) * 1px) solid #e8b5ac;
+  }
+
+  100% {
+    border: calc(var(--zoom) * 1px) solid #5c4e92;
+  }
 }
 
 .movement__button {
