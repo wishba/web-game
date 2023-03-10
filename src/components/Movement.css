@@ -44,6 +44,7 @@
   position: absolute;
   z-index: 1;
   transform: translate(calc(var(--zoom) * -5px), calc(var(--zoom) * -5px));
+  color: #5c4e92;
 }
 
 .movement__area {

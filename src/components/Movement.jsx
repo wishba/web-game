@@ -21,6 +21,7 @@ function Movement() {
   const [buttonLeft, setButtonLeft] = useState('')
   const [buttonRight, setButtonRight] = useState('')
   const [buttonDown, setButtonDown] = useState('')
+  const [warn, setWarn] = useState('none')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -108,6 +109,12 @@ function Movement() {
       Math.round(positionX * -1 / 40),
       Math.round(positionY * -1 / 40)
     ]
+    const positionTile = [
+      Math.round(positionX * -1 / 80),
+      Math.round(positionY * -1 / 80)
+    ]
+
+    console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`);
 
     function containsPosition(array, positionArray) {
       return array.some(element =>
@@ -121,6 +128,12 @@ function Movement() {
       if (pressLeft === true) { setPositionX(positionX - 1) }
       if (pressRight === true) { setPositionX(positionX + 1) }
       if (pressDown === true) { setPositionY(positionY + 1) }
+    }
+
+    if (containsPosition(data.object.letter.placement, positionTile)) {
+      setWarn('block')
+    } else if (!containsPosition(data.object.letter.placement, positionTile)) {
+      setWarn('none')
     }
   }, [positionX, positionY])
 
@@ -189,7 +202,7 @@ function Movement() {
       <div className='movement__camera'>
         <div className='movement__camera--center movement__hero'>
           <p className='movement__emotion'
-          // style={{ display: 'none' }}
+            style={{ display: `${warn}` }}
           >!</p>
           <Hero face={face} />
         </div>
