@@ -12,13 +12,18 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
+  /* -------------------------------------- */
+  position: fixed;
+  z-index: 2;
+  right: 0;
 }
 
 .movement__camera {
   border: 1px solid black;
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
-  overflow: hidden;
+  /* -------------------------------------- */
+  /* overflow: hidden; */
 }
 
 .movement__camera--center {
@@ -32,6 +37,13 @@
 .movement__hero {
   position: absolute;
   z-index: 1;
+}
+
+.movement__emotion {
+  font-size: calc(var(--zoom) * 10px);
+  position: absolute;
+  z-index: 1;
+  transform: translate(calc(var(--zoom) * -5px), calc(var(--zoom) * -5px));
 }
 
 .movement__area {

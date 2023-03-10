@@ -9,7 +9,7 @@ import Area from './area/Area'
 
 function Movement() {
   const [positionX, setPositionX] = useState(-160)
-  const [positionY, setPositionY] = useState(-80)
+  const [positionY, setPositionY] = useState(-160)
   const [face, setFace] = useState()
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
@@ -188,6 +188,9 @@ function Movement() {
     <div className='movement__container'>
       <div className='movement__camera'>
         <div className='movement__camera--center movement__hero'>
+          <p className='movement__emotion'
+          // style={{ display: 'none' }}
+          >!</p>
           <Hero face={face} />
         </div>
 
