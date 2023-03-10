@@ -223,7 +223,8 @@ function Movement() {
 
       <div className='movement__button--container'>
         <div className='movement__ab'>
-          <button className='movement__button'>A</button>
+          <button className={warn === 'none' ? 'movement__button' : 'movement__button movement__button--warning'}>A</button>
+          {/* <button className='movement__button'>A</button> */}
           <button className='movement__button'>B</button>
         </div>
 

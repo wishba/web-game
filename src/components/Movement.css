@@ -66,6 +66,10 @@
   background-color: #e8b5ac;
 }
 
+.movement__button.movement__button--warning {
+  border: calc(var(--zoom) * 1px) solid red;
+}
+
 .movement__button {
   font-size: calc(var(--zoom) * 10px);
   width: calc(var(--zoom) * 14px);
