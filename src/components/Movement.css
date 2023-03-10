@@ -13,9 +13,9 @@
   gap: 1rem;
   margin-top: 1rem;
   /* -------------------------------------- */
-  position: fixed;
-  z-index: 2;
-  right: 0;
+  /* position: fixed; */
+  /* z-index: 2; */
+  /* right: 0; */
 }
 
 .movement__camera {
