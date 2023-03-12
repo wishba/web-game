@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
-import soundStep from './assets/Bubble heavy 1.wav'
 import data from './data/data.json'
+import soundStep from './assets/Bubble heavy 1.wav'
 import Hero from './components/hero/Hero'
 import GridLine from './components/ground/gridLine/GridLine'
 import Area from './components/ground/area/Area'
@@ -17,19 +17,24 @@ function App() {
 
   const [positionX, setPositionX] = useState(-80)
   const [positionY, setPositionY] = useState(-80)
-  const [face, setFace] = useState()
+
+  const [press, setPress] = useState(false)
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
-  const [press, setPress] = useState(false)
-  const [key, setKey] = useState()
+
   const [buttonUp, setButtonUp] = useState('')
   const [buttonLeft, setButtonLeft] = useState('')
   const [buttonRight, setButtonRight] = useState('')
   const [buttonDown, setButtonDown] = useState('')
-  const [warn, setWarn] = useState('none')
   const [buttonZ, setButtonZ] = useState('')
+  const [buttonX, setButtonX] = useState('')
+
+  const [face, setFace] = useState()
+  const [key, setKey] = useState()
+  const [warn, setWarn] = useState('none')
+  const [dialogue, setDialogue] = useState()
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -182,8 +187,12 @@ function App() {
           setButtonDown('app__button--active')
           return
         case 'z':
-          handleButtonA()
+          handleButtonZ()
           setButtonZ('app__button--active')
+          return
+        case 'x':
+          setButtonX('app__button--active')
+          setDialogue()
           return
       }
     }
@@ -210,13 +219,25 @@ function App() {
         case 'z':
           setButtonZ('')
           return
+        case 'x':
+          setButtonX('')
+          return
       }
     }
   }, [press])
 
-  function handleButtonA() {
-    if (warn == 'block') {
+  function handleButtonZ() {
+    if (warn == 'block' && positionTile == '2,2') {
       console.log(positionTile);
+      setDialogue(
+        <div className='app__dialogue--container'>
+          <p>you've found a letter, do you want to read it?</p>
+          <button>yes(z)</button>
+          <button
+            onClick={() => setDialogue()}
+          >no(x)</button>
+        </div>
+      )
     }
   }
 
@@ -246,19 +267,22 @@ function App() {
           </div>
         </div>
 
+        {dialogue}
       </div>
 
       <div className='app__button--container'>
-        <div className='app__ab'>
+        <div className='app__zx'>
           <button
             className={
               warn === 'none' ?
                 `${buttonZ} app__button` :
                 `${buttonZ} app__button app__button--warning`
             }
-            onClick={() => handleButtonA()}
+            onClick={() => handleButtonZ()}
           ><p>Z</p></button>
-          <button className='app__button'><p>X</p></button>
+          <button className={`${buttonX} app__button`}
+            onClick={() => setDialogue()}
+          ><p>X</p></button>
         </div>
 
         <div className='app__arrow--container'>

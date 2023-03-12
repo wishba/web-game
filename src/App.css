@@ -33,6 +33,7 @@
   width: calc(var(--tile) * 5);
   height: calc(var(--tile) * 5);
   overflow: hidden;
+  position: relative;
 }
 
 .app__camera--center {
@@ -68,7 +69,12 @@
   transform: translate(calc(var(--tile) * 2), calc(var(--tile) * 2));
 }
 
-.app__ab>.app__button {
+.app__dialogue--container {
+  position: absolute;
+  bottom: 0;
+}
+
+.app__zx>.app__button {
   margin: .5rem;
 }
 
@@ -148,7 +154,7 @@
     width: fit-content;
   }
 
-  .app__ab>.app__button {
+  .app__zx>.app__button {
     margin: 0 1rem 0 0;
   }
 }
