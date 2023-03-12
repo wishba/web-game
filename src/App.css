@@ -108,6 +108,12 @@
   border: calc(var(--zoom) * 1px) solid #5c4e92;
   color: #5c4e92;
   background-color: #f3f2c0;
+  padding: 0;
+}
+
+.app__button>p {
+  width: 45px;
+  margin: auto;
 }
 
 .app__button--up {
