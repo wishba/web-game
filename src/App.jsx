@@ -6,6 +6,7 @@ import Hero from './components/hero/Hero'
 import GridLine from './components/ground/gridLine/GridLine'
 import Area from './components/ground/area/Area'
 import Ground from './components/ground/Ground'
+import letterAsset from './assets/Basic Plants.png'
 
 function App() {
   const styles = { '--zoom': '5' }
@@ -225,8 +226,13 @@ function App() {
             <div className='app__area'>
               <Area areaPlacement={data.ground} />
             </div>
+
+            <div className='app__tile app__letter--container'>
+              <img className='app__letter' src={letterAsset} alt="letter" />
+            </div>
           </div>
         </div>
+
       </div>
 
       <div className='app__button--container'>

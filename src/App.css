@@ -6,6 +6,12 @@
   image-rendering: pixelated;
 }
 
+.app__tile {
+  width: calc(var(--zoom) * 16px);
+  height: calc(var(--zoom) * 16px);
+  overflow: hidden;
+}
+
 .app__container {
   display: flex;
   flex-direction: column;
@@ -52,6 +58,14 @@
 
 .app__area {
   transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
+}
+
+.app__letter {
+  width: calc(var(--zoom) * 96px);
+}
+
+.app__letter--container {
+  transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
 }
 
 .app__ab>.app__button {

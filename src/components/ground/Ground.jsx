@@ -30,12 +30,12 @@ function Ground() {
         width={80}
       />
 
-      <GroundTiles
+      {/* <GroundTiles
         placement={data.object.letter.placement}
         tileCoordinate={data.object.letter.asset}
         asset={letterAsset}
         width={96}
-      />
+      /> */}
     </>
   )
 }
