@@ -12,6 +12,7 @@ function App() {
   const styles = {
     '--zoom': '5',
     '--tile': 'calc(var(--zoom) * 16px)',
+    '--font-size': 'calc(var(--zoom) * 10px)',
   }
 
   const [positionX, setPositionX] = useState(-80)

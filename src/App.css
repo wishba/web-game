@@ -49,7 +49,7 @@
 }
 
 .app__hero--emotion {
-  font-size: calc(var(--zoom) * 10px);
+  font-size: var(--font-size);
   position: absolute;
   z-index: 1;
   transform: translate(calc(var(--zoom) * -5px), calc(var(--zoom) * -5px));
@@ -102,7 +102,7 @@
 }
 
 .app__button {
-  font-size: calc(var(--zoom) * 10px);
+  font-size: var(--font-size);
   width: calc(var(--zoom) * 14px);
   height: calc(var(--zoom) * 14px);
   border: calc(var(--zoom) * 1px) solid #5c4e92;
