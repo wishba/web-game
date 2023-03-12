@@ -29,9 +29,19 @@ function App() {
   const [buttonRight, setButtonRight] = useState('')
   const [buttonDown, setButtonDown] = useState('')
   const [warn, setWarn] = useState('none')
+  const [buttonZ, setButtonZ] = useState('')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
+
+  const positionXY = [
+    Math.round(positionX * -1 / 40),
+    Math.round(positionY * -1 / 40)
+  ]
+  const positionTile = [
+    Math.round(positionX * -1 / 80),
+    Math.round(positionY * -1 / 80)
+  ]
 
   function step() {
     const sound = new Audio(soundStep)
@@ -112,15 +122,6 @@ function App() {
   }
 
   useEffect(() => {
-    const positionXY = [
-      Math.round(positionX * -1 / 40),
-      Math.round(positionY * -1 / 40)
-    ]
-    const positionTile = [
-      Math.round(positionX * -1 / 80),
-      Math.round(positionY * -1 / 80)
-    ]
-
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`);
 
     function containsPosition(array, positionArray) {
@@ -154,6 +155,7 @@ function App() {
 
     if (press === true) {
       console.log(key);
+
       switch (key) {
         case 'ArrowUp':
           handleMoveStart('up')
@@ -179,6 +181,10 @@ function App() {
           setFace('down')
           setButtonDown('app__button--active')
           return
+        case 'z':
+          handleButtonA()
+          setButtonZ('app__button--active')
+          return
       }
     }
 
@@ -201,13 +207,16 @@ function App() {
           endFace('down')
           setButtonDown('')
           return
+        case 'z':
+          setButtonZ('')
+          return
       }
     }
   }, [press])
 
   function handleButtonA() {
     if (warn == 'block') {
-      console.log('tes');
+      console.log(positionTile);
     }
   }
 
@@ -225,11 +234,11 @@ function App() {
           transform: `translate(${positionX}px, ${positionY}px)`,
         }}>
           <div className='app__camera--center'>
-            {/* <GridLine width={14} height={6} /> */}
+            <GridLine width={14} height={6} />
             <Ground />
-            {/* <div className='app__area'> */}
-            {/* <Area areaPlacement={data.ground} /> */}
-            {/* </div> */}
+            <div className='app__area'>
+              <Area areaPlacement={data.ground} />
+            </div>
 
             <div className='app__tile app__letter--container'>
               <img className='app__letter' src={letterAsset} alt="letter" />
@@ -241,7 +250,12 @@ function App() {
 
       <div className='app__button--container'>
         <div className='app__ab'>
-          <button className={warn === 'none' ? 'app__button' : 'app__button app__button--warning'}
+          <button
+            className={
+              warn === 'none' ?
+                `${buttonZ} app__button` :
+                `${buttonZ} app__button app__button--warning`
+            }
             onClick={() => handleButtonA()}
           ><p>Z</p></button>
           <button className='app__button'><p>X</p></button>
