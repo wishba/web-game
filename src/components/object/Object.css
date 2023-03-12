@@ -1,6 +1,0 @@
-.object__tile {
-  width: calc(var(--zoom) * 16px);
-  height: calc(var(--zoom) * 16px);
-  overflow: hidden;
-  position: absolute;
-}

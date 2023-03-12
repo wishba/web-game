@@ -1,13 +1,14 @@
 import React from 'react'
 import './Ground.css'
 import data from '../../data/data.json'
-import GroundTiles from './GroundTiles'
 import grassAsset from '../../assets/Grass tiles v.2.png'
 import bridgeAsset from '../../assets/Wood Bridge.png'
+import letterAsset from '../../assets/Basic Plants.png'
+import GroundTiles from './GroundTiles'
 
 function Ground() {
   return (
-    <div>
+    <>
       <GroundTiles
         placement={data.object.oneIsland.placement}
         tileCoordinate={data.object.oneIsland.asset}
@@ -28,7 +29,14 @@ function Ground() {
         asset={bridgeAsset}
         width={80}
       />
-    </div>
+
+      <GroundTiles
+        placement={data.object.letter.placement}
+        tileCoordinate={data.object.letter.asset}
+        asset={letterAsset}
+        width={96}
+      />
+    </>
   )
 }
 

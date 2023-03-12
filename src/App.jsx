@@ -3,9 +3,9 @@ import './App.css'
 import soundStep from './assets/Bubble heavy 1.wav'
 import data from './data/data.json'
 import Hero from './components/hero/Hero'
-import Object from './components/object/Object'
 import GridLine from './components/ground/gridLine/GridLine'
 import Area from './components/ground/area/Area'
+import Ground from './components/ground/Ground'
 
 function App() {
   const styles = { '--zoom': '5' }
@@ -221,7 +221,7 @@ function App() {
         }}>
           <div className='app__camera--center'>
             <GridLine width={14} height={6} />
-            <Object />
+            <Ground />
             <div className='app__area'>
               <Area areaPlacement={data.ground} />
             </div>
