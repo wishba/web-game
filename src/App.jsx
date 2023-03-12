@@ -33,7 +33,9 @@ function App() {
 
   const [face, setFace] = useState()
   const [key, setKey] = useState()
+
   const [warn, setWarn] = useState('none')
+  const [warnButton, setWarnButton] = useState('app__button--warning')
   const [dialogue, setDialogue] = useState()
 
   const intervalMovement = useRef()
@@ -229,6 +231,7 @@ function App() {
   function handleButtonZ() {
     if (warn == 'block' && positionTile == '2,2') {
       console.log(positionTile);
+      setWarnButton('')
       setDialogue(
         <div className='app__dialogue--container'>
           <p>you've found a letter, do you want to read it?</p>
@@ -276,7 +279,7 @@ function App() {
             className={
               warn === 'none' ?
                 `${buttonZ} app__button` :
-                `${buttonZ} app__button app__button--warning`
+                `${buttonZ} app__button ${warnButton}`
             }
             onClick={() => handleButtonZ()}
           ><p>Z</p></button>

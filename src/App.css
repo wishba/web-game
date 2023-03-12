@@ -72,6 +72,7 @@
 .app__dialogue--container {
   position: absolute;
   bottom: 0;
+  background-color: #f3f2c0;
 }
 
 .app__zx>.app__button {
