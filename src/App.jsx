@@ -154,25 +154,25 @@ function App() {
           handleMoveStart('up')
           handleAnimationStart('up')
           setFace('up')
-          setButtonUp('movement__button--active')
+          setButtonUp('app__button--active')
           return
         case 'ArrowLeft':
           handleMoveStart('left')
           handleAnimationStart('left')
           setFace('left')
-          setButtonLeft('movement__button--active')
+          setButtonLeft('app__button--active')
           return
         case 'ArrowRight':
           handleMoveStart('right')
           handleAnimationStart('right')
           setFace('right')
-          setButtonRight('movement__button--active')
+          setButtonRight('app__button--active')
           return
         case 'ArrowDown':
           handleMoveStart('down')
           handleAnimationStart('down')
           setFace('down')
-          setButtonDown('movement__button--active')
+          setButtonDown('app__button--active')
           return
       }
     }
@@ -207,94 +207,92 @@ function App() {
   }
 
   return (
-    <div style={styles}>
-      <div className='movement__container'>
-        <div className='movement__camera'>
-          <div className='movement__camera--center movement__hero'>
-            <p className='movement__emotion'
-              style={{ display: `${warn}` }}
-            >!</p>
-            <Hero face={face} />
-          </div>
+    <div style={styles} className='app__container'>
+      <div className='app__camera'>
+        <div className='app__camera--center app__hero'>
+          <p className='app__hero--emotion'
+            style={{ display: `${warn}` }}
+          >!</p>
+          <Hero face={face} />
+        </div>
 
-          <div style={{
-            transform: `translate(${positionX}px, ${positionY}px)`,
-          }}>
-            <div className='movement__camera--center'>
-              <GridLine width={14} height={6} />
-              <Object />
-              <div className='movement__area'>
-                <Area areaPlacement={data.ground} />
-              </div>
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+        }}>
+          <div className='app__camera--center'>
+            <GridLine width={14} height={6} />
+            <Object />
+            <div className='app__area'>
+              <Area areaPlacement={data.ground} />
             </div>
           </div>
         </div>
+      </div>
 
-        <div className='movement__button--container'>
-          <div className='movement__ab'>
-            <button className={warn === 'none' ? 'movement__button' : 'movement__button movement__button--warning'}
-              onClick={() => handleButtonA()}
-            ><p>Z</p></button>
-            {/* <button className='movement__button'>A</button> */}
-            <button className='movement__button'><p>X</p></button>
-          </div>
+      <div className='app__button--container'>
+        <div className='app__ab'>
+          <button className={warn === 'none' ? 'app__button' : 'app__button app__button--warning'}
+            onClick={() => handleButtonA()}
+          ><p>Z</p></button>
+          {/* <button className='app__button'>A</button> */}
+          <button className='app__button'><p>X</p></button>
+        </div>
 
-          <div className='movement__arrow--container'>
-            <button className={`${buttonUp} movement__button movement__button--up`}
-              onMouseDown={() => {
-                handleMoveStart('up')
-                handleAnimationStart('up')
-                setFace('up')
-              }}
-              onMouseUp={() => {
-                handleStop()
-                endFace('up')
-              }}
-            >
-              <p>&#8593;</p>
-              {/* <p className='movement__arrow'>&#8593;</p> */}
-            </button>
-            <button className={`${buttonLeft} movement__button movement__button--left`}
-              onMouseDown={() => {
-                handleMoveStart('left')
-                handleAnimationStart('left')
-                setFace('left')
-              }}
-              onMouseUp={() => {
-                handleStop()
-                endFace('left')
-              }}
-            >
-              <p>&#8593;</p>
-              {/* <p className='movement__arrow'>&#8593;</p> */}
-            </button>
-            <button className={`${buttonRight} movement__button movement__button--right`}
-              onMouseDown={() => {
-                handleMoveStart('right')
-                handleAnimationStart('right')
-                setFace('right')
-              }}
-              onMouseUp={() => {
-                handleStop()
-                endFace('right')
-              }}>
-              <p>&#8593;</p>
-              {/* <p className='movement__arrow'>&#8593;</p> */}
-            </button>
-            <button className={`${buttonDown} movement__button movement__button--down`}
-              onMouseDown={() => {
-                handleMoveStart('down')
-                handleAnimationStart('down')
-                setFace('down')
-              }}
-              onMouseUp={() => {
-                handleStop()
-                endFace('down')
-              }}>
-              <p>&#8593;</p>
-              {/* <p className='movement__arrow'>&#8593;</p> */}
-            </button>
-          </div>
+        <div className='app__arrow--container'>
+          <button className={`${buttonUp} app__button app__button--up`}
+            onMouseDown={() => {
+              handleMoveStart('up')
+              handleAnimationStart('up')
+              setFace('up')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('up')
+            }}
+          >
+            <p>&#8593;</p>
+            {/* <p className='app__arrow'>&#8593;</p> */}
+          </button>
+          <button className={`${buttonLeft} app__button app__button--left`}
+            onMouseDown={() => {
+              handleMoveStart('left')
+              handleAnimationStart('left')
+              setFace('left')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('left')
+            }}
+          >
+            <p>&#8593;</p>
+            {/* <p className='app__arrow'>&#8593;</p> */}
+          </button>
+          <button className={`${buttonRight} app__button app__button--right`}
+            onMouseDown={() => {
+              handleMoveStart('right')
+              handleAnimationStart('right')
+              setFace('right')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('right')
+            }}>
+            <p>&#8593;</p>
+            {/* <p className='app__arrow'>&#8593;</p> */}
+          </button>
+          <button className={`${buttonDown} app__button app__button--down`}
+            onMouseDown={() => {
+              handleMoveStart('down')
+              handleAnimationStart('down')
+              setFace('down')
+            }}
+            onMouseUp={() => {
+              handleStop()
+              endFace('down')
+            }}>
+            <p>&#8593;</p>
+            {/* <p className='app__arrow'>&#8593;</p> */}
+          </button>
         </div>
       </div>
     </div>
