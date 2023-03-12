@@ -234,7 +234,6 @@ function App() {
           <button className={warn === 'none' ? 'app__button' : 'app__button app__button--warning'}
             onClick={() => handleButtonA()}
           ><p>Z</p></button>
-          {/* <button className='app__button'>A</button> */}
           <button className='app__button'><p>X</p></button>
         </div>
 
@@ -251,7 +250,6 @@ function App() {
             }}
           >
             <p>&#8593;</p>
-            {/* <p className='app__arrow'>&#8593;</p> */}
           </button>
           <button className={`${buttonLeft} app__button app__button--left`}
             onMouseDown={() => {
@@ -265,7 +263,6 @@ function App() {
             }}
           >
             <p>&#8593;</p>
-            {/* <p className='app__arrow'>&#8593;</p> */}
           </button>
           <button className={`${buttonRight} app__button app__button--right`}
             onMouseDown={() => {
@@ -278,7 +275,6 @@ function App() {
               endFace('right')
             }}>
             <p>&#8593;</p>
-            {/* <p className='app__arrow'>&#8593;</p> */}
           </button>
           <button className={`${buttonDown} app__button app__button--down`}
             onMouseDown={() => {
@@ -291,7 +287,6 @@ function App() {
               endFace('down')
             }}>
             <p>&#8593;</p>
-            {/* <p className='app__arrow'>&#8593;</p> */}
           </button>
         </div>
       </div>

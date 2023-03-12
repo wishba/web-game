@@ -7,14 +7,7 @@ function GroundTiles({ placement, tileCoordinate, asset, width }) {
     const tileArray = []
     for (let index = 0; index < placement.length; index++) {
       tileArray.push(
-        // <div key={index}
-        <div key={index} className='app__tile'
-          style={{
-            position: 'absolute',
-            // left: `calc(var(--zoom) * 16px * ${placement[index][0]})`,
-            // top: `calc(var(--zoom) * 16px * ${placement[index][1]})`,
-          }}
-        >
+        <div key={index} className='app__tile' style={{ position: 'absolute', }}>
           <div style={{
             transform: `
               translate(

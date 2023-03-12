@@ -20,17 +20,12 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
-  /* -------------------------------------- */
-  /* position: fixed; */
-  /* z-index: 2; */
-  /* right: 0; */
 }
 
 .app__camera {
   border: 1px solid black;
   width: calc(var(--zoom) * 16px * 5);
   height: calc(var(--zoom) * 16px * 5);
-  /* -------------------------------------- */
   overflow: hidden;
 }
 
@@ -63,14 +58,8 @@
   margin: .5rem;
 }
 
-.app__ab>.app__button>p {
-  /* transform: translate(calc(var(--zoom) * .5px), calc(var(--zoom) * .5px)); */
-}
-
 .app__arrow--container {
   display: grid;
-  /* grid-template-columns: 70px 70px 70px; */
-  /* grid-template-columns: repeat(3, 70px); */
   grid-template-columns: repeat(3, calc(var(--zoom) * 14px));
   width: 210px;
 }
@@ -100,16 +89,11 @@
 
 .app__button {
   font-size: calc(var(--zoom) * 10px);
-  width: calc(var(--zoom) * 13px);
-  /* width: calc(var(--zoom) * 14px); */
+  width: calc(var(--zoom) * 14px);
   height: calc(var(--zoom) * 14px);
   border: calc(var(--zoom) * 1px) solid #5c4e92;
   color: #5c4e92;
   background-color: #f3f2c0;
-}
-
-.app__button>p {
-  /* transform: translateX(calc(var(--zoom) * .5px)); */
 }
 
 .app__button--up {
@@ -130,10 +114,6 @@
   transform: rotate(180deg);
   grid-area: 3/2/4/3;
 }
-
-/* .app__arrow { */
-/* transform: translateX(2.25px); */
-/* } */
 
 @media (min-width: 650px) {
   .app__container {

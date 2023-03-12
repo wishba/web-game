@@ -7,9 +7,6 @@ import bridgeAsset from '../../assets/Wood Bridge.png'
 
 function Ground() {
   return (
-    // <div className='app__tile'>
-    //   <img className='object__grass' src={grassAsset} alt="grass asset" />
-    // </div>
     <div>
       <GroundTiles
         placement={data.object.oneIsland.placement}
