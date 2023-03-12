@@ -9,7 +9,10 @@ import Ground from './components/ground/Ground'
 import letterAsset from './assets/Basic Plants.png'
 
 function App() {
-  const styles = { '--zoom': '5' }
+  const styles = {
+    '--zoom': '5',
+    '--tile': 'calc(var(--zoom) * 16px)',
+  }
 
   const [positionX, setPositionX] = useState(-80)
   const [positionY, setPositionY] = useState(-80)

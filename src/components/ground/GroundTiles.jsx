@@ -9,15 +9,15 @@ function GroundTiles({ placement, tileCoordinate, asset, width }) {
       tileArray.push(
         <div key={index} className='object__tile'
           style={{
-            left: `calc(var(--zoom) * 16px * ${placement[index][0]})`,
-            top: `calc(var(--zoom) * 16px * ${placement[index][1]})`,
+            left: `calc(var(--tile) * ${placement[index][0]})`,
+            top: `calc(var(--tile) * ${placement[index][1]})`,
           }}
         >
           <div style={{
             transform: `
                 translate(
-                  calc(var(--zoom) * 16px * -${tileCoordinate[index][0]}), 
-                  calc(var(--zoom) * 16px * -${tileCoordinate[index][1]}))`
+                  calc(var(--tile) * -${tileCoordinate[index][0]}), 
+                  calc(var(--tile) * -${tileCoordinate[index][1]}))`
           }}>
             <img src={asset} alt="tile asset"
               style={{ width: `calc(var(--zoom) * ${width}px)` }}

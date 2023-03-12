@@ -7,8 +7,8 @@
 }
 
 .app__tile {
-  width: calc(var(--zoom) * 16px);
-  height: calc(var(--zoom) * 16px);
+  width: var(--tile);
+  height: var(--tile);
   overflow: hidden;
 }
 
@@ -22,7 +22,7 @@
 .app__button--container {
   display: flex;
   flex-direction: row-reverse;
-  width: calc(var(--zoom) * 16px * 5);
+  width: calc(var(--tile) * 5);
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
@@ -30,13 +30,13 @@
 
 .app__camera {
   border: 1px solid black;
-  width: calc(var(--zoom) * 16px * 5);
-  height: calc(var(--zoom) * 16px * 5);
+  width: calc(var(--tile) * 5);
+  height: calc(var(--tile) * 5);
   overflow: hidden;
 }
 
 .app__camera--center {
-  transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
+  transform: translate(calc(var(--tile) * 2), calc(var(--tile) * 2));
 }
 
 .app__camera--center>* {
@@ -65,7 +65,7 @@
 }
 
 .app__letter--container {
-  transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
+  transform: translate(calc(var(--tile) * 2), calc(var(--tile) * 2));
 }
 
 .app__ab>.app__button {
