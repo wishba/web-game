@@ -5,3 +5,150 @@
   font-family: 'Press Start 2P', cursive;
   image-rendering: pixelated;
 }
+
+.movement__container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
+.movement__button--container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: calc(var(--zoom) * 16px * 5);
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  /* -------------------------------------- */
+  /* position: fixed; */
+  /* z-index: 2; */
+  /* right: 0; */
+}
+
+.movement__camera {
+  border: 1px solid black;
+  width: calc(var(--zoom) * 16px * 5);
+  height: calc(var(--zoom) * 16px * 5);
+  /* -------------------------------------- */
+  overflow: hidden;
+}
+
+.movement__camera--center {
+  transform: translate(calc(var(--zoom) * 16px * 2), calc(var(--zoom) * 16px * 2));
+}
+
+.movement__camera--center>* {
+  position: absolute;
+}
+
+.movement__hero {
+  position: absolute;
+  z-index: 1;
+}
+
+.movement__emotion {
+  font-size: calc(var(--zoom) * 10px);
+  position: absolute;
+  z-index: 1;
+  transform: translate(calc(var(--zoom) * -5px), calc(var(--zoom) * -5px));
+  color: #5c4e92;
+}
+
+.movement__area {
+  transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
+}
+
+.movement__ab>.movement__button {
+  margin: .5rem;
+}
+
+.movement__ab>.movement__button>p {
+  /* transform: translate(calc(var(--zoom) * .5px), calc(var(--zoom) * .5px)); */
+}
+
+.movement__arrow--container {
+  display: grid;
+  /* grid-template-columns: 70px 70px 70px; */
+  /* grid-template-columns: repeat(3, 70px); */
+  grid-template-columns: repeat(3, calc(var(--zoom) * 14px));
+  width: 210px;
+}
+
+.movement__button:active,
+.movement__button.movement__button--active {
+  background-color: #e8b5ac;
+}
+
+.movement__button.movement__button--warning {
+  animation: color-switch .75s infinite;
+}
+
+@keyframes color-switch {
+  0% {
+    border: calc(var(--zoom) * 1px) solid #5c4e92;
+  }
+
+  50% {
+    border: calc(var(--zoom) * 1px) solid #e8b5ac;
+  }
+
+  100% {
+    border: calc(var(--zoom) * 1px) solid #5c4e92;
+  }
+}
+
+.movement__button {
+  font-size: calc(var(--zoom) * 10px);
+  width: calc(var(--zoom) * 13px);
+  /* width: calc(var(--zoom) * 14px); */
+  height: calc(var(--zoom) * 14px);
+  border: calc(var(--zoom) * 1px) solid #5c4e92;
+  color: #5c4e92;
+  background-color: #f3f2c0;
+}
+
+.movement__button>p {
+  /* transform: translateX(calc(var(--zoom) * .5px)); */
+}
+
+.movement__button--up {
+  grid-area: 1/2/2/3;
+}
+
+.movement__button--left {
+  transform: rotate(270deg);
+  grid-area: 2/1/3/3;
+}
+
+.movement__button--right {
+  transform: rotate(90deg);
+  grid-area: 2/3/3/4;
+}
+
+.movement__button--down {
+  transform: rotate(180deg);
+  grid-area: 3/2/4/3;
+}
+
+/* .movement__arrow { */
+/* transform: translateX(2.25px); */
+/* } */
+
+@media (min-width: 650px) {
+  .movement__container {
+    flex-direction: row;
+  }
+
+  .movement__button--container {
+    margin-left: 1rem;
+    margin-top: 0;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  .movement__ab>.movement__button {
+    margin: 0 1rem 0 0;
+  }
+}

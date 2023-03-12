@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Movement.css'
 import soundStep from '../assets/Bubble heavy 1.wav'
-import data from '../data/data.json'
-import Hero from './hero/Hero'
-import Object from './object/Object'
-import GridLine from './gridLine/GridLine'
-import Area from './area/Area'
+import data from '../../data/data.json'
+import Hero from '../hero/Hero'
+import Object from '../object/Object'
+import GridLine from '../ground/gridLine/GridLine'
+import Area from '../ground/area/Area'
 
 function Movement() {
   const [positionX, setPositionX] = useState(-80)
