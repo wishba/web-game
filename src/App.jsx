@@ -37,6 +37,7 @@ function App() {
   const [warn, setWarn] = useState('none')
   const [warnButton, setWarnButton] = useState('app__button--warning')
   const [dialogue, setDialogue] = useState()
+  const [stop, setStop] = useState(false)
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -165,28 +166,36 @@ function App() {
 
       switch (key) {
         case 'ArrowUp':
-          handleMoveStart('up')
-          handleAnimationStart('up')
-          setFace('up')
-          setButtonUp('app__button--active')
+          if (stop === false) {
+            handleMoveStart('up')
+            handleAnimationStart('up')
+            setFace('up')
+            setButtonUp('app__button--active')
+          }
           return
         case 'ArrowLeft':
-          handleMoveStart('left')
-          handleAnimationStart('left')
-          setFace('left')
-          setButtonLeft('app__button--active')
+          if (stop === false) {
+            handleMoveStart('left')
+            handleAnimationStart('left')
+            setFace('left')
+            setButtonLeft('app__button--active')
+          }
           return
         case 'ArrowRight':
-          handleMoveStart('right')
-          handleAnimationStart('right')
-          setFace('right')
-          setButtonRight('app__button--active')
+          if (stop === false) {
+            handleMoveStart('right')
+            handleAnimationStart('right')
+            setFace('right')
+            setButtonRight('app__button--active')
+          }
           return
         case 'ArrowDown':
-          handleMoveStart('down')
-          handleAnimationStart('down')
-          setFace('down')
-          setButtonDown('app__button--active')
+          if (stop === false) {
+            handleMoveStart('down')
+            handleAnimationStart('down')
+            setFace('down')
+            setButtonDown('app__button--active')
+          }
           return
         case 'z':
           handleButtonZ()
@@ -195,6 +204,7 @@ function App() {
         case 'x':
           setButtonX('app__button--active')
           setDialogue()
+          setStop(false)
           return
       }
     }
@@ -203,20 +213,28 @@ function App() {
       handleStop()
       switch (key) {
         case 'ArrowUp':
-          endFace('up')
-          setButtonUp('')
+          if (stop === false) {
+            endFace('up')
+            setButtonUp('')
+          }
           return
         case 'ArrowLeft':
-          endFace('left')
-          setButtonLeft('')
+          if (stop === false) {
+            endFace('left')
+            setButtonLeft('')
+          }
           return
         case 'ArrowRight':
-          endFace('right')
-          setButtonRight('')
+          if (stop === false) {
+            endFace('right')
+            setButtonRight('')
+          }
           return
         case 'ArrowDown':
-          endFace('down')
-          setButtonDown('')
+          if (stop === false) {
+            endFace('down')
+            setButtonDown('')
+          }
           return
         case 'z':
           setButtonZ('')
@@ -231,13 +249,17 @@ function App() {
   function handleButtonZ() {
     if (warn == 'block' && positionTile == '2,2') {
       console.log(positionTile);
+      setStop(true)
       setWarnButton('')
       setDialogue(
         <div className='app__dialogue--container'>
           <p>you've found a letter, do you want to read it?</p>
           <button>yes(z)</button>
           <button
-            onClick={() => setDialogue()}
+            onClick={() => {
+              setDialogue()
+              setStop(false)
+            }}
           >no(x)</button>
         </div>
       )
@@ -284,58 +306,77 @@ function App() {
             onClick={() => handleButtonZ()}
           ><p>Z</p></button>
           <button className={`${buttonX} app__button`}
-            onClick={() => setDialogue()}
+            onClick={() => {
+              setDialogue()
+              setStop(false)
+            }}
           ><p>X</p></button>
         </div>
 
         <div className='app__arrow--container'>
           <button className={`${buttonUp} app__button app__button--up`}
             onMouseDown={() => {
-              handleMoveStart('up')
-              handleAnimationStart('up')
-              setFace('up')
+              if (stop === false) {
+                handleMoveStart('up')
+                handleAnimationStart('up')
+                setFace('up')
+              }
             }}
             onMouseUp={() => {
-              handleStop()
-              endFace('up')
+              if (stop === false) {
+                handleStop()
+                endFace('up')
+              }
             }}
           >
             <p>&#8593;</p>
           </button>
           <button className={`${buttonLeft} app__button app__button--left`}
             onMouseDown={() => {
-              handleMoveStart('left')
-              handleAnimationStart('left')
-              setFace('left')
+              if (stop === false) {
+                handleMoveStart('left')
+                handleAnimationStart('left')
+                setFace('left')
+              }
             }}
             onMouseUp={() => {
-              handleStop()
-              endFace('left')
+              if (stop === false) {
+                handleStop()
+                endFace('left')
+              }
             }}
           >
             <p>&#8593;</p>
           </button>
           <button className={`${buttonRight} app__button app__button--right`}
             onMouseDown={() => {
-              handleMoveStart('right')
-              handleAnimationStart('right')
-              setFace('right')
+              if (stop === false) {
+                handleMoveStart('right')
+                handleAnimationStart('right')
+                setFace('right')
+              }
             }}
             onMouseUp={() => {
-              handleStop()
-              endFace('right')
+              if (stop === false) {
+                handleStop()
+                endFace('right')
+              }
             }}>
             <p>&#8593;</p>
           </button>
           <button className={`${buttonDown} app__button app__button--down`}
             onMouseDown={() => {
-              handleMoveStart('down')
-              handleAnimationStart('down')
-              setFace('down')
+              if (stop === false) {
+                handleMoveStart('down')
+                handleAnimationStart('down')
+                setFace('down')
+              }
             }}
             onMouseUp={() => {
-              handleStop()
-              endFace('down')
+              if (stop === false) {
+                handleStop()
+                endFace('down')
+              }
             }}>
             <p>&#8593;</p>
           </button>
