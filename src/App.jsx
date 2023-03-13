@@ -38,6 +38,7 @@ function App() {
   const [warnButton, setWarnButton] = useState('app__button--warning')
   const [dialogue, setDialogue] = useState()
   const [stop, setStop] = useState(false)
+  const [popUp, setPopUp] = useState()
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -254,7 +255,13 @@ function App() {
       setDialogue(
         <div className='app__dialogue--container'>
           <p>you've found a letter, do you want to read it?</p>
-          <button>yes(z)</button>
+          <button
+            onClick={() => {
+              setPopUp(
+                <div>tesssss</div>
+              )
+            }}
+          >yes(z)</button>
           <button
             onClick={() => {
               setDialogue()
@@ -293,6 +300,7 @@ function App() {
         </div>
 
         {dialogue}
+        {popUp}
       </div>
 
       <div className='app__button--container'>
