@@ -1,6 +1,0 @@
-.object__tile {
-  width: var(--tile);
-  height: var(--tile);
-  overflow: hidden;
-  position: absolute;
-}

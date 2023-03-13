@@ -1,0 +1,5 @@
+.gridLine {
+  width: calc(var(--tile-size) - calc(var(--zoom) * 2px));
+  height: calc(var(--tile-size) - calc(var(--zoom) * 2px));
+  border: calc(var(--zoom) * 1px) solid lightblue;
+}
