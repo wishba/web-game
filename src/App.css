@@ -57,10 +57,6 @@
   color: #5c4e92;
 }
 
-/* .app__area {
-  transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
-} */
-
 .app__letter {
   width: calc(var(--zoom) * 96px);
 }

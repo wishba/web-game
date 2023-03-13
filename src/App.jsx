@@ -287,11 +287,7 @@ function App() {
           transform: `translate(${positionX}px, ${positionY}px)`,
         }}>
           <div className='app__camera--center'>
-            {/* <GridLine width={14} height={6} /> */}
             <Ground />
-            {/* <div className='app__area'> */}
-            {/* <Area areaPlacement={data.ground} /> */}
-            {/* </div> */}
 
             <div className='app__tile app__letter--container'>
               <img className='app__letter' src={letterAsset} alt="letter" />
