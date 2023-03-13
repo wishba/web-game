@@ -7,7 +7,7 @@ function GroundTiles({ placement, tileCoordinate, asset, width }) {
     const tileArray = []
     for (let index = 0; index < placement.length; index++) {
       tileArray.push(
-        <div key={index} className='object__tile'
+        <div key={index} className='ground__tile'
           style={{
             left: `calc(var(--tile) * ${placement[index][0]})`,
             top: `calc(var(--tile) * ${placement[index][1]})`,

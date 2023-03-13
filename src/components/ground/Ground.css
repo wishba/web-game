@@ -1,6 +1,10 @@
-.object__tile {
+.ground__tile {
   width: var(--tile);
   height: var(--tile);
   overflow: hidden;
   position: absolute;
+}
+
+.ground__area {
+  transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
 }
