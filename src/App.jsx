@@ -37,7 +37,7 @@ function App() {
 
   function walkingSound() { new Audio(soundAsset).play() }
 
-  function handleMoveStart(direction) {
+  function moveStart(direction) {
     intervalMovement.current = setInterval(() => {
       switch (direction) {
         case 'up':
@@ -58,12 +58,12 @@ function App() {
           return
       }
     }, 25)
-  }
 
-  function handleAnimationStart(direction) {
     let count = 0
-    function counter() { count++; if (count > 4) { count = 1 } }
-
+    function counter() {
+      count++
+      if (count > 4) { count = 1 }
+    }
     intervalAnimation.current = setInterval(() => {
       switch (direction) {
         case 'up':
@@ -88,9 +88,11 @@ function App() {
           return
       }
     }, 250)
+
+    setFace(direction)
   }
 
-  function handleStop(facing) {
+  function moveStop(facing) {
     clearInterval(intervalMovement.current)
     clearInterval(intervalAnimation.current)
 
@@ -101,12 +103,12 @@ function App() {
 
     setTimeout(() => {
       setFace(`${facing}`)
-      walkingSound();
+      walkingSound()
     }, 300)
   }
 
   useEffect(() => {
-    console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`);
+    console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
     function containsPosition(array, positionArray) {
       return array.some(element =>
@@ -131,7 +133,7 @@ function App() {
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
-      console.log(pressedKey);
+      console.log(pressedKey)
     }
   }, [press])
 
@@ -163,41 +165,25 @@ function App() {
 
         <div className='app__arrow--container'>
           <button className='app__button app__button--up'
-            onMouseDown={() => {
-              handleMoveStart('up')
-              handleAnimationStart('up')
-              setFace('up')
-            }}
-            onMouseUp={() => handleStop('up')}
+            onMouseDown={() => moveStart('up')}
+            onMouseUp={() => moveStop('up')}
           >
             <p>&#8593;</p>
           </button>
           <button className='app__button app__button--left'
-            onMouseDown={() => {
-              handleMoveStart('left')
-              handleAnimationStart('left')
-              setFace('left')
-            }}
-            onMouseUp={() => handleStop('left')}
+            onMouseDown={() => moveStart('left')}
+            onMouseUp={() => moveStop('left')}
           >
             <p>&#8593;</p>
           </button>
           <button className='app__button app__button--right'
-            onMouseDown={() => {
-              handleMoveStart('right')
-              handleAnimationStart('right')
-              setFace('right')
-            }}
-            onMouseUp={() => handleStop('right')}>
+            onMouseDown={() => moveStart('right')}
+            onMouseUp={() => moveStop('right')}>
             <p>&#8593;</p>
           </button>
           <button className='app__button app__button--down'
-            onMouseDown={() => {
-              handleMoveStart('down')
-              handleAnimationStart('down')
-              setFace('down')
-            }}
-            onMouseUp={() => handleStop('down')}>
+            onMouseDown={() => moveStart('down')}
+            onMouseUp={() => moveStop('down')}>
             <p>&#8593;</p>
           </button>
         </div>
