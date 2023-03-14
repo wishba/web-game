@@ -27,6 +27,7 @@ function App() {
   const [letter, setLetter] = useState('none')
   const [dialogueLetter, setDialogueLetter] = useState()
   const [firstStop, setFirstStop] = useState(true)
+  const [blinkButton, setBlinkButton] = useState('')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -131,9 +132,11 @@ function App() {
 
     if (positionTile == `${data.object.letter.placement}`) {
       setWarning('block')
+      setBlinkButton('app__button--warning')
       setDialogueLetter(`you've found a letter, do you want to read it?`)
     } else {
       setWarning('none')
+      setBlinkButton('')
     }
 
     if (positionTile == '5,2') {
@@ -229,7 +232,7 @@ function App() {
 
       <div className='app__button--container'>
         <div className='app__zx'>
-          <button className='app__button'
+          <button className={`app__button ${blinkButton}`}
             onClick={() => handleClickZ()}
           ><p>Z</p></button>
           <button className='app__button'
