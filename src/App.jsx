@@ -25,6 +25,8 @@ function App() {
   const [warning, setWarning] = useState('none')
   const [dialogue, setDialogue] = useState('none')
   const [letter, setLetter] = useState('none')
+  const [dialogueLetter, setDialogueLetter] = useState()
+  const [firstStop, setFirstStop] = useState(true)
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -129,8 +131,17 @@ function App() {
 
     if (positionTile == `${data.object.letter.placement}`) {
       setWarning('block')
+      setDialogueLetter(`you've found a letter, do you want to read it?`)
     } else {
       setWarning('none')
+    }
+
+    if (positionTile == '5,2') {
+      if (firstStop === true) {
+        setDialogueLetter('the bridge is really scary, still want to continue')
+        setDialogue('block')
+        moveStop('left')
+      }
     }
   }, [positionX, positionY])
 
@@ -150,8 +161,13 @@ function App() {
     if (positionTile == `${data.object.letter.placement}`) {
       setDialogue('block')
     }
-    if (dialogue === 'block') {
+    if (dialogue === 'block' && positionTile == `${data.object.letter.placement}`) {
       setLetter('flex')
+    }
+    if (dialogue === 'block' && positionTile == '5,2') {
+      setDialogue('none')
+      setFirstStop(false)
+      setFacing('right')
     }
   }
 
@@ -161,6 +177,10 @@ function App() {
     }
     if (dialogue === 'block' && letter === 'none') {
       setDialogue('none')
+    }
+    if (dialogue === 'block' && positionTile == '5,2') {
+      setDialogue('none')
+      setPositionX(positionX => positionX + 1)
     }
   }
 
@@ -184,7 +204,7 @@ function App() {
         <div className='app__dialogue'
           style={{ display: `${dialogue}` }}
         >
-          <p>you've found a letter, do you want to read it?</p>
+          <p>{dialogueLetter}</p>
           <button>yes(z)</button>
           <button>no(x)</button>
         </div>
