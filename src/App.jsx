@@ -140,30 +140,24 @@ function App() {
       setWarning('none')
       setBlinkButton('')
     }
-
-    if (positionTile == '4,2') {
-      if (firstStop == true) {
-        moveStop('left')
-        setPositionX(positionX => positionX + 1)
-        setDialogue('block')
-        setDialogueLetter('You just realized you missed an item')
-      }
+    if (positionTile == '4,2' && firstStop == true) {
+      moveStop('left')
+      setPositionX(positionX => positionX + 1)
+      setDialogue('block')
+      setDialogueLetter('You just realized you missed an item')
     }
-
-    if (positionTile == '5,2') {
-      if (secondStop === true) {
-        setDialogueLetter('the bridge is really scary, still want to continue?')
-        setDialogue('block')
-        moveStop('left')
-      }
+    if (positionTile == '5,2' && secondStop === true) {
+      setDialogueLetter('the bridge is really scary, still want to continue?')
+      setDialogue('block')
+      moveStop('left')
     }
-
-    if (positionTile == '6,2') {
-      if (thirdStop === true) {
-        setDialogueLetter('you sure you want to continue?')
-        setDialogue('block')
-        moveStop('left')
-      }
+    if (positionTile == '6,2' && thirdStop === true) {
+      setDialogueLetter('you sure you want to continue?')
+      setDialogue('block')
+      moveStop('left')
+    }
+    if (positionTile == '10,2') {
+      console.log('treasure.....');
     }
   }, [positionX, positionY])
 
@@ -186,6 +180,9 @@ function App() {
     if (dialogue === 'block' && positionTile == `${data.object.letter.placement}`) {
       setLetter('flex')
     }
+    if (dialogue === 'block' && positionTile == '3,2') {
+      setDialogue('none')
+    }
     if (dialogue === 'block' && positionTile == '5,2') {
       setDialogue('none')
       setSecondStop(false)
@@ -196,16 +193,19 @@ function App() {
       setThirdStop(false)
       setFacing('right')
     }
-    if (dialogue === 'block' && positionTile == '3,2') {
-      setDialogue('none')
-    }
   }
 
   function handleClickX() {
     if (dialogue === 'block' && positionTile == '2,2') {
       setLetter('none')
     }
-    if (dialogue === 'block' && letter === 'none') {
+    if (dialogue === 'block' && positionTile == '2,2' && letter === 'none') {
+      setDialogue('none')
+    }
+    if (dialogue === 'block' && letter == 'flex') {
+      setFirstStop(false)
+    }
+    if (dialogue === 'block' && positionTile == '3,2') {
       setDialogue('none')
     }
     if (dialogue === 'block' && positionTile == '5,2') {
@@ -215,9 +215,6 @@ function App() {
     if (dialogue === 'block' && positionTile == '6,2') {
       setDialogue('none')
       setPositionX(positionX => positionX + 1)
-    }
-    if (dialogue === 'block' && letter == 'flex') {
-      setFirstStop(false)
     }
   }
 
