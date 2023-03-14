@@ -49,14 +49,6 @@
   z-index: 1;
 }
 
-.app__hero--emotion {
-  font-size: var(--font-size);
-  position: absolute;
-  z-index: 1;
-  transform: translate(calc(var(--zoom) * -5px), calc(var(--zoom) * -5px));
-  color: #5c4e92;
-}
-
 .app__letter {
   width: calc(var(--zoom) * 96px);
 }

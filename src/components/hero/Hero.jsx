@@ -4,8 +4,11 @@ import heroAsset from '../../assets/Basic Charakter Spritesheet.png'
 
 function Hero({ face }) {
   return (
-    <div className='hero__container'>
-      <img className={`hero ${face}`} src={heroAsset} alt="hero" />
+    <div>
+      <p className='hero__emotion'>!</p>
+      <div className='hero__container'>
+        <img className={`hero ${face}`} src={heroAsset} alt="hero" />
+      </div>
     </div>
   )
 }

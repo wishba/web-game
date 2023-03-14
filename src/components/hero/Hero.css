@@ -1,3 +1,10 @@
+.hero__emotion {
+  font-size: var(--font-size);
+  position: absolute;
+  transform: translate(calc(var(--zoom) * -5px), calc(var(--zoom) * -5px));
+  color: #5c4e92;
+}
+
 .hero__container {
   width: var(--tile);
   height: var(--tile);
