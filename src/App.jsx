@@ -40,73 +40,77 @@ function App() {
   function walkingSound() { new Audio(soundAsset).play() }
 
   function moveStart(direction) {
-    intervalMovement.current = setInterval(() => {
-      switch (direction) {
-        case 'up':
-          setPositionY(positionY => positionY + 1)
-          setPressUp(true)
-          return
-        case 'left':
-          setPositionX(positionX => positionX + 1)
-          setPressLeft(true)
-          return
-        case 'right':
-          setPositionX(positionX => positionX - 1)
-          setPressRight(true)
-          return
-        case 'down':
-          setPositionY(positionY => positionY - 1)
-          setPressDown(true)
-          return
-      }
-    }, 25)
+    if (dialogue === 'none') {
+      intervalMovement.current = setInterval(() => {
+        switch (direction) {
+          case 'up':
+            setPositionY(positionY => positionY + 1)
+            setPressUp(true)
+            return
+          case 'left':
+            setPositionX(positionX => positionX + 1)
+            setPressLeft(true)
+            return
+          case 'right':
+            setPositionX(positionX => positionX - 1)
+            setPressRight(true)
+            return
+          case 'down':
+            setPositionY(positionY => positionY - 1)
+            setPressDown(true)
+            return
+        }
+      }, 25)
 
-    let count = 0
-    function counter() {
-      count++
-      if (count > 4) { count = 1 }
+      let count = 0
+      function counter() {
+        count++
+        if (count > 4) { count = 1 }
+      }
+      intervalAnimation.current = setInterval(() => {
+        switch (direction) {
+          case 'up':
+            counter()
+            setFacing(`up--${count}`)
+            walkingSound()
+            return
+          case 'left':
+            counter()
+            setFacing(`left--${count}`)
+            walkingSound()
+            return
+          case 'right':
+            counter()
+            setFacing(`right--${count}`)
+            walkingSound()
+            return
+          case 'down':
+            counter()
+            setFacing(`down--${count}`)
+            walkingSound()
+            return
+        }
+      }, 250)
+
+      setFacing(direction)
     }
-    intervalAnimation.current = setInterval(() => {
-      switch (direction) {
-        case 'up':
-          counter()
-          setFacing(`up--${count}`)
-          walkingSound()
-          return
-        case 'left':
-          counter()
-          setFacing(`left--${count}`)
-          walkingSound()
-          return
-        case 'right':
-          counter()
-          setFacing(`right--${count}`)
-          walkingSound()
-          return
-        case 'down':
-          counter()
-          setFacing(`down--${count}`)
-          walkingSound()
-          return
-      }
-    }, 250)
-
-    setFacing(direction)
   }
 
   function moveStop(facing) {
-    clearInterval(intervalMovement.current)
-    clearInterval(intervalAnimation.current)
+    if (dialogue === 'none') {
+      clearInterval(intervalMovement.current)
+      clearInterval(intervalAnimation.current)
 
-    if (pressUp === true) { setPressUp(false) }
-    if (pressLeft === true) { setPressLeft(false) }
-    if (pressRight === true) { setPressRight(false) }
-    if (pressDown === true) { setPressDown(false) }
+      if (pressUp === true) { setPressUp(false) }
+      if (pressLeft === true) { setPressLeft(false) }
+      if (pressRight === true) { setPressRight(false) }
+      if (pressDown === true) { setPressDown(false) }
 
-    setTimeout(() => {
-      setFacing(`${facing}`)
-      walkingSound()
-    }, 300)
+      setTimeout(() => {
+        setFacing(`${facing}`)
+        walkingSound()
+      }, 300)
+    }
   }
 
   useEffect(() => {
