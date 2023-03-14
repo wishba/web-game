@@ -63,6 +63,12 @@
   background-color: #f3f2c0;
 }
 
+.app__dialogue {
+  background-color: #f3f2c0;
+  position: absolute;
+  bottom: 0;
+}
+
 .app__zx>.app__button {
   margin: .5rem;
 }

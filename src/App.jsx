@@ -23,6 +23,7 @@ function App() {
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
   const [warning, setWarning] = useState('none')
+  const [dialogue, setDialogue] = useState('none')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -142,8 +143,12 @@ function App() {
 
   function handleClickZ() {
     if (positionTile == `${data.object.letter.placement}`) {
-      console.log(positionTile);
+      setDialogue('block')
     }
+  }
+
+  function handleClickX() {
+    setDialogue('none')
   }
 
   return (
@@ -162,6 +167,14 @@ function App() {
             </div>
           </div>
         </div>
+
+        <div className='app__dialogue'
+          style={{ display: `${dialogue}` }}
+        >
+          <p>you've found a letter, do you want to read it?</p>
+          <button>yes(z)</button>
+          <button>no(x)</button>
+        </div>
       </div>
 
       <div className='app__button--container'>
@@ -169,7 +182,9 @@ function App() {
           <button className='app__button'
             onClick={() => handleClickZ()}
           ><p>Z</p></button>
-          <button className='app__button'><p>X</p></button>
+          <button className='app__button'
+            onClick={() => handleClickX()}
+          ><p>X</p></button>
         </div>
 
         <div className='app__arrow--container'>
