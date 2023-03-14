@@ -19,7 +19,7 @@ function App() {
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
-  const [face, setFace] = useState()
+  const [facing, setFacing] = useState()
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
 
@@ -68,28 +68,28 @@ function App() {
       switch (direction) {
         case 'up':
           counter()
-          setFace(`up--${count}`)
+          setFacing(`up--${count}`)
           walkingSound()
           return
         case 'left':
           counter()
-          setFace(`left--${count}`)
+          setFacing(`left--${count}`)
           walkingSound()
           return
         case 'right':
           counter()
-          setFace(`right--${count}`)
+          setFacing(`right--${count}`)
           walkingSound()
           return
         case 'down':
           counter()
-          setFace(`down--${count}`)
+          setFacing(`down--${count}`)
           walkingSound()
           return
       }
     }, 250)
 
-    setFace(direction)
+    setFacing(direction)
   }
 
   function moveStop(facing) {
@@ -102,7 +102,7 @@ function App() {
     if (pressDown === true) { setPressDown(false) }
 
     setTimeout(() => {
-      setFace(`${facing}`)
+      setFacing(`${facing}`)
       walkingSound()
     }, 300)
   }
@@ -141,7 +141,7 @@ function App() {
     <div style={styles} className='app__container'>
       <div className='app__camera'>
         <div className='app__camera--center app__hero'>
-          <Hero face={face} />
+          <Hero facing={facing} />
         </div>
 
         <div style={{
