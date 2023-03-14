@@ -6,5 +6,7 @@
 }
 
 .ground__area {
+  position: absolute;
+  top: 0;
   transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
 }
