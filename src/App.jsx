@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
 import data from './data/data.json'
-import soundStep from './assets/Bubble heavy 1.wav'
+import soundAsset from './assets/Bubble heavy 1.wav'
 import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
 import letterAsset from './assets/Basic Plants.png'
@@ -35,7 +35,7 @@ function App() {
     Math.round(positionY * -1 / 80)
   ]
 
-  function step() { const sound = new Audio(soundStep); sound.play(); }
+  function walkingSound() { new Audio(soundAsset).play() }
 
   function handleMoveStart(direction) {
     intervalMovement.current = setInterval(() => {
@@ -69,22 +69,22 @@ function App() {
         case 'up':
           counter()
           setFace(`up--${count}`)
-          step()
+          walkingSound()
           return
         case 'left':
           counter()
           setFace(`left--${count}`)
-          step()
+          walkingSound()
           return
         case 'right':
           counter()
           setFace(`right--${count}`)
-          step()
+          walkingSound()
           return
         case 'down':
           counter()
           setFace(`down--${count}`)
-          step()
+          walkingSound()
           return
       }
     }, 250)
@@ -101,7 +101,10 @@ function App() {
   }
 
   function endFace(facing) {
-    setTimeout(() => { setFace(`${facing}`); step(); }, 300)
+    setTimeout(() => {
+      setFace(`${facing}`)
+      walkingSound();
+    }, 300)
   }
 
   useEffect(() => {
