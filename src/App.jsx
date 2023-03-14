@@ -141,7 +141,7 @@ function App() {
     <div style={styles} className='app__container'>
       <div className='app__camera'>
         <div className='app__camera--center app__hero'>
-          <Hero facing={facing} />
+          <Hero facing={facing} display={'none'} />
         </div>
 
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
