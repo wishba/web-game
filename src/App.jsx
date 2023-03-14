@@ -23,11 +23,12 @@ function App() {
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
   const [warning, setWarning] = useState('none')
+  const [blinkButton, setBlinkButton] = useState('')
   const [dialogue, setDialogue] = useState('none')
   const [letter, setLetter] = useState('none')
   const [dialogueLetter, setDialogueLetter] = useState()
   const [firstStop, setFirstStop] = useState(true)
-  const [blinkButton, setBlinkButton] = useState('')
+  const [secondStop, setSecondStop] = useState(true)
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -139,8 +140,17 @@ function App() {
       setBlinkButton('')
     }
 
+    if (positionTile == '4,2') {
+      if (firstStop == true) {
+        moveStop('left')
+        setPositionX(positionX => positionX + 1)
+        setDialogue('block')
+        setDialogueLetter('You just realized you missed an item')
+      }
+    }
+
     if (positionTile == '5,2') {
-      if (firstStop === true) {
+      if (secondStop === true) {
         setDialogueLetter('the bridge is really scary, still want to continue')
         setDialogue('block')
         moveStop('left')
@@ -169,13 +179,16 @@ function App() {
     }
     if (dialogue === 'block' && positionTile == '5,2') {
       setDialogue('none')
-      setFirstStop(false)
+      setSecondStop(false)
       setFacing('right')
+    }
+    if (dialogue === 'block' && positionTile == '3,2') {
+      setDialogue('none')
     }
   }
 
   function handleClickX() {
-    if (dialogue === 'block') {
+    if (dialogue === 'block' && positionTile == '2,2') {
       setLetter('none')
     }
     if (dialogue === 'block' && letter === 'none') {
@@ -184,6 +197,9 @@ function App() {
     if (dialogue === 'block' && positionTile == '5,2') {
       setDialogue('none')
       setPositionX(positionX => positionX + 1)
+    }
+    if (dialogue === 'block' && letter == 'flex') {
+      setFirstStop(false)
     }
   }
 
