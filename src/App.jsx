@@ -144,9 +144,7 @@ function App() {
           <Hero facing={facing} />
         </div>
 
-        <div style={{
-          transform: `translate(${positionX}px, ${positionY}px)`,
-        }}>
+        <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
             <Ground />
 
@@ -167,25 +165,22 @@ function App() {
           <button className='app__button app__button--up'
             onMouseDown={() => moveStart('up')}
             onMouseUp={() => moveStop('up')}
-          >
-            <p>&#8593;</p>
-          </button>
+          ><p>&#8593;</p></button>
+
           <button className='app__button app__button--left'
             onMouseDown={() => moveStart('left')}
             onMouseUp={() => moveStop('left')}
-          >
-            <p>&#8593;</p>
-          </button>
+          ><p>&#8593;</p></button>
+
           <button className='app__button app__button--right'
             onMouseDown={() => moveStart('right')}
-            onMouseUp={() => moveStop('right')}>
-            <p>&#8593;</p>
-          </button>
+            onMouseUp={() => moveStop('right')}
+          ><p>&#8593;</p></button>
+
           <button className='app__button app__button--down'
             onMouseDown={() => moveStart('down')}
-            onMouseUp={() => moveStop('down')}>
-            <p>&#8593;</p>
-          </button>
+            onMouseUp={() => moveStop('down')}
+          ><p>&#8593;</p></button>
         </div>
       </div>
     </div>
