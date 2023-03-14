@@ -29,6 +29,7 @@ function App() {
   const [dialogueLetter, setDialogueLetter] = useState()
   const [firstStop, setFirstStop] = useState(true)
   const [secondStop, setSecondStop] = useState(true)
+  const [thirdStop, setThirdStop] = useState(true)
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -151,7 +152,15 @@ function App() {
 
     if (positionTile == '5,2') {
       if (secondStop === true) {
-        setDialogueLetter('the bridge is really scary, still want to continue')
+        setDialogueLetter('the bridge is really scary, still want to continue?')
+        setDialogue('block')
+        moveStop('left')
+      }
+    }
+
+    if (positionTile == '6,2') {
+      if (thirdStop === true) {
+        setDialogueLetter('you sure you want to continue?')
         setDialogue('block')
         moveStop('left')
       }
@@ -182,6 +191,11 @@ function App() {
       setSecondStop(false)
       setFacing('right')
     }
+    if (dialogue === 'block' && positionTile == '6,2') {
+      setDialogue('none')
+      setThirdStop(false)
+      setFacing('right')
+    }
     if (dialogue === 'block' && positionTile == '3,2') {
       setDialogue('none')
     }
@@ -195,6 +209,10 @@ function App() {
       setDialogue('none')
     }
     if (dialogue === 'block' && positionTile == '5,2') {
+      setDialogue('none')
+      setPositionX(positionX => positionX + 1)
+    }
+    if (dialogue === 'block' && positionTile == '6,2') {
       setDialogue('none')
       setPositionX(positionX => positionX + 1)
     }
