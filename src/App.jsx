@@ -24,6 +24,7 @@ function App() {
   const [pressedKey, setPressedKey] = useState()
   const [warning, setWarning] = useState('none')
   const [dialogue, setDialogue] = useState('none')
+  const [letter, setLetter] = useState('none')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -149,10 +150,18 @@ function App() {
     if (positionTile == `${data.object.letter.placement}`) {
       setDialogue('block')
     }
+    if (dialogue === 'block') {
+      setLetter('flex')
+    }
   }
 
   function handleClickX() {
-    setDialogue('none')
+    if (dialogue === 'block') {
+      setLetter('none')
+    }
+    if (dialogue === 'block' && letter === 'none') {
+      setDialogue('none')
+    }
   }
 
   return (
@@ -178,6 +187,23 @@ function App() {
           <p>you've found a letter, do you want to read it?</p>
           <button>yes(z)</button>
           <button>no(x)</button>
+        </div>
+
+        <div className='app__letter--read'
+          style={{ display: `${letter}` }}
+        >
+          <button>close(x)</button>
+          <p>Dear Adventurer,</p>
+          <br />
+          <p>
+            To claim your treasure, you must cross the narrow and dangerous bridge that
+            connects our island to the mainland. The sea below is infested with dangerous
+            creatures, and we urge you to stay away from the edges. Though the journey is
+            perilous, the treasure is worth the risk. May fortune favor the brave.
+          </p>
+          <br />
+          <p>Sincerely,</p>
+          <p>The Guardians of the Treasure Island</p>
         </div>
       </div>
 
