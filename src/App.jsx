@@ -15,13 +15,13 @@ function App() {
 
   const [positionX, setPositionX] = useState(-80)
   const [positionY, setPositionY] = useState(-80)
-  const [press, setPress] = useState(false)
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
   const [face, setFace] = useState()
-  const [key, setKey] = useState()
+  const [press, setPress] = useState(false)
+  const [pressedKey, setPressedKey] = useState()
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -128,12 +128,12 @@ function App() {
   useEffect(() => {
     document.addEventListener('keydown', (event) => {
       setPress(true)
-      setKey(event.key)
+      setPressedKey(event.key)
     })
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
-      console.log(key);
+      console.log(pressedKey);
     }
   }, [press])
 
