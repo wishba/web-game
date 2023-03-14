@@ -90,7 +90,7 @@ function App() {
     }, 250)
   }
 
-  function handleStop() {
+  function handleStop(facing) {
     clearInterval(intervalMovement.current)
     clearInterval(intervalAnimation.current)
 
@@ -98,9 +98,7 @@ function App() {
     if (pressLeft === true) { setPressLeft(false) }
     if (pressRight === true) { setPressRight(false) }
     if (pressDown === true) { setPressDown(false) }
-  }
 
-  function endFace(facing) {
     setTimeout(() => {
       setFace(`${facing}`)
       walkingSound();
@@ -170,10 +168,7 @@ function App() {
               handleAnimationStart('up')
               setFace('up')
             }}
-            onMouseUp={() => {
-              handleStop()
-              endFace('up')
-            }}
+            onMouseUp={() => handleStop('up')}
           >
             <p>&#8593;</p>
           </button>
@@ -183,10 +178,7 @@ function App() {
               handleAnimationStart('left')
               setFace('left')
             }}
-            onMouseUp={() => {
-              handleStop()
-              endFace('left')
-            }}
+            onMouseUp={() => handleStop('left')}
           >
             <p>&#8593;</p>
           </button>
@@ -196,10 +188,7 @@ function App() {
               handleAnimationStart('right')
               setFace('right')
             }}
-            onMouseUp={() => {
-              handleStop()
-              endFace('right')
-            }}>
+            onMouseUp={() => handleStop('right')}>
             <p>&#8593;</p>
           </button>
           <button className='app__button app__button--down'
@@ -208,10 +197,7 @@ function App() {
               handleAnimationStart('down')
               setFace('down')
             }}
-            onMouseUp={() => {
-              handleStop()
-              endFace('down')
-            }}>
+            onMouseUp={() => handleStop('down')}>
             <p>&#8593;</p>
           </button>
         </div>
