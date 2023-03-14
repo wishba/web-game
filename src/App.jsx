@@ -140,6 +140,12 @@ function App() {
     }
   }, [press])
 
+  function handleClickZ() {
+    if (positionTile == `${data.object.letter.placement}`) {
+      console.log(positionTile);
+    }
+  }
+
   return (
     <div style={styles} className='app__container'>
       <div className='app__camera'>
@@ -160,7 +166,9 @@ function App() {
 
       <div className='app__button--container'>
         <div className='app__zx'>
-          <button className='app__button'><p>Z</p></button>
+          <button className='app__button'
+            onClick={() => handleClickZ()}
+          ><p>Z</p></button>
           <button className='app__button'><p>X</p></button>
         </div>
 
