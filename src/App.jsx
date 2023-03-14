@@ -110,14 +110,10 @@ function App() {
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
-    function containsPosition(array, positionArray) {
-      return array.some(element =>
-        element[0] === positionArray[0] &&
-        element[1] === positionArray[1]
-      )
-    }
-
-    if (!containsPosition(data.ground, positionXY)) {
+    if (!data.ground.some(element =>
+      element[0] === positionXY[0] &&
+      element[1] === positionXY[1]
+    )) {
       if (pressUp === true) { setPositionY(positionY - 1) }
       if (pressLeft === true) { setPositionX(positionX - 1) }
       if (pressRight === true) { setPositionX(positionX + 1) }
