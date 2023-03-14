@@ -22,6 +22,7 @@ function App() {
   const [facing, setFacing] = useState()
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
+  const [warning, setWarning] = useState('none')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -119,6 +120,12 @@ function App() {
       if (pressRight === true) { setPositionX(positionX + 1) }
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
+
+    if (positionTile == `${data.object.letter.placement}`) {
+      setWarning('block')
+    } else {
+      setWarning('none')
+    }
   }, [positionX, positionY])
 
   useEffect(() => {
@@ -137,7 +144,7 @@ function App() {
     <div style={styles} className='app__container'>
       <div className='app__camera'>
         <div className='app__camera--center app__hero'>
-          <Hero facing={facing} display={'none'} />
+          <Hero facing={facing} display={warning} />
         </div>
 
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
