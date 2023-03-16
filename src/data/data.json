@@ -46,11 +46,11 @@
   ],
   "object": {
     "letter": {
-      "placement": [[10, 2]],
+      "placement": [[2, 2]],
       "asset": [[0, 0]]
     },
     "treasure": {
-      "placement": [[2, 2]],
+      "placement": [[10, 2]],
       "asset": [[1, 1]]
     }
   },

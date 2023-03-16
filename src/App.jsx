@@ -21,7 +21,7 @@ function App() {
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
-  const [facing, setFacing] = useState()
+  const [heroFacing, setHeroFacing] = useState()
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
   const [warning, setWarning] = useState('none')
@@ -38,6 +38,7 @@ function App() {
   const [dialogueNext, setDialogueNext] = useState(false)
   const [dialogueOk, setDialogueOk] = useState(false)
   const [dialogueYesNo, setDialogueYesNo] = useState(false)
+  const [heroEmotion, setHeroEmotion] = useState('none')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -85,32 +86,32 @@ function App() {
       switch (direction) {
         case 'up':
           counter()
-          setFacing(`up--${count}`)
+          setHeroFacing(`up--${count}`)
           walkingSound()
           return
         case 'left':
           counter()
-          setFacing(`left--${count}`)
+          setHeroFacing(`left--${count}`)
           walkingSound()
           return
         case 'right':
           counter()
-          setFacing(`right--${count}`)
+          setHeroFacing(`right--${count}`)
           walkingSound()
           return
         case 'down':
           counter()
-          setFacing(`down--${count}`)
+          setHeroFacing(`down--${count}`)
           walkingSound()
           return
       }
     }, 250)
 
-    setFacing(direction)
+    setHeroFacing(direction)
     // }
   }
 
-  function moveStop(facing) {
+  function moveStop(heroFacing) {
     // if (dialogue === 'none' && dialogueTreasure === 'none') {
     clearInterval(intervalMovement.current)
     clearInterval(intervalAnimation.current)
@@ -121,7 +122,7 @@ function App() {
     if (pressDown === true) { setPressDown(false) }
 
     setTimeout(() => {
-      setFacing(`${facing}`)
+      setHeroFacing(`${heroFacing}`)
       walkingSound()
     }, 300)
     // }
@@ -140,12 +141,12 @@ function App() {
     if (dialogue === 'block' && positionTile == '5,2') {
       setDialogue('none')
       setSecondStop(false)
-      setFacing('right')
+      setHeroFacing('right')
     }
     if (dialogue === 'block' && positionTile == '6,2') {
       setDialogue('none')
       setThirdStop(false)
-      setFacing('right')
+      setHeroFacing('right')
     }
     if (positionTile == '10,2') {
       setDialogueTreasure('block')
@@ -198,13 +199,20 @@ function App() {
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
 
-    if (positionTile == `${data.object.letter.placement}`) {
+    console.log(data.object.letter.placement);
+    console.log([positionTile]);
+    if (
+      positionTile == `${data.object.letter.placement}` ||
+      positionTile == `${data.object.treasure.placement}`
+    ) {
       setWarning('block')
       setBlinkButton('app__button--warning')
       setDialogueLetter(`you've found a letter, do you want to read it?`)
+      setHeroEmotion('block')
     } else {
       setWarning('none')
       setBlinkButton('')
+      setHeroEmotion('none')
     }
     // if (positionTile == '4,2' && firstStop == true) {
     //   moveStop('left')
@@ -240,7 +248,7 @@ function App() {
     <div style={styles} className='app__container'>
       <div className='app__camera'>
         <div className='app__camera--center app__hero'>
-          <Hero facing={facing} display={warning} />
+          <Hero facing={heroFacing} emotion={heroEmotion} />
         </div>
 
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
