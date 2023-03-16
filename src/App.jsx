@@ -214,6 +214,7 @@ function App() {
     if (positionTile == '6,2' && thirdStop === true) {
       setDialogueLetter('you sure you want to continue?')
       setDialogue('block')
+      moveStop('left')
     }
     // if (positionTile == '10,2' && dialogueTreasure === 'block') {
     //   moveStop('right')
