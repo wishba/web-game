@@ -30,6 +30,8 @@ function App() {
   const [firstStop, setFirstStop] = useState(true)
   const [secondStop, setSecondStop] = useState(true)
   const [thirdStop, setThirdStop] = useState(true)
+  const [dialogueCounter, setDialogueCounter] = useState(0)
+  const [dialogueTreasure, setDialogueTreasure] = useState('none')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -46,7 +48,7 @@ function App() {
   function walkingSound() { new Audio(soundAsset).play() }
 
   function moveStart(direction) {
-    if (dialogue === 'none') {
+    if (dialogue === 'none' && dialogueTreasure === 'none') {
       intervalMovement.current = setInterval(() => {
         switch (direction) {
           case 'up':
@@ -103,7 +105,7 @@ function App() {
   }
 
   function moveStop(facing) {
-    if (dialogue === 'none') {
+    if (dialogue === 'none' && dialogueTreasure === 'none') {
       clearInterval(intervalMovement.current)
       clearInterval(intervalAnimation.current)
 
@@ -116,6 +118,64 @@ function App() {
         setFacing(`${facing}`)
         walkingSound()
       }, 300)
+    }
+  }
+
+  function handleClickZ() {
+    if (positionTile == `${data.object.letter.placement}`) {
+      setDialogue('block')
+    }
+    if (dialogue === 'block' && positionTile == `${data.object.letter.placement}`) {
+      setLetter('flex')
+    }
+    if (dialogue === 'block' && positionTile == '3,2') {
+      setDialogue('none')
+    }
+    if (dialogue === 'block' && positionTile == '5,2') {
+      setDialogue('none')
+      setSecondStop(false)
+      setFacing('right')
+    }
+    if (dialogue === 'block' && positionTile == '6,2') {
+      setDialogue('none')
+      setThirdStop(false)
+      setFacing('right')
+    }
+    if (positionTile == '10,2') {
+      setDialogueTreasure('block')
+    }
+    if (positionTile == '10,2' && dialogueTreasure === 'block') {
+      handleDialogueTreasure()
+    }
+  }
+
+  function handleClickX() {
+    if (dialogue === 'block' && positionTile == '2,2') {
+      setLetter('none')
+    }
+    if (dialogue === 'block' && positionTile == '2,2' && letter === 'none') {
+      setDialogue('none')
+    }
+    if (dialogue === 'block' && letter == 'flex') {
+      setFirstStop(false)
+    }
+    if (dialogue === 'block' && positionTile == '3,2') {
+      setDialogue('none')
+    }
+    if (dialogue === 'block' && positionTile == '5,2') {
+      setDialogue('none')
+      setPositionX(positionX => positionX + 1)
+    }
+    if (dialogue === 'block' && positionTile == '6,2') {
+      setDialogue('none')
+      setPositionX(positionX => positionX + 1)
+    }
+  }
+
+  function handleDialogueTreasure() {
+    if (dialogueCounter < Object.keys(data.dialogueTreasure).length - 1) {
+      setDialogueCounter(dialogueCounter => dialogueCounter + 1)
+      console.log(dialogueCounter);
     }
   }
 
@@ -154,11 +214,10 @@ function App() {
     if (positionTile == '6,2' && thirdStop === true) {
       setDialogueLetter('you sure you want to continue?')
       setDialogue('block')
-      moveStop('left')
     }
-    if (positionTile == '10,2') {
-      console.log('treasure.....');
-    }
+    // if (positionTile == '10,2' && dialogueTreasure === 'block') {
+    //   moveStop('right')
+    // }
   }, [positionX, positionY])
 
   useEffect(() => {
@@ -172,51 +231,6 @@ function App() {
       console.log(pressedKey)
     }
   }, [press])
-
-  function handleClickZ() {
-    if (positionTile == `${data.object.letter.placement}`) {
-      setDialogue('block')
-    }
-    if (dialogue === 'block' && positionTile == `${data.object.letter.placement}`) {
-      setLetter('flex')
-    }
-    if (dialogue === 'block' && positionTile == '3,2') {
-      setDialogue('none')
-    }
-    if (dialogue === 'block' && positionTile == '5,2') {
-      setDialogue('none')
-      setSecondStop(false)
-      setFacing('right')
-    }
-    if (dialogue === 'block' && positionTile == '6,2') {
-      setDialogue('none')
-      setThirdStop(false)
-      setFacing('right')
-    }
-  }
-
-  function handleClickX() {
-    if (dialogue === 'block' && positionTile == '2,2') {
-      setLetter('none')
-    }
-    if (dialogue === 'block' && positionTile == '2,2' && letter === 'none') {
-      setDialogue('none')
-    }
-    if (dialogue === 'block' && letter == 'flex') {
-      setFirstStop(false)
-    }
-    if (dialogue === 'block' && positionTile == '3,2') {
-      setDialogue('none')
-    }
-    if (dialogue === 'block' && positionTile == '5,2') {
-      setDialogue('none')
-      setPositionX(positionX => positionX + 1)
-    }
-    if (dialogue === 'block' && positionTile == '6,2') {
-      setDialogue('none')
-      setPositionX(positionX => positionX + 1)
-    }
-  }
 
   return (
     <div style={styles} className='app__container'>
@@ -258,6 +272,18 @@ function App() {
           <br />
           <p>Sincerely,</p>
           <p>The Guardians of the Treasure Island</p>
+        </div>
+
+
+
+        <div className='app__dialogue'
+          style={{ display: `${dialogueTreasure}` }}
+        >
+          <p>{data.dialogueTreasure[dialogueCounter]}</p>
+          <button
+            onClick={() => handleDialogueTreasure()}
+          >next(z)</button>
+          {/* <button>no(x)</button> */}
         </div>
       </div>
 

@@ -47,5 +47,17 @@
       "placement": [[2,2]],
       "asset": [[0,0]]
     }
-  }
+  },
+  "dialogueTreasure": {
+    "0": "You finally find the treasure!",
+    "1": "Excitedly, you check inside, hoping to find riches beyond your wildest dreams.",
+    "2": "Disappointment washes over you as you realize the treasure chest is empty.",
+    "3": "Suddenly, you hear a sound beside you.",
+    "4": "Turning your head, you see a cow standing there, staring at you.",
+    "5": "Confused, you wonder what a cow is doing here.",
+    "6": "The cow makes a Peculiar noise, almost like a greeting.",
+    "7": "To your surprise, the cow presents you with a luxurious-looking fruit.",
+    "8": "You take the fruit and a feeling of satisfaction washes over you.",
+    "9": "Even though the treasure was empty, at least you got something out of this adventure."
+    }
 }
