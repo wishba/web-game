@@ -49,7 +49,8 @@
     [19, 3], [20, 3], [21, 3], [22, 3], 
     [19, 4], [20, 4], [21, 4],
     [19, 5], [20, 5], [21, 5],          
-    [19, 6], [20, 6], [21, 6], [22, 6], [23, 6], [24, 6]
+    [19, 6], [20, 6], [21, 6], [22, 6], [23, 6], [24, 6],
+                               [22, 7], [23, 7], [24, 7]
   ],
   "object": {
     "letter": {
@@ -124,7 +125,7 @@
       "you've find a luxurious-looking fruit",
       "you pick up the fruit",
       "you find a note beside it",
-      "congratulation you find the secret treasure"
+      "the secret treasure, fruit of life"
     ]
   }
 }
