@@ -8,3 +8,11 @@
 .ground__area {
   transform: translate(calc(var(--zoom) * 4px), calc(var(--zoom) * 12px));
 }
+
+.ground__area--ground>div {
+  background-color: hsla(120, 100%, 25%, 0.25);
+}
+
+.ground__area--object>div {
+  background-color: hsla(0, 100%, 50%, 0.25);
+}

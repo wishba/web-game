@@ -33,8 +33,10 @@ function Ground() {
         width={80}
       />
 
-      <div className='ground__area'>
-        <Area areaPlacement={data.groundArea} />
+      <div className='ground__area ground__area--ground'>
+        <Area
+          areaPlacement={data.groundArea}
+        />
       </div>
     </>
   )

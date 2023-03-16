@@ -120,6 +120,16 @@ function App() {
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
+    if (data.objectArea.some(element =>
+      element[0] === positionXY[0] &&
+      element[1] === positionXY[1]
+    )) {
+      if (pressUp === true) { setPositionY(positionY - 1) }
+      if (pressLeft === true) { setPositionX(positionX - 1) }
+      if (pressRight === true) { setPositionX(positionX + 1) }
+      if (pressDown === true) { setPositionY(positionY + 1) }
+    }
+
     if (!data.groundArea.some(element =>
       element[0] === positionXY[0] &&
       element[1] === positionXY[1]
