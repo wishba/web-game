@@ -1,12 +1,13 @@
 import React from 'react'
 import './Ground.css'
-import letterAsset from '../../assets/Basic Plants.png'
-import chestAsset from '../../assets/Chest.png'
 import data from '../../data/data.json'
 import GroundTiles from './GroundTiles'
+import letterAsset from '../../assets/Basic Plants.png'
+import chestAsset from '../../assets/Chest.png'
+import cowAsset from '../../assets/Free Cow Sprites.png'
+import biomeAsset from '../../assets/Basic Grass Biom things 1.png'
 
-
-function GroundObject() {
+function GroundObject({ fruit }) {
   return (
     <>
       <GroundTiles
@@ -22,6 +23,29 @@ function GroundObject() {
         asset={chestAsset}
         width={240}
       />
+
+      <GroundTiles
+        placement={data.object.cow.placement}
+        tileCoordinate={data.object.cow.asset}
+        asset={cowAsset}
+        width={96}
+      />
+
+      <GroundTiles
+        placement={data.object.tree.placement}
+        tileCoordinate={data.object.tree.asset}
+        asset={biomeAsset}
+        width={144}
+      />
+
+      <div style={{ display: fruit }}>
+        <GroundTiles
+          placement={data.object.fruit.placement}
+          tileCoordinate={data.object.fruit.asset}
+          asset={biomeAsset}
+          width={144}
+        />
+      </div>
     </>
   )
 }

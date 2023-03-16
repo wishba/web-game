@@ -12,28 +12,26 @@ function Ground() {
     <>
       <GridLine width={14} height={6} />
 
-      <div>
-        <GroundTiles
-          placement={data.ground.oneIsland.placement}
-          tileCoordinate={data.ground.oneIsland.asset}
-          asset={grassAsset}
-          width={176}
-        />
+      <GroundTiles
+        placement={data.ground.oneIsland.placement}
+        tileCoordinate={data.ground.oneIsland.asset}
+        asset={grassAsset}
+        width={176}
+      />
 
-        <GroundTiles
-          placement={data.ground.twoIsland.placement}
-          tileCoordinate={data.ground.twoIsland.asset}
-          asset={grassAsset}
-          width={176}
-        />
+      <GroundTiles
+        placement={data.ground.twoIsland.placement}
+        tileCoordinate={data.ground.twoIsland.asset}
+        asset={grassAsset}
+        width={176}
+      />
 
-        <GroundTiles
-          placement={data.ground.bridge.placement}
-          tileCoordinate={data.ground.bridge.asset}
-          asset={bridgeAsset}
-          width={80}
-        />
-      </div>
+      <GroundTiles
+        placement={data.ground.bridge.placement}
+        tileCoordinate={data.ground.bridge.asset}
+        asset={bridgeAsset}
+        width={80}
+      />
 
       <div className='ground__area'>
         <Area areaPlacement={data.groundArea} />

@@ -158,7 +158,7 @@ function App() {
           zIndex: '0'
         }}>
           <div className='app__camera--center'>
-            <GroundObject />
+            <GroundObject fruit={'block'} />
           </div>
         </div>
 
