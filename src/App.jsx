@@ -4,10 +4,9 @@ import data from './data/data.json'
 import soundAsset from './assets/Bubble heavy 1.wav'
 import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
-import letterAsset from './assets/Basic Plants.png'
-import treasureAsset from './assets/Chest.png'
 import Dialogue from './components/dialogue/Dialogue'
 import Letter from './components/letter/Letter'
+import GroundObject from './components/ground/GroundObject'
 
 function App() {
   const styles = {
@@ -147,22 +146,29 @@ function App() {
   return (
     <div style={styles} className='app__container'>
       <div className='app__camera'>
-        <div className='app__camera--center app__hero'>
-          <Hero facing={heroFacing} emotion={'none'} />
-        </div>
-
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
             <Ground />
-
-            <div className='app__tile app__letter--container'>
-              <img className='app__letter' src={letterAsset} alt="letter" />
-            </div>
-
-            <div className='app__tile app__treasure--container'>
-              <img className='app__treasure' src={treasureAsset} alt="treasure" />
-            </div>
           </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '0'
+        }}>
+          <div className='app__camera--center'>
+            <GroundObject />
+          </div>
+        </div>
+
+        <div className='app__camera--center'
+          style={{
+            position: 'absolute',
+            zIndex: '0'
+          }}
+        >
+          <Hero facing={heroFacing} emotion={'none'} />
         </div>
 
         <Dialogue

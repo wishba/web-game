@@ -44,11 +44,6 @@
   position: absolute;
 }
 
-.app__hero {
-  position: absolute;
-  z-index: 1;
-}
-
 .app__letter {
   width: calc(var(--zoom) * 96px);
 }
