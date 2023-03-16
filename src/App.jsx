@@ -324,12 +324,12 @@ function App() {
           </div>
         </div>
 
-        <div style={{ display: `${dialogue}` }}>
+        <div>
           <Dialogue
-            text={dialogueText}
-            next={dialogueNext}
-            ok={dialogueOk}
-            yesNo={dialogueYesNo}
+            text={`
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.`
+            }
+            choice={'yesNo'}
           />
         </div>
 
