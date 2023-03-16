@@ -10,7 +10,7 @@ import Area from './area/Area'
 function Ground() {
   return (
     <>
-      <GridLine width={14} height={6} />
+      {/* <GridLine width={14} height={6} /> */}
 
       <GroundTiles
         placement={data.ground.oneIsland.placement}
@@ -33,11 +33,11 @@ function Ground() {
         width={80}
       />
 
-      <div className='ground__area ground__area--ground'>
+      {/* <div className='ground__area ground__area--ground'>
         <Area
           areaPlacement={data.groundArea}
         />
-      </div>
+      </div> */}
     </>
   )
 }

@@ -57,11 +57,11 @@ function GroundObject({ fruit }) {
         />
       </div>
 
-      <div className='ground__area ground__area--object'>
+      {/* <div className='ground__area ground__area--object'>
         <Area
           areaPlacement={data.objectArea}
         />
-      </div>
+      </div> */}
     </>
   )
 }
