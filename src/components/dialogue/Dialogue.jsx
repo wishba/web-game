@@ -15,6 +15,10 @@ function Dialogue({ text, ok, next, yesNo }) {
       {dialogueNext === true ? <button>next(z)</button> : ''}
       {dialogueYesNo === true ? <button>yes(z)</button> : ''}
       {dialogueYesNo === true ? <button>no(x)</button> : ''}
+      {/* {dialogueOk === true ? <button className='dialogue__button'>ok(z)</button> : ''}
+      {dialogueNext === true ? <button className='dialogue__button'>next(z)</button> : ''}
+      {dialogueYesNo === true ? <button className='dialogue__button'>yes(z)</button> : ''}
+      {dialogueYesNo === true ? <button>no(x)</button> : ''} */}
     </div>
   )
 }

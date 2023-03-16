@@ -55,16 +55,16 @@
     }
   },
   "dialogue": {
-    "miss": [
-      "You just realized you missed an item"
-    ],
     "letter": [
       "you've found a letter, do you want to read it?"
     ],
     "firstStop": [
-      "the bridge is really scary, still want to continue?"
+      "you too scared to cross the bridge"
     ],
     "secondStop": [
+      "the bridge is really scary, still want to continue?"
+    ],
+    "thirdStop": [
       "you sure you want to continue?"
     ],
     "treasure": [
