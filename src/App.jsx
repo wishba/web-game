@@ -5,6 +5,7 @@ import soundAsset from './assets/Bubble heavy 1.wav'
 import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
 import letterAsset from './assets/Basic Plants.png'
+import treasureAsset from './assets/Chest.png'
 
 function App() {
   const styles = {
@@ -247,6 +248,12 @@ function App() {
             <div className='app__tile app__letter--container'>
               <img className='app__letter' src={letterAsset} alt="letter" />
             </div>
+
+            <div className='app__tile app__treasure--container'>
+              {/* <div className='app__tile app__letter--container'> */}
+              <img className='app__treasure' src={treasureAsset} alt="treasure" />
+              {/* <img className='app__letter' src={letterAsset} alt="letter" /> */}
+            </div>
           </div>
         </div>
 
@@ -274,8 +281,6 @@ function App() {
           <p>Sincerely,</p>
           <p>The Guardians of the Treasure Island</p>
         </div>
-
-
 
         <div className='app__dialogue'
           style={{ display: `${dialogueTreasure}` }}

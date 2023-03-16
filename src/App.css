@@ -57,6 +57,15 @@
   transform: translate(calc(var(--tile) * 2), calc(var(--tile) * 2));
 }
 
+.app__treasure {
+  width: calc(var(--zoom) * 240px);
+  transform: translate(calc(var(--tile) * -1), calc(var(--tile) * -1));
+}
+
+.app__treasure--container {
+  transform: translate(calc(var(--tile) * 10), calc(var(--tile) * 2));
+}
+
 .app__dialogue--container {
   position: absolute;
   bottom: 0;
