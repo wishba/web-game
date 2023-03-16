@@ -6,6 +6,7 @@ import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
 import letterAsset from './assets/Basic Plants.png'
 import treasureAsset from './assets/Chest.png'
+import Dialogue from './components/dialogue/Dialogue'
 
 function App() {
   const styles = {
@@ -33,6 +34,10 @@ function App() {
   const [thirdStop, setThirdStop] = useState(true)
   const [dialogueCounter, setDialogueCounter] = useState(0)
   const [dialogueTreasure, setDialogueTreasure] = useState('none')
+  const [dialogueText, setDialogueText] = useState('')
+  const [dialogueNext, setDialogueNext] = useState(false)
+  const [dialogueOk, setDialogueOk] = useState(false)
+  const [dialogueYesNo, setDialogueYesNo] = useState(false)
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -49,77 +54,77 @@ function App() {
   function walkingSound() { new Audio(soundAsset).play() }
 
   function moveStart(direction) {
-    if (dialogue === 'none' && dialogueTreasure === 'none') {
-      intervalMovement.current = setInterval(() => {
-        switch (direction) {
-          case 'up':
-            setPositionY(positionY => positionY + 1)
-            setPressUp(true)
-            return
-          case 'left':
-            setPositionX(positionX => positionX + 1)
-            setPressLeft(true)
-            return
-          case 'right':
-            setPositionX(positionX => positionX - 1)
-            setPressRight(true)
-            return
-          case 'down':
-            setPositionY(positionY => positionY - 1)
-            setPressDown(true)
-            return
-        }
-      }, 25)
-
-      let count = 0
-      function counter() {
-        count++
-        if (count > 4) { count = 1 }
+    // if (dialogue === 'none' && dialogueTreasure === 'none') {
+    intervalMovement.current = setInterval(() => {
+      switch (direction) {
+        case 'up':
+          setPositionY(positionY => positionY + 1)
+          setPressUp(true)
+          return
+        case 'left':
+          setPositionX(positionX => positionX + 1)
+          setPressLeft(true)
+          return
+        case 'right':
+          setPositionX(positionX => positionX - 1)
+          setPressRight(true)
+          return
+        case 'down':
+          setPositionY(positionY => positionY - 1)
+          setPressDown(true)
+          return
       }
-      intervalAnimation.current = setInterval(() => {
-        switch (direction) {
-          case 'up':
-            counter()
-            setFacing(`up--${count}`)
-            walkingSound()
-            return
-          case 'left':
-            counter()
-            setFacing(`left--${count}`)
-            walkingSound()
-            return
-          case 'right':
-            counter()
-            setFacing(`right--${count}`)
-            walkingSound()
-            return
-          case 'down':
-            counter()
-            setFacing(`down--${count}`)
-            walkingSound()
-            return
-        }
-      }, 250)
+    }, 25)
 
-      setFacing(direction)
+    let count = 0
+    function counter() {
+      count++
+      if (count > 4) { count = 1 }
     }
+    intervalAnimation.current = setInterval(() => {
+      switch (direction) {
+        case 'up':
+          counter()
+          setFacing(`up--${count}`)
+          walkingSound()
+          return
+        case 'left':
+          counter()
+          setFacing(`left--${count}`)
+          walkingSound()
+          return
+        case 'right':
+          counter()
+          setFacing(`right--${count}`)
+          walkingSound()
+          return
+        case 'down':
+          counter()
+          setFacing(`down--${count}`)
+          walkingSound()
+          return
+      }
+    }, 250)
+
+    setFacing(direction)
+    // }
   }
 
   function moveStop(facing) {
-    if (dialogue === 'none' && dialogueTreasure === 'none') {
-      clearInterval(intervalMovement.current)
-      clearInterval(intervalAnimation.current)
+    // if (dialogue === 'none' && dialogueTreasure === 'none') {
+    clearInterval(intervalMovement.current)
+    clearInterval(intervalAnimation.current)
 
-      if (pressUp === true) { setPressUp(false) }
-      if (pressLeft === true) { setPressLeft(false) }
-      if (pressRight === true) { setPressRight(false) }
-      if (pressDown === true) { setPressDown(false) }
+    if (pressUp === true) { setPressUp(false) }
+    if (pressLeft === true) { setPressLeft(false) }
+    if (pressRight === true) { setPressRight(false) }
+    if (pressDown === true) { setPressDown(false) }
 
-      setTimeout(() => {
-        setFacing(`${facing}`)
-        walkingSound()
-      }, 300)
-    }
+    setTimeout(() => {
+      setFacing(`${facing}`)
+      walkingSound()
+    }, 300)
+    // }
   }
 
   function handleClickZ() {
@@ -201,22 +206,22 @@ function App() {
       setWarning('none')
       setBlinkButton('')
     }
-    if (positionTile == '4,2' && firstStop == true) {
-      moveStop('left')
-      setPositionX(positionX => positionX + 1)
-      setDialogue('block')
-      setDialogueLetter('You just realized you missed an item')
-    }
-    if (positionTile == '5,2' && secondStop === true) {
-      setDialogueLetter('the bridge is really scary, still want to continue?')
-      setDialogue('block')
-      moveStop('left')
-    }
-    if (positionTile == '6,2' && thirdStop === true) {
-      setDialogueLetter('you sure you want to continue?')
-      setDialogue('block')
-      moveStop('left')
-    }
+    // if (positionTile == '4,2' && firstStop == true) {
+    //   moveStop('left')
+    //   setPositionX(positionX => positionX + 1)
+    //   setDialogue('block')
+    //   setDialogueLetter('You just realized you missed an item')
+    // }
+    // if (positionTile == '5,2' && secondStop === true) {
+    //   setDialogueLetter('the bridge is really scary, still want to continue?')
+    //   setDialogue('block')
+    //   moveStop('left')
+    // }
+    // if (positionTile == '6,2' && thirdStop === true) {
+    //   setDialogueLetter('you sure you want to continue?')
+    //   setDialogue('block')
+    //   moveStop('left')
+    // }
   }, [positionX, positionY])
 
   useEffect(() => {
@@ -252,13 +257,22 @@ function App() {
           </div>
         </div>
 
-        <div className='app__dialogue'
+        <div style={{ display: 'none' }}>
+          <Dialogue
+            text={dialogueText}
+            next={dialogueNext}
+            ok={dialogueOk}
+            yesNo={dialogueYesNo}
+          />
+        </div>
+
+        {/* <div className='app__dialogue'
           style={{ display: `${dialogue}` }}
         >
           <p>{dialogueLetter}</p>
           <button>yes(z)</button>
           <button>no(x)</button>
-        </div>
+        </div> */}
 
         <div className='app__letter--read'
           style={{ display: `${letter}` }}
@@ -277,14 +291,14 @@ function App() {
           <p>The Guardians of the Treasure Island</p>
         </div>
 
-        <div className='app__dialogue'
+        {/* <div className='app__dialogue'
           style={{ display: `${dialogueTreasure}` }}
         >
           <p>{data.dialogueTreasure[dialogueCounter]}</p>
           <button
             onClick={() => handleDialogueTreasure()}
           >next(z)</button>
-        </div>
+        </div> */}
       </div>
 
       <div className='app__button--container'>
