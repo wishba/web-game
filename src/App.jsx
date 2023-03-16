@@ -188,7 +188,7 @@ function App() {
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
-    if (!data.ground.some(element =>
+    if (!data.groundArea.some(element =>
       element[0] === positionXY[0] &&
       element[1] === positionXY[1]
     )) {

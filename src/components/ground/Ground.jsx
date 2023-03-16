@@ -14,29 +14,29 @@ function Ground() {
 
       <div>
         <GroundTiles
-          placement={data.object.oneIsland.placement}
-          tileCoordinate={data.object.oneIsland.asset}
+          placement={data.ground.oneIsland.placement}
+          tileCoordinate={data.ground.oneIsland.asset}
           asset={grassAsset}
           width={176}
         />
 
         <GroundTiles
-          placement={data.object.twoIsland.placement}
-          tileCoordinate={data.object.twoIsland.asset}
+          placement={data.ground.twoIsland.placement}
+          tileCoordinate={data.ground.twoIsland.asset}
           asset={grassAsset}
           width={176}
         />
 
         <GroundTiles
-          placement={data.object.bridge.placement}
-          tileCoordinate={data.object.bridge.asset}
+          placement={data.ground.bridge.placement}
+          tileCoordinate={data.ground.bridge.asset}
           asset={bridgeAsset}
           width={80}
         />
       </div>
 
       <div className='ground__area'>
-        <Area areaPlacement={data.ground} />
+        <Area areaPlacement={data.groundArea} />
       </div>
     </>
   )
