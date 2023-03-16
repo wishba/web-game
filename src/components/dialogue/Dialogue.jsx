@@ -1,9 +1,9 @@
 import React from 'react'
 import './Dialogue.css'
 
-function Dialogue({ text, choice }) {
+function Dialogue({ text, choice, display }) {
   return (
-    <div className='dialogue'>
+    <div className='dialogue' style={{ display: display }}>
       <br />
       <p>{text}</p>
       <br />

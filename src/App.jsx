@@ -7,6 +7,7 @@ import Ground from './components/ground/Ground'
 import letterAsset from './assets/Basic Plants.png'
 import treasureAsset from './assets/Chest.png'
 import Dialogue from './components/dialogue/Dialogue'
+import Letter from './components/letter/Letter'
 
 function App() {
   const styles = {
@@ -24,22 +25,6 @@ function App() {
   const [heroFacing, setHeroFacing] = useState()
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
-  const [warning, setWarning] = useState('none')
-  const [blinkButton, setBlinkButton] = useState('')
-  const [dialogue, setDialogue] = useState('none')
-  const [letter, setLetter] = useState('none')
-  const [dialogueLetter, setDialogueLetter] = useState()
-  const [firstStop, setFirstStop] = useState(true)
-  const [secondStop, setSecondStop] = useState(true)
-  const [thirdStop, setThirdStop] = useState(true)
-  const [dialogueCounter, setDialogueCounter] = useState(0)
-  const [dialogueTreasure, setDialogueTreasure] = useState('none')
-  const [dialogueText, setDialogueText] = useState('')
-  const [dialogueNext, setDialogueNext] = useState(false)
-  const [dialogueOk, setDialogueOk] = useState(false)
-  const [dialogueYesNo, setDialogueYesNo] = useState(false)
-  const [heroEmotion, setHeroEmotion] = useState('none')
-  const [stopWalking, setStopWalking] = useState(false)
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -56,161 +41,81 @@ function App() {
   function walkingSound() { new Audio(soundAsset).play() }
 
   function moveStart(direction) {
-    if (stopWalking === false) {
-      intervalMovement.current = setInterval(() => {
-        switch (direction) {
-          case 'up':
-            setPositionY(positionY => positionY + 1)
-            setPressUp(true)
-            return
-          case 'left':
-            setPositionX(positionX => positionX + 1)
-            setPressLeft(true)
-            return
-          case 'right':
-            setPositionX(positionX => positionX - 1)
-            setPressRight(true)
-            return
-          case 'down':
-            setPositionY(positionY => positionY - 1)
-            setPressDown(true)
-            return
-        }
-      }, 25)
-
-      let count = 0
-      function counter() {
-        count++
-        if (count > 4) { count = 1 }
+    intervalMovement.current = setInterval(() => {
+      switch (direction) {
+        case 'up':
+          setPositionY(positionY => positionY + 1)
+          setPressUp(true)
+          return
+        case 'left':
+          setPositionX(positionX => positionX + 1)
+          setPressLeft(true)
+          return
+        case 'right':
+          setPositionX(positionX => positionX - 1)
+          setPressRight(true)
+          return
+        case 'down':
+          setPositionY(positionY => positionY - 1)
+          setPressDown(true)
+          return
       }
-      intervalAnimation.current = setInterval(() => {
-        switch (direction) {
-          case 'up':
-            counter()
-            setHeroFacing(`up--${count}`)
-            walkingSound()
-            return
-          case 'left':
-            counter()
-            setHeroFacing(`left--${count}`)
-            walkingSound()
-            return
-          case 'right':
-            counter()
-            setHeroFacing(`right--${count}`)
-            walkingSound()
-            return
-          case 'down':
-            counter()
-            setHeroFacing(`down--${count}`)
-            walkingSound()
-            return
-        }
-      }, 250)
+    }, 25)
 
-      setHeroFacing(direction)
+    let count = 0
+    function counter() {
+      count++
+      if (count > 4) { count = 1 }
     }
+    intervalAnimation.current = setInterval(() => {
+      switch (direction) {
+        case 'up':
+          counter()
+          setHeroFacing(`up--${count}`)
+          walkingSound()
+          return
+        case 'left':
+          counter()
+          setHeroFacing(`left--${count}`)
+          walkingSound()
+          return
+        case 'right':
+          counter()
+          setHeroFacing(`right--${count}`)
+          walkingSound()
+          return
+        case 'down':
+          counter()
+          setHeroFacing(`down--${count}`)
+          walkingSound()
+          return
+      }
+    }, 250)
+
+    setHeroFacing(direction)
   }
 
   function moveStop(heroFacing) {
-    if (stopWalking === false) {
-      clearInterval(intervalMovement.current)
-      clearInterval(intervalAnimation.current)
+    clearInterval(intervalMovement.current)
+    clearInterval(intervalAnimation.current)
 
-      if (pressUp === true) { setPressUp(false) }
-      if (pressLeft === true) { setPressLeft(false) }
-      if (pressRight === true) { setPressRight(false) }
-      if (pressDown === true) { setPressDown(false) }
+    if (pressUp === true) { setPressUp(false) }
+    if (pressLeft === true) { setPressLeft(false) }
+    if (pressRight === true) { setPressRight(false) }
+    if (pressDown === true) { setPressDown(false) }
 
-      setTimeout(() => {
-        setHeroFacing(`${heroFacing}`)
-        walkingSound()
-      }, 300)
-    }
+    setTimeout(() => {
+      setHeroFacing(`${heroFacing}`)
+      walkingSound()
+    }, 300)
   }
 
   function handleClickZ() {
-    if (positionTile == '3,2' && dialogue === 'block') {
-      setStopWalking(false)
-      setDialogue('none')
-      setDialogueText('')
-      setDialogueOk(false)
-    }
-    if (positionTile == '2,2') {
-      setDialogue('block')
-      setDialogueText(`${data.dialogue.letter[0]}`)
-      setDialogueYesNo(true)
-      setHeroEmotion('none')
-      setBlinkButton('')
-    }
-    if (positionTile == '2,2' && dialogue === 'block') {
-      setLetter('block')
-    }
-    // if (positionTile == `${data.object.letter.placement}`) {
-    // setDialogue('block')
-    // }
-    // if (dialogue === 'block' && positionTile == `${data.object.letter.placement}`) {
-    // setLetter('flex')
-    // }
-    // if (dialogue === 'block' && positionTile == '3,2') {
-    // setDialogue('none')
-    // }
-    // if (dialogue === 'block' && positionTile == '5,2') {
-    // setDialogue('none')
-    // setSecondStop(false)
-    // setHeroFacing('right')
-    // }
-    // if (dialogue === 'block' && positionTile == '6,2') {
-    // setDialogue('none')
-    // setThirdStop(false)
-    // setHeroFacing('right')
-    // }
-    // if (positionTile == '10,2') {
-    // setDialogueTreasure('block')
-    // }
-    // if (positionTile == '10,2' && dialogueTreasure === 'block') {
-    // handleDialogueTreasure()
-    // }
+    console.log('z');
   }
 
   function handleClickX() {
-    if (positionTile == '2,2' && letter === 'block') {
-      setLetter('none')
-      setFirstStop(false)
-      dialogue('block')
-    }
-    if (positionTile == '2,2' && dialogue === 'block') {
-      setDialogue('none')
-      setDialogueText('')
-      setDialogueYesNo(false)
-    }
-    // if (dialogue === 'block' && positionTile == '2,2') {
-    // setLetter('none')
-    // }
-    // if (dialogue === 'block' && positionTile == '2,2' && letter === 'none') {
-    // setDialogue('none')
-    // }
-    // if (dialogue === 'block' && letter == 'flex') {
-    // setFirstStop(false)
-    // }
-    // if (dialogue === 'block' && positionTile == '3,2') {
-    // setDialogue('none')
-    // }
-    // if (dialogue === 'block' && positionTile == '5,2') {
-    // setDialogue('none')
-    // setPositionX(positionX => positionX + 1)
-    // }
-    // if (dialogue === 'block' && positionTile == '6,2') {
-    // setDialogue('none')
-    // setPositionX(positionX => positionX + 1)
-    // }
-  }
-
-  function handleDialogueTreasure() {
-    if (dialogueCounter < Object.keys(data.dialogueTreasure).length - 1) {
-      setDialogueCounter(dialogueCounter => dialogueCounter + 1)
-      console.log(dialogueCounter);
-    }
+    console.log('x');
   }
 
   useEffect(() => {
@@ -225,70 +130,6 @@ function App() {
       if (pressRight === true) { setPositionX(positionX + 1) }
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
-
-    if (
-      positionTile == `${data.object.letter.placement}`
-    ) {
-      // setWarning('block')
-      // setDialogueLetter(`you've found a letter, do you want to read it?`)
-      if (firstStop === true) {
-        setHeroEmotion('block')
-        setBlinkButton('app__button--warning')
-      }
-    } else {
-      // setWarning('none')
-      setHeroEmotion('none')
-      setBlinkButton('')
-    }
-
-    if (
-
-      positionTile == `${data.object.treasure.placement}`
-    ) {
-      // setWarning('block')
-      // setDialogueLetter(`you've found a letter, do you want to read it?`)
-      // if (firstStop === true) {
-      setHeroEmotion('block')
-      setBlinkButton('app__button--warning')
-      // }
-    } else {
-      // setWarning('none')
-      setHeroEmotion('none')
-      setBlinkButton('')
-    }
-
-    if (positionTile == '4,2' && firstStop === true) {
-      console.log('first stop');
-      setPositionX(positionX => positionX + 1)
-      setStopWalking(true)
-      moveStop('left')
-      setDialogue('block')
-      setDialogueText(`${data.dialogue.firstStop[0]}`)
-      setDialogueOk(true)
-    }
-    if (positionTile == '5,2') {
-      console.log('second stop');
-    }
-    if (positionTile == '6,2') {
-      console.log('third stop');
-    }
-
-    // if (positionTile == '4,2' && firstStop == true) {
-    //   moveStop('left')
-    //   setPositionX(positionX => positionX + 1)
-    //   setDialogue('block')
-    //   setDialogueLetter('You just realized you missed an item')
-    // }
-    // if (positionTile == '5,2' && secondStop === true) {
-    //   setDialogueLetter('the bridge is really scary, still want to continue?')
-    //   setDialogue('block')
-    //   moveStop('left')
-    // }
-    // if (positionTile == '6,2' && thirdStop === true) {
-    //   setDialogueLetter('you sure you want to continue?')
-    //   setDialogue('block')
-    //   moveStop('left')
-    // }
   }, [positionX, positionY])
 
   useEffect(() => {
@@ -307,7 +148,7 @@ function App() {
     <div style={styles} className='app__container'>
       <div className='app__camera'>
         <div className='app__camera--center app__hero'>
-          <Hero facing={heroFacing} emotion={heroEmotion} />
+          <Hero facing={heroFacing} emotion={'none'} />
         </div>
 
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
@@ -324,53 +165,20 @@ function App() {
           </div>
         </div>
 
-        <div>
-          <Dialogue
-            text={`
+        <Dialogue
+          text={`
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.`
-            }
-            choice={'yesNo'}
-          />
-        </div>
+          }
+          choice={'yesNo'}
+          display={'none'}
+        />
 
-        {/* <div className='app__dialogue'
-          style={{ display: `${dialogue}` }}
-        >
-          <p>{dialogueLetter}</p>
-          <button>yes(z)</button>
-          <button>no(x)</button>
-        </div> */}
-
-        <div className='app__letter--read'
-          style={{ display: `${letter}` }}
-        >
-          <button>close(x)</button>
-          <p>Dear Adventurer,</p>
-          <br />
-          <p>
-            To claim your treasure, you must cross the narrow and dangerous bridge that
-            connects our island to the mainland. The sea below is infested with dangerous
-            creatures, and we urge you to stay away from the edges. Though the journey is
-            perilous, the treasure is worth the risk. May fortune favor the brave.
-          </p>
-          <br />
-          <p>Sincerely,</p>
-          <p>The Guardians of the Treasure Island</p>
-        </div>
-
-        {/* <div className='app__dialogue'
-          style={{ display: `${dialogueTreasure}` }}
-        >
-          <p>{data.dialogueTreasure[dialogueCounter]}</p>
-          <button
-            onClick={() => handleDialogueTreasure()}
-          >next(z)</button>
-        </div> */}
+        <Letter display={'none'} />
       </div>
 
       <div className='app__button--container'>
         <div className='app__zx'>
-          <button className={`app__button ${blinkButton}`}
+          <button className={`app__button`}
             onClick={() => handleClickZ()}
           ><p>Z</p></button>
           <button className='app__button'

@@ -16,7 +16,7 @@ function Area({ areaPlacement }) {
     }
   }
 
-  return (<div>{wall}</div>)
+  return (<>{wall}</>)
 }
 
 export default Area

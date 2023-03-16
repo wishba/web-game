@@ -1,9 +1,9 @@
 import React from 'react'
 import './Letter.css'
 
-function Letter() {
+function Letter({ display }) {
   return (
-    <div className='letter'>
+    <div className='letter' style={{ display: display }} >
       <button>close(x)</button>
       <p>Dear Adventurer,</p>
       <br />
@@ -16,7 +16,7 @@ function Letter() {
       <br />
       <p>Sincerely,</p>
       <p>The Guardians of the Treasure Island</p>
-    </div>
+    </ div>
   )
 }
 
