@@ -217,9 +217,6 @@ function App() {
       setDialogue('block')
       moveStop('left')
     }
-    // if (positionTile == '10,2' && dialogueTreasure === 'block') {
-    //   moveStop('right')
-    // }
   }, [positionX, positionY])
 
   useEffect(() => {
@@ -250,9 +247,7 @@ function App() {
             </div>
 
             <div className='app__tile app__treasure--container'>
-              {/* <div className='app__tile app__letter--container'> */}
               <img className='app__treasure' src={treasureAsset} alt="treasure" />
-              {/* <img className='app__letter' src={letterAsset} alt="letter" /> */}
             </div>
           </div>
         </div>
@@ -289,7 +284,6 @@ function App() {
           <button
             onClick={() => handleDialogueTreasure()}
           >next(z)</button>
-          {/* <button>no(x)</button> */}
         </div>
       </div>
 
