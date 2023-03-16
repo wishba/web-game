@@ -7,6 +7,8 @@ import Ground from './components/ground/Ground'
 import Dialogue from './components/dialogue/Dialogue'
 import Letter from './components/letter/Letter'
 import GroundObject from './components/ground/GroundObject'
+import GroundTiles from './components/ground/GroundTiles'
+import biomeAsset from './assets/Basic Grass Biom things 1.png'
 
 function App() {
   const styles = {
@@ -155,7 +157,11 @@ function App() {
 
   return (
     <div style={styles} className='app__container'>
-      <div className='app__camera'>
+      <div className='app__camera'
+        style={{
+          position: 'relative'
+        }}
+      >
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
             <Ground />
@@ -169,6 +175,21 @@ function App() {
         }}>
           <div className='app__camera--center'>
             <GroundObject fruit={'block'} />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '1'
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.tree.placement}
+              tileCoordinate={data.object.tree.asset}
+              asset={biomeAsset}
+              width={144}
+            />
           </div>
         </div>
 

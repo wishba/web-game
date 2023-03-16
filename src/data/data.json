@@ -49,7 +49,7 @@
     [19, 3], [20, 3], [21, 3], [22, 3], 
     [19, 4], [20, 4], [21, 4],
     [19, 5], [20, 5], [21, 5],          
-    [19, 6], [20, 6], [21, 6],         [23, 6]
+    [19, 6], [20, 6], [21, 6], [22, 6], [23, 6], [24, 6]
   ],
   "object": {
     "letter": {
@@ -89,6 +89,10 @@
     "fruit": {
       "placement": [[10, 2]],
       "asset": [[1, 2]]
+    },
+    "fruitSecret": {
+      "placement": [[12, 3]],
+      "asset": [[1, 2]]
     }
   },
   "dialogue": {
@@ -115,6 +119,12 @@
       "To your surprise, the cow presents you with a luxurious-looking fruit.",
       "You take the fruit and a feeling of satisfaction washes over you.",
       "Even though the treasure was empty, at least you got something out of this adventure."
+    ],
+    "treasureSecret": [
+      "you've find a luxurious-looking fruit",
+      "you pick up the fruit",
+      "you find a note beside it",
+      "congratulation you find the secret treasure"
     ]
   }
 }

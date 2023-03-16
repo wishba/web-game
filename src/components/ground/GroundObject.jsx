@@ -32,17 +32,26 @@ function GroundObject({ fruit }) {
         width={96}
       />
 
-      <GroundTiles
+      {/* <GroundTiles
         placement={data.object.tree.placement}
         tileCoordinate={data.object.tree.asset}
         asset={biomeAsset}
         width={144}
-      />
+      /> */}
 
       <div style={{ display: fruit }}>
         <GroundTiles
           placement={data.object.fruit.placement}
           tileCoordinate={data.object.fruit.asset}
+          asset={biomeAsset}
+          width={144}
+        />
+      </div>
+
+      <div style={{ display: fruit }}>
+        <GroundTiles
+          placement={data.object.fruitSecret.placement}
+          tileCoordinate={data.object.fruitSecret.asset}
           asset={biomeAsset}
           width={144}
         />
