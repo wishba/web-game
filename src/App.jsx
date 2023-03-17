@@ -170,33 +170,18 @@ function App() {
 
         <div style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
-          position: 'absolute',
-          zIndex: '0'
+          // position: 'absolute',
+          // zIndex: '0'
         }}>
           <div className='app__camera--center'>
             <GroundObject fruit={'block'} />
           </div>
         </div>
 
-        <div style={{
-          transform: `translate(${positionX}px, ${positionY}px)`,
-          position: 'absolute',
-          zIndex: '1'
-        }}>
-          <div className='app__camera--center'>
-            <GroundTiles
-              placement={data.object.tree.placement}
-              tileCoordinate={data.object.tree.asset}
-              asset={biomeAsset}
-              width={144}
-            />
-          </div>
-        </div>
-
         <div className='app__camera--center'
           style={{
-            position: 'absolute',
-            zIndex: '0'
+            // position: 'absolute',
+            // zIndex: '0'
           }}
         >
           <Hero facing={heroFacing} emotion={'none'} />
