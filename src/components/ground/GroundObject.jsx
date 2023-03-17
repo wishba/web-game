@@ -54,6 +54,7 @@ function GroundObject() {
       /> */}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div style={{ display: fruit }}>
         <GroundTiles
           placement={data.object.fruit.placement}
@@ -79,23 +80,30 @@ function GroundObject() {
       </div> */}
 =======
       <div className='ground__area ground__area--object'>
+=======
+      {/* <div className='ground__area ground__area--object'>
+>>>>>>> 5d177913877ff43984a25b124fbc1b6b9e29769e
         <Area
           areaPlacement={data.objectArea}
         />
-      </div>
+      </div> */}
 
-      <div className='ground__area ground__area--front'>
+      {/* <div className='ground__area ground__area--front'>
         <Area
           areaPlacement={data.frontArea}
         />
-      </div>
+      </div> */}
 
-      <div className='ground__area ground__area--front'>
+      {/* <div className='ground__area ground__area--front'>
         <Area
           areaPlacement={data.frontCow}
         />
+<<<<<<< HEAD
       </div>
 >>>>>>> e947db915f6360d1626c5cb5147278fb5c93cecf
+=======
+      </div> */}
+>>>>>>> 5d177913877ff43984a25b124fbc1b6b9e29769e
     </>
   )
 }
