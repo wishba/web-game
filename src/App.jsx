@@ -171,14 +171,14 @@ function App() {
         <div style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
           position: 'absolute',
-          zIndex: '0'
+          zIndex: '1'
         }}>
           <div className='app__camera--center'>
             <GroundObject fruit={'block'} />
           </div>
         </div>
 
-        <div style={{
+        {/* <div style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
           position: 'absolute',
           zIndex: '1'
@@ -191,7 +191,7 @@ function App() {
               width={144}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className='app__camera--center'
           style={{
