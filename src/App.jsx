@@ -26,6 +26,7 @@ function App() {
   const [heroFacing, setHeroFacing] = useState()
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
+  const [treeZIndex, setTreeIndex] = useState('0')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -122,6 +123,15 @@ function App() {
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
+    if (data.frontArea.some(element =>
+      element[0] === positionXY[0] &&
+      element[1] === positionXY[1]
+    )) {
+      setTreeIndex('1')
+    } else {
+      setTreeIndex('0')
+    }
+
     if (data.objectArea.some(element =>
       element[0] === positionXY[0] &&
       element[1] === positionXY[1]
@@ -175,6 +185,21 @@ function App() {
         }}>
           <div className='app__camera--center'>
             <GroundObject fruit={'block'} />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: treeZIndex
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.tree.placement}
+              tileCoordinate={data.object.tree.asset}
+              asset={biomeAsset}
+              width={144}
+            />
           </div>
         </div>
 
