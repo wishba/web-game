@@ -8,7 +8,7 @@ import cowAsset from '../../assets/Free Cow Sprites.png'
 import biomeAsset from '../../assets/Basic Grass Biom things 1.png'
 import Area from './area/Area'
 
-function GroundObject({ fruit }) {
+function GroundObject() {
   return (
     <>
       <GroundTiles
@@ -26,10 +26,24 @@ function GroundObject({ fruit }) {
       />
 
       <GroundTiles
+        placement={data.object.fruit.placement}
+        tileCoordinate={data.object.fruit.asset}
+        asset={biomeAsset}
+        width={144}
+      />
+
+      {/* <GroundTiles
         placement={data.object.cow.placement}
         tileCoordinate={data.object.cow.asset}
         asset={cowAsset}
         width={96}
+      /> */}
+
+      <GroundTiles
+        placement={data.object.fruitSecret.placement}
+        tileCoordinate={data.object.fruitSecret.asset}
+        asset={biomeAsset}
+        width={144}
       />
 
       {/* <GroundTiles
@@ -39,6 +53,7 @@ function GroundObject({ fruit }) {
         width={144}
       /> */}
 
+<<<<<<< HEAD
       <div style={{ display: fruit }}>
         <GroundTiles
           placement={data.object.fruit.placement}
@@ -62,6 +77,25 @@ function GroundObject({ fruit }) {
           areaPlacement={data.objectArea}
         />
       </div> */}
+=======
+      <div className='ground__area ground__area--object'>
+        <Area
+          areaPlacement={data.objectArea}
+        />
+      </div>
+
+      <div className='ground__area ground__area--front'>
+        <Area
+          areaPlacement={data.frontArea}
+        />
+      </div>
+
+      <div className='ground__area ground__area--front'>
+        <Area
+          areaPlacement={data.frontCow}
+        />
+      </div>
+>>>>>>> e947db915f6360d1626c5cb5147278fb5c93cecf
     </>
   )
 }

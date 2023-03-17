@@ -9,6 +9,7 @@ import Letter from './components/letter/Letter'
 import GroundObject from './components/ground/GroundObject'
 import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
+import cowAsset from './assets/Free Cow Sprites.png'
 
 function App() {
   const styles = {
@@ -26,6 +27,8 @@ function App() {
   const [heroFacing, setHeroFacing] = useState()
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState()
+  const [treeZIndex, setTreeIndex] = useState('0')
+  const [cowZIndex, setCowIndex] = useState('0')
 
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -122,6 +125,33 @@ function App() {
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
+    if (data.frontArea.some(element =>
+      element[0] === positionXY[0] &&
+      element[1] === positionXY[1]
+    )) {
+      setTreeIndex('1')
+    }
+    if (!data.frontArea.some(element =>
+      element[0] === positionXY[0] &&
+      element[1] === positionXY[1]
+    )) {
+      setTreeIndex('0')
+    }
+
+    if (data.frontCow.some(element =>
+      element[0] === positionXY[0] &&
+      element[1] === positionXY[1]
+    )) {
+      setCowIndex('1')
+      setTreeIndex('2')
+    }
+    if (!data.frontCow.some(element =>
+      element[0] === positionXY[0] &&
+      element[1] === positionXY[1]
+    )) {
+      setCowIndex('0')
+    }
+
     if (data.objectArea.some(element =>
       element[0] === positionXY[0] &&
       element[1] === positionXY[1]
@@ -170,8 +200,8 @@ function App() {
 
         <div style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
-          position: 'absolute',
-          zIndex: '0'
+          // position: 'absolute',
+          // zIndex: '0'
         }}>
           <div className='app__camera--center'>
             <GroundObject fruit={'block'} />
@@ -181,7 +211,22 @@ function App() {
         <div style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
           position: 'absolute',
-          zIndex: '1'
+          zIndex: cowZIndex
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.cow.placement}
+              tileCoordinate={data.object.cow.asset}
+              asset={cowAsset}
+              width={96}
+            />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: treeZIndex
         }}>
           <div className='app__camera--center'>
             <GroundTiles
@@ -193,10 +238,12 @@ function App() {
           </div>
         </div>
 
+
+
         <div className='app__camera--center'
           style={{
-            position: 'absolute',
-            zIndex: '0'
+            // position: 'absolute',
+            // zIndex: '0'
           }}
         >
           <Hero facing={heroFacing} emotion={'none'} />
