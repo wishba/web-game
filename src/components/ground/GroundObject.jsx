@@ -32,12 +32,12 @@ function GroundObject() {
         width={144}
       />
 
-      <GroundTiles
+      {/* <GroundTiles
         placement={data.object.cow.placement}
         tileCoordinate={data.object.cow.asset}
         asset={cowAsset}
         width={96}
-      />
+      /> */}
 
       <GroundTiles
         placement={data.object.fruitSecret.placement}
@@ -62,6 +62,12 @@ function GroundObject() {
       <div className='ground__area ground__area--front'>
         <Area
           areaPlacement={data.frontArea}
+        />
+      </div>
+
+      <div className='ground__area ground__area--front'>
+        <Area
+          areaPlacement={data.frontCow}
         />
       </div>
     </>
