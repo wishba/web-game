@@ -11,51 +11,51 @@ import Area from './area/Area'
 function GroundObject({ fruit }) {
   return (
     <>
-      {/* <GroundTiles
+      <GroundTiles
         placement={data.object.letter.placement}
         tileCoordinate={data.object.letter.asset}
         asset={letterAsset}
         width={96}
-      /> */}
+      />
 
-      {/* <GroundTiles
+      <GroundTiles
         placement={data.object.chest.placement}
         tileCoordinate={data.object.chest.asset}
         asset={chestAsset}
         width={240}
-      /> */}
+      />
 
-      {/* <GroundTiles
-        placement={data.object.cow.placement}
-        tileCoordinate={data.object.cow.asset}
-        asset={cowAsset}
-        width={96}
-      /> */}
-
-      {/* <GroundTiles
-        placement={data.object.tree.placement}
-        tileCoordinate={data.object.tree.asset}
-        asset={biomeAsset}
-        width={144}
-      /> */}
-
-      {/* <div style={{ display: fruit }}>
+      <div style={{ display: fruit }}>
         <GroundTiles
           placement={data.object.fruit.placement}
           tileCoordinate={data.object.fruit.asset}
           asset={biomeAsset}
           width={144}
         />
-      </div> */}
+      </div>
 
-      {/* <div style={{ display: fruit }}>
+      <GroundTiles
+        placement={data.object.cow.placement}
+        tileCoordinate={data.object.cow.asset}
+        asset={cowAsset}
+        width={96}
+      />
+
+      <GroundTiles
+        placement={data.object.tree.placement}
+        tileCoordinate={data.object.tree.asset}
+        asset={biomeAsset}
+        width={144}
+      />
+
+      <div style={{ display: fruit }}>
         <GroundTiles
           placement={data.object.fruitSecret.placement}
           tileCoordinate={data.object.fruitSecret.asset}
           asset={biomeAsset}
           width={144}
         />
-      </div> */}
+      </div>
 
       <div className='ground__area ground__area--object'>
         <Area
