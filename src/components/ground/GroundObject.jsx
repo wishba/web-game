@@ -53,36 +53,7 @@ function GroundObject() {
         width={144}
       /> */}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <div style={{ display: fruit }}>
-        <GroundTiles
-          placement={data.object.fruit.placement}
-          tileCoordinate={data.object.fruit.asset}
-          asset={biomeAsset}
-          width={144}
-        />
-      </div>
-
-      <div style={{ display: fruit }}>
-        <GroundTiles
-          placement={data.object.fruitSecret.placement}
-          tileCoordinate={data.object.fruitSecret.asset}
-          asset={biomeAsset}
-          width={144}
-        />
-      </div>
-
       {/* <div className='ground__area ground__area--object'>
-        <Area
-          areaPlacement={data.objectArea}
-        />
-      </div> */}
-=======
-      <div className='ground__area ground__area--object'>
-=======
-      {/* <div className='ground__area ground__area--object'>
->>>>>>> 5d177913877ff43984a25b124fbc1b6b9e29769e
         <Area
           areaPlacement={data.objectArea}
         />
@@ -98,12 +69,7 @@ function GroundObject() {
         <Area
           areaPlacement={data.frontCow}
         />
-<<<<<<< HEAD
-      </div>
->>>>>>> e947db915f6360d1626c5cb5147278fb5c93cecf
-=======
       </div> */}
->>>>>>> 5d177913877ff43984a25b124fbc1b6b9e29769e
     </>
   )
 }
