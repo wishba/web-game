@@ -32,7 +32,7 @@
   border: 1px solid black;
   width: calc(var(--tile) * 5);
   height: calc(var(--tile) * 5);
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
 }
 

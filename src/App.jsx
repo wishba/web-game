@@ -9,6 +9,9 @@ import Letter from './components/letter/Letter'
 import GroundObject from './components/ground/GroundObject'
 import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
+import letterAsset from './assets/Basic Plants.png'
+import chestAsset from './assets/Chest.png'
+import cowAsset from './assets/Free Cow Sprites.png'
 
 function App() {
   const styles = {
@@ -171,7 +174,7 @@ function App() {
         <div style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
           position: 'absolute',
-          zIndex: '1'
+          zIndex: '0'
         }}>
           <div className='app__camera--center'>
             <GroundObject fruit={'block'} />
@@ -192,6 +195,96 @@ function App() {
             />
           </div>
         </div> */}
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '0'
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.letter.placement}
+              tileCoordinate={data.object.letter.asset}
+              asset={letterAsset}
+              width={96}
+            />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '0'
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.chest.placement}
+              tileCoordinate={data.object.chest.asset}
+              asset={chestAsset}
+              width={240}
+            />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '1'
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.cow.placement}
+              tileCoordinate={data.object.cow.asset}
+              asset={cowAsset}
+              width={96}
+            />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '1'
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.tree.placement}
+              tileCoordinate={data.object.tree.asset}
+              asset={biomeAsset}
+              width={144}
+            />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '0'
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.fruit.placement}
+              tileCoordinate={data.object.fruit.asset}
+              asset={biomeAsset}
+              width={144}
+            />
+          </div>
+        </div>
+
+        <div style={{
+          transform: `translate(${positionX}px, ${positionY}px)`,
+          position: 'absolute',
+          zIndex: '0'
+        }}>
+          <div className='app__camera--center'>
+            <GroundTiles
+              placement={data.object.fruitSecret.placement}
+              tileCoordinate={data.object.fruitSecret.asset}
+              asset={biomeAsset}
+              width={144}
+            />
+          </div>
+        </div>
 
         <div className='app__camera--center'
           style={{
