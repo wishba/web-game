@@ -198,11 +198,7 @@ function App() {
           </div>
         </div>
 
-        <div style={{
-          transform: `translate(${positionX}px, ${positionY}px)`,
-          // position: 'absolute',
-          // zIndex: '0'
-        }}>
+        <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
             <GroundObject fruit={'block'} />
           </div>
@@ -240,12 +236,7 @@ function App() {
 
 
 
-        <div className='app__camera--center'
-          style={{
-            // position: 'absolute',
-            // zIndex: '0'
-          }}
-        >
+        <div className='app__camera--center'>
           <Hero facing={heroFacing} emotion={'none'} />
         </div>
 
