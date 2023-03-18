@@ -4,7 +4,6 @@ import data from '../../data/data.json'
 import GroundTiles from './GroundTiles'
 import letterAsset from '../../assets/Basic Plants.png'
 import chestAsset from '../../assets/Chest.png'
-import cowAsset from '../../assets/Free Cow Sprites.png'
 import biomeAsset from '../../assets/Basic Grass Biom things 1.png'
 import Area from './area/Area'
 

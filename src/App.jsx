@@ -6,7 +6,6 @@ import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
 import Dialogue from './components/dialogue/Dialogue'
 import Letter from './components/letter/Letter'
-import GroundObject from './components/ground/GroundObject'
 import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
 import cowAsset from './assets/Free Cow Sprites.png'
@@ -187,20 +186,10 @@ function App() {
 
   return (
     <div style={styles} className='app__container'>
-      <div className='app__camera'
-        style={{
-          position: 'relative'
-        }}
-      >
+      <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
             <Ground />
-          </div>
-        </div>
-
-        <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
-          <div className='app__camera--center'>
-            <GroundObject fruit={'block'} />
           </div>
         </div>
 
@@ -234,18 +223,16 @@ function App() {
           </div>
         </div>
 
-
-
         <div className='app__camera--center'>
           <Hero facing={heroFacing} emotion={'none'} />
         </div>
 
         <Dialogue
+          display={'none'}
           text={`
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.`
           }
           choice={'yesNo'}
-          display={'none'}
         />
 
         <Letter display={'none'} />

@@ -6,6 +6,7 @@ import bridgeAsset from '../../assets/Wood Bridge.png'
 import GroundTiles from './GroundTiles'
 import GridLine from './gridLine/GridLine'
 import Area from './area/Area'
+import GroundObject from './GroundObject'
 
 function Ground() {
   return (
@@ -38,6 +39,8 @@ function Ground() {
           areaPlacement={data.groundArea}
         />
       </div>
+
+      <GroundObject />
     </>
   )
 }
