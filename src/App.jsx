@@ -6,7 +6,6 @@ import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
 import Dialogue from './components/dialogue/Dialogue'
 import Letter from './components/letter/Letter'
-import GroundObject from './components/ground/GroundObject'
 import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
 import cowAsset from './assets/Free Cow Sprites.png'
@@ -24,9 +23,11 @@ function App() {
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
-  const [heroFacing, setHeroFacing] = useState()
+  const [pressZ, setPressZ] = useState(false)
+  const [pressX, setPressX] = useState(false)
+  const [heroFacing, setHeroFacing] = useState('')
   const [press, setPress] = useState(false)
-  const [pressedKey, setPressedKey] = useState()
+  const [pressedKey, setPressedKey] = useState('')
   const [treeZIndex, setTreeIndex] = useState('0')
   const [cowZIndex, setCowIndex] = useState('0')
 
@@ -67,10 +68,7 @@ function App() {
     }, 25)
 
     let count = 0
-    function counter() {
-      count++
-      if (count > 4) { count = 1 }
-    }
+    function counter() { count++; if (count > 4) { count = 1 } }
     intervalAnimation.current = setInterval(() => {
       switch (direction) {
         case 'up':
@@ -125,47 +123,17 @@ function App() {
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
-    if (data.frontArea.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setTreeIndex('1')
-    }
-    if (!data.frontArea.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setTreeIndex('0')
+    function coordinate(array, positionXY) {
+      return array.some(element => element[0] === positionXY[0] && element[1] === positionXY[1])
     }
 
-    if (data.frontCow.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setCowIndex('1')
-      setTreeIndex('2')
-    }
-    if (!data.frontCow.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setCowIndex('0')
-    }
+    if (coordinate(data.frontArea, positionXY)) { setTreeIndex('1') }
+    if (!coordinate(data.frontArea, positionXY)) { setTreeIndex('0') }
 
-    if (data.objectArea.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      if (pressUp === true) { setPositionY(positionY - 1) }
-      if (pressLeft === true) { setPositionX(positionX - 1) }
-      if (pressRight === true) { setPositionX(positionX + 1) }
-      if (pressDown === true) { setPositionY(positionY + 1) }
-    }
+    if (coordinate(data.frontCow, positionXY)) { setCowIndex('1'); setTreeIndex('2') }
+    if (!coordinate(data.frontCow, positionXY)) { setCowIndex('0') }
 
-    if (!data.groundArea.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
+    if (coordinate(data.objectArea, positionXY) || !coordinate(data.groundArea, positionXY)) {
       if (pressUp === true) { setPositionY(positionY - 1) }
       if (pressLeft === true) { setPositionX(positionX - 1) }
       if (pressRight === true) { setPositionX(positionX + 1) }
@@ -181,30 +149,59 @@ function App() {
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
-      console.log(pressedKey)
+      switch (pressedKey) {
+        case 'ArrowUp':
+          moveStart('up')
+          break;
+        case 'ArrowLeft':
+          moveStart('left')
+          break;
+        case 'ArrowRight':
+          moveStart('right')
+          break;
+        case 'ArrowDown':
+          moveStart('down')
+          break;
+        case 'z':
+          handleClickZ()
+          setPressZ(true)
+          break;
+        case 'x':
+          handleClickX()
+          setPressX(true)
+          break;
+      }
+    }
+    if (press === false) {
+      switch (pressedKey) {
+        case 'ArrowUp':
+          moveStop('up')
+          break;
+        case 'ArrowLeft':
+          moveStop('left')
+          break;
+        case 'ArrowRight':
+          moveStop('right')
+          break;
+        case 'ArrowDown':
+          moveStop('down')
+          break;
+        case 'z':
+          setPressZ(false)
+          break;
+        case 'x':
+          setPressX(false)
+          break;
+      }
     }
   }, [press])
 
   return (
     <div style={styles} className='app__container'>
-      <div className='app__camera'
-        style={{
-          position: 'relative'
-        }}
-      >
+      <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground />
-          </div>
-        </div>
-
-        <div style={{
-          transform: `translate(${positionX}px, ${positionY}px)`,
-          // position: 'absolute',
-          // zIndex: '0'
-        }}>
-          <div className='app__camera--center'>
-            <GroundObject fruit={'block'} />
+            <Ground helper={'none'} />
           </div>
         </div>
 
@@ -238,23 +235,16 @@ function App() {
           </div>
         </div>
 
-
-
-        <div className='app__camera--center'
-          style={{
-            // position: 'absolute',
-            // zIndex: '0'
-          }}
-        >
+        <div className='app__camera--center'>
           <Hero facing={heroFacing} emotion={'none'} />
         </div>
 
         <Dialogue
-          text={`
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.`
-          }
-          choice={'yesNo'}
           display={'none'}
+          text={`
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.
+          `}
+          choice={'yesNo'}
         />
 
         <Letter display={'none'} />
@@ -262,31 +252,55 @@ function App() {
 
       <div className='app__button--container'>
         <div className='app__zx'>
-          <button className={`app__button`}
+          <button className={
+            pressZ === true
+              ? 'app__button app__button--active'
+              : 'app__button'
+          }
             onClick={() => handleClickZ()}
           ><p>Z</p></button>
-          <button className='app__button'
+          <button className={
+            pressX === true
+              ? 'app__button app__button--active'
+              : 'app__button'
+          }
             onClick={() => handleClickX()}
           ><p>X</p></button>
         </div>
 
         <div className='app__arrow--container'>
-          <button className='app__button app__button--up'
+          <button className={
+            pressUp === true
+              ? 'app__button app__button--up app__button--active'
+              : 'app__button app__button--up'
+          }
             onMouseDown={() => moveStart('up')}
             onMouseUp={() => moveStop('up')}
           ><p>&#8593;</p></button>
 
-          <button className='app__button app__button--left'
+          <button className={
+            pressLeft === true
+              ? 'app__button app__button--left app__button--active'
+              : 'app__button app__button--left'
+          }
             onMouseDown={() => moveStart('left')}
             onMouseUp={() => moveStop('left')}
           ><p>&#8593;</p></button>
 
-          <button className='app__button app__button--right'
+          <button className={
+            pressRight === true
+              ? 'app__button app__button--right app__button--active'
+              : 'app__button app__button--right'
+          }
             onMouseDown={() => moveStart('right')}
             onMouseUp={() => moveStop('right')}
           ><p>&#8593;</p></button>
 
-          <button className='app__button app__button--down'
+          <button className={
+            pressDown === true
+              ? 'app__button app__button--down app__button--active'
+              : 'app__button app__button--down'
+          }
             onMouseDown={() => moveStart('down')}
             onMouseUp={() => moveStop('down')}
           ><p>&#8593;</p></button>
