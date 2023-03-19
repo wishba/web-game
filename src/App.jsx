@@ -66,10 +66,7 @@ function App() {
     }, 25)
 
     let count = 0
-    function counter() {
-      count++
-      if (count > 4) { count = 1 }
-    }
+    function counter() { count++; if (count > 4) { count = 1 } }
     intervalAnimation.current = setInterval(() => {
       switch (direction) {
         case 'up':
