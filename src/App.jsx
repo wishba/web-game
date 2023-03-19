@@ -23,6 +23,8 @@ function App() {
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
+  const [pressZ, setPressZ] = useState(false)
+  const [pressX, setPressX] = useState(false)
   const [heroFacing, setHeroFacing] = useState('')
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState('')
@@ -162,9 +164,11 @@ function App() {
           break;
         case 'z':
           handleClickZ()
+          setPressZ(true)
           break;
         case 'x':
           handleClickX()
+          setPressX(true)
           break;
       }
     }
@@ -181,6 +185,12 @@ function App() {
           break;
         case 'ArrowDown':
           moveStop('down')
+          break;
+        case 'z':
+          setPressZ(false)
+          break;
+        case 'x':
+          setPressX(false)
           break;
       }
     }
@@ -232,8 +242,8 @@ function App() {
         <Dialogue
           display={'none'}
           text={`
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.`
-          }
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.
+          `}
           choice={'yesNo'}
         />
 
@@ -242,31 +252,55 @@ function App() {
 
       <div className='app__button--container'>
         <div className='app__zx'>
-          <button className={`app__button`}
+          <button className={
+            pressZ === true
+              ? 'app__button app__button--active'
+              : 'app__button'
+          }
             onClick={() => handleClickZ()}
           ><p>Z</p></button>
-          <button className='app__button'
+          <button className={
+            pressX === true
+              ? 'app__button app__button--active'
+              : 'app__button'
+          }
             onClick={() => handleClickX()}
           ><p>X</p></button>
         </div>
 
         <div className='app__arrow--container'>
-          <button className='app__button app__button--up'
+          <button className={
+            pressUp === true
+              ? 'app__button app__button--up app__button--active'
+              : 'app__button app__button--up'
+          }
             onMouseDown={() => moveStart('up')}
             onMouseUp={() => moveStop('up')}
           ><p>&#8593;</p></button>
 
-          <button className='app__button app__button--left'
+          <button className={
+            pressLeft === true
+              ? 'app__button app__button--left app__button--active'
+              : 'app__button app__button--left'
+          }
             onMouseDown={() => moveStart('left')}
             onMouseUp={() => moveStop('left')}
           ><p>&#8593;</p></button>
 
-          <button className='app__button app__button--right'
+          <button className={
+            pressRight === true
+              ? 'app__button app__button--right app__button--active'
+              : 'app__button app__button--right'
+          }
             onMouseDown={() => moveStart('right')}
             onMouseUp={() => moveStop('right')}
           ><p>&#8593;</p></button>
 
-          <button className='app__button app__button--down'
+          <button className={
+            pressDown === true
+              ? 'app__button app__button--down app__button--active'
+              : 'app__button app__button--down'
+          }
             onMouseDown={() => moveStart('down')}
             onMouseUp={() => moveStop('down')}
           ><p>&#8593;</p></button>
