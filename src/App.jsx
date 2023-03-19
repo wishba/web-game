@@ -23,9 +23,9 @@ function App() {
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
-  const [heroFacing, setHeroFacing] = useState()
+  const [heroFacing, setHeroFacing] = useState('')
   const [press, setPress] = useState(false)
-  const [pressedKey, setPressedKey] = useState()
+  const [pressedKey, setPressedKey] = useState('')
   const [treeZIndex, setTreeIndex] = useState('0')
   const [cowZIndex, setCowIndex] = useState('0')
 
@@ -124,37 +124,17 @@ function App() {
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
-    if (data.frontArea.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setTreeIndex('1')
-    }
-    if (!data.frontArea.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setTreeIndex('0')
+    function coordinate(array, positionXY) {
+      return array.some(element => element[0] === positionXY[0] && element[1] === positionXY[1])
     }
 
-    if (data.frontCow.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setCowIndex('1')
-      setTreeIndex('2')
-    }
-    if (!data.frontCow.some(element =>
-      element[0] === positionXY[0] &&
-      element[1] === positionXY[1]
-    )) {
-      setCowIndex('0')
-    }
+    if (coordinate(data.frontArea, positionXY)) { setTreeIndex('1') }
+    if (!coordinate(data.frontArea, positionXY)) { setTreeIndex('0') }
 
-    if (
-      data.objectArea.some(element => element[0] === positionXY[0] && element[1] === positionXY[1]) ||
-      !data.groundArea.some(element => element[0] === positionXY[0] && element[1] === positionXY[1])
-    ) {
+    if (coordinate(data.frontCow, positionXY)) { setCowIndex('1'); setTreeIndex('2') }
+    if (!coordinate(data.frontCow, positionXY)) { setCowIndex('0') }
+
+    if (coordinate(data.objectArea, positionXY) || !coordinate(data.groundArea, positionXY)) {
       if (pressUp === true) { setPositionY(positionY - 1) }
       if (pressLeft === true) { setPositionX(positionX - 1) }
       if (pressRight === true) { setPositionX(positionX + 1) }
