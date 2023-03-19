@@ -147,7 +147,42 @@ function App() {
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
-      console.log(pressedKey)
+      switch (pressedKey) {
+        case 'ArrowUp':
+          moveStart('up')
+          break;
+        case 'ArrowLeft':
+          moveStart('left')
+          break;
+        case 'ArrowRight':
+          moveStart('right')
+          break;
+        case 'ArrowDown':
+          moveStart('down')
+          break;
+        case 'z':
+          handleClickZ()
+          break;
+        case 'x':
+          handleClickX()
+          break;
+      }
+    }
+    if (press === false) {
+      switch (pressedKey) {
+        case 'ArrowUp':
+          moveStop('up')
+          break;
+        case 'ArrowLeft':
+          moveStop('left')
+          break;
+        case 'ArrowRight':
+          moveStop('right')
+          break;
+        case 'ArrowDown':
+          moveStop('down')
+          break;
+      }
     }
   }, [press])
 
