@@ -156,7 +156,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground />
+            <Ground helper={'none'} />
           </div>
         </div>
 

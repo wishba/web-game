@@ -8,10 +8,12 @@ import GridLine from './gridLine/GridLine'
 import Area from './area/Area'
 import GroundObject from './GroundObject'
 
-function Ground() {
+function Ground({ helper }) {
   return (
     <>
-      <GridLine width={14} height={6} />
+      <div style={{ display: helper }}>
+        <GridLine width={14} height={6} />
+      </div>
 
       <GroundTiles
         placement={data.ground.oneIsland.placement}
@@ -34,10 +36,22 @@ function Ground() {
         width={80}
       />
 
-      <div className='ground__area ground__area--ground'>
-        <Area
-          areaPlacement={data.groundArea}
-        />
+      <div style={{ display: helper }}>
+        <div className='ground__area ground__area--ground'>
+          <Area areaPlacement={data.groundArea} />
+        </div>
+
+        <div className='ground__area ground__area--object'>
+          <Area areaPlacement={data.objectArea} />
+        </div>
+
+        <div className='ground__area ground__area--front'>
+          <Area areaPlacement={data.frontArea} />
+        </div>
+
+        <div className='ground__area ground__area--front'>
+          <Area areaPlacement={data.frontCow} />
+        </div>
       </div>
 
       <GroundObject />

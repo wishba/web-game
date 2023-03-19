@@ -37,24 +37,6 @@ function GroundObject() {
         asset={biomeAsset}
         width={144}
       />
-
-      <div className='ground__area ground__area--object'>
-        <Area
-          areaPlacement={data.objectArea}
-        />
-      </div>
-
-      <div className='ground__area ground__area--front'>
-        <Area
-          areaPlacement={data.frontArea}
-        />
-      </div>
-
-      <div className='ground__area ground__area--front'>
-        <Area
-          areaPlacement={data.frontCow}
-        />
-      </div>
     </>
   )
 }
