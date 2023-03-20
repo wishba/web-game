@@ -19,15 +19,20 @@ function App() {
 
   const [positionX, setPositionX] = useState(-80)
   const [positionY, setPositionY] = useState(-80)
+
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
   const [pressZ, setPressZ] = useState(false)
   const [pressX, setPressX] = useState(false)
-  const [heroFacing, setHeroFacing] = useState('')
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState('')
+
+  const [dialogueText, setDialogueText] = useState('Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam.')
+  const [dialogueButton, setDialogueButton] = useState('yesNo')
+
+  const [heroFacing, setHeroFacing] = useState('')
   const [treeZIndex, setTreeIndex] = useState('0')
   const [cowZIndex, setCowIndex] = useState('0')
 
@@ -106,10 +111,7 @@ function App() {
     if (pressRight === true) { setPressRight(false) }
     if (pressDown === true) { setPressDown(false) }
 
-    setTimeout(() => {
-      setHeroFacing(`${heroFacing}`)
-      walkingSound()
-    }, 300)
+    setTimeout(() => { setHeroFacing(`${heroFacing}`); walkingSound() }, 300)
   }
 
   function handleClickZ() {
@@ -142,56 +144,27 @@ function App() {
   }, [positionX, positionY])
 
   useEffect(() => {
-    document.addEventListener('keydown', (event) => {
-      setPress(true)
-      setPressedKey(event.key)
-    })
+    document.addEventListener('keydown', (event) => { setPress(true); setPressedKey(event.key) })
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
       switch (pressedKey) {
-        case 'ArrowUp':
-          moveStart('up')
-          break;
-        case 'ArrowLeft':
-          moveStart('left')
-          break;
-        case 'ArrowRight':
-          moveStart('right')
-          break;
-        case 'ArrowDown':
-          moveStart('down')
-          break;
-        case 'z':
-          handleClickZ()
-          setPressZ(true)
-          break;
-        case 'x':
-          handleClickX()
-          setPressX(true)
-          break;
+        case 'ArrowUp': moveStart('up'); break;
+        case 'ArrowLeft': moveStart('left'); break;
+        case 'ArrowRight': moveStart('right'); break;
+        case 'ArrowDown': moveStart('down'); break;
+        case 'z': handleClickZ(); setPressZ(true); break;
+        case 'x': handleClickX(); setPressX(true); break;
       }
     }
     if (press === false) {
       switch (pressedKey) {
-        case 'ArrowUp':
-          moveStop('up')
-          break;
-        case 'ArrowLeft':
-          moveStop('left')
-          break;
-        case 'ArrowRight':
-          moveStop('right')
-          break;
-        case 'ArrowDown':
-          moveStop('down')
-          break;
-        case 'z':
-          setPressZ(false)
-          break;
-        case 'x':
-          setPressX(false)
-          break;
+        case 'ArrowUp': moveStop('up'); break;
+        case 'ArrowLeft': moveStop('left'); break;
+        case 'ArrowRight': moveStop('right'); break;
+        case 'ArrowDown': moveStop('down'); break;
+        case 'z': setPressZ(false); break;
+        case 'x': setPressX(false); break;
       }
     }
   }, [press])
@@ -201,7 +174,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground helper={'none'} />
+            <Ground helper={''} />
           </div>
         </div>
 
@@ -242,12 +215,34 @@ function App() {
         <Dialogue
           display={'none'}
           text={`
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.
           `}
           choice={'yesNo'}
         />
 
         <Letter display={'none'} />
+
+        <div className='app__dialogue' style={{ display: '' }}>
+          <br />
+          <p>{dialogueText}</p>
+          <br />
+          {dialogueButton === 'ok'
+            ? <button onClick={() => handleClickZ()}>ok(z)</button>
+            : ''
+          }
+          {dialogueButton === 'next'
+            ? <button onClick={() => handleClickZ()}>next(z)</button>
+            : ''
+          }
+          {dialogueButton === 'yesNo'
+            ? <button onClick={() => handleClickZ()}>yes(z)</button>
+            : ''
+          }
+          {dialogueButton === 'yesNo'
+            ? <button onClick={() => handleClickX()}>no(x)</button>
+            : ''
+          }
+        </div>
       </div>
 
       <div className='app__button--container'>
@@ -259,6 +254,7 @@ function App() {
           }
             onClick={() => handleClickZ()}
           ><p>Z</p></button>
+
           <button className={
             pressX === true
               ? 'app__button app__button--active'
