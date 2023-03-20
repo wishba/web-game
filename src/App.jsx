@@ -29,7 +29,8 @@ function App() {
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState('')
 
-  const [dialogueText, setDialogueText] = useState('Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aperiam.')
+  const [dialogue, setDialogue] = useState('')
+  const [dialogueText, setDialogueText] = useState('tes')
   const [dialogueButton, setDialogueButton] = useState('yesNo')
 
   const [heroFacing, setHeroFacing] = useState('')
@@ -114,14 +115,6 @@ function App() {
     setTimeout(() => { setHeroFacing(`${heroFacing}`); walkingSound() }, 300)
   }
 
-  function handleClickZ() {
-    console.log('z');
-  }
-
-  function handleClickX() {
-    console.log('x');
-  }
-
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
@@ -153,8 +146,8 @@ function App() {
         case 'ArrowLeft': moveStart('left'); break;
         case 'ArrowRight': moveStart('right'); break;
         case 'ArrowDown': moveStart('down'); break;
-        case 'z': handleClickZ(); setPressZ(true); break;
-        case 'x': handleClickX(); setPressX(true); break;
+        case 'z': setPressZ(true); break;
+        case 'x': setPressX(true); break;
       }
     }
     if (press === false) {
@@ -222,26 +215,14 @@ function App() {
 
         <Letter display={'none'} />
 
-        <div className='app__dialogue' style={{ display: '' }}>
+        <div className='app__dialogue' style={{ display: dialogue }}>
           <br />
           <p>{dialogueText}</p>
           <br />
-          {dialogueButton === 'ok'
-            ? <button onClick={() => handleClickZ()}>ok(z)</button>
-            : ''
-          }
-          {dialogueButton === 'next'
-            ? <button onClick={() => handleClickZ()}>next(z)</button>
-            : ''
-          }
-          {dialogueButton === 'yesNo'
-            ? <button onClick={() => handleClickZ()}>yes(z)</button>
-            : ''
-          }
-          {dialogueButton === 'yesNo'
-            ? <button onClick={() => handleClickX()}>no(x)</button>
-            : ''
-          }
+          {dialogueButton === 'ok' ? <button>ok(z)</button> : ''}
+          {dialogueButton === 'next' ? <button>next(z)</button> : ''}
+          {dialogueButton === 'yesNo' ? <button>yes(z)</button> : ''}
+          {dialogueButton === 'yesNo' ? <button>no(x)</button> : ''}
         </div>
       </div>
 
@@ -252,7 +233,6 @@ function App() {
               ? 'app__button app__button--active'
               : 'app__button'
           }
-            onClick={() => handleClickZ()}
           ><p>Z</p></button>
 
           <button className={
@@ -260,7 +240,6 @@ function App() {
               ? 'app__button app__button--active'
               : 'app__button'
           }
-            onClick={() => handleClickX()}
           ><p>X</p></button>
         </div>
 
