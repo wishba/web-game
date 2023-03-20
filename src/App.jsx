@@ -40,6 +40,7 @@ function App() {
   const [treeZIndex, setTreeIndex] = useState('0')
   const [cowZIndex, setCowIndex] = useState('0')
 
+  const [allowMove, setAllowMove] = useState(true)
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
 
@@ -55,67 +56,71 @@ function App() {
   function walkingSound() { new Audio(soundAsset).play() }
 
   function moveStart(direction) {
-    intervalMovement.current = setInterval(() => {
-      switch (direction) {
-        case 'up':
-          setPositionY(positionY => positionY + 1)
-          setPressUp(true)
-          return
-        case 'left':
-          setPositionX(positionX => positionX + 1)
-          setPressLeft(true)
-          return
-        case 'right':
-          setPositionX(positionX => positionX - 1)
-          setPressRight(true)
-          return
-        case 'down':
-          setPositionY(positionY => positionY - 1)
-          setPressDown(true)
-          return
-      }
-    }, 25)
+    if (allowMove === true) {
+      intervalMovement.current = setInterval(() => {
+        switch (direction) {
+          case 'up':
+            setPositionY(positionY => positionY + 1)
+            setPressUp(true)
+            return
+          case 'left':
+            setPositionX(positionX => positionX + 1)
+            setPressLeft(true)
+            return
+          case 'right':
+            setPositionX(positionX => positionX - 1)
+            setPressRight(true)
+            return
+          case 'down':
+            setPositionY(positionY => positionY - 1)
+            setPressDown(true)
+            return
+        }
+      }, 25)
 
-    let count = 0
-    function counter() { count++; if (count > 4) { count = 1 } }
-    intervalAnimation.current = setInterval(() => {
-      switch (direction) {
-        case 'up':
-          counter()
-          setHeroFacing(`up--${count}`)
-          walkingSound()
-          return
-        case 'left':
-          counter()
-          setHeroFacing(`left--${count}`)
-          walkingSound()
-          return
-        case 'right':
-          counter()
-          setHeroFacing(`right--${count}`)
-          walkingSound()
-          return
-        case 'down':
-          counter()
-          setHeroFacing(`down--${count}`)
-          walkingSound()
-          return
-      }
-    }, 250)
+      let count = 0
+      function counter() { count++; if (count > 4) { count = 1 } }
+      intervalAnimation.current = setInterval(() => {
+        switch (direction) {
+          case 'up':
+            counter()
+            setHeroFacing(`up--${count}`)
+            walkingSound()
+            return
+          case 'left':
+            counter()
+            setHeroFacing(`left--${count}`)
+            walkingSound()
+            return
+          case 'right':
+            counter()
+            setHeroFacing(`right--${count}`)
+            walkingSound()
+            return
+          case 'down':
+            counter()
+            setHeroFacing(`down--${count}`)
+            walkingSound()
+            return
+        }
+      }, 250)
 
-    setHeroFacing(direction)
+      setHeroFacing(direction)
+    }
   }
 
   function moveStop(heroFacing) {
-    clearInterval(intervalMovement.current)
-    clearInterval(intervalAnimation.current)
+    if (allowMove === true) {
+      clearInterval(intervalMovement.current)
+      clearInterval(intervalAnimation.current)
 
-    if (pressUp === true) { setPressUp(false) }
-    if (pressLeft === true) { setPressLeft(false) }
-    if (pressRight === true) { setPressRight(false) }
-    if (pressDown === true) { setPressDown(false) }
+      if (pressUp === true) { setPressUp(false) }
+      if (pressLeft === true) { setPressLeft(false) }
+      if (pressRight === true) { setPressRight(false) }
+      if (pressDown === true) { setPressDown(false) }
 
-    setTimeout(() => { setHeroFacing(`${heroFacing}`); walkingSound() }, 300)
+      setTimeout(() => { setHeroFacing(`${heroFacing}`); walkingSound() }, 300)
+    }
   }
 
   useEffect(() => {
@@ -151,11 +156,13 @@ function App() {
       setDialogue('')
       setDialogueText('tes')
       setDialogueButton('yesNo')
+      setAllowMove(false)
     }
     if (positionTile == '2,2' && pressX === true) {
       setDialogue('none')
       setDialogueText('')
       setDialogueButton('')
+      setAllowMove(true)
     }
   }, [positionX, positionY, pressZ, pressX])
 
