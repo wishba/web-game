@@ -139,19 +139,22 @@ function App() {
     }
 
     if (positionTile == '2,2') {
-      // setDialogue('')
-      // setDialogueText('tes')
-      // setDialogueButton('yesNo')
       setHeroEmotion('')
       setPressWarning('app__button--warning')
+      if (pressZ === true) {
+        console.log('zzzzzzzzzzzz');
+        setDialogue('')
+        setDialogueText('tes')
+        setDialogueButton('yesNo')
+      }
     } else {
-      // setDialogue('none')
-      // setDialogueText('')
-      // setDialogueButton('')
       setHeroEmotion('none')
       setPressWarning('')
+      setDialogue('none')
+      setDialogueText('')
+      setDialogueButton('')
     }
-  }, [positionX, positionY])
+  }, [positionX, positionY, pressZ])
 
   useEffect(() => {
     document.addEventListener('keydown', (event) => { setPress(true); setPressedKey(event.key) })
@@ -249,6 +252,8 @@ function App() {
             ? 'app__button app__button--active'
             : `app__button ${pressWarning}`
           }
+            onMouseDown={() => setPressZ(true)}
+            onMouseUp={() => setPressZ(false)}
           ><p>Z</p></button>
 
           <button className={pressX === true
