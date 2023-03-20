@@ -146,6 +146,14 @@ function App() {
     if (positionTile == '2,2') {
       setHeroEmotion('')
       setPressWarning('app__button--warning')
+      console.log(dialogue);
+      if (dialogue === 'block') {
+        setHeroEmotion('none')
+        setPressWarning('')
+      }
+      // } else if (dialogue === '') {
+      // setHeroEmotion('none')
+      // setPressWarning('')
     } else {
       setHeroEmotion('none')
       setPressWarning('')
@@ -153,7 +161,7 @@ function App() {
 
     if (positionTile == '2,2' && pressZ === true) {
       console.log('z');
-      setDialogue('')
+      setDialogue('block')
       setDialogueText('tes')
       setDialogueButton('yesNo')
       setAllowMove(false)
