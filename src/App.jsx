@@ -28,12 +28,15 @@ function App() {
   const [pressX, setPressX] = useState(false)
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState('')
+  const [pressWarning, setPressWarning] = useState('')
 
-  const [dialogue, setDialogue] = useState('')
-  const [dialogueText, setDialogueText] = useState('tes')
-  const [dialogueButton, setDialogueButton] = useState('yesNo')
+  const [dialogue, setDialogue] = useState('none')
+  const [dialogueText, setDialogueText] = useState('')
+  const [dialogueButton, setDialogueButton] = useState('')
 
   const [heroFacing, setHeroFacing] = useState('')
+  const [heroEmotion, setHeroEmotion] = useState('none')
+
   const [treeZIndex, setTreeIndex] = useState('0')
   const [cowZIndex, setCowIndex] = useState('0')
 
@@ -134,6 +137,20 @@ function App() {
       if (pressRight === true) { setPositionX(positionX + 1) }
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
+
+    if (positionTile == '2,2') {
+      // setDialogue('')
+      // setDialogueText('tes')
+      // setDialogueButton('yesNo')
+      setHeroEmotion('')
+      setPressWarning('app__button--warning')
+    } else {
+      // setDialogue('none')
+      // setDialogueText('')
+      // setDialogueButton('')
+      setHeroEmotion('none')
+      setPressWarning('')
+    }
   }, [positionX, positionY])
 
   useEffect(() => {
@@ -202,7 +219,7 @@ function App() {
         </div>
 
         <div className='app__camera--center'>
-          <Hero facing={heroFacing} emotion={'none'} />
+          <Hero facing={heroFacing} emotion={heroEmotion} />
         </div>
 
         <Dialogue
@@ -228,17 +245,15 @@ function App() {
 
       <div className='app__button--container'>
         <div className='app__zx'>
-          <button className={
-            pressZ === true
-              ? 'app__button app__button--active'
-              : 'app__button'
+          <button className={pressZ === true
+            ? 'app__button app__button--active'
+            : `app__button ${pressWarning}`
           }
           ><p>Z</p></button>
 
-          <button className={
-            pressX === true
-              ? 'app__button app__button--active'
-              : 'app__button'
+          <button className={pressX === true
+            ? 'app__button app__button--active'
+            : 'app__button'
           }
           ><p>X</p></button>
         </div>
