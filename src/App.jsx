@@ -34,6 +34,7 @@ function App() {
   const [dialogueText, setDialogueText] = useState('')
   const [dialogueButton, setDialogueButton] = useState('')
   const [dialogueLetter, setDialogueLetter] = useState('none')
+  const [dialogueTreasure, setDialogueTreasure] = useState(1)
 
   const [heroFacing, setHeroFacing] = useState('')
   const [heroEmotion, setHeroEmotion] = useState('none')
@@ -135,15 +136,18 @@ function App() {
     setAllowMove(true)
   }
 
+  function handleButtonNext() {
+    if (dialogueTreasure <= 8) {
+      setDialogueTreasure(dialogueTreasure => dialogueTreasure + 1)
+    }
+    setDialogueText(`${data.dialogue.treasure[dialogueTreasure]}`)
+  }
   function handleButtonOk() {
     if (positionTile == '3,2') {
       closeDialogue()
       setHeroEmotion('none')
       setPressWarning('')
     }
-  }
-  function handleButtonNext() {
-    console.log('next');
   }
   function handleButtonYes() {
     if (positionTile == '2,2') {
@@ -268,7 +272,6 @@ function App() {
     }
 
     if (positionXY == '18,5' && pressZ === true || positionXY == '18,6' && pressZ === true) {
-      console.log(data.dialogue.treasure[0]);
       setDialogue('block')
       setDialogueText(`${data.dialogue.treasure[0]}`)
       setDialogueButton('next')
