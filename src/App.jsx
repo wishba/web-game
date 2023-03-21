@@ -4,8 +4,6 @@ import data from './data/data.json'
 import soundAsset from './assets/Bubble heavy 1.wav'
 import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
-import Dialogue from './components/dialogue/Dialogue'
-import Letter from './components/letter/Letter'
 import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
 import cowAsset from './assets/Free Cow Sprites.png'
@@ -172,12 +170,6 @@ function App() {
       setAllowMove(false)
     }
     if (positionTile == '2,2' && pressX === true) {
-      // setDialogue('none')
-      // setDialogueText('')
-      // setDialogueButton('')
-      // setAllowMove(true)
-      // setHeroEmotion('none')
-      // setPressWarning('')
       handleButtonX()
     }
 
@@ -258,16 +250,6 @@ function App() {
           <Hero facing={heroFacing} emotion={heroEmotion} />
         </div>
 
-        {/* <Dialogue
-          display={'none'}
-          text={`
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.
-          `}
-          choice={'yesNo'}
-        /> */}
-
-        {/* <div> */}
-        {/* <Letter display={dialogueLetter} /> */}
         <div className='app__letter' style={{ display: dialogueLetter }} >
           <br />
           <p>Dear Adventurer,</p>
@@ -285,13 +267,10 @@ function App() {
           <button
             onClick={() => {
               setDialogueLetter('none')
-              // setDialogue('none')
               handleButtonX()
             }}
           >close(x)</button>
         </div>
-        {/* </div> */}
-        {/* <Letter display={'none'} /> */}
 
         <div className='app__dialogue' style={{ display: dialogue }}>
           <br />
@@ -304,8 +283,6 @@ function App() {
           >yes(z)</button> : ''}
           {dialogueButton === 'yesNo' ? <button
             onClick={() => handleButtonX()}
-          // onMouseDown={() => setPressX(true)}
-          // onMouseUp={() => setPressX(false)}
           >no(x)</button> : ''}
         </div>
       </div>
