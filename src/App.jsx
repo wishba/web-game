@@ -123,6 +123,15 @@ function App() {
     }
   }
 
+  function handleButtonX() {
+    setDialogue('none')
+    setDialogueText('')
+    setDialogueButton('')
+    setAllowMove(true)
+    setHeroEmotion('')
+    setPressWarning('app__button--warning')
+  }
+
   useEffect(() => {
     console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
 
@@ -162,10 +171,13 @@ function App() {
       setAllowMove(false)
     }
     if (positionTile == '2,2' && pressX === true) {
-      setDialogue('none')
-      setDialogueText('')
-      setDialogueButton('')
-      setAllowMove(true)
+      // setDialogue('none')
+      // setDialogueText('')
+      // setDialogueButton('')
+      // setAllowMove(true)
+      // setHeroEmotion('none')
+      // setPressWarning('')
+      handleButtonX()
     }
   }, [positionX, positionY, pressZ, pressX])
 
@@ -238,13 +250,13 @@ function App() {
           <Hero facing={heroFacing} emotion={heroEmotion} />
         </div>
 
-        <Dialogue
+        {/* <Dialogue
           display={'none'}
           text={`
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.
           `}
           choice={'yesNo'}
-        />
+        /> */}
 
         <Letter display={'none'} />
 
@@ -255,7 +267,11 @@ function App() {
           {dialogueButton === 'ok' ? <button>ok(z)</button> : ''}
           {dialogueButton === 'next' ? <button>next(z)</button> : ''}
           {dialogueButton === 'yesNo' ? <button>yes(z)</button> : ''}
-          {dialogueButton === 'yesNo' ? <button>no(x)</button> : ''}
+          {dialogueButton === 'yesNo' ? <button
+            onClick={() => handleButtonX()}
+          // onMouseDown={() => setPressX(true)}
+          // onMouseUp={() => setPressX(false)}
+          >no(x)</button> : ''}
         </div>
       </div>
 
