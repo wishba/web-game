@@ -41,6 +41,7 @@ function App() {
 
   const [firstStop, setFirstStop] = useState(true)
   const [secondStop, setSecondStop] = useState(true)
+  const [thirdStop, setThirdStop] = useState(true)
 
   const [allowMove, setAllowMove] = useState(true)
   const intervalMovement = useRef()
@@ -146,12 +147,20 @@ function App() {
     if (positionTile == '2,2') {
       setDialogueLetter('block')
     }
+    if (positionTile == '5,2') {
+      closeDialogue()
+      setThirdStop(false)
+      setHeroFacing('right')
+    }
   }
   function handleButtonNo() {
     if (positionTile == '2,2') {
       closeDialogue()
       setHeroEmotion('')
       setPressWarning('app__button--warning')
+    }
+    if (positionTile == '5,2') {
+      closeDialogue()
     }
   }
 
@@ -231,6 +240,23 @@ function App() {
       setHeroFacing('right')
     }
     if (positionTile == '4,2' && pressX === true) {
+      closeDialogue()
+    }
+
+    if (positionTile == '6,2' && thirdStop === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.thirdStop}`)
+      setDialogueButton('yesNo')
+      setPositionX(positionX + 1)
+      setAllowMove(false)
+      moveStop('left')
+    }
+    if (positionTile == '5,2' && pressZ === true) {
+      closeDialogue()
+      setThirdStop(false)
+      setHeroFacing('right')
+    }
+    if (positionTile == '5,2' && pressX === true) {
       closeDialogue()
     }
   }, [positionX, positionY, pressZ, pressX])
