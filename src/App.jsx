@@ -277,6 +277,9 @@ function App() {
       setDialogueButton('next')
       setAllowMove(false)
     }
+    if (positionXY == '18,5' && dialogue === 'block' && pressZ === true || positionXY == '18,6' && dialogue === 'block' && pressZ === true) {
+      handleButtonNext()
+    }
   }, [positionX, positionY, pressZ, pressX])
 
   useEffect(() => {
