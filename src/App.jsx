@@ -147,6 +147,11 @@ function App() {
     if (positionTile == '2,2') {
       setDialogueLetter('block')
     }
+    if (positionTile == '4,2') {
+      closeDialogue()
+      setSecondStop(false)
+      setHeroFacing('right')
+    }
     if (positionTile == '5,2') {
       closeDialogue()
       setThirdStop(false)
@@ -159,7 +164,7 @@ function App() {
       setHeroEmotion('')
       setPressWarning('app__button--warning')
     }
-    if (positionTile == '5,2') {
+    if (positionTile == '4,2' || positionTile == '5,2') {
       closeDialogue()
     }
   }
@@ -292,7 +297,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground helper={''} />
+            <Ground helper={'none'} />
           </div>
         </div>
 
