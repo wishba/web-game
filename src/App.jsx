@@ -17,8 +17,8 @@ function App() {
 
   // const [positionX, setPositionX] = useState(-80)
   // const [positionY, setPositionY] = useState(-80)
-  const [positionX, setPositionX] = useState(-670)
-  const [positionY, setPositionY] = useState(-200)
+  const [positionX, setPositionX] = useState(-800)
+  const [positionY, setPositionY] = useState(-270)
 
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
@@ -39,12 +39,15 @@ function App() {
   const [heroFacing, setHeroFacing] = useState('')
   const [heroEmotion, setHeroEmotion] = useState('none')
 
-  const [treeZIndex, setTreeIndex] = useState('0')
-  const [cowZIndex, setCowIndex] = useState('0')
-
   const [firstStop, setFirstStop] = useState(true)
   const [secondStop, setSecondStop] = useState(true)
   const [thirdStop, setThirdStop] = useState(true)
+
+  const [treeZIndex, setTreeIndex] = useState('0')
+  const [cowZIndex, setCowIndex] = useState('0')
+
+  const [fruitCow, setFruitCow] = useState('none')
+  const [fruitSecret, setFruitSecret] = useState('block')
 
   const [allowMove, setAllowMove] = useState(true)
   const intervalMovement = useRef()
@@ -141,6 +144,15 @@ function App() {
       setDialogueTreasure(dialogueTreasure => dialogueTreasure + 1)
     }
     setDialogueText(`${data.dialogue.treasure[dialogueTreasure]}`)
+    console.log(dialogueTreasure);
+    if (dialogueTreasure === 3) {
+      // cow sound
+    }
+    if (dialogueTreasure === 6) {
+      // cow sound
+      setFruitCow('block')
+      setFruitSecret('none')
+    }
   }
   function handleButtonOk() {
     if (positionTile == '3,2') {
@@ -313,7 +325,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground helper={''} fruitCow={'none'} fruitSecret={''} />
+            <Ground helper={''} fruitCow={fruitCow} fruitSecret={fruitSecret} />
           </div>
         </div>
 
