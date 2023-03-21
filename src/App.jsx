@@ -40,6 +40,7 @@ function App() {
   const [cowZIndex, setCowIndex] = useState('0')
 
   const [firstStop, setFirstStop] = useState(true)
+  const [secondStop, setSecondStop] = useState(true)
 
   const [allowMove, setAllowMove] = useState(true)
   const intervalMovement = useRef()
@@ -190,6 +191,23 @@ function App() {
       moveStop('left')
     }
     if (positionTile == '3,2' && pressZ === true) {
+      handleButtonX()
+    }
+
+    if (positionTile == '5,2' && secondStop === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.secondStop}`)
+      setDialogueButton('yesNo')
+      setPositionX(positionX + 1)
+      setAllowMove(false)
+      moveStop('left')
+    }
+    if (positionTile == '4,2' && pressZ === true) {
+      handleButtonX()
+      setSecondStop(false)
+      setHeroFacing('right')
+    }
+    if (positionTile == '4,2' && pressX === true) {
       handleButtonX()
     }
   }, [positionX, positionY, pressZ, pressX])
