@@ -140,7 +140,7 @@ function App() {
   }
 
   function handleButtonNext() {
-    if (dialogueTreasure <= 8) {
+    if (dialogueTreasure <= 9) {
       setDialogueTreasure(dialogueTreasure => dialogueTreasure + 1)
     }
     setDialogueText(`${data.dialogue.treasure[dialogueTreasure]}`)
@@ -150,6 +150,8 @@ function App() {
     }
     if (dialogueTreasure === 6) {
       // cow sound
+    }
+    if (dialogueTreasure === 7) {
       setFruitCow('block')
       setFruitSecret('none')
     }
