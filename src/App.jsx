@@ -297,7 +297,13 @@ function App() {
           <br />
           <p>{dialogueText}</p>
           <br />
-          {dialogueButton === 'ok' ? <button>ok(z)</button> : ''}
+          {dialogueButton === 'ok' ? <button
+            onClick={() => {
+              handleButtonX()
+              setHeroEmotion('none')
+              setPressWarning('')
+            }}
+          >ok(z)</button> : ''}
           {dialogueButton === 'next' ? <button>next(z)</button> : ''}
           {dialogueButton === 'yesNo' ? <button
             onClick={() => setDialogueLetter('block')}
