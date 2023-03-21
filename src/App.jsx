@@ -179,6 +179,23 @@ function App() {
     if (positionTile == '2,2' && pressX === true && dialogue === 'block') {
       setDialogueLetter('none')
     }
+
+    if (positionTile == '4,2') {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.firstStop}`)
+      setDialogueButton('ok')
+      // setAllowMove(false)
+      setPositionX(positionX + 1)
+      setAllowMove(false)
+      moveStop('left')
+    }
+    if (positionTile == '3,2' && pressZ === true) {
+      // setDialogue('block')
+      // setDialogueText(`${data.dialogue.firstStop}`)
+      // setDialogueButton('ok')
+      // setPositionX(positionX + 1)
+      handleButtonX()
+    }
   }, [positionX, positionY, pressZ, pressX])
 
   useEffect(() => {
