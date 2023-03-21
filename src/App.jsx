@@ -277,7 +277,9 @@ function App() {
           <br />
           {dialogueButton === 'ok' ? <button>ok(z)</button> : ''}
           {dialogueButton === 'next' ? <button>next(z)</button> : ''}
-          {dialogueButton === 'yesNo' ? <button>yes(z)</button> : ''}
+          {dialogueButton === 'yesNo' ? <button
+            onClick={() => setDialogueLetter('block')}
+          >yes(z)</button> : ''}
           {dialogueButton === 'yesNo' ? <button
             onClick={() => handleButtonX()}
           // onMouseDown={() => setPressX(true)}
