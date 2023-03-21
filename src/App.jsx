@@ -125,11 +125,34 @@ function App() {
     }
   }
 
-  function handleButtonX() {
+  function closeDialogue() {
     setDialogue('none')
     setDialogueText('')
     setDialogueButton('')
     setAllowMove(true)
+  }
+
+  function handleButtonOk() {
+    if (positionTile == '3,2') {
+      closeDialogue()
+      setHeroEmotion('none')
+      setPressWarning('')
+    }
+  }
+  function handleButtonNext() {
+    console.log('next');
+  }
+  function handleButtonYes() {
+    if (positionTile == '2,2') {
+      setDialogueLetter('block')
+    }
+  }
+  function handleButtonNo() {
+    if (positionTile == '2,2') {
+      closeDialogue()
+      setHeroEmotion('')
+      setPressWarning('app__button--warning')
+    }
   }
 
   useEffect(() => {
@@ -171,7 +194,7 @@ function App() {
       setAllowMove(false)
     }
     if (positionTile == '2,2' && pressX === true) {
-      handleButtonX()
+      closeDialogue()
     }
 
     if (positionTile == '2,2' && pressZ === true && dialogue === 'block') {
@@ -191,7 +214,7 @@ function App() {
       moveStop('left')
     }
     if (positionTile == '3,2' && pressZ === true) {
-      handleButtonX()
+      closeDialogue()
     }
 
     if (positionTile == '5,2' && secondStop === true) {
@@ -203,12 +226,12 @@ function App() {
       moveStop('left')
     }
     if (positionTile == '4,2' && pressZ === true) {
-      handleButtonX()
+      closeDialogue()
       setSecondStop(false)
       setHeroFacing('right')
     }
     if (positionTile == '4,2' && pressX === true) {
-      handleButtonX()
+      closeDialogue()
     }
   }, [positionX, positionY, pressZ, pressX])
 
@@ -298,7 +321,7 @@ function App() {
           <button
             onClick={() => {
               setDialogueLetter('none')
-              handleButtonX()
+              closeDialogue()
               setFirstStop(false)
               setHeroEmotion('')
               setPressWarning('app__button--warning')
@@ -310,24 +333,18 @@ function App() {
           <br />
           <p>{dialogueText}</p>
           <br />
-          {dialogueButton === 'ok' ? <button
-            onClick={() => {
-              handleButtonX()
-              setHeroEmotion('none')
-              setPressWarning('')
-            }}
-          >ok(z)</button> : ''}
-          {dialogueButton === 'next' ? <button>next(z)</button> : ''}
-          {dialogueButton === 'yesNo' ? <button
-            onClick={() => setDialogueLetter('block')}
-          >yes(z)</button> : ''}
-          {dialogueButton === 'yesNo' ? <button
-            onClick={() => {
-              handleButtonX()
-              setHeroEmotion('')
-              setPressWarning('app__button--warning')
-            }}
-          >no(x)</button> : ''}
+          {dialogueButton === 'ok' ?
+            <button onClick={() => handleButtonOk()}>ok(z)</button> : ''
+          }
+          {dialogueButton === 'next' ?
+            <button onClick={() => handleButtonNext()}>next(z)</button> : ''
+          }
+          {dialogueButton === 'yesNo' ?
+            <button onClick={() => handleButtonYes()}>yes(z)</button> : ''
+          }
+          {dialogueButton === 'yesNo' ?
+            <button onClick={() => handleButtonNo()}>no(x)</button> : ''
+          }
         </div>
       </div>
 
