@@ -15,8 +15,10 @@ function App() {
     '--font-size': 'calc(var(--zoom) * 10px)',
   }
 
-  const [positionX, setPositionX] = useState(-80)
-  const [positionY, setPositionY] = useState(-80)
+  // const [positionX, setPositionX] = useState(-80)
+  // const [positionY, setPositionY] = useState(-80)
+  const [positionX, setPositionX] = useState(-670)
+  const [positionY, setPositionY] = useState(-200)
 
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
@@ -189,7 +191,7 @@ function App() {
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
 
-    if (positionTile == '2,2') {
+    if (positionTile == '2,2' || positionXY == '18,5' || positionXY == '18,6') {
       setHeroEmotion('')
       setPressWarning('app__button--warning')
       if (dialogue === 'block') {
@@ -264,6 +266,14 @@ function App() {
     if (positionTile == '5,2' && pressX === true) {
       closeDialogue()
     }
+
+    if (positionXY == '18,5' && pressZ === true || positionXY == '18,6' && pressZ === true) {
+      console.log(data.dialogue.treasure[0]);
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.treasure[0]}`)
+      setDialogueButton('next')
+      setAllowMove(false)
+    }
   }, [positionX, positionY, pressZ, pressX])
 
   useEffect(() => {
@@ -297,7 +307,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground helper={'none'} />
+            <Ground helper={''} />
           </div>
         </div>
 
