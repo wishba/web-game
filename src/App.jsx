@@ -4,8 +4,6 @@ import data from './data/data.json'
 import soundAsset from './assets/Bubble heavy 1.wav'
 import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
-import Dialogue from './components/dialogue/Dialogue'
-import Letter from './components/letter/Letter'
 import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
 import cowAsset from './assets/Free Cow Sprites.png'
@@ -19,18 +17,33 @@ function App() {
 
   const [positionX, setPositionX] = useState(-80)
   const [positionY, setPositionY] = useState(-80)
+
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
   const [pressRight, setPressRight] = useState(false)
   const [pressDown, setPressDown] = useState(false)
   const [pressZ, setPressZ] = useState(false)
   const [pressX, setPressX] = useState(false)
-  const [heroFacing, setHeroFacing] = useState('')
   const [press, setPress] = useState(false)
   const [pressedKey, setPressedKey] = useState('')
+  const [pressWarning, setPressWarning] = useState('')
+
+  const [dialogue, setDialogue] = useState('none')
+  const [dialogueText, setDialogueText] = useState('')
+  const [dialogueButton, setDialogueButton] = useState('')
+  const [dialogueLetter, setDialogueLetter] = useState('none')
+
+  const [heroFacing, setHeroFacing] = useState('')
+  const [heroEmotion, setHeroEmotion] = useState('none')
+
   const [treeZIndex, setTreeIndex] = useState('0')
   const [cowZIndex, setCowIndex] = useState('0')
 
+  const [firstStop, setFirstStop] = useState(true)
+  const [secondStop, setSecondStop] = useState(true)
+  const [thirdStop, setThirdStop] = useState(true)
+
+  const [allowMove, setAllowMove] = useState(true)
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
 
@@ -46,78 +59,109 @@ function App() {
   function walkingSound() { new Audio(soundAsset).play() }
 
   function moveStart(direction) {
-    intervalMovement.current = setInterval(() => {
-      switch (direction) {
-        case 'up':
-          setPositionY(positionY => positionY + 1)
-          setPressUp(true)
-          return
-        case 'left':
-          setPositionX(positionX => positionX + 1)
-          setPressLeft(true)
-          return
-        case 'right':
-          setPositionX(positionX => positionX - 1)
-          setPressRight(true)
-          return
-        case 'down':
-          setPositionY(positionY => positionY - 1)
-          setPressDown(true)
-          return
-      }
-    }, 25)
+    if (allowMove === true) {
+      intervalMovement.current = setInterval(() => {
+        switch (direction) {
+          case 'up':
+            setPositionY(positionY => positionY + 1)
+            setPressUp(true)
+            return
+          case 'left':
+            setPositionX(positionX => positionX + 1)
+            setPressLeft(true)
+            return
+          case 'right':
+            setPositionX(positionX => positionX - 1)
+            setPressRight(true)
+            return
+          case 'down':
+            setPositionY(positionY => positionY - 1)
+            setPressDown(true)
+            return
+        }
+      }, 25)
 
-    let count = 0
-    function counter() { count++; if (count > 4) { count = 1 } }
-    intervalAnimation.current = setInterval(() => {
-      switch (direction) {
-        case 'up':
-          counter()
-          setHeroFacing(`up--${count}`)
-          walkingSound()
-          return
-        case 'left':
-          counter()
-          setHeroFacing(`left--${count}`)
-          walkingSound()
-          return
-        case 'right':
-          counter()
-          setHeroFacing(`right--${count}`)
-          walkingSound()
-          return
-        case 'down':
-          counter()
-          setHeroFacing(`down--${count}`)
-          walkingSound()
-          return
-      }
-    }, 250)
+      let count = 0
+      function counter() { count++; if (count > 4) { count = 1 } }
+      intervalAnimation.current = setInterval(() => {
+        switch (direction) {
+          case 'up':
+            counter()
+            setHeroFacing(`up--${count}`)
+            walkingSound()
+            return
+          case 'left':
+            counter()
+            setHeroFacing(`left--${count}`)
+            walkingSound()
+            return
+          case 'right':
+            counter()
+            setHeroFacing(`right--${count}`)
+            walkingSound()
+            return
+          case 'down':
+            counter()
+            setHeroFacing(`down--${count}`)
+            walkingSound()
+            return
+        }
+      }, 250)
 
-    setHeroFacing(direction)
+      setHeroFacing(direction)
+    }
   }
 
   function moveStop(heroFacing) {
-    clearInterval(intervalMovement.current)
-    clearInterval(intervalAnimation.current)
+    if (allowMove === true) {
+      clearInterval(intervalMovement.current)
+      clearInterval(intervalAnimation.current)
 
-    if (pressUp === true) { setPressUp(false) }
-    if (pressLeft === true) { setPressLeft(false) }
-    if (pressRight === true) { setPressRight(false) }
-    if (pressDown === true) { setPressDown(false) }
+      if (pressUp === true) { setPressUp(false) }
+      if (pressLeft === true) { setPressLeft(false) }
+      if (pressRight === true) { setPressRight(false) }
+      if (pressDown === true) { setPressDown(false) }
 
-    setTimeout(() => {
-      setHeroFacing(`${heroFacing}`)
-      walkingSound()
-    }, 300)
+      setTimeout(() => { setHeroFacing(`${heroFacing}`); walkingSound() }, 300)
+    }
   }
 
-  function handleClickZ() {
-    console.log('z');
+  function closeDialogue() {
+    setDialogue('none')
+    setDialogueText('')
+    setDialogueButton('')
+    setAllowMove(true)
   }
 
-  function handleClickX() {
-    console.log('x');
+  function handleButtonOk() {
+    if (positionTile == '3,2') {
+      closeDialogue()
+      setHeroEmotion('none')
+      setPressWarning('')
+    }
+  }
+  function handleButtonNext() {
+    console.log('next');
+  }
+  function handleButtonYes() {
+    if (positionTile == '2,2') {
+      setDialogueLetter('block')
+    }
+    if (positionTile == '5,2') {
+      closeDialogue()
+      setThirdStop(false)
+      setHeroFacing('right')
+    }
+  }
+  function handleButtonNo() {
+    if (positionTile == '2,2') {
+      closeDialogue()
+      setHeroEmotion('')
+      setPressWarning('app__button--warning')
+    }
+    if (positionTile == '5,2') {
+      closeDialogue()
+    }
   }
 
   useEffect(() => {
@@ -139,59 +183,106 @@ function App() {
       if (pressRight === true) { setPositionX(positionX + 1) }
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
-  }, [positionX, positionY])
+
+    if (positionTile == '2,2') {
+      setHeroEmotion('')
+      setPressWarning('app__button--warning')
+      if (dialogue === 'block') {
+        setHeroEmotion('none')
+        setPressWarning('')
+      }
+    } else {
+      setHeroEmotion('none')
+      setPressWarning('')
+    }
+
+    if (positionTile == '2,2' && pressZ === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.letter}`)
+      setDialogueButton('yesNo')
+      setAllowMove(false)
+    }
+    if (positionTile == '2,2' && pressX === true) {
+      closeDialogue()
+    }
+
+    if (positionTile == '2,2' && pressZ === true && dialogue === 'block') {
+      setDialogueLetter('block')
+    }
+    if (positionTile == '2,2' && pressX === true && dialogue === 'block') {
+      setDialogueLetter('none')
+      setFirstStop(false)
+    }
+
+    if (positionTile == '4,2' && firstStop === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.firstStop}`)
+      setDialogueButton('ok')
+      setPositionX(positionX + 1)
+      setAllowMove(false)
+      moveStop('left')
+    }
+    if (positionTile == '3,2' && pressZ === true) {
+      closeDialogue()
+    }
+
+    if (positionTile == '5,2' && secondStop === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.secondStop}`)
+      setDialogueButton('yesNo')
+      setPositionX(positionX + 1)
+      setAllowMove(false)
+      moveStop('left')
+    }
+    if (positionTile == '4,2' && pressZ === true) {
+      closeDialogue()
+      setSecondStop(false)
+      setHeroFacing('right')
+    }
+    if (positionTile == '4,2' && pressX === true) {
+      closeDialogue()
+    }
+
+    if (positionTile == '6,2' && thirdStop === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.thirdStop}`)
+      setDialogueButton('yesNo')
+      setPositionX(positionX + 1)
+      setAllowMove(false)
+      moveStop('left')
+    }
+    if (positionTile == '5,2' && pressZ === true) {
+      closeDialogue()
+      setThirdStop(false)
+      setHeroFacing('right')
+    }
+    if (positionTile == '5,2' && pressX === true) {
+      closeDialogue()
+    }
+  }, [positionX, positionY, pressZ, pressX])
 
   useEffect(() => {
-    document.addEventListener('keydown', (event) => {
-      setPress(true)
-      setPressedKey(event.key)
-    })
+    document.addEventListener('keydown', (event) => { setPress(true); setPressedKey(event.key) })
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
       switch (pressedKey) {
-        case 'ArrowUp':
-          moveStart('up')
-          break;
-        case 'ArrowLeft':
-          moveStart('left')
-          break;
-        case 'ArrowRight':
-          moveStart('right')
-          break;
-        case 'ArrowDown':
-          moveStart('down')
-          break;
-        case 'z':
-          handleClickZ()
-          setPressZ(true)
-          break;
-        case 'x':
-          handleClickX()
-          setPressX(true)
-          break;
+        case 'ArrowUp': moveStart('up'); break;
+        case 'ArrowLeft': moveStart('left'); break;
+        case 'ArrowRight': moveStart('right'); break;
+        case 'ArrowDown': moveStart('down'); break;
+        case 'z': setPressZ(true); break;
+        case 'x': setPressX(true); break;
       }
     }
     if (press === false) {
       switch (pressedKey) {
-        case 'ArrowUp':
-          moveStop('up')
-          break;
-        case 'ArrowLeft':
-          moveStop('left')
-          break;
-        case 'ArrowRight':
-          moveStop('right')
-          break;
-        case 'ArrowDown':
-          moveStop('down')
-          break;
-        case 'z':
-          setPressZ(false)
-          break;
-        case 'x':
-          setPressX(false)
-          break;
+        case 'ArrowUp': moveStop('up'); break;
+        case 'ArrowLeft': moveStop('left'); break;
+        case 'ArrowRight': moveStop('right'); break;
+        case 'ArrowDown': moveStop('down'); break;
+        case 'z': setPressZ(false); break;
+        case 'x': setPressX(false); break;
       }
     }
   }, [press])
@@ -201,7 +292,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground helper={'none'} />
+            <Ground helper={''} />
           </div>
         </div>
 
@@ -236,35 +327,69 @@ function App() {
         </div>
 
         <div className='app__camera--center'>
-          <Hero facing={heroFacing} emotion={'none'} />
+          <Hero facing={heroFacing} emotion={heroEmotion} />
         </div>
 
-        <Dialogue
-          display={'none'}
-          text={`
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, velit.
-          `}
-          choice={'yesNo'}
-        />
+        <div className='app__letter' style={{ display: dialogueLetter }} >
+          <br />
+          <p>Dear Adventurer,</p>
+          <br />
+          <p>
+            To claim your treasure, you must cross the narrow and dangerous bridge that
+            connects our island to the mainland. The sea below is infested with dangerous
+            creatures, and we urge you to stay away from the edges. Though the journey is
+            perilous, the treasure is worth the risk. May fortune favor the brave.
+          </p>
+          <br />
+          <p>Sincerely,</p>
+          <p>The Guardians of the Treasure Island</p>
+          <br />
+          <button
+            onClick={() => {
+              setDialogueLetter('none')
+              closeDialogue()
+              setFirstStop(false)
+              setHeroEmotion('')
+              setPressWarning('app__button--warning')
+            }}
+          >close(x)</button>
+        </div>
 
-        <Letter display={'none'} />
+        <div className='app__dialogue' style={{ display: dialogue }}>
+          <br />
+          <p>{dialogueText}</p>
+          <br />
+          {dialogueButton === 'ok' ?
+            <button onClick={() => handleButtonOk()}>ok(z)</button> : ''
+          }
+          {dialogueButton === 'next' ?
+            <button onClick={() => handleButtonNext()}>next(z)</button> : ''
+          }
+          {dialogueButton === 'yesNo' ?
+            <button onClick={() => handleButtonYes()}>yes(z)</button> : ''
+          }
+          {dialogueButton === 'yesNo' ?
+            <button onClick={() => handleButtonNo()}>no(x)</button> : ''
+          }
+        </div>
       </div>
 
       <div className='app__button--container'>
         <div className='app__zx'>
-          <button className={
-            pressZ === true
-              ? 'app__button app__button--active'
-              : 'app__button'
+          <button className={pressZ === true
+            ? 'app__button app__button--active'
+            : `app__button ${pressWarning}`
           }
-            onClick={() => handleClickZ()}
+            onMouseDown={() => setPressZ(true)}
+            onMouseUp={() => setPressZ(false)}
           ><p>Z</p></button>
-          <button className={
-            pressX === true
-              ? 'app__button app__button--active'
-              : 'app__button'
+
+          <button className={pressX === true
+            ? 'app__button app__button--active'
+            : 'app__button'
           }
-            onClick={() => handleClickX()}
+            onMouseDown={() => setPressX(true)}
+            onMouseUp={() => setPressX(false)}
           ><p>X</p></button>
         </div>
 
