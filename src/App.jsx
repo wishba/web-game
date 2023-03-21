@@ -39,6 +39,8 @@ function App() {
   const [treeZIndex, setTreeIndex] = useState('0')
   const [cowZIndex, setCowIndex] = useState('0')
 
+  const [firstStop, setFirstStop] = useState(true)
+
   const [allowMove, setAllowMove] = useState(true)
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
@@ -178,9 +180,10 @@ function App() {
     }
     if (positionTile == '2,2' && pressX === true && dialogue === 'block') {
       setDialogueLetter('none')
+      setFirstStop(false)
     }
 
-    if (positionTile == '4,2') {
+    if (positionTile == '4,2' && firstStop === true) {
       setDialogue('block')
       setDialogueText(`${data.dialogue.firstStop}`)
       setDialogueButton('ok')
@@ -285,6 +288,7 @@ function App() {
             onClick={() => {
               setDialogueLetter('none')
               handleButtonX()
+              setFirstStop(false)
             }}
           >close(x)</button>
         </div>
