@@ -45,12 +45,13 @@
 }
 
 .app__letter {
-  width: calc(var(--zoom) * 96px);
+  /* width: calc(var(--zoom) * 96px); */
+  /* position: absolute; */
 }
 
-.app__letter--container {
+/* .app__letter--container {
   transform: translate(calc(var(--tile) * 2), calc(var(--tile) * 2));
-}
+} */
 
 .app__treasure {
   width: calc(var(--zoom) * 240px);

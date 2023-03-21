@@ -4,7 +4,7 @@ import './Letter.css'
 function Letter({ display }) {
   return (
     <div className='letter' style={{ display: display }} >
-      <button>close(x)</button>
+      <br />
       <p>Dear Adventurer,</p>
       <br />
       <p>
@@ -16,7 +16,9 @@ function Letter({ display }) {
       <br />
       <p>Sincerely,</p>
       <p>The Guardians of the Treasure Island</p>
-    </ div>
+      <br />
+      <button>close(x)</button>
+    </div>
   )
 }
 

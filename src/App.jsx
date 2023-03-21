@@ -33,6 +33,7 @@ function App() {
   const [dialogue, setDialogue] = useState('none')
   const [dialogueText, setDialogueText] = useState('')
   const [dialogueButton, setDialogueButton] = useState('')
+  const [dialogueLetter, setDialogueLetter] = useState('none')
 
   const [heroFacing, setHeroFacing] = useState('')
   const [heroEmotion, setHeroEmotion] = useState('none')
@@ -179,6 +180,13 @@ function App() {
       // setPressWarning('')
       handleButtonX()
     }
+
+    if (positionTile == '2,2' && pressZ === true && dialogue === 'block') {
+      setDialogueLetter('block')
+    }
+    if (positionTile == '2,2' && pressX === true && dialogue === 'block') {
+      setDialogueLetter('none')
+    }
   }, [positionX, positionY, pressZ, pressX])
 
   useEffect(() => {
@@ -258,7 +266,10 @@ function App() {
           choice={'yesNo'}
         /> */}
 
-        <Letter display={'none'} />
+        {/* <div> */}
+        <Letter display={dialogueLetter} />
+        {/* </div> */}
+        {/* <Letter display={'none'} /> */}
 
         <div className='app__dialogue' style={{ display: dialogue }}>
           <br />
