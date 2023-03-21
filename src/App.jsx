@@ -157,7 +157,7 @@ function App() {
 
     if (positionTile == '2,2' && pressZ === true) {
       setDialogue('block')
-      setDialogueText('tes')
+      setDialogueText(`${data.dialogue.letter}`)
       setDialogueButton('yesNo')
       setAllowMove(false)
     }
