@@ -44,9 +44,16 @@
   position: absolute;
 }
 
+/* .app__letter { */
+/* width: calc(var(--zoom) * 96px); */
+/* position: absolute; */
+/* } */
+
 .app__letter {
-  /* width: calc(var(--zoom) * 96px); */
-  /* position: absolute; */
+  background-color: #f3f2c0;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
 }
 
 /* .app__letter--container {
