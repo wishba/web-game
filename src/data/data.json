@@ -117,23 +117,23 @@
       "you sure you want to continue?"
     ],
     "treasure": [
-      "You finally find the treasure!",
-      "Excitedly, you check inside, hoping to find riches beyond your wildest dreams.",
-      "Disappointment washes over you as you realize the treasure chest is empty.",
-      "Suddenly, you hear a sound beside you.",
-      "Turning your head, you see a cow standing there, staring at you.",
-      "Confused, you wonder what a cow is doing here.",
-      "The cow makes a Peculiar noise, almost like a greeting.",
-      "To your surprise, the cow presents you with a luxurious-looking fruit.",
-      "You take the fruit and a feeling of satisfaction washes over you.",
-      "Even though the treasure was empty, at least you got something out of this adventure.",
-      "But perhaps if you look carefully in your next run, you will know what the treasure is looks like"
+      "you finally find the treasure!",
+      "excitedly, you check inside, hoping to find riches beyond your wildest dreams.",
+      "disappointment washes over you as you realize the treasure chest is empty.",
+      "suddenly, you hear a sound beside you.",
+      "turning your head, you see a cow standing there, staring at you.",
+      "confused, you wonder what a cow is doing here.",
+      "the cow makes a Peculiar noise, almost like a greeting.",
+      "to your surprise, the cow presents you with a luxurious-looking fruit.",
+      "you take the fruit and a feeling of satisfaction washes over you.",
+      "even though the treasure was empty, at least you got something out of this adventure.",
+      "but perhaps if you look carefully in your next run, you will know what the treasure is looks like"
     ],
     "treasureSecret": [
       "you've find a luxurious-looking fruit",
       "you pick up the fruit",
       "you find a note beside it",
-      "the secret treasure, fruit of life"
+      "congratulation you've found the secret treasure, fruit of life!!!"
     ]
   }
 }
