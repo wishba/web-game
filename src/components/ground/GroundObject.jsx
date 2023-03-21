@@ -5,9 +5,8 @@ import GroundTiles from './GroundTiles'
 import letterAsset from '../../assets/Basic Plants.png'
 import chestAsset from '../../assets/Chest.png'
 import biomeAsset from '../../assets/Basic Grass Biom things 1.png'
-import Area from './area/Area'
 
-function GroundObject() {
+function GroundObject({ fruitCow, fruitSecret }) {
   return (
     <>
       <GroundTiles
@@ -24,19 +23,23 @@ function GroundObject() {
         width={240}
       />
 
-      <GroundTiles
-        placement={data.object.fruit.placement}
-        tileCoordinate={data.object.fruit.asset}
-        asset={biomeAsset}
-        width={144}
-      />
+      <div style={{ display: fruitCow }}>
+        <GroundTiles
+          placement={data.object.fruit.placement}
+          tileCoordinate={data.object.fruit.asset}
+          asset={biomeAsset}
+          width={144}
+        />
+      </div>
 
-      <GroundTiles
-        placement={data.object.fruitSecret.placement}
-        tileCoordinate={data.object.fruitSecret.asset}
-        asset={biomeAsset}
-        width={144}
-      />
+      <div style={{ display: fruitSecret }}>
+        <GroundTiles
+          placement={data.object.fruitSecret.placement}
+          tileCoordinate={data.object.fruitSecret.asset}
+          asset={biomeAsset}
+          width={144}
+        />
+      </div>
     </>
   )
 }
