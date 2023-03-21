@@ -129,8 +129,6 @@ function App() {
     setDialogueText('')
     setDialogueButton('')
     setAllowMove(true)
-    setHeroEmotion('')
-    setPressWarning('app__button--warning')
   }
 
   useEffect(() => {
@@ -187,16 +185,11 @@ function App() {
       setDialogue('block')
       setDialogueText(`${data.dialogue.firstStop}`)
       setDialogueButton('ok')
-      // setAllowMove(false)
       setPositionX(positionX + 1)
       setAllowMove(false)
       moveStop('left')
     }
     if (positionTile == '3,2' && pressZ === true) {
-      // setDialogue('block')
-      // setDialogueText(`${data.dialogue.firstStop}`)
-      // setDialogueButton('ok')
-      // setPositionX(positionX + 1)
       handleButtonX()
     }
   }, [positionX, positionY, pressZ, pressX])
@@ -289,6 +282,8 @@ function App() {
               setDialogueLetter('none')
               handleButtonX()
               setFirstStop(false)
+              setHeroEmotion('')
+              setPressWarning('app__button--warning')
             }}
           >close(x)</button>
         </div>
@@ -309,7 +304,11 @@ function App() {
             onClick={() => setDialogueLetter('block')}
           >yes(z)</button> : ''}
           {dialogueButton === 'yesNo' ? <button
-            onClick={() => handleButtonX()}
+            onClick={() => {
+              handleButtonX()
+              setHeroEmotion('')
+              setPressWarning('app__button--warning')
+            }}
           >no(x)</button> : ''}
         </div>
       </div>
