@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
 import data from './data/data.json'
-import soundAsset from './assets/Bubble heavy 1.wav'
+import soundAssetWalk from './assets/Bubble heavy 1.wav'
+import soundAssetCow from './assets/Fruit collect 1.wav'
 import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
 import GroundTiles from './components/ground/GroundTiles'
@@ -63,7 +64,8 @@ function App() {
     Math.round(positionY * -1 / 80)
   ]
 
-  function walkingSound() { new Audio(soundAsset).play() }
+  function soundWalking() { new Audio(soundAssetWalk).play() }
+  function soundCow() { new Audio(soundAssetCow).play() }
 
   function moveStart(direction) {
     if (allowMove === true) {
@@ -95,22 +97,22 @@ function App() {
           case 'up':
             counter()
             setHeroFacing(`up--${count}`)
-            walkingSound()
+            soundWalking()
             return
           case 'left':
             counter()
             setHeroFacing(`left--${count}`)
-            walkingSound()
+            soundWalking()
             return
           case 'right':
             counter()
             setHeroFacing(`right--${count}`)
-            walkingSound()
+            soundWalking()
             return
           case 'down':
             counter()
             setHeroFacing(`down--${count}`)
-            walkingSound()
+            soundWalking()
             return
         }
       }, 250)
@@ -129,7 +131,7 @@ function App() {
       if (pressRight === true) { setPressRight(false) }
       if (pressDown === true) { setPressDown(false) }
 
-      setTimeout(() => { setHeroFacing(`${heroFacing}`); walkingSound() }, 300)
+      setTimeout(() => { setHeroFacing(`${heroFacing}`); soundWalking() }, 300)
     }
   }
 
@@ -149,10 +151,10 @@ function App() {
       console.log(dialogueTreasure);
 
       if (dialogueTreasure === 3) {
-        // cow sound
+        soundCow()
       }
       if (dialogueTreasure === 6) {
-        // cow sound
+        soundCow()
       }
       if (dialogueTreasure === 7) {
         setFruitCow('block')
@@ -166,6 +168,10 @@ function App() {
       }
       setDialogueText(`${data.dialogue.treasureSecret[dialogueSecret]}`)
       console.log(dialogueSecret);
+
+      if (dialogueSecret === 3) {
+        soundCow()
+      }
     }
   }
   function handleButtonOk() {
