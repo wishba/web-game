@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './App.css'
 import data from './data/data.json'
-import soundAsset from './assets/Bubble heavy 1.wav'
+import soundAssetWalk from './assets/Bubble heavy 1.wav'
+import soundAssetCow from './assets/Fruit collect 1.wav'
 import Hero from './components/hero/Hero'
 import Ground from './components/ground/Ground'
 import GroundTiles from './components/ground/GroundTiles'
@@ -32,16 +33,21 @@ function App() {
   const [dialogueText, setDialogueText] = useState('')
   const [dialogueButton, setDialogueButton] = useState('')
   const [dialogueLetter, setDialogueLetter] = useState('none')
+  const [dialogueTreasure, setDialogueTreasure] = useState(1)
+  const [dialogueSecret, setDialogueSecret] = useState(1)
 
   const [heroFacing, setHeroFacing] = useState('')
   const [heroEmotion, setHeroEmotion] = useState('none')
 
-  const [treeZIndex, setTreeIndex] = useState('0')
-  const [cowZIndex, setCowIndex] = useState('0')
-
   const [firstStop, setFirstStop] = useState(true)
   const [secondStop, setSecondStop] = useState(true)
   const [thirdStop, setThirdStop] = useState(true)
+
+  const [treeZIndex, setTreeIndex] = useState('0')
+  const [cowZIndex, setCowIndex] = useState('0')
+
+  const [fruitCow, setFruitCow] = useState('none')
+  const [fruitSecret, setFruitSecret] = useState('block')
 
   const [allowMove, setAllowMove] = useState(true)
   const intervalMovement = useRef()
@@ -56,7 +62,8 @@ function App() {
     Math.round(positionY * -1 / 80)
   ]
 
-  function walkingSound() { new Audio(soundAsset).play() }
+  function soundWalking() { new Audio(soundAssetWalk).play() }
+  function soundCow() { new Audio(soundAssetCow).play() }
 
   function moveStart(direction) {
     if (allowMove === true) {
@@ -88,22 +95,22 @@ function App() {
           case 'up':
             counter()
             setHeroFacing(`up--${count}`)
-            walkingSound()
+            soundWalking()
             return
           case 'left':
             counter()
             setHeroFacing(`left--${count}`)
-            walkingSound()
+            soundWalking()
             return
           case 'right':
             counter()
             setHeroFacing(`right--${count}`)
-            walkingSound()
+            soundWalking()
             return
           case 'down':
             counter()
             setHeroFacing(`down--${count}`)
-            walkingSound()
+            soundWalking()
             return
         }
       }, 250)
@@ -122,7 +129,7 @@ function App() {
       if (pressRight === true) { setPressRight(false) }
       if (pressDown === true) { setPressDown(false) }
 
-      setTimeout(() => { setHeroFacing(`${heroFacing}`); walkingSound() }, 300)
+      setTimeout(() => { setHeroFacing(`${heroFacing}`); soundWalking() }, 300)
     }
   }
 
@@ -133,15 +140,44 @@ function App() {
     setAllowMove(true)
   }
 
+  function handleButtonNext() {
+    if (positionXY == '18,5' || positionXY == '18,6') {
+      if (dialogueTreasure <= 9) {
+        setDialogueTreasure(dialogueTreasure => dialogueTreasure + 1)
+      }
+      setDialogueText(`${data.dialogue.treasure[dialogueTreasure]}`)
+      console.log(dialogueTreasure);
+
+      if (dialogueTreasure === 3) {
+        soundCow()
+      }
+      if (dialogueTreasure === 6) {
+        soundCow()
+      }
+      if (dialogueTreasure === 7) {
+        setFruitCow('block')
+        setFruitSecret('none')
+      }
+    }
+
+    if (positionXY == '24,5') {
+      if (dialogueSecret < 3) {
+        setDialogueSecret(dialogueSecret => dialogueSecret + 1)
+      }
+      setDialogueText(`${data.dialogue.treasureSecret[dialogueSecret]}`)
+      console.log(dialogueSecret);
+
+      if (dialogueSecret === 3) {
+        soundCow()
+      }
+    }
+  }
   function handleButtonOk() {
     if (positionTile == '3,2') {
       closeDialogue()
       setHeroEmotion('none')
       setPressWarning('')
     }
-  }
-  function handleButtonNext() {
-    console.log('next');
   }
   function handleButtonYes() {
     if (positionTile == '2,2') {
@@ -189,7 +225,12 @@ function App() {
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
 
-    if (positionTile == '2,2') {
+    if (
+      positionTile == '2,2' ||
+      positionXY == '18,5' ||
+      positionXY == '18,6' ||
+      positionXY == '24,5'
+    ) {
       setHeroEmotion('')
       setPressWarning('app__button--warning')
       if (dialogue === 'block') {
@@ -264,6 +305,26 @@ function App() {
     if (positionTile == '5,2' && pressX === true) {
       closeDialogue()
     }
+
+    if (positionXY == '18,5' && pressZ === true || positionXY == '18,6' && pressZ === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.treasure[0]}`)
+      setDialogueButton('next')
+      setAllowMove(false)
+    }
+    if (positionXY == '18,5' && dialogue === 'block' && pressZ === true || positionXY == '18,6' && dialogue === 'block' && pressZ === true) {
+      handleButtonNext()
+    }
+
+    if (positionXY == '24,5' && pressZ === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.treasureSecret[0]}`)
+      setDialogueButton('next')
+      setAllowMove(false)
+    }
+    if (positionXY == '24,5' && pressZ === true && dialogue === 'block') {
+      handleButtonNext()
+    }
   }, [positionX, positionY, pressZ, pressX])
 
   useEffect(() => {
@@ -297,7 +358,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground helper={'none'} />
+            <Ground helper={'none'} fruitCow={fruitCow} fruitSecret={fruitSecret} />
           </div>
         </div>
 

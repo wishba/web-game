@@ -8,7 +8,7 @@ import GridLine from './gridLine/GridLine'
 import Area from './area/Area'
 import GroundObject from './GroundObject'
 
-function Ground({ helper }) {
+function Ground({ helper, fruitCow, fruitSecret }) {
   return (
     <>
       <div style={{ display: helper }}>
@@ -54,7 +54,7 @@ function Ground({ helper }) {
         </div>
       </div>
 
-      <GroundObject />
+      <GroundObject fruitCow={fruitCow} fruitSecret={fruitSecret} />
     </>
   )
 }
