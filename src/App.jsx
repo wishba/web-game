@@ -17,8 +17,8 @@ function App() {
 
   // const [positionX, setPositionX] = useState(-80)
   // const [positionY, setPositionY] = useState(-80)
-  const [positionX, setPositionX] = useState(-800)
-  const [positionY, setPositionY] = useState(-270)
+  const [positionX, setPositionX] = useState(-960)
+  const [positionY, setPositionY] = useState(-130)
 
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
@@ -35,6 +35,7 @@ function App() {
   const [dialogueButton, setDialogueButton] = useState('')
   const [dialogueLetter, setDialogueLetter] = useState('none')
   const [dialogueTreasure, setDialogueTreasure] = useState(1)
+  const [dialogueSecret, setDialogueSecret] = useState(1)
 
   const [heroFacing, setHeroFacing] = useState('')
   const [heroEmotion, setHeroEmotion] = useState('none')
@@ -140,20 +141,31 @@ function App() {
   }
 
   function handleButtonNext() {
-    if (dialogueTreasure <= 9) {
-      setDialogueTreasure(dialogueTreasure => dialogueTreasure + 1)
+    if (positionXY == '18,5' || positionXY == '18,6') {
+      if (dialogueTreasure <= 9) {
+        setDialogueTreasure(dialogueTreasure => dialogueTreasure + 1)
+      }
+      setDialogueText(`${data.dialogue.treasure[dialogueTreasure]}`)
+      console.log(dialogueTreasure);
+
+      if (dialogueTreasure === 3) {
+        // cow sound
+      }
+      if (dialogueTreasure === 6) {
+        // cow sound
+      }
+      if (dialogueTreasure === 7) {
+        setFruitCow('block')
+        setFruitSecret('none')
+      }
     }
-    setDialogueText(`${data.dialogue.treasure[dialogueTreasure]}`)
-    console.log(dialogueTreasure);
-    if (dialogueTreasure === 3) {
-      // cow sound
-    }
-    if (dialogueTreasure === 6) {
-      // cow sound
-    }
-    if (dialogueTreasure === 7) {
-      setFruitCow('block')
-      setFruitSecret('none')
+
+    if (positionXY == '24,5') {
+      if (dialogueSecret < 3) {
+        setDialogueSecret(dialogueSecret => dialogueSecret + 1)
+      }
+      setDialogueText(`${data.dialogue.treasureSecret[dialogueSecret]}`)
+      console.log(dialogueSecret);
     }
   }
   function handleButtonOk() {
@@ -209,7 +221,12 @@ function App() {
       if (pressDown === true) { setPositionY(positionY + 1) }
     }
 
-    if (positionTile == '2,2' || positionXY == '18,5' || positionXY == '18,6') {
+    if (
+      positionTile == '2,2' ||
+      positionXY == '18,5' ||
+      positionXY == '18,6' ||
+      positionXY == '24,5'
+    ) {
       setHeroEmotion('')
       setPressWarning('app__button--warning')
       if (dialogue === 'block') {
@@ -292,6 +309,16 @@ function App() {
       setAllowMove(false)
     }
     if (positionXY == '18,5' && dialogue === 'block' && pressZ === true || positionXY == '18,6' && dialogue === 'block' && pressZ === true) {
+      handleButtonNext()
+    }
+
+    if (positionXY == '24,5' && pressZ === true) {
+      setDialogue('block')
+      setDialogueText(`${data.dialogue.treasureSecret[0]}`)
+      setDialogueButton('next')
+      setAllowMove(false)
+    }
+    if (positionXY == '24,5' && pressZ === true && dialogue === 'block') {
       handleButtonNext()
     }
   }, [positionX, positionY, pressZ, pressX])
