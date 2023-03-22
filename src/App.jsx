@@ -16,10 +16,8 @@ function App() {
     '--font-size': 'calc(var(--zoom) * 10px)',
   }
 
-  // const [positionX, setPositionX] = useState(-80)
-  // const [positionY, setPositionY] = useState(-80)
-  const [positionX, setPositionX] = useState(-960)
-  const [positionY, setPositionY] = useState(-130)
+  const [positionX, setPositionX] = useState(-80)
+  const [positionY, setPositionY] = useState(-80)
 
   const [pressUp, setPressUp] = useState(false)
   const [pressLeft, setPressLeft] = useState(false)
@@ -360,7 +358,7 @@ function App() {
       <div className='app__camera'>
         <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
           <div className='app__camera--center'>
-            <Ground helper={''} fruitCow={fruitCow} fruitSecret={fruitSecret} />
+            <Ground helper={'none'} fruitCow={fruitCow} fruitSecret={fruitSecret} />
           </div>
         </div>
 
