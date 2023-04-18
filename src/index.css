@@ -6,6 +6,10 @@
   image-rendering: pixelated;
 }
 
+p {
+  user-select: none;
+}
+
 .app__tile {
   width: var(--tile);
   height: var(--tile);
