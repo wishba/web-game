@@ -261,10 +261,10 @@ function App() {
 
     if (positionTile == '2,2' && pressZ === true && dialogue === 'block') {
       setDialogueLetter('block')
+      setFirstStop(false)
     }
     if (positionTile == '2,2' && pressX === true && dialogue === 'block') {
       setDialogueLetter('none')
-      setFirstStop(false)
     }
 
     if (positionTile == '4,2' && firstStop === true) {
