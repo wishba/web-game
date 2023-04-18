@@ -335,7 +335,18 @@ function App() {
   }, [positionX, positionY, pressZ, pressX])
 
   useEffect(() => {
-    document.addEventListener('keydown', (event) => { setPress(true); setPressedKey(event.key) })
+    document.addEventListener('keydown', event => {
+      setPress(true)
+      setPressedKey(event.key)
+      if (
+        event.key === 'ArrowUp' ||
+        event.key === 'ArrowLeft' ||
+        event.key === 'ArrowRight' ||
+        event.key === 'ArrowDown'
+      ) {
+        event.preventDefault()
+      }
+    })
     document.addEventListener('keyup', () => setPress(false))
 
     if (press === true) {
