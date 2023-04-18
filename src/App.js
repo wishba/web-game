@@ -515,7 +515,9 @@ function App() {
               : 'app__button app__button--up'
           }
             onMouseDown={() => moveStart('up')}
+            onTouchStart={() => moveStart('up')}
             onMouseUp={() => moveStop('up')}
+            onTouchEnd={() => moveStop('up')}
             onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
 
@@ -525,7 +527,9 @@ function App() {
               : 'app__button app__button--left'
           }
             onMouseDown={() => moveStart('left')}
+            onTouchStart={() => moveStart('left')}
             onMouseUp={() => moveStop('left')}
+            onTouchEnd={() => moveStop('left')}
             onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
 
@@ -535,7 +539,9 @@ function App() {
               : 'app__button app__button--right'
           }
             onMouseDown={() => moveStart('right')}
+            onTouchStart={() => moveStart('right')}
             onMouseUp={() => moveStop('right')}
+            onTouchEnd={() => moveStop('right')}
             onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
 
@@ -545,7 +551,9 @@ function App() {
               : 'app__button app__button--down'
           }
             onMouseDown={() => moveStart('down')}
+            onTouchStart={() => moveStart('down')}
             onMouseUp={() => moveStop('down')}
+            onTouchEnd={() => moveStop('down')}
             onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
         </div>
