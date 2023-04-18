@@ -53,6 +53,8 @@ function App() {
   const intervalMovement = useRef()
   const intervalAnimation = useRef()
 
+  const handleContextMenu = (event) => event.preventDefault()
+
   const positionXY = [
     Math.round(positionX * -1 / 40),
     Math.round(positionY * -1 / 40)
@@ -450,6 +452,7 @@ function App() {
               setHeroEmotion('')
               setPressWarning('app__button--warning')
             }}
+            onContextMenu={handleContextMenu}
           >close(x)</button>
         </div>
 
@@ -458,16 +461,28 @@ function App() {
           <p>{dialogueText}</p>
           <br />
           {dialogueButton === 'ok' ?
-            <button onClick={() => handleButtonOk()}>ok(z)</button> : ''
+            <button
+              onClick={() => handleButtonOk()}
+              onContextMenu={handleContextMenu}
+            >ok(z)</button> : ''
           }
           {dialogueButton === 'next' ?
-            <button onClick={() => handleButtonNext()}>next(z)</button> : ''
+            <button
+              onClick={() => handleButtonNext()}
+              onContextMenu={handleContextMenu}
+            >next(z)</button> : ''
           }
           {dialogueButton === 'yesNo' ?
-            <button onClick={() => handleButtonYes()}>yes(z)</button> : ''
+            <button
+              onClick={() => handleButtonYes()}
+              onContextMenu={handleContextMenu}
+            >yes(z)</button> : ''
           }
           {dialogueButton === 'yesNo' ?
-            <button onClick={() => handleButtonNo()}>no(x)</button> : ''
+            <button
+              onClick={() => handleButtonNo()}
+              onContextMenu={handleContextMenu}
+            >no(x)</button> : ''
           }
         </div>
       </div>
@@ -480,6 +495,7 @@ function App() {
           }
             onMouseDown={() => setPressZ(true)}
             onMouseUp={() => setPressZ(false)}
+            onContextMenu={handleContextMenu}
           ><p>Z</p></button>
 
           <button className={pressX === true
@@ -488,6 +504,7 @@ function App() {
           }
             onMouseDown={() => setPressX(true)}
             onMouseUp={() => setPressX(false)}
+            onContextMenu={handleContextMenu}
           ><p>X</p></button>
         </div>
 
@@ -499,6 +516,7 @@ function App() {
           }
             onMouseDown={() => moveStart('up')}
             onMouseUp={() => moveStop('up')}
+            onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
 
           <button className={
@@ -508,6 +526,7 @@ function App() {
           }
             onMouseDown={() => moveStart('left')}
             onMouseUp={() => moveStop('left')}
+            onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
 
           <button className={
@@ -517,6 +536,7 @@ function App() {
           }
             onMouseDown={() => moveStart('right')}
             onMouseUp={() => moveStop('right')}
+            onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
 
           <button className={
@@ -526,6 +546,7 @@ function App() {
           }
             onMouseDown={() => moveStart('down')}
             onMouseUp={() => moveStop('down')}
+            onContextMenu={handleContextMenu}
           ><p>&#8593;</p></button>
         </div>
       </div>
