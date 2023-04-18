@@ -181,3 +181,11 @@ p {
     margin: 0 1rem 0 0;
   }
 }
+
+@media(max-width:650px) {
+  .app__container {
+    transform: translateX(-50%) scale(var(--scale));
+    position: absolute;
+    left: 50%;
+  }
+}
