@@ -72,19 +72,21 @@ function App() {
           case 'up':
             setPositionY(positionY => positionY + 1)
             setPressUp(true)
-            return
+            break
           case 'left':
             setPositionX(positionX => positionX + 1)
             setPressLeft(true)
-            return
+            break
           case 'right':
             setPositionX(positionX => positionX - 1)
             setPressRight(true)
-            return
+            break
           case 'down':
             setPositionY(positionY => positionY - 1)
             setPressDown(true)
-            return
+            break
+          default:
+            break
         }
       }, 25)
 
@@ -96,22 +98,24 @@ function App() {
             counter()
             setHeroFacing(`up--${count}`)
             soundWalking()
-            return
+            break
           case 'left':
             counter()
             setHeroFacing(`left--${count}`)
             soundWalking()
-            return
+            break
           case 'right':
             counter()
             setHeroFacing(`right--${count}`)
             soundWalking()
-            return
+            break
           case 'down':
             counter()
             setHeroFacing(`down--${count}`)
             soundWalking()
-            return
+            break
+          default:
+            break
         }
       }, 250)
 
@@ -333,22 +337,50 @@ function App() {
 
     if (press === true) {
       switch (pressedKey) {
-        case 'ArrowUp': moveStart('up'); break;
-        case 'ArrowLeft': moveStart('left'); break;
-        case 'ArrowRight': moveStart('right'); break;
-        case 'ArrowDown': moveStart('down'); break;
-        case 'z': setPressZ(true); break;
-        case 'x': setPressX(true); break;
+        case 'ArrowUp':
+          moveStart('up')
+          break
+        case 'ArrowLeft':
+          moveStart('left')
+          break
+        case 'ArrowRight':
+          moveStart('right')
+          break
+        case 'ArrowDown':
+          moveStart('down')
+          break
+        case 'z':
+          setPressZ(true)
+          break
+        case 'x':
+          setPressX(true)
+          break
+        default:
+          break
       }
     }
     if (press === false) {
       switch (pressedKey) {
-        case 'ArrowUp': moveStop('up'); break;
-        case 'ArrowLeft': moveStop('left'); break;
-        case 'ArrowRight': moveStop('right'); break;
-        case 'ArrowDown': moveStop('down'); break;
-        case 'z': setPressZ(false); break;
-        case 'x': setPressX(false); break;
+        case 'ArrowUp':
+          moveStop('up')
+          break
+        case 'ArrowLeft':
+          moveStop('left')
+          break
+        case 'ArrowRight':
+          moveStop('right')
+          break
+        case 'ArrowDown':
+          moveStop('down')
+          break
+        case 'z':
+          setPressZ(false)
+          break
+        case 'x':
+          setPressX(false)
+          break
+        default:
+          break
       }
     }
   }, [press])
