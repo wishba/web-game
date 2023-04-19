@@ -12,6 +12,14 @@ body {
 
 p {
   user-select: none;
+  /* font-size: var(--font-paragraph); */
+}
+
+@media (min-width: 650px) {
+  p {
+    user-select: none;
+    font-size: var(--font-paragraph);
+  }
 }
 
 .app__tile {
@@ -25,7 +33,32 @@ p {
   flex-direction: column;
   width: fit-content;
   margin: auto;
+
+  transform: translateX(-50%) translateY(-50%) scale(var(--scale));
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
+
+@media (min-width: 650px) {
+  .app__container {
+    flex-direction: row;
+
+    transform: translateX(-50%) translateY(-50%) scale(80%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+}
+
+/* @media (min-width: 960px) {
+  .app__container {
+    flex-direction: row;
+
+    transform: none;
+    position: static;
+  }
+} */
 
 .app__button--container {
   display: flex;
@@ -34,6 +67,16 @@ p {
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+@media (min-width: 650px) {
+  .app__button--container {
+    margin-left: 1rem;
+    margin-top: 0;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+  }
 }
 
 .app__camera {
@@ -101,6 +144,12 @@ p {
   margin: .5rem;
 }
 
+@media (min-width: 650px) {
+  .app__zx>.app__button {
+    margin: 0 1rem 0 0;
+  }
+}
+
 .app__arrow--container {
   display: grid;
   grid-template-columns: repeat(3, calc(var(--zoom) * 14px));
@@ -162,30 +211,4 @@ p {
 .app__button--down {
   transform: rotate(180deg);
   grid-area: 3/2/4/3;
-}
-
-@media (min-width: 650px) {
-  .app__container {
-    flex-direction: row;
-  }
-
-  .app__button--container {
-    margin-left: 1rem;
-    margin-top: 0;
-    flex-direction: column;
-    justify-content: center;
-    width: fit-content;
-  }
-
-  .app__zx>.app__button {
-    margin: 0 1rem 0 0;
-  }
-}
-
-@media(max-width:650px) {
-  .app__container {
-    transform: translateX(-50%) scale(var(--scale));
-    position: absolute;
-    left: 50%;
-  }
 }

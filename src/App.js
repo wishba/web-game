@@ -15,6 +15,7 @@ function App() {
     '--tile': 'calc(var(--zoom) * 16px)',
     '--font-size': 'calc(var(--zoom) * 10px)',
     '--scale': `${window.innerWidth / 4.25}%`,
+    '--font-paragraph': `${window.innerWidth / 8}%`,
   }
 
   const [positionX, setPositionX] = useState(-80)
@@ -104,17 +105,17 @@ function App() {
             break
           case 'left':
             counter()
-            setHeroFacing(`left--${count}`)
+            setHeroFacing(`left--${count} `)
             soundWalking()
             break
           case 'right':
             counter()
-            setHeroFacing(`right--${count}`)
+            setHeroFacing(`right--${count} `)
             soundWalking()
             break
           case 'down':
             counter()
-            setHeroFacing(`down--${count}`)
+            setHeroFacing(`down--${count} `)
             soundWalking()
             break
           default:
@@ -136,7 +137,7 @@ function App() {
       if (pressRight === true) { setPressRight(false) }
       if (pressDown === true) { setPressDown(false) }
 
-      setTimeout(() => { setHeroFacing(`${heroFacing}`); soundWalking() }, 300)
+      setTimeout(() => { setHeroFacing(`${heroFacing} `); soundWalking() }, 300)
     }
   }
 
@@ -152,7 +153,7 @@ function App() {
       if (dialogueTreasure <= 9) {
         setDialogueTreasure(dialogueTreasure => dialogueTreasure + 1)
       }
-      setDialogueText(`${data.dialogue.treasure[dialogueTreasure]}`)
+      setDialogueText(`${data.dialogue.treasure[dialogueTreasure]} `)
       console.log(dialogueTreasure);
 
       if (dialogueTreasure === 3) {
@@ -171,7 +172,7 @@ function App() {
       if (dialogueSecret < 3) {
         setDialogueSecret(dialogueSecret => dialogueSecret + 1)
       }
-      setDialogueText(`${data.dialogue.treasureSecret[dialogueSecret]}`)
+      setDialogueText(`${data.dialogue.treasureSecret[dialogueSecret]} `)
       console.log(dialogueSecret);
 
       if (dialogueSecret === 3) {
@@ -213,7 +214,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(`${positionX}/${positionY} | ${positionXY} | ${positionTile}`)
+    console.log(`${positionX} /${positionY} | ${positionXY} | ${positionTile}`)
 
     function coordinate(array, positionXY) {
       return array.some(element => element[0] === positionXY[0] && element[1] === positionXY[1])
@@ -500,6 +501,11 @@ function App() {
       </div>
 
       <div className='app__button--container'>
+        {/* <div style={{
+          position: 'absolute',
+          top: '0',
+        }}>{window.innerWidth}</div> */}
+
         <div className='app__zx'>
           <button className={pressZ === true
             ? 'app__button app__button--active'
