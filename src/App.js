@@ -9,6 +9,8 @@ import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
 import cowAsset from './assets/Free Cow Sprites.png'
 
+// test
+
 function App() {
   const styles = {
     '--zoom': '5',
