@@ -12,14 +12,6 @@ body {
 
 p {
   user-select: none;
-  /* font-size: var(--font-paragraph); */
-}
-
-@media (min-width: 650px) {
-  p {
-    user-select: none;
-    font-size: var(--font-paragraph);
-  }
 }
 
 .app__tile {
@@ -50,15 +42,6 @@ p {
     top: 50%;
   }
 }
-
-/* @media (min-width: 960px) {
-  .app__container {
-    flex-direction: row;
-
-    transform: none;
-    position: static;
-  }
-} */
 
 .app__button--container {
   display: flex;
@@ -180,7 +163,7 @@ p {
 }
 
 .app__button {
-  font-size: var(--font-size);
+  font-size: 50px;
   width: calc(var(--zoom) * 14px);
   height: calc(var(--zoom) * 14px);
   border: calc(var(--zoom) * 1px) solid #5c4e92;

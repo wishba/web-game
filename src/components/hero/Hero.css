@@ -1,5 +1,5 @@
 .hero__emotion {
-  font-size: var(--font-size);
+  font-size: 50px;
   position: absolute;
   transform: translate(calc(var(--zoom) * -5px), calc(var(--zoom) * -5px));
   color: #5c4e92;
