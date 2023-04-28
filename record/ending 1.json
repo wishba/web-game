@@ -1,0 +1,773 @@
+{
+    "title": "ending 1",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 981,
+            "height": 713,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:3000/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:3000/",
+                    "title": "React App"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--down > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[4]/p"
+                ],
+                [
+                    "pierce/button.app__button--down > p"
+                ]
+            ],
+            "offsetY": 15.959991455078125,
+            "offsetX": 34.15997314453125,
+            "duration": 1470
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--right > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[3]/p"
+                ],
+                [
+                    "pierce/button.app__button--right > p"
+                ]
+            ],
+            "offsetY": 19.79998779296875,
+            "offsetX": 14.32000732421875,
+            "duration": 5334.89999999851
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 17.760009765625,
+            "offsetX": 6.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--left > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[2]/p"
+                ],
+                [
+                    "pierce/button.app__button--left > p"
+                ]
+            ],
+            "offsetY": 22.79998779296875,
+            "offsetX": 17.32000732421875,
+            "duration": 2310.2000000029802
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "button.app__button--warning > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/button.app__button--warning > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 17.760009765625,
+            "offsetX": 12.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/X",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[2]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "text/X"
+                ]
+            ],
+            "offsetY": 26.760009765625,
+            "offsetX": 26.35992431640625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--right > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[3]/p"
+                ],
+                [
+                    "pierce/button.app__button--right > p"
+                ]
+            ],
+            "offsetY": 2.79998779296875,
+            "offsetX": 6.32000732421875,
+            "duration": 2686.7999999970198
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 14.760009765625,
+            "offsetX": 12.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--left > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[2]/p"
+                ],
+                [
+                    "pierce/button.app__button--left > p"
+                ]
+            ],
+            "offsetY": 7.79998779296875,
+            "offsetX": 31.32000732421875,
+            "duration": 2374.7000000029802
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "button.app__button--warning > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/button.app__button--warning > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 29.760009765625,
+            "offsetX": 32.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 29.760009765625,
+            "offsetX": 32.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/X",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[2]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "text/X"
+                ]
+            ],
+            "offsetY": 29.760009765625,
+            "offsetX": 3.35992431640625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--right > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[3]/p"
+                ],
+                [
+                    "pierce/button.app__button--right > p"
+                ]
+            ],
+            "offsetY": 29.79998779296875,
+            "offsetX": 11.32000732421875,
+            "duration": 4765.5
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/X",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[2]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "text/X"
+                ]
+            ],
+            "offsetY": 29.760009765625,
+            "offsetX": 29.35992431640625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--right > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[3]/p"
+                ],
+                [
+                    "pierce/button.app__button--right > p"
+                ]
+            ],
+            "offsetY": 27.79998779296875,
+            "offsetX": 16.32000732421875
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 34.760009765625,
+            "offsetX": 18.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--right > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[3]/p"
+                ],
+                [
+                    "pierce/button.app__button--right > p"
+                ]
+            ],
+            "offsetY": 26.79998779296875,
+            "offsetX": 13.32000732421875,
+            "duration": 2327
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/X",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[2]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(2) > p"
+                ],
+                [
+                    "text/X"
+                ]
+            ],
+            "offsetY": 25.760009765625,
+            "offsetX": 19.35992431640625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--right > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[3]/p"
+                ],
+                [
+                    "pierce/button.app__button--right > p"
+                ]
+            ],
+            "offsetY": 19.79998779296875,
+            "offsetX": 15.32000732421875
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 38.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--right > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[3]/p"
+                ],
+                [
+                    "pierce/button.app__button--right > p"
+                ]
+            ],
+            "offsetY": 30.79998779296875,
+            "offsetX": 27.32000732421875,
+            "duration": 7927.5
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.app__button--down"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[2]/button[4]"
+                ],
+                [
+                    "pierce/button.app__button--down"
+                ]
+            ],
+            "offsetY": 26.79998779296875,
+            "offsetX": 52.15997314453125,
+            "duration": 1934.5
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "button.app__button--warning > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/button.app__button--warning > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Z",
+                    "aria/[role=\"paragraph\"]"
+                ],
+                [
+                    "div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div[2]/div[1]/button[1]/p"
+                ],
+                [
+                    "pierce/div.app__zx > button:nth-of-type(1) > p"
+                ],
+                [
+                    "text/Z"
+                ]
+            ],
+            "offsetY": 22.760009765625,
+            "offsetX": 28.15997314453125
+        }
+    ]
+}
