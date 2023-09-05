@@ -8,8 +8,7 @@ import Ground from './components/ground/Ground'
 import GroundTiles from './components/ground/GroundTiles'
 import biomeAsset from './assets/Basic Grass Biom things 1.png'
 import cowAsset from './assets/Free Cow Sprites.png'
-
-// test
+import Letter from './components/Letter'
 
 function App() {
   const styles = {
@@ -403,40 +402,36 @@ function App() {
   return (
     <div style={styles} className='app__container'>
       <div className='app__camera'>
-        <div style={{ transform: `translate(${positionX}px, ${positionY}px)` }}>
-          <div className='app__camera--center'>
-            <Ground helper={'none'} fruitCow={fruitCow} fruitSecret={fruitSecret} />
-          </div>
+        <div className='app__camera--center' style={{
+          transform: `translate(${positionX}px, ${positionY}px)`
+        }}>
+          <Ground helper={'none'} fruitCow={fruitCow} fruitSecret={fruitSecret} />
         </div>
 
-        <div style={{
+        <div className='app__camera--center' style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
           position: 'absolute',
           zIndex: cowZIndex
         }}>
-          <div className='app__camera--center'>
-            <GroundTiles
-              placement={data.object.cow.placement}
-              tileCoordinate={data.object.cow.asset}
-              asset={cowAsset}
-              width={96}
-            />
-          </div>
+          <GroundTiles
+            placement={data.object.cow.placement}
+            tileCoordinate={data.object.cow.asset}
+            asset={cowAsset}
+            width={96}
+          />
         </div>
 
-        <div style={{
+        <div className='app__camera--center' style={{
           transform: `translate(${positionX}px, ${positionY}px)`,
           position: 'absolute',
           zIndex: treeZIndex
         }}>
-          <div className='app__camera--center'>
-            <GroundTiles
-              placement={data.object.tree.placement}
-              tileCoordinate={data.object.tree.asset}
-              asset={biomeAsset}
-              width={144}
-            />
-          </div>
+          <GroundTiles
+            placement={data.object.tree.placement}
+            tileCoordinate={data.object.tree.asset}
+            asset={biomeAsset}
+            width={144}
+          />
         </div>
 
         <div className='app__camera--center'>
@@ -444,19 +439,7 @@ function App() {
         </div>
 
         <div className='app__letter' style={{ display: dialogueLetter }} >
-          <br />
-          <p>Dear Adventurer,</p>
-          <br />
-          <p>
-            To claim your treasure, you must cross the narrow and dangerous bridge that
-            connects our island to the mainland. The sea below is infested with dangerous
-            creatures, and we urge you to stay away from the edges. Though the journey is
-            perilous, the treasure is worth the risk. May fortune favor the brave.
-          </p>
-          <br />
-          <p>Sincerely,</p>
-          <p>The Guardians of the Treasure Island</p>
-          <br />
+          <Letter />
           <button
             onClick={() => {
               setDialogueLetter('none')
@@ -501,11 +484,6 @@ function App() {
       </div>
 
       <div className='app__button--container'>
-        {/* <div style={{
-          position: 'absolute',
-          top: '0',
-        }}>{window.innerWidth}</div> */}
-
         <div className='app__zx'>
           <button className={pressZ === true
             ? 'app__button app__button--active'
